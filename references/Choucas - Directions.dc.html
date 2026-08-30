@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#edebe5;font-family:'Schibsted Grotesk',system-ui,sans-serif}a{color:inherit}a:hover{opacity:.85}.dv-turn{padding:40px 44px 32px;border-bottom:1px solid rgba(0,0,0,.08);scroll-margin-top:16px}.dv-thd{display:flex;align-items:baseline;gap:10px;margin:0 0 8px}.dv-tid{font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#1a1a1a;color:#fff;border-radius:4px;text-decoration:none}.dv-tname{font:600 13px/1.2 inherit;color:#1a1a1a}.dv-opts{display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start}.dv-opt{flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px}.dv-oid{font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none}.dv-olabel{display:flex;align-items:baseline;gap:8px;font:400 11.5px/1.3 inherit;color:rgba(0,0,0,.6)}.dv-card{max-width:100%;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.06);overflow:hidden}.dv-opt:target .dv-oid{background:#2a78d6;color:#fff}.dv-next{margin:22px 0 0;font:12px/1.5 inherit;color:rgba(0,0,0,.5)}</style>
+</helmet>
+<section class="dv-turn" id="t12">
+  <div class="dv-thd"><a class="dv-tid" href="#t12">12</a><span class="dv-tname">Parcours retenu — vue d'ensemble &amp; backlog</span></div>
+  <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start">
+    <div class="dv-card" style="padding:20px 24px;max-width:520px">
+      <div style="font:700 13px/1.3 inherit;color:#1a1a1a;margin-bottom:12px">Le flux complet, du client au propriétaire</div>
+      <div style="font-size:12.5px;line-height:2;color:rgba(0,0,0,.7)">
+        1 · <b>Saisie du brief</b> multi-sources (<a class="dv-oid" href="#11a">11a</a>) — appel, texte, email, photo<br>
+        2 · <b>Validation manager</b> — une décision à la fois (<a class="dv-oid" href="#3a">3a</a>)<br>
+        3 · <b>Relecture &amp; envois</b> bloc par bloc (<a class="dv-oid" href="#3a">3a</a>)<br>
+        4 · <b>Ma journée</b> intervenant + calendrier (<a class="dv-oid" href="#8a">8a</a>)<br>
+        5 · <b>Mission</b> — segment Tout/Client/Ménage, photo live, signalements, clôture (<a class="dv-oid" href="#7a">7a</a>)<br>
+        6 · <b>Tableau de bord manager</b> — alertes, missions, rotation, Biens &amp; Équipe (<a class="dv-oid" href="#9a">9a</a>)<br>
+        7 · <b>Notifications</b> push / email / SMS (<a class="dv-oid" href="#10a">10a</a>)<br>
+        8 · <b>Rapport propriétaire</b> (<a class="dv-oid" href="#10b">10b</a>)
+      </div>
+      <div style="margin-top:14px;font-size:12.5px"><b>Démo manager tout-connecté :</b> ouvrir le fichier « Choucas Manager » — dashboard, alertes, mission, clôture, notifications, Biens/Équipe, ＋ nouveau brief et validation, le tout navigable.</div>
+    </div>
+    <div class="dv-card" style="padding:20px 24px;max-width:420px">
+      <div style="font:700 13px/1.3 inherit;color:#1a1a1a;margin-bottom:12px">Backlog — améliorations notées</div>
+      <div style="font-size:12.5px;line-height:1.9;color:rgba(0,0,0,.7)">
+        · Gestion des allergies / données de santé (bandeau permanent, rappel en tête des missions cuisine) — hors périmètre v1<br>
+        · Annuler une tâche cochée par erreur<br>
+        · Fiche bien pour les autres chalets + historique complet<br>
+        · Rapport hebdomadaire propriétaire + gabarit « signalement urgent »<br>
+        · Trajet / météo entre chalets dans Ma journée<br>
+        · Version démo scénarisée pour les rendez-vous
+      </div>
+    </div>
+  </div>
+</section>
+<section class="dv-turn" id="t11">
+  <div class="dv-thd"><a class="dv-tid" href="#t11">11</a><span class="dv-tname">Saisie du brief — multi-sources, car on ne sait jamais comment il arrive</span></div>
+  <div style="max-width:820px;font-size:12.5px;line-height:1.6;color:rgba(0,0,0,.6);margin:0 0 24px">
+    Quatre portes d'entrée cumulables : dicter l'appel (transcription), coller un texte (WhatsApp/email), email transféré sur une adresse dédiée par bien, photo d'une note manuscrite (océrisée). Chaque source est horodatée, intacte, retirable. « Le client a rappelé » = on ajoute une source et on relance. Puis un seul CTA « Décomposer en brief » → étapes visibles → « 21 lignes · 2 à attribuer · 1 conflit » → ouvre la validation. Testez : dicter (⏹ pour arrêter), coller le texte pré-rempli, puis Décomposer.
+  </div>
+  <div class="dv-opts">
+    <div class="dv-opt" id="11a">
+      <div class="dv-olabel"><a class="dv-oid" href="#11a">11a</a>Sombre</div>
+      <div class="dv-card" style="padding:20px;background:#1b1b20"><div style="width:390px;height:800px;border-radius:30px;border:1px solid rgba(255,255,255,.12);box-shadow:0 12px 36px rgba(0,0,0,.4);overflow:hidden"><dc-import name="Choucas Brief Saisie" theme="sombre" hint-size="390px,800px" style="width:100%;height:100%"></dc-import></div></div>
+    </div>
+    <div class="dv-opt" id="11b">
+      <div class="dv-olabel"><a class="dv-oid" href="#11b">11b</a>Clair</div>
+      <div class="dv-card" style="padding:20px;background:#e9eaf0"><div style="width:390px;height:800px;border-radius:30px;border:1px solid rgba(0,0,0,.12);box-shadow:0 12px 36px rgba(0,0,0,.18);overflow:hidden"><dc-import name="Choucas Brief Saisie" theme="clair" hint-size="390px,800px" style="width:100%;height:100%"></dc-import></div></div>
+    </div>
+  </div>
+  <p class="dv-next">La boucle produit est fermée : saisie → décomposition → validation → missions → clôture → rapports. Suite : « version démo scénarisée » · « nettoyage de la planche ».</p>
+</section>
+<section class="dv-turn" id="t10">
+  <div class="dv-thd"><a class="dv-tid" href="#t10">10</a><span class="dv-tname">Gabarits de notification hors app — email + SMS de repli</span></div>
+  <div style="max-width:820px;font-size:12.5px;line-height:1.6;color:rgba(0,0,0,.6);margin:0 0 24px">
+    L'email transactionnel « Clôture de mission » : badge d'état, chiffres clés, note de l'intervenant verbatim, photos, et un seul CTA — la même action que dans l'app (« Valider et notifier le propriétaire »). Le SMS est le repli court (escalade : push → email → SMS à +15 min si non lu avant une arrivée).
+  </div>
+  <div class="dv-opts">
+    <div class="dv-opt" id="10a">
+      <div class="dv-olabel"><a class="dv-oid" href="#10a">10a</a>Email manager (600 px + rendu mobile 375 px) + SMS + règle d'escalade</div>
+      <div class="dv-card" style="padding:16px;background:#f2f0ea"><div style="width:1100px;max-width:100%"><dc-import name="Choucas Notifications" hint-size="1100px,980px" style="width:100%"></dc-import></div></div>
+    </div>
+    <div class="dv-opt" id="10b">
+      <div class="dv-olabel"><a class="dv-oid" href="#10b">10b</a>Rapport propriétaire — ce que « Notifier le propriétaire » envoie à M. Arnaud</div>
+      <div class="dv-card" style="padding:16px;background:#f2f0ea"><div style="width:660px;max-width:100%"><dc-import name="Choucas Rapport Proprietaire" hint-size="660px,980px" style="width:100%"></dc-import></div></div>
+    </div>
+  </div>
+  <p class="dv-next">Suite possible : « version HTML email prête à envoyer » · « gabarit signalement urgent » · « rapport hebdomadaire propriétaire »</p>
+</section>
+<section class="dv-turn" id="t9">
+  <div class="dv-thd"><a class="dv-tid" href="#t9">9</a><span class="dv-tname">Tableau de bord manager — samedi type (jour de rotation)</span></div>
+  <div style="max-width:820px;font-size:12.5px;line-height:1.6;color:rgba(0,0,0,.6);margin:0 0 24px">
+    La vue de pilotage du responsable : compte à rebours de la prochaine arrivée (vivant), alertes en premier — le manque de Léa et le problème de Karim remontent ici, dépliables avec actions (Créer le réassort / Planifier / Appeler) —, missions en cours avec avancement et retards, et la rotation du jour en frise (départs faits barrés, arrivées à venir). Testez : dépliez une alerte et « Créer le réassort ».
+  </div>
+  <div class="dv-opts">
+    <div class="dv-opt" id="9a">
+      <div class="dv-olabel"><a class="dv-oid" href="#9a">9a</a>Sombre</div>
+      <div class="dv-card" style="padding:20px;background:#1b1b20"><div style="width:390px;height:800px;border-radius:30px;border:1px solid rgba(255,255,255,.12);box-shadow:0 12px 36px rgba(0,0,0,.4);overflow:hidden"><dc-import name="Choucas Manager" theme="sombre" hint-size="390px,800px" style="width:100%;height:100%"></dc-import></div></div>
+    </div>
+    <div class="dv-opt" id="9b">
+      <div class="dv-olabel"><a class="dv-oid" href="#9b">9b</a>Clair</div>
+      <div class="dv-card" style="padding:20px;background:#e9eaf0"><div style="width:390px;height:800px;border-radius:30px;border:1px solid rgba(0,0,0,.12);box-shadow:0 12px 36px rgba(0,0,0,.18);overflow:hidden"><dc-import name="Choucas Manager" theme="clair" hint-size="390px,800px" style="width:100%;height:100%"></dc-import></div></div>
+    </div>
+  </div>
+  <p class="dv-next">Prochaines étapes : « vue mission côté manager avec photos reçues » · « clôture reçue + notification propriétaire » · « file complète des signalements »</p>
+</section>
+<section class="dv-turn" id="t8">
+  <div class="dv-thd"><a class="dv-tid" href="#t8">8</a><span class="dv-tname">Ma journée — écran d'accueil de l'intervenant (tab Accueil)</span></div>
+  <div style="max-width:820px;font-size:12.5px;line-height:1.6;color:rgba(0,0,0,.6);margin:0 0 24px">
+    Principe CX : répondre en 2 secondes à « quoi maintenant, quoi ensuite, où, qu'est-ce qui est urgent ou sensible ». En-tête + résumé (4 missions · 3 chalets · 1 alerte santé), une carte « Maintenant » avec la mission en cours et un seul CTA « Reprendre », puis « À suivre » en frise horaire — la mise en place du Belvédère porte le compte à rebours vivant et le drapeau allergie. Le terminé est replié. Tap sur une mission → l'écran mission (6c).
+  </div>
+  <div class="dv-opts">
+    <div class="dv-opt" id="8a">
+      <div class="dv-olabel"><a class="dv-oid" href="#8a">8a</a>Sombre</div>
+      <div class="dv-card" style="padding:20px;background:#1b1b20"><div style="width:390px;height:800px;border-radius:30px;border:1px solid rgba(255,255,255,.12);box-shadow:0 12px 36px rgba(0,0,0,.4);overflow:hidden"><dc-import name="Choucas Journee" theme="sombre" hint-size="390px,800px" style="width:100%;height:100%"></dc-import></div></div>
+    </div>
+    <div class="dv-opt" id="8b">
+      <div class="dv-olabel"><a class="dv-oid" href="#8b">8b</a>Clair</div>
+      <div class="dv-card" style="padding:20px;background:#e9eaf0"><div style="width:390px;height:800px;border-radius:30px;border:1px solid rgba(0,0,0,.12);box-shadow:0 12px 36px rgba(0,0,0,.18);overflow:hidden"><dc-import name="Choucas Journee" theme="clair" hint-size="390px,800px" style="width:100%;height:100%"></dc-import></div></div>
+    </div>
+  </div>
+  <p class="dv-next">Prochaines étapes : « rendre les cartes cliquables vers la mission » · « ajoute la météo / le trajet entre chalets » · « les 2 modales de signalement » · « fin de mission »</p>
+</section>
+<section class="dv-turn" id="t7">
+  <div class="dv-thd"><a class="dv-tid" href="#t7">7</a><span class="dv-tname">6c retenu — segment Tout / Client / Ménage, tâche faite qui disparaît, modale photo obligatoire</span></div>
+  <div style="max-width:820px;font-size:12.5px;line-height:1.6;color:rgba(0,0,0,.6);margin:0 0 24px">
+    Badge « Demande client » en bulle discrète. Cocher une tâche la fait disparaître (l'avancement monte, la pièce se solde par « Toutes les tâches sont faites »). Les tâches marquées « Photo obligatoire » ouvrent une modale montante : Prendre la photo → Valider la tâche (validation bloquée sans photo). Testez : segment « Client », cocher une tâche simple, puis cocher « Sol lavé » ou « Ruinart » pour la modale photo.
+  </div>
+  <div class="dv-opts">
+    <div class="dv-opt" id="7a">
+      <div class="dv-olabel"><a class="dv-oid" href="#7a">7a</a>Sombre</div>
+      <div class="dv-card" style="padding:20px;background:#1b1b20"><div style="width:390px;height:800px;border-radius:30px;border:1px solid rgba(255,255,255,.12);box-shadow:0 12px 36px rgba(0,0,0,.4);overflow:hidden"><dc-import name="Choucas Mission" theme="sombre" layout="c" hint-size="390px,800px" style="width:100%;height:100%"></dc-import></div></div>
+    </div>
+    <div class="dv-opt" id="7b">
+      <div class="dv-olabel"><a class="dv-oid" href="#7b">7b</a>Clair</div>
+      <div class="dv-card" style="padding:20px;background:#e9eaf0"><div style="width:390px;height:800px;border-radius:30px;border:1px solid rgba(0,0,0,.12);box-shadow:0 12px 36px rgba(0,0,0,.18);overflow:hidden"><dc-import name="Choucas Mission" theme="clair" layout="c" hint-size="390px,800px" style="width:100%;height:100%"></dc-import></div></div>
+    </div>
+  </div>
+  <p class="dv-next">Prochaines étapes : « annuler une tâche faite » · « la modale photo pour signaler un problème aussi » · « prépare la version démo »</p>
+</section>
+
+
+<section class="dv-turn" id="t3">
+  <div class="dv-thd"><a class="dv-tid" href="#t3">3</a><span class="dv-tname">Choucas — version retenue · une décision à la fois, tout le reste replié</span></div>
+  <div style="max-width:760px;font-size:12.5px;line-height:1.6;color:rgba(0,0,0,.6);margin:0 0 24px">
+    L'écran de validation ne montre que la décision en cours (le conflit, puis les deux attributions) avec de grandes cibles tactiles. Santé, lignes prêtes et texte source sont trois plis discrets. La relecture est une liste de 7 noms — le message ne s'ouvre qu'au tap, en plein écran.
+  </div>
+  <div class="dv-opts">
+    <div class="dv-opt" id="3a">
+      <div class="dv-olabel"><a class="dv-oid" href="#3a">3a</a>Granit épuré — information minimale</div>
+      <div class="dv-card" style="padding:20px;background:#f6f3ec">
+        <div style="display:flex;gap:20px">
+          <div style="display:flex;flex-direction:column;gap:6px"><span style="font:500 11px ui-monospace,Menlo,monospace;color:rgba(0,0,0,.45)">Clair</span><div style="width:390px;height:800px;border-radius:30px;border:1px solid rgba(0,0,0,.14);box-shadow:0 12px 36px rgba(0,0,0,.16);overflow:hidden"><dc-import name="Choucas App v2" theme="clair" hint-size="390px,800px" style="width:100%;height:100%"></dc-import></div></div>
+          <div style="display:flex;flex-direction:column;gap:6px"><span style="font:500 11px ui-monospace,Menlo,monospace;color:rgba(0,0,0,.45)">Sombre</span><div style="width:390px;height:800px;border-radius:30px;border:1px solid rgba(0,0,0,.3);box-shadow:0 12px 36px rgba(0,0,0,.22);overflow:hidden"><dc-import name="Choucas App v2" theme="sombre" hint-size="390px,800px" style="width:100%;height:100%"></dc-import></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="dv-next">Essayez ensuite : « ajoute la mission équipière » · « micro-interactions entre décisions » · « prépare la version démo »</p>
+</section>
+</x-dc>
+</body>
+</html>

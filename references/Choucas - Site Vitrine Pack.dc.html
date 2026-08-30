@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#e7e6df;font-family:'Manrope',system-ui,sans-serif}
+a{color:inherit}a:hover{opacity:.85}
+@keyframes reveal-loop{0%{opacity:0;transform:translateY(12px)}12%,70%{opacity:1;transform:translateY(0)}86%,100%{opacity:0;transform:translateY(12px)}}
+</style>
+</helmet>
+
+<section id="v0" style="padding:40px 44px 32px;border-bottom:1px solid rgba(18,21,18,.1);scroll-margin-top:16px">
+  <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:14px"><a href="#v0" style="font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#121512;color:#fff;border-radius:4px;text-decoration:none">PACK</a><span style="font:700 14px/1.2 inherit;color:#121512">Choucas — site vitrine · pack de validation</span><span style="font:400 11.5px inherit;color:rgba(18,21,18,.45)">conforme CHOUCAS-WEB-DESIGN-SPECS v1.0 · 28 août 2026</span></div>
+  <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start">
+    <div style="background:#fff;border:1px solid rgba(18,21,18,.14);border-radius:16px;box-shadow:6px 6px 0 rgba(23,39,29,.08);padding:20px 24px;max-width:480px">
+      <div style="font:700 13px inherit;color:#121512;margin-bottom:12px">État de la validation</div>
+      <div style="font-size:12.5px;line-height:2;color:rgba(18,21,18,.7)">
+        1 · Direction visuelle + points de rupture — <a href="#v1" style="font:600 10.5px ui-monospace,Menlo,monospace;padding:2px 6px;background:rgba(18,21,18,.08);border-radius:5px;text-decoration:none">V1</a><br>
+        2 · Pages et hiérarchie (12 sections) — <a href="#v2" style="font:600 10.5px ui-monospace,Menlo,monospace;padding:2px 6px;background:rgba(18,21,18,.08);border-radius:5px;text-decoration:none">V2</a><br>
+        3 · Vrais écrans Choucas, thème clair — <a href="#v3" style="font:600 10.5px ui-monospace,Menlo,monospace;padding:2px 6px;background:rgba(18,21,18,.08);border-radius:5px;text-decoration:none">V3</a><br>
+        4 · Place des maquettes mobile — <a href="#v3" style="font:600 10.5px ui-monospace,Menlo,monospace;padding:2px 6px;background:rgba(18,21,18,.08);border-radius:5px;text-decoration:none">V3</a><br>
+        5 · Animation — <b style="color:#263F30">direction A « Sobre » retenue</b> — <a href="#v5" style="font:600 10.5px ui-monospace,Menlo,monospace;padding:2px 6px;background:rgba(18,21,18,.08);border-radius:5px;text-decoration:none">V5</a><br>
+        Brief technique prêt pour le développement — <a href="#v7" style="font:600 10.5px ui-monospace,Menlo,monospace;padding:2px 6px;background:rgba(18,21,18,.08);border-radius:5px;text-decoration:none">V7</a>
+      </div>
+    </div>
+    <div style="background:#fff;border:1px solid rgba(18,21,18,.14);border-radius:16px;padding:20px 24px;max-width:420px">
+      <div style="font:700 13px inherit;color:#121512;margin-bottom:10px">Source de vérité</div>
+      <div style="font-size:12.5px;line-height:1.7;color:rgba(18,21,18,.7)">« CHOUCAS-WEB-DESIGN-SPECS.md » v1.0 (handoff développement) prime sur toute maquette. Tokens ink/paper/moss/fir/cuivre, CTA capsule, ombres solides, ruptures guidées par le contenu, animations 180–240 ms · cubic-bezier(.2,.8,.2,1). Le site met en scène le produit ; la PWA réelle n'est jamais redessinée.</div>
+    </div>
+    <div style="background:#FBF4E4;border:1px solid #E4CD9A;border-radius:16px;padding:20px 24px;max-width:380px">
+      <div style="font:700 13px inherit;color:#7A5A18;margin-bottom:10px">⚠ Écrans réels manquants</div>
+      <div style="font-size:12.5px;line-height:1.7;color:#6b5420">Les fichiers <span style="font:500 11px ui-monospace,Menlo,monospace">Choucas Manager · Journee · Mission (.dc.html)</span> ne sont pas dans ce projet. Les cadres rayés sont des réserves nommées — déposez les fichiers et ils seront branchés en thème clair, sans toucher à la mise en page.</div>
+    </div>
+  </div>
+</section>
+
+<section id="v1" style="padding:40px 44px 32px;border-bottom:1px solid rgba(18,21,18,.1);scroll-margin-top:16px">
+  <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:6px"><a href="#v1" style="font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#121512;color:#fff;border-radius:4px;text-decoration:none">V1</a><span style="font:700 14px/1.2 inherit;color:#121512">Direction visuelle &amp; points de rupture — specs v1.0 §3–4</span></div>
+  <div style="max-width:820px;font-size:12.5px;line-height:1.6;color:rgba(18,21,18,.6);margin:0 0 22px">Logiciel métier fiable, humain et opérationnel — pas un SaaS générique ni du luxe décoratif. Le produit avant le discours ; ombres solides, jamais de flou seul.</div>
+  <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start">
+    <div style="background:#fff;border:1px solid rgba(18,21,18,.14);border-radius:16px;padding:20px 24px">
+      <div style="font:700 12px inherit;color:#121512;margin-bottom:12px">Tokens couleur</div>
+      <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:10px">
+        <div style="display:flex;flex-direction:column;gap:5px;align-items:center"><div style="width:48px;height:48px;border-radius:10px;background:#121512"></div><span style="font:500 9.5px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.55)">ink</span><span style="font:400 9px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.35)">#121512</span></div>
+        <div style="display:flex;flex-direction:column;gap:5px;align-items:center"><div style="width:48px;height:48px;border-radius:10px;background:#F6F5EF;border:1px solid rgba(18,21,18,.12)"></div><span style="font:500 9.5px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.55)">paper</span><span style="font:400 9px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.35)">#F6F5EF</span></div>
+        <div style="display:flex;flex-direction:column;gap:5px;align-items:center"><div style="width:48px;height:48px;border-radius:10px;background:#E8E9E0;border:1px solid rgba(18,21,18,.08)"></div><span style="font:500 9.5px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.55)">panel</span><span style="font:400 9px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.35)">#E8E9E0</span></div>
+        <div style="display:flex;flex-direction:column;gap:5px;align-items:center"><div style="width:48px;height:48px;border-radius:10px;background:#95A184"></div><span style="font:500 9.5px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.55)">moss</span><span style="font:400 9px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.35)">#95A184</span></div>
+        <div style="display:flex;flex-direction:column;gap:5px;align-items:center"><div style="width:48px;height:48px;border-radius:10px;background:#263F30"></div><span style="font:500 9.5px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.55)">fir</span><span style="font:400 9px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.35)">#263F30</span></div>
+        <div style="display:flex;flex-direction:column;gap:5px;align-items:center"><div style="width:48px;height:48px;border-radius:10px;background:#17271D"></div><span style="font:500 9.5px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.55)">fir-deep</span><span style="font:400 9px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.35)">#17271D</span></div>
+        <div style="display:flex;flex-direction:column;gap:5px;align-items:center"><div style="width:48px;height:48px;border-radius:10px;background:#B7683F"></div><span style="font:500 9.5px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.55)">copper</span><span style="font:400 9px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.35)">#B7683F</span></div>
+        <div style="display:flex;flex-direction:column;gap:5px;align-items:center"><div style="width:48px;height:48px;border-radius:10px;background:#3D7358"></div><span style="font:500 9.5px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.55)">success</span><span style="font:400 9px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.35)">#3D7358</span></div>
+        <div style="display:flex;flex-direction:column;gap:5px;align-items:center"><div style="width:48px;height:48px;border-radius:10px;background:#986428"></div><span style="font:500 9.5px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.55)">warning</span><span style="font:400 9px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.35)">#986428</span></div>
+        <div style="display:flex;flex-direction:column;gap:5px;align-items:center"><div style="width:48px;height:48px;border-radius:10px;background:#A45C4F"></div><span style="font:500 9.5px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.55)">danger</span><span style="font:400 9px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.35)">#A45C4F</span></div>
+        <div style="display:flex;flex-direction:column;gap:5px;align-items:center"><div style="width:48px;height:48px;border-radius:10px;background:#fff;border:1px solid rgba(18,21,18,.12)"></div><span style="font:500 9.5px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.55)">white</span><span style="font:400 9px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.35)">#FFFFFF</span></div>
+      </div>
+      <div style="font-size:11px;color:rgba(18,21,18,.45);margin-top:12px;max-width:380px;line-height:1.5">Cuivre = accent, 10–15 % max d'une vue, jamais un long paragraphe. Sapin = actions et transformations. Mousse = grandes surfaces de respiration. Texte fonctionnel AA ≥ 4,5:1.</div>
+    </div>
+    <div style="background:#fff;border:1px solid rgba(18,21,18,.14);border-radius:16px;padding:20px 24px">
+      <div style="font:700 12px inherit;color:#121512;margin-bottom:12px">Typographie &amp; composants</div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="font:500 38px/0.9 'Newsreader',Georgia,serif;color:#121512;letter-spacing:-.02em">Votre conciergerie, <span style="font-style:italic;color:#B7683F">parfaitement orchestrée.</span></div>
+        <div style="font:400 11px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.45)">Hero clamp(68px, 7.7vw, 112px) · interligne 0,86–0,90 · H2 clamp(48px, 5.4vw, 75px) · mobile 48/43</div>
+        <div style="font:400 15px/1.6 'Manrope',sans-serif;color:rgba(18,21,18,.7);max-width:420px">Manrope 400/600/700/800 — interface et contenu. Corps 15–16, intro 17, nav 13, CTA 14/700, label capitales 11. Jamais &lt; 12 px pour une info nécessaire.</div>
+      </div>
+      <div style="display:flex;gap:14px;align-items:center;margin-top:16px">
+        <div style="height:48px;display:flex;align-items:center;gap:8px;padding:0 22px;background:#263F30;color:#fff;border-radius:999px;font:700 14px inherit;box-shadow:0 3px 0 #17271D">Demander une démo <span style="font-size:17px">→</span></div>
+        <div style="height:48px;display:flex;align-items:center;padding:0 22px;background:#fff;color:#121512;border:1px solid rgba(18,21,18,.14);border-radius:999px;font:700 14px inherit;box-shadow:0 3px 0 rgba(18,21,18,.14)">Découvrir le produit</div>
+      </div>
+      <div style="display:flex;gap:24px;margin-top:16px;padding-top:14px;border-top:1px solid rgba(18,21,18,.08);font-size:11px;color:rgba(18,21,18,.5);line-height:1.6">
+        <div><b style="color:#121512">Rayons</b><br>CTA capsule 999 · carte 14–24<br>interface produit 18–26 · téléphone 48</div>
+        <div><b style="color:#121512">Ombres</b><br>CTA : solide 3 px + halo léger<br>cartes : solide 6–9 px, pas de flou seul</div>
+        <div><b style="color:#121512">Animations</b><br>180–240 ms · cubic-bezier(.2,.8,.2,1)<br>prefers-reduced-motion</div>
+      </div>
+    </div>
+    <div style="background:#fff;border:1px solid rgba(18,21,18,.14);border-radius:16px;padding:20px 24px;max-width:420px">
+      <div style="font:700 12px inherit;color:#121512;margin-bottom:12px">Points de rupture — guidés par le contenu</div>
+      <div style="display:flex;flex-direction:column;gap:8px;font-size:12.5px;line-height:1.6;color:rgba(18,21,18,.7)">
+        <div style="display:flex;gap:10px"><span style="font:600 10.5px ui-monospace,Menlo,monospace;color:#263F30;width:86px;flex:none">320–699</span><span><b>Mobile</b> · 1 colonne · marge 18 · CTA pleine largeur · titres à gauche</span></div>
+        <div style="display:flex;gap:10px"><span style="font:600 10.5px ui-monospace,Menlo,monospace;color:#263F30;width:86px;flex:none">700–999</span><span><b>Tablette</b> · 1–2 colonnes · marge 28</span></div>
+        <div style="display:flex;gap:10px"><span style="font:600 10.5px ui-monospace,Menlo,monospace;color:#263F30;width:86px;flex:none">1000–1439</span><span><b>Desktop</b> · grille complète · marges 28–40</span></div>
+        <div style="display:flex;gap:10px"><span style="font:600 10.5px ui-monospace,Menlo,monospace;color:#263F30;width:86px;flex:none">≥ 1440</span><span><b>Large</b> · contenu plafonné 1360 (hero/produit 1440), centré, marge max(40px, (100vw−1360)/2)</span></div>
+      </div>
+      <div style="font-size:11px;color:rgba(18,21,18,.45);margin-top:12px;line-height:1.5">Pas de rupture arbitraire si le composant tient. Aucun débordement horizontal · cibles 44 px · QA à 320/375/390/430. Appliqué dans <a href="#v4" style="font:600 10px ui-monospace,Menlo,monospace;padding:2px 5px;background:rgba(18,21,18,.08);border-radius:4px;text-decoration:none">V4</a>.</div>
+    </div>
+  </div>
+</section>
+
+<section id="v2" style="padding:40px 44px 32px;border-bottom:1px solid rgba(18,21,18,.1);scroll-margin-top:16px">
+  <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:6px"><a href="#v2" style="font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#121512;color:#fff;border-radius:4px;text-decoration:none">V2</a><span style="font:700 14px/1.2 inherit;color:#121512">Architecture HomePage — specs §5, ordre retenu</span></div>
+  <div style="max-width:820px;font-size:12.5px;line-height:1.6;color:rgba(18,21,18,.6);margin:0 0 22px">Douze sections. Pas de CTA « Voir sur mobile » sur la HomePage — la route /homepage-mobile sert uniquement à la revue.</div>
+  <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start">
+    <div style="background:#fff;border:1px solid rgba(18,21,18,.14);border-radius:16px;padding:20px 24px">
+      <div style="font:700 12px inherit;color:#121512;margin-bottom:12px">Ordre des sections</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px 20px">
+        <div style="display:flex;align-items:center;gap:10px"><span style="font:600 10px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.4);width:16px">01</span><div style="width:280px;padding:8px 12px;background:#F6F5EF;border:1px solid rgba(18,21,18,.12);border-radius:6px;font:600 12px inherit;color:#121512">Navigation</div></div>
+        <div style="display:flex;align-items:center;gap:10px"><span style="font:600 10px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.4);width:16px">07</span><div style="width:280px;padding:8px 12px;background:#F6F5EF;border:1px solid rgba(18,21,18,.12);border-radius:6px;font:600 12px inherit;color:#121512">Preuve photographique / hospitalité</div></div>
+        <div style="display:flex;align-items:center;gap:10px"><span style="font:600 10px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.4);width:16px">02</span><div style="width:280px;padding:8px 12px;background:#263F30;color:#fff;border-radius:6px;font:600 12px inherit">Hero et proposition de valeur</div></div>
+        <div style="display:flex;align-items:center;gap:10px"><span style="font:600 10px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.4);width:16px">08</span><div style="width:280px;padding:8px 12px;background:#F6F5EF;border:1px solid rgba(18,21,18,.12);border-radius:6px;font:600 12px inherit;color:#121512">Pourquoi Choucas : flux visuel</div></div>
+        <div style="display:flex;align-items:center;gap:10px"><span style="font:600 10px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.4);width:16px">03</span><div style="width:280px;padding:8px 12px;background:#95A184;color:#121512;border-radius:6px;font:600 12px inherit">Démonstration Manager desktop 🖥</div></div>
+        <div style="display:flex;align-items:center;gap:10px"><span style="font:600 10px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.4);width:16px">09</span><div style="width:280px;padding:8px 12px;background:#F6F5EF;border:1px solid rgba(18,21,18,.12);border-radius:6px;font:600 12px inherit;color:#121512">Une journée dans Choucas</div></div>
+        <div style="display:flex;align-items:center;gap:10px"><span style="font:600 10px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.4);width:16px">04</span><div style="width:280px;padding:8px 12px;background:#95A184;color:#121512;border-radius:6px;font:600 12px inherit">Démonstration mobile terrain 📱</div></div>
+        <div style="display:flex;align-items:center;gap:10px"><span style="font:600 10px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.4);width:16px">10</span><div style="width:280px;padding:8px 12px;background:#F6F5EF;border:1px solid rgba(18,21,18,.12);border-radius:6px;font:600 12px inherit;color:#121512">Profils utilisateurs</div></div>
+        <div style="display:flex;align-items:center;gap:10px"><span style="font:600 10px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.4);width:16px">05</span><div style="width:280px;padding:8px 12px;background:#F6F5EF;border:1px solid rgba(18,21,18,.12);border-radius:6px;font:600 12px inherit;color:#121512">Tension opérationnelle</div></div>
+        <div style="display:flex;align-items:center;gap:10px"><span style="font:600 10px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.4);width:16px">11</span><div style="width:280px;padding:8px 12px;background:#121512;color:#fff;border-radius:6px;font:600 12px inherit">CTA final</div></div>
+        <div style="display:flex;align-items:center;gap:10px"><span style="font:600 10px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.4);width:16px">06</span><div style="width:280px;padding:8px 12px;background:#121512;color:#fff;border-radius:6px;font:600 12px inherit">Fonctionnalités : du brief à la preuve</div></div>
+        <div style="display:flex;align-items:center;gap:10px"><span style="font:600 10px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.4);width:16px">12</span><div style="width:280px;padding:8px 12px;background:#F6F5EF;border:1px solid rgba(18,21,18,.12);border-radius:6px;font:600 12px inherit;color:#121512">Footer</div></div>
+      </div>
+    </div>
+    <div style="background:#fff;border:1px solid rgba(18,21,18,.14);border-radius:16px;padding:20px 24px;max-width:360px">
+      <div style="font:700 12px inherit;color:#121512;margin-bottom:12px">Navigation &amp; démos</div>
+      <div style="font-size:12.5px;line-height:1.8;color:rgba(18,21,18,.7)">
+        Nav 68 px : marque / <b>Pourquoi Choucas · Le produit · Fonctionnement · À propos</b> centrés / CTA à droite. Fond papier 93 % + blur 18. Mobile 60 px : marque + menu, CTA dans le menu.<br><br>
+        Les démonstrations Manager et mobile sont des <b>composants marketing</b> mis en scène — interactifs, isolés de toute donnée réelle, données de démonstration provisoires.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="v3" style="padding:40px 44px 32px;border-bottom:1px solid rgba(18,21,18,.1);scroll-margin-top:16px">
+  <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:6px"><a href="#v3" style="font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#121512;color:#fff;border-radius:4px;text-decoration:none">V3</a><span style="font:700 14px/1.2 inherit;color:#121512">Maquette HomePage — desktop 1360 · sections 01 → 12</span></div>
+  <div style="max-width:820px;font-size:12.5px;line-height:1.6;color:rgba(18,21,18,.6);margin:0 0 22px">Conforme aux specs section par section. Les cadres rayés = réserves nommées pour les écrans réels (thème clair). La place des maquettes mobile (point 4) : démo terrain en section 04, téléphone 430 px à droite du texte.</div>
+  <div style="background:#F6F5EF;border:1px solid rgba(18,21,18,.14);border-radius:16px;box-shadow:6px 6px 0 rgba(23,39,29,.08);overflow:hidden;width:1360px">
+
+    <div style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:68px;padding:0 40px;background:rgba(246,245,239,.93);border-bottom:1px solid rgba(18,21,18,.1)">
+      <span style="font:800 15px inherit;color:#121512;letter-spacing:.12em">CHOUCAS</span>
+      <div style="display:flex;gap:28px;font:600 13px inherit;color:rgba(18,21,18,.75)"><span>Pourquoi Choucas</span><span>Le produit</span><span>Fonctionnement</span><span>À propos</span></div>
+      <div style="justify-self:end;height:44px;display:flex;align-items:center;gap:8px;padding:0 20px;background:#263F30;color:#fff;border-radius:999px;font:700 14px inherit;box-shadow:0 3px 0 #17271D">Demander une démo <span>→</span></div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;align-items:center;gap:22px;padding:64px 40px 48px;text-align:center">
+      <div style="font:700 11px inherit;color:#B7683F;letter-spacing:.14em">LOGICIEL MÉTIER · CONCIERGERIES INDÉPENDANTES, TRADITIONNELLES ET PREMIUM</div>
+      <div style="font:500 96px/0.88 'Newsreader',Georgia,serif;color:#121512;letter-spacing:-.03em;max-width:1000px;text-wrap:balance">Votre conciergerie,<br><span style="font-style:italic;color:#B7683F">parfaitement orchestrée.</span></div>
+      <div style="font:400 17px/1.55 'Manrope',sans-serif;color:rgba(18,21,18,.68);max-width:720px;text-wrap:pretty">De 5 à 150 biens, Choucas transforme les demandes en actions claires, coordonne les rotations et donne à chaque équipe la bonne information au bon moment.</div>
+      <div style="display:flex;gap:14px;align-items:center">
+        <div style="height:50px;display:flex;align-items:center;gap:8px;padding:0 22px;background:#263F30;color:#fff;border-radius:999px;font:700 14px inherit;box-shadow:0 3px 0 #17271D">Demander une démo <span>→</span></div>
+        <div style="height:50px;display:flex;align-items:center;padding:0 22px;background:#fff;color:#121512;border:1px solid rgba(18,21,18,.14);border-radius:999px;font:700 14px inherit;box-shadow:0 3px 0 rgba(18,21,18,.14)">Découvrir le produit</div>
+      </div>
+    </div>
+
+    <div style="background:#95A184;border-radius:28px 28px 0 0;padding:48px 40px 56px;display:flex;flex-direction:column;align-items:center;gap:18px">
+      <div style="font:700 11px inherit;color:rgba(18,21,18,.6);letter-spacing:.14em">DÉMONSTRATION · CHOUCAS MANAGER</div>
+      <div style="width:1080px;max-width:100%;background:#fff;border:1px solid rgba(18,21,18,.14);border-radius:22px;box-shadow:8px 8px 0 rgba(23,39,29,.18);overflow:hidden">
+        <div style="display:flex;align-items:center;gap:6px;padding:12px 18px;border-bottom:1px solid rgba(18,21,18,.1);background:#F6F5EF">
+          <span style="font:800 12px inherit;color:#121512;letter-spacing:.1em;margin-right:14px">C</span>
+          <div style="padding:8px 16px;background:#263F30;color:#fff;border-radius:999px;font:700 12px inherit">Aujourd'hui</div>
+          <div style="padding:8px 16px;color:rgba(18,21,18,.65);border-radius:999px;font:600 12px inherit">Missions</div>
+          <div style="padding:8px 16px;color:rgba(18,21,18,.65);border-radius:999px;font:600 12px inherit">Biens</div>
+          <div style="padding:8px 16px;color:rgba(18,21,18,.65);border-radius:999px;font:600 12px inherit">Équipe</div>
+        </div>
+        <div style="height:500px;background:repeating-linear-gradient(45deg,#efeee7,#efeee7 8px,#f7f6f0 8px,#f7f6f0 18px);display:flex;align-items:center;justify-content:center">
+          <div style="font:600 11px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.5);line-height:1.9;text-align:center">ÉCRAN RÉEL · Choucas Manager · thème clair<br>4 états navigables sans rechargement (aria-current)<br>données de démonstration uniquement</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 430px;gap:64px;align-items:center;padding:84px 40px;background:#F6F5EF">
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <div style="font:700 11px inherit;color:#B7683F;letter-spacing:.14em">CHOUCAS SUR LE TERRAIN</div>
+        <div style="font:500 56px/0.96 'Newsreader',Georgia,serif;color:#121512;letter-spacing:-.02em">La mission dans la poche. <span style="font-style:italic">Le contexte reste avec elle.</span></div>
+        <div style="font:400 16px/1.6 'Manrope',sans-serif;color:rgba(18,21,18,.68);max-width:560px;text-wrap:pretty">L'équipe voit sa journée, reprend sa mission, comprend pourquoi une tâche existe et signale un problème sans quitter le parcours.</div>
+        <div style="display:flex;flex-direction:column;gap:12px;font:600 14.5px inherit;color:#121512">
+          <div style="display:flex;gap:12px;align-items:baseline"><span style="color:#3D7358;font-weight:800">✓</span>Mission en cours, progression et alerte linge</div>
+          <div style="display:flex;gap:12px;align-items:baseline"><span style="color:#3D7358;font-weight:800">✓</span>Tâches cochables — de vrais boutons, bascule fait / non fait</div>
+          <div style="display:flex;gap:12px;align-items:baseline"><span style="color:#3D7358;font-weight:800">✓</span>Signalement et navigation Planning · Missions · Stocks · Équipe</div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;align-items:center">
+        <div style="width:370px;height:760px;border-radius:48px;border:1px solid rgba(18,21,18,.16);box-shadow:9px 9px 0 rgba(23,39,29,.12);overflow:hidden;background:repeating-linear-gradient(45deg,#efeee7,#efeee7 8px,#f7f6f0 8px,#f7f6f0 18px);display:flex;align-items:center;justify-content:center">
+          <div style="font:600 10.5px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.5);line-height:1.9;text-align:center;padding:20px">ÉCRAN RÉEL · démo terrain<br>Choucas Mission / Journée · thème clair<br>370 × 760 · rayon 48</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:5fr 7fr;gap:48px;align-items:center;padding:84px 40px;background:#E8E9E0">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="font:700 11px/1.8 inherit;color:rgba(18,21,18,.55);letter-spacing:.14em">LE PROBLÈME N'EST PAS LE SERVICE.<br>C'EST TOUT CE QUI SE PERD ENTRE DEUX PERSONNES.</div>
+        <div style="width:100%;aspect-ratio:4/5;border-radius:16px;background:repeating-linear-gradient(45deg,#dcdbd2,#dcdbd2 9px,#e6e5dc 9px,#e6e5dc 19px);border:1px dashed rgba(18,21,18,.2);display:flex;align-items:center;justify-content:center"><span style="font:600 10px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.45);text-align:center;line-height:1.7;padding:12px">PHOTOGRAPHIE<br>employée en plein ménage<br>geste réel, lumière naturelle</span></div>
+      </div>
+      <div style="font:500 44px/1.05 'Newsreader',Georgia,serif;color:#121512;letter-spacing:-.02em;text-wrap:balance">Messages dispersés. Rotations sous tension. Équipes sans contexte. <span style="font-style:italic;color:#B7683F">Choucas remet tout le monde sur la même ligne.</span></div>
+    </div>
+
+    <div style="padding:84px 40px;background:#121512">
+      <div style="max-width:680px;margin:0 auto 48px;text-align:center;display:flex;flex-direction:column;gap:14px">
+        <div style="font:700 11px inherit;color:#B7683F;letter-spacing:.14em">UNE SEULE LOGIQUE OPÉRATIONNELLE</div>
+        <div style="font:500 56px/0.96 'Newsreader',Georgia,serif;color:#fff;letter-spacing:-.02em">Du brief <span style="font-style:italic">à la preuve.</span></div>
+      </div>
+      <div style="display:grid;grid-template-columns:5fr 7fr;gap:32px;max-width:1180px;margin:0 auto">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="padding:16px 20px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.25);border-radius:14px;font:700 15px inherit;color:#fff;display:flex;gap:12px;align-items:center"><span style="font:600 10px ui-monospace,Menlo,monospace;color:#B7683F">01</span>Brief</div>
+          <div style="padding:16px 20px;border:1px solid rgba(255,255,255,.12);border-radius:14px;font:600 15px inherit;color:rgba(255,255,255,.6);display:flex;gap:12px;align-items:center"><span style="font:600 10px ui-monospace,Menlo,monospace;color:rgba(255,255,255,.35)">02</span>Rotations &amp; iCal</div>
+          <div style="padding:16px 20px;border:1px solid rgba(255,255,255,.12);border-radius:14px;font:600 15px inherit;color:rgba(255,255,255,.6);display:flex;gap:12px;align-items:center"><span style="font:600 10px ui-monospace,Menlo,monospace;color:rgba(255,255,255,.35)">03</span>Missions</div>
+          <div style="padding:16px 20px;border:1px solid rgba(255,255,255,.12);border-radius:14px;font:600 15px inherit;color:rgba(255,255,255,.6);display:flex;gap:12px;align-items:center"><span style="font:600 10px ui-monospace,Menlo,monospace;color:rgba(255,255,255,.35)">04</span>Stocks, linge &amp; blanchisserie</div>
+        </div>
+        <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:22px;padding:32px;display:flex;flex-direction:column;gap:14px">
+          <div style="font:500 26px 'Newsreader',Georgia,serif;color:#fff">Le brief devient action.</div>
+          <div style="font:400 14.5px/1.65 inherit;color:rgba(255,255,255,.65);max-width:520px">Les demandes arrivent par message, appel, email ou note. Choucas les structure, détecte les conflits et les distribue aux bonnes personnes.</div>
+          <div style="margin-top:6px;padding:14px 18px;background:rgba(61,115,88,.2);border:1px solid rgba(61,115,88,.5);border-radius:14px;font:600 13px inherit;color:#9FCDB6">RÉSULTAT — Une consigne claire, attribuée et validée.</div>
+          <div style="font:400 11px ui-monospace,Menlo,monospace;color:rgba(255,255,255,.35)">panneau unique · fondu 180–240 ms · tablist clavier</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:84px 40px;background:#F6F5EF">
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="height:520px;border-radius:22px;background:repeating-linear-gradient(45deg,#e4e3da,#e4e3da 9px,#eeede5 9px,#eeede5 19px);border:1px dashed rgba(18,21,18,.18);display:flex;align-items:center;justify-content:center"><span style="font:600 10.5px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.45);text-align:center;line-height:1.9">PHOTOGRAPHIE VERTICALE · 1600×2000 min<br>shooting Choucas — linge, mise en place, geste humain<br>lumière naturelle · AVIF/WebP · lazy</span></div>
+        <div style="font:600 10px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.4);letter-spacing:.08em;text-align:center">PLACEHOLDER DE DIRECTION · À REMPLACER</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <div style="font:700 11px inherit;color:#B7683F;letter-spacing:.14em">L'HOSPITALITÉ EN ACTION</div>
+        <div style="font:500 48px/1 'Newsreader',Georgia,serif;color:#121512;letter-spacing:-.02em">Le luxe n'est pas une apparence. <span style="font-style:italic">C'est l'absence de friction.</span></div>
+        <div style="display:flex;flex-direction:column;gap:12px;font:600 14.5px inherit;color:#121512">
+          <div style="display:flex;gap:12px;align-items:baseline"><span style="font:600 10px ui-monospace,Menlo,monospace;color:#B7683F">01</span>Une information possède toujours un responsable.</div>
+          <div style="display:flex;gap:12px;align-items:baseline"><span style="font:600 10px ui-monospace,Menlo,monospace;color:#B7683F">02</span>Une mission conserve le contexte du client.</div>
+          <div style="display:flex;gap:12px;align-items:baseline"><span style="font:600 10px ui-monospace,Menlo,monospace;color:#B7683F">03</span>Une anomalie devient une action, pas un message perdu.</div>
+          <div style="display:flex;gap:12px;align-items:baseline"><span style="font:600 10px ui-monospace,Menlo,monospace;color:#B7683F">04</span>Une rotation relie planning, ressources et preuves.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="padding:84px 40px;background:#E8E9E0">
+      <div style="max-width:680px;margin:0 auto 48px;text-align:center;display:flex;flex-direction:column;gap:14px">
+        <div style="font:700 11px inherit;color:#B7683F;letter-spacing:.14em">POURQUOI CHOUCAS ?</div>
+        <div style="font:500 52px/0.98 'Newsreader',Georgia,serif;color:#121512;letter-spacing:-.02em">Du bruit opérationnel <span style="font-style:italic">à une journée maîtrisée.</span></div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:24px;align-items:stretch;max-width:1180px;margin:0 auto">
+        <div style="background:#F6F5EF;border:2px solid rgba(18,21,18,.14);border-radius:22px;padding:28px"><div style="font:700 10px inherit;color:rgba(18,21,18,.45);letter-spacing:.12em;margin-bottom:16px">AVANT · INFORMATIONS DISPERSÉES</div><div style="display:flex;flex-direction:column;gap:10px;font:600 14px inherit;color:rgba(18,21,18,.75)"><div>Messages clients</div><div>Calendriers séparés</div><div>Appels &amp; imprévus</div><div>Tableaux de stocks</div></div></div>
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:0 8px">
+          <span style="font:700 20px inherit;color:rgba(18,21,18,.4)">→</span>
+          <div style="background:#263F30;border-radius:22px;padding:28px 26px;box-shadow:8px 8px 0 rgba(23,39,29,.2);text-align:center;display:flex;flex-direction:column;gap:6px"><div style="font:500 24px 'Newsreader',Georgia,serif;color:#fff">Choucas</div><div style="font:600 11.5px inherit;color:rgba(255,255,255,.7)">Centralise · Priorise · Attribue</div></div>
+          <span style="font:700 20px inherit;color:rgba(18,21,18,.4)">→</span>
+        </div>
+        <div style="background:#F6F5EF;border:2px solid #263F30;border-radius:22px;padding:28px"><div style="font:700 10px inherit;color:#263F30;letter-spacing:.12em;margin-bottom:16px">APRÈS · OPÉRATIONS SYNCHRONISÉES</div><div style="display:flex;flex-direction:column;gap:10px;font:600 14px inherit;color:#121512"><div>Rotations anticipées</div><div>Missions contextualisées</div><div>Linge et stocks disponibles</div><div>Preuves archivées</div></div></div>
+      </div>
+      <div style="display:flex;justify-content:center;gap:64px;margin-top:44px">
+        <div style="text-align:center"><div style="font:500 38px 'Newsreader',Georgia,serif;color:#121512">1</div><div style="font:600 12px inherit;color:rgba(18,21,18,.55)">vue commune</div></div>
+        <div style="text-align:center"><div style="font:500 38px 'Newsreader',Georgia,serif;color:#121512">0</div><div style="font:600 12px inherit;color:rgba(18,21,18,.55)">information perdue</div></div>
+        <div style="text-align:center"><div style="font:500 38px 'Newsreader',Georgia,serif;color:#121512">100 %</div><div style="font:600 12px inherit;color:rgba(18,21,18,.55)">du contexte terrain</div></div>
+      </div>
+      <div style="text-align:center;margin-top:16px;font:400 11px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.4)">chiffres = expression de design, à valider juridiquement avant publication</div>
+    </div>
+
+    <div style="padding:84px 40px;background:#F6F5EF">
+      <div style="max-width:680px;margin:0 auto 44px;text-align:center;display:flex;flex-direction:column;gap:14px">
+        <div style="font:700 11px inherit;color:#B7683F;letter-spacing:.14em">UNE JOURNÉE DANS CHOUCAS</div>
+        <div style="font:500 52px/0.98 'Newsreader',Georgia,serif;color:#121512;letter-spacing:-.02em">Le bon signal, <span style="font-style:italic">au bon moment.</span></div>
+      </div>
+      <div style="display:flex;justify-content:center;gap:12px;margin-bottom:28px">
+        <div style="padding:12px 22px;background:#263F30;color:#fff;border-radius:999px;font:700 13px inherit;box-shadow:0 3px 0 #17271D">08:00 · Préparer</div>
+        <div style="padding:12px 22px;background:#fff;color:rgba(18,21,18,.7);border:1px solid rgba(18,21,18,.14);border-radius:999px;font:600 13px inherit">11:30 · Coordonner</div>
+        <div style="padding:12px 22px;background:#fff;color:rgba(18,21,18,.7);border:1px solid rgba(18,21,18,.14);border-radius:999px;font:600 13px inherit">15:00 · Contrôler</div>
+        <div style="padding:12px 22px;background:#fff;color:rgba(18,21,18,.7);border:1px solid rgba(18,21,18,.14);border-radius:999px;font:600 13px inherit">17:30 · Accueillir</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;max-width:1180px;margin:0 auto;align-items:center">
+        <div style="display:flex;flex-direction:column;gap:10px"><div style="font:600 10px ui-monospace,Menlo,monospace;color:#B7683F">08:00 · PRÉPARER</div><div style="font:500 30px/1.05 'Newsreader',Georgia,serif;color:#121512">Les rotations du jour sont prêtes avant le café.</div></div>
+        <div style="font:400 14.5px/1.65 inherit;color:rgba(18,21,18,.65)">Le planning relie les séjours, les missions et les ressources : chacun sait où aller, avec quoi, et pourquoi. Les briefs de la veille sont déjà décomposés en consignes attribuées.</div>
+        <div style="background:#fff;border:1px solid rgba(18,21,18,.14);border-radius:18px;box-shadow:6px 6px 0 rgba(23,39,29,.1);padding:20px;display:flex;flex-direction:column;gap:8px"><div style="font:700 10px inherit;color:rgba(18,21,18,.45);letter-spacing:.1em">CHOUCAS · PLANNING</div><div style="font:700 15px inherit;color:#121512">3 rotations · 5 missions attribuées</div><div style="font:600 12.5px inherit;color:#3D7358">Linge confirmé pour Le Belvédère</div></div>
+      </div>
+    </div>
+
+    <div style="padding:84px 40px;background:#E8E9E0">
+      <div style="max-width:680px;margin:0 auto 44px;text-align:center;display:flex;flex-direction:column;gap:14px">
+        <div style="font:700 11px inherit;color:#B7683F;letter-spacing:.14em">UN OUTIL POUR TOUTE LA CONCIERGERIE</div>
+        <div style="font:500 52px/0.98 'Newsreader',Georgia,serif;color:#121512;letter-spacing:-.02em">Une même information. <span style="font-style:italic">Trois façons d'agir.</span></div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1180px;margin:0 auto">
+        <div style="background:#F6F5EF;border:2px solid rgba(18,21,18,.16);border-radius:22px;padding:30px;display:flex;flex-direction:column;gap:10px"><div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font:600 10px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.4)">01</span><span style="font:700 10px inherit;color:#B7683F;letter-spacing:.12em">PILOTER</span></div><div style="font:500 26px 'Newsreader',Georgia,serif;color:#121512">Dirigeant</div><div style="font:400 14px/1.6 inherit;color:rgba(18,21,18,.65)">Une vision nette de l'activité, des biens et de la qualité.</div><div style="font:700 13px inherit;color:#263F30;margin-top:auto">✓ Moins de dépendance au dirigeant</div></div>
+        <div style="background:#263F30;border:2px solid #17271D;border-radius:22px;padding:30px;box-shadow:8px 8px 0 rgba(23,39,29,.2);display:flex;flex-direction:column;gap:10px"><div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font:600 10px ui-monospace,Menlo,monospace;color:rgba(255,255,255,.4)">02</span><span style="font:700 10px inherit;color:#D9A886;letter-spacing:.12em">COORDONNER</span></div><div style="font:500 26px 'Newsreader',Georgia,serif;color:#fff">Responsable d'exploitation</div><div style="font:400 14px/1.6 inherit;color:rgba(255,255,255,.7)">Les rotations, équipes et imprévus réunis dans une vue.</div><div style="font:700 13px inherit;color:#9FCDB6;margin-top:auto">✓ Moins d'appels et de relances</div></div>
+        <div style="background:#F6F5EF;border:2px solid rgba(18,21,18,.16);border-radius:22px;padding:30px;display:flex;flex-direction:column;gap:10px"><div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font:600 10px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.4)">03</span><span style="font:700 10px inherit;color:#B7683F;letter-spacing:.12em">EXÉCUTER</span></div><div style="font:500 26px 'Newsreader',Georgia,serif;color:#121512">Équipe terrain</div><div style="font:400 14px/1.6 inherit;color:rgba(18,21,18,.65)">La prochaine action, son contexte et sa preuve dans la poche.</div><div style="font:700 13px inherit;color:#263F30;margin-top:auto">✓ Moins d'hésitation sur le terrain</div></div>
+      </div>
+    </div>
+
+    <div style="padding:96px 40px;background:#121512;display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center">
+      <div style="font:700 11px inherit;color:rgba(255,255,255,.45);letter-spacing:.14em">PRÊT À VOIR CHOUCAS SUR VOS PROPRES ROTATIONS ?</div>
+      <div style="font:500 60px/0.96 'Newsreader',Georgia,serif;color:#fff;letter-spacing:-.02em;max-width:760px;text-wrap:balance">Reprenez de la hauteur. <span style="font-style:italic;color:#D9A886">Sans perdre le terrain.</span></div>
+      <div style="font:400 16px/1.6 'Manrope',sans-serif;color:rgba(255,255,255,.6);max-width:540px">Une démonstration courte, construite autour de votre organisation, de vos biens et de vos équipes.</div>
+      <div style="display:flex;gap:16px;align-items:center"><div style="height:50px;display:flex;align-items:center;gap:8px;padding:0 24px;background:#263F30;color:#fff;border-radius:999px;font:700 14px inherit;box-shadow:0 3px 0 #000">Demander une démo <span>→</span></div><div style="font:600 13px inherit;color:rgba(255,255,255,.5)">30 minutes · Sans engagement</div></div>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:26px 40px;background:#F6F5EF;border-top:1px solid rgba(18,21,18,.1)">
+      <span style="font:800 13px inherit;color:#121512;letter-spacing:.12em">CHOUCAS</span>
+      <div style="display:flex;gap:24px;font:600 12px inherit;color:rgba(18,21,18,.6)"><span>Pourquoi Choucas</span><span>Produit</span><span>Fonctionnement</span><span>Contact</span><span>Mentions légales</span><span>Confidentialité</span></div>
+      <div style="font:400 11.5px inherit;color:rgba(18,21,18,.45)">Hospitality operations · Alpes françaises · 2026</div>
+    </div>
+  </div>
+</section>
+
+<section id="v4" style="padding:40px 44px 32px;border-bottom:1px solid rgba(18,21,18,.1);scroll-margin-top:16px">
+  <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:6px"><a href="#v4" style="font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#121512;color:#fff;border-radius:4px;text-decoration:none">V4</a><span style="font:700 14px/1.2 inherit;color:#121512">Points de rupture appliqués — hero + démo en 768 et 390</span></div>
+  <div style="max-width:820px;font-size:12.5px;line-height:1.6;color:rgba(18,21,18,.6);margin:0 0 22px">Tablette 700–999 : marge 28, 1–2 colonnes. Mobile 320–699 : marge 18, hero 48 px aligné à gauche, CTA pleine largeur, nav 60 px marque + menu (CTA dans le menu), Manager simplifié mais rotation lisible.</div>
+  <div style="display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start">
+    <div style="display:flex;flex-direction:column;gap:9px">
+      <span style="font:500 11px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.5)">Tablette · 768 · marge 28</span>
+      <div style="width:768px;background:#F6F5EF;border:1px solid rgba(18,21,18,.14);border-radius:8px;overflow:hidden">
+        <div style="display:flex;align-items:center;justify-content:space-between;height:68px;padding:0 28px;border-bottom:1px solid rgba(18,21,18,.1)">
+          <span style="font:800 14px inherit;color:#121512;letter-spacing:.12em">CHOUCAS</span>
+          <div style="display:flex;gap:18px;align-items:center"><div style="display:flex;gap:16px;font:600 12.5px inherit;color:rgba(18,21,18,.7)"><span>Produit</span><span>Fonctionnement</span></div><div style="height:44px;display:flex;align-items:center;padding:0 18px;background:#263F30;color:#fff;border-radius:999px;font:700 13px inherit;box-shadow:0 3px 0 #17271D">Demander une démo</div></div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:18px;padding:52px 28px 40px;text-align:center">
+          <div style="font:700 10.5px inherit;color:#B7683F;letter-spacing:.14em">LOGICIEL MÉTIER · CONCIERGERIES</div>
+          <div style="font:500 76px/0.88 'Newsreader',Georgia,serif;color:#121512;letter-spacing:-.025em;max-width:640px">Votre conciergerie, <span style="font-style:italic;color:#B7683F">parfaitement orchestrée.</span></div>
+          <div style="font:400 16px/1.55 'Manrope',sans-serif;color:rgba(18,21,18,.65);max-width:560px">De 5 à 150 biens, Choucas transforme les demandes en actions claires.</div>
+          <div style="display:flex;gap:12px"><div style="height:48px;display:flex;align-items:center;gap:6px;padding:0 20px;background:#263F30;color:#fff;border-radius:999px;font:700 14px inherit;box-shadow:0 3px 0 #17271D">Demander une démo →</div><div style="height:48px;display:flex;align-items:center;padding:0 20px;background:#fff;color:#121512;border:1px solid rgba(18,21,18,.14);border-radius:999px;font:700 14px inherit;box-shadow:0 3px 0 rgba(18,21,18,.14)">Découvrir le produit</div></div>
+        </div>
+        <div style="background:#95A184;border-radius:24px 24px 0 0;padding:32px 28px 40px;display:flex;justify-content:center">
+          <div style="width:100%;background:#fff;border:1px solid rgba(18,21,18,.14);border-radius:18px;box-shadow:7px 7px 0 rgba(23,39,29,.16);overflow:hidden">
+            <div style="display:flex;gap:6px;padding:10px 14px;border-bottom:1px solid rgba(18,21,18,.1);background:#F6F5EF"><div style="padding:7px 14px;background:#263F30;color:#fff;border-radius:999px;font:700 11.5px inherit">Aujourd'hui</div><div style="padding:7px 14px;color:rgba(18,21,18,.6);font:600 11.5px inherit">Missions</div><div style="padding:7px 14px;color:rgba(18,21,18,.6);font:600 11.5px inherit">Biens</div></div>
+            <div style="height:330px;background:repeating-linear-gradient(45deg,#efeee7,#efeee7 8px,#f7f6f0 8px,#f7f6f0 18px);display:flex;align-items:center;justify-content:center"><span style="font:600 10px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.5);text-align:center;line-height:1.9">ÉCRAN RÉEL · Manager<br>colonne secondaire masquée</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:9px">
+      <span style="font:500 11px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.5)">Mobile · 390 · marge 18</span>
+      <div style="width:390px;background:#F6F5EF;border:1px solid rgba(18,21,18,.14);border-radius:8px;overflow:hidden">
+        <div style="display:flex;align-items:center;justify-content:space-between;height:60px;padding:0 18px;border-bottom:1px solid rgba(18,21,18,.1)">
+          <span style="font:800 13px inherit;color:#121512;letter-spacing:.12em">CHOUCAS</span>
+          <div style="display:flex;flex-direction:column;gap:4px;padding:10px"><div style="width:20px;height:2px;background:#121512"></div><div style="width:20px;height:2px;background:#121512"></div></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:16px;padding:36px 18px 40px">
+          <div style="font:700 10px inherit;color:#B7683F;letter-spacing:.14em">LOGICIEL MÉTIER · CONCIERGERIES</div>
+          <div style="font:500 48px/0.9 'Newsreader',Georgia,serif;color:#121512;letter-spacing:-.02em">Votre conciergerie, <span style="font-style:italic;color:#B7683F">parfaitement orchestrée.</span></div>
+          <div style="font:400 15px/1.55 'Manrope',sans-serif;color:rgba(18,21,18,.65)">Choucas transforme les demandes en actions claires et coordonne les rotations.</div>
+          <div style="height:50px;display:flex;align-items:center;justify-content:center;gap:8px;background:#263F30;color:#fff;border-radius:999px;font:700 14px inherit;box-shadow:0 3px 0 #17271D">Demander une démo →</div>
+          <div style="height:50px;display:flex;align-items:center;justify-content:center;background:#fff;color:#121512;border:1px solid rgba(18,21,18,.14);border-radius:999px;font:700 14px inherit;box-shadow:0 3px 0 rgba(18,21,18,.14)">Découvrir le produit</div>
+          <div style="background:#95A184;border-radius:20px;padding:18px;display:flex;justify-content:center;margin-top:8px">
+            <div style="width:100%;background:#fff;border:1px solid rgba(18,21,18,.14);border-radius:16px;box-shadow:5px 5px 0 rgba(23,39,29,.16);overflow:hidden">
+              <div style="display:flex;gap:5px;padding:9px 12px;border-bottom:1px solid rgba(18,21,18,.1);background:#F6F5EF"><div style="padding:6px 12px;background:#263F30;color:#fff;border-radius:999px;font:700 11px inherit">Aujourd'hui</div><div style="padding:6px 12px;color:rgba(18,21,18,.6);font:600 11px inherit">Missions</div></div>
+              <div style="height:260px;background:repeating-linear-gradient(45deg,#efeee7,#efeee7 8px,#f7f6f0 8px,#f7f6f0 18px);display:flex;align-items:center;justify-content:center"><span style="font:600 10px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.5);text-align:center;line-height:1.9">ÉCRAN RÉEL · simplifié<br>rotation lisible, métadonnées masquées</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="v5" style="padding:40px 44px 32px;border-bottom:1px solid rgba(18,21,18,.1);scroll-margin-top:16px">
+  <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:6px"><a href="#v5" style="font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#121512;color:#fff;border-radius:4px;text-decoration:none">V5</a><span style="font:700 14px/1.2 inherit;color:#121512">Animation — direction A « Sobre » retenue</span><span style="font:700 10px inherit;color:#fff;background:#3D7358;padding:3px 8px;border-radius:999px;letter-spacing:.08em">VALIDÉ</span></div>
+  <div style="max-width:820px;font-size:12.5px;line-height:1.6;color:rgba(18,21,18,.6);margin:0 0 22px">Fondus + reveals au scroll, avec l'écran de l'app dans le mouvement. Revue section par section, aux vraies couleurs et proportions de la homepage (V3) — desktop puis mobile.</div>
+
+  <div style="display:flex;flex-direction:column;gap:28px">
+
+    <div id="anim-hero" style="display:flex;flex-direction:column;gap:8px">
+      <div style="font:600 11px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.5)">02 · Hero — aucune animation</div>
+      <div style="width:900px;max-width:100%;background:#F6F5EF;border:1px solid rgba(18,21,18,.14);border-radius:16px;box-shadow:6px 6px 0 rgba(23,39,29,.08);overflow:hidden;display:flex;flex-direction:column;align-items:center;gap:14px;padding:36px 40px;text-align:center">
+        <div style="font:700 10px inherit;color:#B7683F;letter-spacing:.14em">LOGICIEL MÉTIER · CONCIERGERIES</div>
+        <div style="font:500 44px/0.9 'Newsreader',Georgia,serif;color:#121512;letter-spacing:-.02em">Votre conciergerie, <span style="font-style:italic;color:#B7683F">parfaitement orchestrée.</span></div>
+        <div style="height:38px;display:flex;align-items:center;padding:0 18px;background:#263F30;color:#fff;border-radius:999px;font:700 13px inherit;box-shadow:0 3px 0 #17271D">Demander une démo</div>
+      </div>
+      <div style="font-size:11.5px;color:rgba(18,21,18,.5);max-width:820px">Visible dès le premier paint, sans transition (specs §2/§12) — au-dessus de la ligne de flottaison, rien ne doit retarder la lecture.</div>
+    </div>
+
+    <div id="anim-manager" style="display:flex;flex-direction:column;gap:8px">
+      <div style="font:600 11px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.5)">03 · Démo Manager — reveal groupe, label puis fenêtre</div>
+      <div style="width:900px;max-width:100%;background:#95A184;border-radius:16px 16px 0 0;box-shadow:6px 6px 0 rgba(23,39,29,.08);overflow:hidden;display:flex;flex-direction:column;align-items:center;gap:16px;padding:32px 40px 40px">
+        <div style="animation:reveal-loop 5s cubic-bezier(.2,.8,.2,1) infinite"><div style="font:700 10px inherit;color:rgba(18,21,18,.6);letter-spacing:.14em">DÉMONSTRATION · CHOUCAS MANAGER</div></div>
+        <div style="animation:reveal-loop 5s cubic-bezier(.2,.8,.2,1) .12s infinite;width:100%">
+          <div style="background:#fff;border:1px solid rgba(18,21,18,.14);border-radius:18px;box-shadow:7px 7px 0 rgba(23,39,29,.16);overflow:hidden">
+            <div style="display:flex;gap:6px;padding:10px 16px;border-bottom:1px solid rgba(18,21,18,.1);background:#F6F5EF"><div style="padding:7px 16px;background:#263F30;color:#fff;border-radius:999px;font:700 11.5px inherit">Aujourd'hui</div><div style="padding:7px 16px;color:rgba(18,21,18,.6);font:600 11.5px inherit">Missions</div><div style="padding:7px 16px;color:rgba(18,21,18,.6);font:600 11.5px inherit">Biens</div></div>
+            <div style="height:220px;background:repeating-linear-gradient(45deg,#efeee7,#efeee7 8px,#f7f6f0 8px,#f7f6f0 18px);display:flex;align-items:center;justify-content:center"><span style="font:600 10px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.5)">ÉCRAN RÉEL</span></div>
+          </div>
+        </div>
+      </div>
+      <div style="font-size:11.5px;color:rgba(18,21,18,.5);max-width:820px">--i 0 (label) puis --i 1 (fenêtre produit), décalage 90 ms.</div>
+    </div>
+
+    <div id="anim-terrain" style="display:flex;flex-direction:column;gap:8px">
+      <div style="font:600 11px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.5)">04 · Démo terrain — texte puis téléphone, l'écran entre en dernier</div>
+      <div style="width:900px;max-width:100%;display:grid;grid-template-columns:1fr 280px;gap:36px;align-items:center;background:#F6F5EF;border:1px solid rgba(18,21,18,.14);border-radius:16px;box-shadow:6px 6px 0 rgba(23,39,29,.08);padding:40px 40px">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="animation:reveal-loop 5s cubic-bezier(.2,.8,.2,1) infinite"><div style="font:700 10px inherit;color:#B7683F;letter-spacing:.14em">CHOUCAS SUR LE TERRAIN</div></div>
+          <div style="animation:reveal-loop 5s cubic-bezier(.2,.8,.2,1) .09s infinite"><div style="font:500 28px/1.05 'Newsreader',Georgia,serif;color:#121512">La mission dans la poche.</div></div>
+          <div style="animation:reveal-loop 5s cubic-bezier(.2,.8,.2,1) .18s infinite"><div style="height:8px;width:80%;background:rgba(18,21,18,.14);border-radius:3px"></div></div>
+        </div>
+        <div style="animation:reveal-loop 5s cubic-bezier(.2,.8,.2,1) .3s infinite">
+          <div style="width:220px;height:452px;border-radius:34px;border:1px solid rgba(18,21,18,.16);box-shadow:8px 8px 0 rgba(23,39,29,.14);overflow:hidden;background:repeating-linear-gradient(45deg,#efeee7,#efeee7 8px,#f7f6f0 8px,#f7f6f0 18px);display:flex;align-items:center;justify-content:center"><span style="font:600 9.5px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.5);text-align:center;line-height:1.8">ÉCRAN RÉEL<br>terrain</span></div>
+        </div>
+      </div>
+      <div style="font-size:11.5px;color:rgba(18,21,18,.5);max-width:820px">--i 0–2 sur le texte, --i 3 sur le téléphone (300 ms) — le produit clôt le groupe.</div>
+    </div>
+
+    <div id="anim-tension" style="display:flex;flex-direction:column;gap:8px">
+      <div style="font:600 11px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.5)">05 · Tension opérationnelle — reveal simple, photo puis citation</div>
+      <div style="width:900px;max-width:100%;display:grid;grid-template-columns:1fr 1.4fr;gap:28px;align-items:center;background:#E8E9E0;border:1px solid rgba(18,21,18,.14);border-radius:16px;padding:36px 40px">
+        <div style="animation:reveal-loop 5s cubic-bezier(.2,.8,.2,1) infinite;width:100%;aspect-ratio:4/5;border-radius:14px;background:repeating-linear-gradient(45deg,#dcdbd2,#dcdbd2 8px,#e6e5dc 8px,#e6e5dc 18px);border:1px dashed rgba(18,21,18,.2)"></div>
+        <div style="animation:reveal-loop 5s cubic-bezier(.2,.8,.2,1) .1s infinite"><div style="font:500 26px/1.1 'Newsreader',Georgia,serif;color:#121512">Choucas <span style="font-style:italic;color:#B7683F">remet tout le monde sur la même ligne.</span></div></div>
+      </div>
+    </div>
+
+    <div id="anim-profils" style="display:flex;flex-direction:column;gap:8px">
+      <div style="font:600 11px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.5)">10 · Profils — reveal groupe des 3 cartes</div>
+      <div style="width:900px;max-width:100%;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;background:#E8E9E0;border:1px solid rgba(18,21,18,.14);border-radius:16px;padding:36px 40px">
+        <div style="animation:reveal-loop 5s cubic-bezier(.2,.8,.2,1) infinite;background:#F6F5EF;border:2px solid rgba(18,21,18,.16);border-radius:16px;padding:18px"><div style="font:700 10px inherit;color:#B7683F">PILOTER</div><div style="font:500 17px 'Newsreader',Georgia,serif;color:#121512;margin-top:4px">Dirigeant</div></div>
+        <div style="animation:reveal-loop 5s cubic-bezier(.2,.8,.2,1) .09s infinite;background:#263F30;border-radius:16px;padding:18px"><div style="font:700 10px inherit;color:#D9A886">COORDONNER</div><div style="font:500 17px 'Newsreader',Georgia,serif;color:#fff;margin-top:4px">Responsable</div></div>
+        <div style="animation:reveal-loop 5s cubic-bezier(.2,.8,.2,1) .18s infinite;background:#F6F5EF;border:2px solid rgba(18,21,18,.16);border-radius:16px;padding:18px"><div style="font:700 10px inherit;color:#B7683F">EXÉCUTER</div><div style="font:500 17px 'Newsreader',Georgia,serif;color:#121512;margin-top:4px">Équipe terrain</div></div>
+      </div>
+    </div>
+
+    <div id="anim-cta" style="display:flex;flex-direction:column;gap:8px">
+      <div style="font:600 11px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.5)">11 · CTA final — reveal simple sur le bloc entier</div>
+      <div style="width:900px;max-width:100%;background:#121512;border-radius:16px;padding:44px 40px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center">
+        <div style="animation:reveal-loop 5s cubic-bezier(.2,.8,.2,1) infinite;display:flex;flex-direction:column;align-items:center;gap:14px">
+          <div style="font:500 34px/1.05 'Newsreader',Georgia,serif;color:#fff">Reprenez de la hauteur. <span style="font-style:italic;color:#D9A886">Sans perdre le terrain.</span></div>
+          <div style="height:44px;display:flex;align-items:center;padding:0 20px;background:#263F30;color:#fff;border-radius:999px;font:700 13px inherit;box-shadow:0 3px 0 #000">Demander une démo</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="anim-mobile" style="display:flex;flex-direction:column;gap:8px">
+      <div style="font:600 11px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.5)">Mobile 390 — même primitive, tout empilé (démo terrain)</div>
+      <div style="width:390px;background:#F6F5EF;border:1px solid rgba(18,21,18,.14);border-radius:16px;padding:28px 20px;display:flex;flex-direction:column;gap:14px">
+        <div style="animation:reveal-loop 5s cubic-bezier(.2,.8,.2,1) infinite"><div style="font:700 10px inherit;color:#B7683F;letter-spacing:.14em">CHOUCAS SUR LE TERRAIN</div></div>
+        <div style="animation:reveal-loop 5s cubic-bezier(.2,.8,.2,1) .09s infinite"><div style="font:500 26px/1.05 'Newsreader',Georgia,serif;color:#121512">La mission dans la poche.</div></div>
+        <div style="animation:reveal-loop 5s cubic-bezier(.2,.8,.2,1) .18s infinite"><div style="height:8px;width:75%;background:rgba(18,21,18,.14);border-radius:3px"></div></div>
+        <div style="animation:reveal-loop 5s cubic-bezier(.2,.8,.2,1) .27s infinite;align-self:center;margin-top:4px">
+          <div style="width:200px;height:410px;border-radius:32px;border:1px solid rgba(18,21,18,.16);box-shadow:7px 7px 0 rgba(23,39,29,.14);overflow:hidden;background:repeating-linear-gradient(45deg,#efeee7,#efeee7 8px,#f7f6f0 8px,#f7f6f0 18px);display:flex;align-items:center;justify-content:center"><span style="font:600 9.5px ui-monospace,Menlo,monospace;color:rgba(18,21,18,.5)">ÉCRAN RÉEL</span></div>
+        </div>
+      </div>
+      <div style="font-size:11.5px;color:rgba(18,21,18,.5);max-width:820px">Sur mobile, tout s'empile déjà en une colonne (V4) — la séquence de reveal suit l'ordre de lecture vertical, pas de composition supplémentaire.</div>
+    </div>
+
+  </div>
+
+  <div style="margin-top:26px;max-width:820px;font-size:12.5px;line-height:1.6;color:rgba(18,21,18,.6)">La direction B (téléphones animés + parallaxe) est écartée — cohérent avec les specs §8 : parallaxe lourde et texte animé en continu interdits.</div>
+</section>
+
+<section id="v7" style="padding:40px 44px 32px;border-bottom:1px solid rgba(18,21,18,.1);scroll-margin-top:16px">
+  <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:6px"><a href="#v7" style="font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#121512;color:#fff;border-radius:4px;text-decoration:none">V7</a><span style="font:700 14px/1.2 inherit;color:#121512">Brief d'animation — prêt pour le développement</span></div>
+  <div style="max-width:820px;font-size:12.5px;line-height:1.6;color:rgba(18,21,18,.6);margin:0 0 22px">Implémentation de la direction A retenue en <a href="#v5" style="font:600 10.5px ui-monospace,Menlo,monospace;padding:2px 6px;background:rgba(18,21,18,.08);border-radius:5px;text-decoration:none">V5</a>. Une seule primitive, appliquée par IntersectionObserver ; le CSS porte l'animation, le JS ne fait qu'ajouter une classe.</div>
+  <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start">
+    <div style="background:#fff;border:1px solid rgba(18,21,18,.14);border-radius:16px;padding:20px 24px;max-width:460px">
+      <div style="font:700 12px inherit;color:#121512;margin-bottom:10px">1 · Primitive CSS</div>
+      <div style="font:400 11px/1.75 ui-monospace,Menlo,monospace;color:rgba(18,21,18,.75);background:#F6F5EF;border-radius:10px;padding:14px 16px;white-space:pre">.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity .22s cubic-bezier(.2,.8,.2,1),
+              transform .22s cubic-bezier(.2,.8,.2,1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-group > * { transition-delay: 
+  calc(var(--i, 0) * 90ms); }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal.is-visible {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}</div>
+    </div>
+    <div style="background:#fff;border:1px solid rgba(18,21,18,.14);border-radius:16px;padding:20px 24px;max-width:460px">
+      <div style="font:700 12px inherit;color:#121512;margin-bottom:10px">2 · Déclencheur JS (une fois, léger)</div>
+      <div style="font:400 11px/1.75 ui-monospace,Menlo,monospace;color:rgba(18,21,18,.75);background:#F6F5EF;border-radius:10px;padding:14px 16px;white-space:pre">const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('is-visible');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.25 });
+
+document.querySelectorAll('.reveal')
+  .forEach(el => io.observe(el));</div>
+      <div style="font-size:11px;color:rgba(18,21,18,.5);margin-top:10px;line-height:1.5">Déclenchement une seule fois par élément (unobserve après entrée) — jamais de re-jeu au scroll arrière. Aucune dépendance : vanilla JS, ~15 lignes.</div>
+    </div>
+    <div style="background:#fff;border:1px solid rgba(18,21,18,.14);border-radius:16px;padding:20px 24px;max-width:420px">
+      <div style="font:700 12px inherit;color:#121512;margin-bottom:10px">3 · Où l'appliquer, section par section</div>
+      <div style="font-size:12px;line-height:1.85;color:rgba(18,21,18,.7)">
+        <b>Hero (02)</b> — pas de reveal : visible dès le premier paint (specs §9/§12).<br>
+        <b>Démo Manager (03)</b> — reveal groupe : label puis fenêtre produit, --i 0/1.<br>
+        <b>Démo terrain (04)</b> — reveal groupe : texte (--i 0–2) puis téléphone en dernier (--i 3), comme en V5.<br>
+        <b>Tension (05)</b> — reveal simple sur le bloc photo + citation.<br>
+        <b>Brief à la preuve (06)</b> — fondu de panneau à chaque changement d'onglet (transition déjà en 07, pas un reveal au scroll).<br>
+        <b>Photo hospitalité (07)</b> — reveal photo puis liste des 4 principes, --i 0–4.<br>
+        <b>Pourquoi Choucas (08)</b> — reveal séquencé avant → Choucas → après (--i 0/1/2), chiffres en dernier.<br>
+        <b>Journée (09)</b> — reveal sur le changement de moment actif (fondu court, pas de scroll-reveal).<br>
+        <b>Profils (10)</b> — reveal groupe des 3 cartes, --i 0–2.<br>
+        <b>CTA final (11)</b> — reveal simple sur le bloc entier.
+      </div>
+    </div>
+    <div style="background:#FBF4E4;border:1px solid #E4CD9A;border-radius:16px;padding:20px 24px;max-width:380px">
+      <div style="font:700 13px inherit;color:#7A5A18;margin-bottom:10px">Garde-fous (specs §8 / §12)</div>
+      <div style="font-size:12.5px;line-height:1.8;color:#6b5420">
+        — Rien au-dessus de la ligne de flottaison ne doit être animé au premier paint.<br>
+        — Aucun parallaxe, aucun scroll-jacking, aucun texte animé en continu.<br>
+        — Durée 180–240 ms, easing cubic-bezier(.2,.8,.2,1) partout.<br>
+        — <span style="font:500 11px ui-monospace,Menlo,monospace">prefers-reduced-motion: reduce</span> supprime toutes les transitions — testé avant recette.<br>
+        — CLS : les cadres produit et photos réservent leur hauteur avant chargement (pas de saut au reveal).
+      </div>
+    </div>
+  </div>
+  <p style="margin:22px 0 0;font:12px/1.5 inherit;color:rgba(18,21,18,.5)">Ce brief part tel quel en développement avec la base de <a href="#v6" style="font:600 10.5px ui-monospace,Menlo,monospace;padding:2px 6px;background:rgba(18,21,18,.08);border-radius:5px;text-decoration:none">V6</a>.</p>
+</section>
+
+<section id="v6" style="padding:40px 44px 40px;border-bottom:1px solid rgba(18,21,18,.1);scroll-margin-top:16px">
+  <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:6px"><a href="#v6" style="font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#121512;color:#fff;border-radius:4px;text-decoration:none">V6</a><span style="font:700 14px/1.2 inherit;color:#121512">Base de développement</span></div>
+  <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start">
+    <div style="background:#fff;border:1px solid rgba(18,21,18,.14);border-radius:16px;padding:20px 24px;max-width:400px">
+      <div style="font:700 12px inherit;color:#121512;margin-bottom:10px">Sources</div>
+      <div style="font-size:12.5px;line-height:1.9;color:rgba(18,21,18,.7)">« CHOUCAS-WEB-DESIGN-SPECS.md » v1.0 = source de vérité (prime sur les maquettes).<br>Cette maquette (V3/V4) = référence visuelle des 12 sections.<br>Écrans app : fichiers <span style="font:500 11px ui-monospace,Menlo,monospace">.dc.html</span> — <b>à déposer dans ce projet</b> pour remplacer les réserves.</div>
+    </div>
+    <div style="background:#fff;border:1px solid rgba(18,21,18,.14);border-radius:16px;padding:20px 24px;max-width:420px">
+      <div style="font:700 12px inherit;color:#121512;margin-bottom:10px">Tokens (choucas-web-tokens.css)</div>
+      <div style="font:400 11px/1.9 ui-monospace,Menlo,monospace;color:rgba(18,21,18,.65);background:#F6F5EF;border-radius:10px;padding:14px 16px">--choucas-ink #121512 · --choucas-paper #F6F5EF<br>--choucas-panel #E8E9E0 · --choucas-moss #95A184<br>--choucas-fir #263F30 · --choucas-fir-deep #17271D<br>--choucas-copper #B7683F<br>--choucas-success #3D7358 · --choucas-warning #986428<br>--choucas-danger #A45C4F · --choucas-white #FFFFFF<br>Newsreader 400/500 · Manrope 400/600/700/800<br>WOFF2 auto-hébergés · font-display swap</div>
+    </div>
+    <div style="background:#fff;border:1px solid rgba(18,21,18,.14);border-radius:16px;padding:20px 24px;max-width:420px">
+      <div style="font:700 12px inherit;color:#121512;margin-bottom:10px">Critères d'acceptation clés</div>
+      <div style="font-size:12.5px;line-height:1.9;color:rgba(18,21,18,.7)">Aucun débordement à 320/375/390/430 · CTA pleine largeur dans le hero mobile · flux « Pourquoi Choucas » vertical en mobile (jamais un tableau) · Lighthouse mobile : Perf ≥ 85, A11y ≥ 95, SEO ≥ 95 · LCP &lt; 2,5 s · CLS &lt; 0,1 · un seul h1 · zoom 200 % testé · animation = brief <a href="#v5" style="font:600 10.5px ui-monospace,Menlo,monospace;padding:2px 6px;background:rgba(18,21,18,.08);border-radius:5px;text-decoration:none">V5</a> uniquement · contenus provisoires (§11) à valider avant production.</div>
+    </div>
+  </div>
+</section>
+</x-dc>
+</body>
+</html>

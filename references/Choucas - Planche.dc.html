@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#edebe5;font-family:'Schibsted Grotesk',system-ui,sans-serif}a{color:inherit}a:hover{opacity:.85}</style>
+</helmet>
+<section id="p-manager" style="padding:44px 48px 36px;border-bottom:1px solid rgba(0,0,0,.08)">
+  <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:6px"><a href="#p-manager" style="font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#1a1a1a;color:#fff;border-radius:4px;text-decoration:none">A</a><span style="font:700 14px/1.2 inherit;color:#1a1a1a">Parcours manager — samedi type</span></div>
+  <div style="max-width:760px;font-size:12.5px;line-height:1.6;color:rgba(0,0,0,.6);margin:0 0 26px">Chaque écran séparé, dans l'ordre du flux : le brief arrive (saisie → validation), la journée se pilote (Aujourd'hui → Missions → détail → clôture), le patrimoine et l'équipe en référence. Tous les écrans restent interactifs.</div>
+  <div style="display:flex;flex-wrap:wrap;gap:36px;align-items:flex-start">
+    <div id="A1" style="flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px">
+      <div style="display:flex;align-items:baseline;gap:8px;font:400 11.5px/1.3 inherit;color:rgba(0,0,0,.6)"><a href="#A1" style="font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none">A1</a><b style="color:#1a1a1a">Saisie du brief</b> · multi-sources : appel, texte, email, photo</div>
+      <div style="width:390px;height:800px;border-radius:30px;border:1px solid rgba(0,0,0,.14);box-shadow:0 12px 36px rgba(0,0,0,.22);overflow:hidden;background:#F4F2EC">
+        <dc-import name="Choucas Brief Saisie" theme="clair" hint-size="390px,800px" style="width:100%;height:100%"></dc-import>
+      </div>
+    </div>
+    <div id="A2" style="flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px">
+      <div style="display:flex;align-items:baseline;gap:8px;font:400 11.5px/1.3 inherit;color:rgba(0,0,0,.6)"><a href="#A2" style="font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none">A2</a><b style="color:#1a1a1a">Validation du brief</b> · une décision à la fois</div>
+      <div style="width:390px;height:800px;border-radius:30px;border:1px solid rgba(0,0,0,.14);box-shadow:0 12px 36px rgba(0,0,0,.22);overflow:hidden;background:#F4F2EC">
+        <dc-import name="Choucas App v2" theme="clair" hint-size="390px,800px" style="width:100%;height:100%"></dc-import>
+      </div>
+    </div>
+    <div id="A3" style="flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px">
+      <div style="display:flex;align-items:baseline;gap:8px;font:400 11.5px/1.3 inherit;color:rgba(0,0,0,.6)"><a href="#A3" style="font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none">A3</a><b style="color:#1a1a1a">Aujourd’hui</b> · arrivée, alertes, rotation</div>
+      <div style="width:390px;height:800px;border-radius:30px;border:1px solid rgba(0,0,0,.14);box-shadow:0 12px 36px rgba(0,0,0,.22);overflow:hidden;background:#F4F2EC">
+        <dc-import name="Choucas Manager" theme="clair" ecran="accueil" hint-size="390px,800px" style="width:100%;height:100%"></dc-import>
+      </div>
+    </div>
+    <div id="A4" style="flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px">
+      <div style="display:flex;align-items:baseline;gap:8px;font:400 11.5px/1.3 inherit;color:rgba(0,0,0,.6)"><a href="#A4" style="font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none">A4</a><b style="color:#1a1a1a">Missions</b> · en cours / clôturées</div>
+      <div style="width:390px;height:800px;border-radius:30px;border:1px solid rgba(0,0,0,.14);box-shadow:0 12px 36px rgba(0,0,0,.22);overflow:hidden;background:#F4F2EC">
+        <dc-import name="Choucas Manager" theme="clair" ecran="missions" hint-size="390px,800px" style="width:100%;height:100%"></dc-import>
+      </div>
+    </div>
+    <div id="A5" style="flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px">
+      <div style="display:flex;align-items:baseline;gap:8px;font:400 11.5px/1.3 inherit;color:rgba(0,0,0,.6)"><a href="#A5" style="font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none">A5</a><b style="color:#1a1a1a">Détail mission</b> · Le Belvédère · Léa V. + vue en direct</div>
+      <div style="width:390px;height:800px;border-radius:30px;border:1px solid rgba(0,0,0,.14);box-shadow:0 12px 36px rgba(0,0,0,.22);overflow:hidden;background:#F4F2EC">
+        <dc-import name="Choucas Manager" theme="clair" ecran="mission" hint-size="390px,800px" style="width:100%;height:100%"></dc-import>
+      </div>
+    </div>
+    <div id="A6" style="flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px">
+      <div style="display:flex;align-items:baseline;gap:8px;font:400 11.5px/1.3 inherit;color:rgba(0,0,0,.6)"><a href="#A6" style="font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none">A6</a><b style="color:#1a1a1a">Clôture à valider</b> · Les Troncs · Karim B.</div>
+      <div style="width:390px;height:800px;border-radius:30px;border:1px solid rgba(0,0,0,.14);box-shadow:0 12px 36px rgba(0,0,0,.22);overflow:hidden;background:#F4F2EC">
+        <dc-import name="Choucas Manager" theme="clair" ecran="cloture" hint-size="390px,800px" style="width:100%;height:100%"></dc-import>
+      </div>
+    </div>
+    <div id="A6b" style="flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px">
+      <div style="display:flex;align-items:baseline;gap:8px;font:400 11.5px/1.3 inherit;color:rgba(0,0,0,.6)"><a href="#A6b" style="font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none">A6b</a><b style="color:#1a1a1a">Mission en retard</b> · La Roseraie · Sofia M. · rattrapage</div>
+      <div style="width:390px;height:800px;border-radius:30px;border:1px solid rgba(0,0,0,.14);box-shadow:0 12px 36px rgba(0,0,0,.22);overflow:hidden;background:#F4F2EC">
+        <dc-import name="Choucas Manager" theme="clair" ecran="retard" hint-size="390px,800px" style="width:100%;height:100%"></dc-import>
+      </div>
+    </div>
+    <div id="A6c" style="flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px">
+      <div style="display:flex;align-items:baseline;gap:8px;font:400 11.5px/1.3 inherit;color:rgba(0,0,0,.6)"><a href="#A6c" style="font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none">A6c</a><b style="color:#1a1a1a">Alerte urgente reçue</b> · dégât d’eau · le manager décide en un écran</div>
+      <div style="width:390px;height:800px;border-radius:30px;border:1px solid rgba(0,0,0,.14);box-shadow:0 12px 36px rgba(0,0,0,.22);overflow:hidden;background:#F4F2EC">
+        <dc-import name="Choucas Manager" theme="clair" ecran="urgence" hint-size="390px,800px" style="width:100%;height:100%"></dc-import>
+      </div>
+    </div>
+    <div id="A7" style="flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px">
+      <div style="display:flex;align-items:baseline;gap:8px;font:400 11.5px/1.3 inherit;color:rgba(0,0,0,.6)"><a href="#A7" style="font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none">A7</a><b style="color:#1a1a1a">Biens</b> · les 4 chalets</div>
+      <div style="width:390px;height:800px;border-radius:30px;border:1px solid rgba(0,0,0,.14);box-shadow:0 12px 36px rgba(0,0,0,.22);overflow:hidden;background:#F4F2EC">
+        <dc-import name="Choucas Manager" theme="clair" ecran="biens" hint-size="390px,800px" style="width:100%;height:100%"></dc-import>
+      </div>
+    </div>
+    <div id="A8" style="flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px">
+      <div style="display:flex;align-items:baseline;gap:8px;font:400 11.5px/1.3 inherit;color:rgba(0,0,0,.6)"><a href="#A8" style="font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none">A8</a><b style="color:#1a1a1a">Fiche bien</b> · Le Belvédère : accès, consignes, historique</div>
+      <div style="width:390px;height:800px;border-radius:30px;border:1px solid rgba(0,0,0,.14);box-shadow:0 12px 36px rgba(0,0,0,.22);overflow:hidden;background:#F4F2EC">
+        <dc-import name="Choucas Manager" theme="clair" ecran="bien" hint-size="390px,800px" style="width:100%;height:100%"></dc-import>
+      </div>
+    </div>
+    <div id="A8b" style="flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px">
+      <div style="display:flex;align-items:baseline;gap:8px;font:400 11.5px/1.3 inherit;color:rgba(0,0,0,.6)"><a href="#A8b" style="font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none">A8b</a><b style="color:#1a1a1a">Fiche bien</b> · La Roseraie — gabarit des 3 autres chalets</div>
+      <div style="width:390px;height:800px;border-radius:30px;border:1px solid rgba(0,0,0,.14);box-shadow:0 12px 36px rgba(0,0,0,.22);overflow:hidden;background:#F4F2EC">
+        <dc-import name="Choucas Manager" theme="clair" ecran="bien-roseraie" hint-size="390px,800px" style="width:100%;height:100%"></dc-import>
+      </div>
+    </div>
+    <div id="A9" style="flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px">
+      <div style="display:flex;align-items:baseline;gap:8px;font:400 11.5px/1.3 inherit;color:rgba(0,0,0,.6)"><a href="#A9" style="font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none">A9</a><b style="color:#1a1a1a">Équipe</b> · statuts et disponibilités</div>
+      <div style="width:390px;height:800px;border-radius:30px;border:1px solid rgba(0,0,0,.14);box-shadow:0 12px 36px rgba(0,0,0,.22);overflow:hidden;background:#F4F2EC">
+        <dc-import name="Choucas Manager" theme="clair" ecran="equipe" hint-size="390px,800px" style="width:100%;height:100%"></dc-import>
+      </div>
+    </div>
+  </div>
+</section>
+    <div id="A9b" style="flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px">
+      <div style="display:flex;align-items:baseline;gap:8px;font:400 11.5px/1.3 inherit;color:rgba(0,0,0,.6)"><a href="#A9b" style="font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none">A9b</a><b style="color:#1a1a1a">Réglages</b> · astreinte, notifications, rapports</div>
+      <div style="width:390px;height:800px;border-radius:30px;border:1px solid rgba(0,0,0,.14);box-shadow:0 12px 36px rgba(0,0,0,.22);overflow:hidden;background:#F4F2EC">
+        <dc-import name="Choucas Manager" theme="clair" ecran="reglages" hint-size="390px,800px" style="width:100%;height:100%"></dc-import>
+      </div>
+    </div>
+<section id="p-equipe" style="padding:44px 48px 36px;border-bottom:1px solid rgba(0,0,0,.08)">
+  <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:6px"><a href="#p-equipe" style="font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#1a1a1a;color:#fff;border-radius:4px;text-decoration:none">B</a><span style="font:700 14px/1.2 inherit;color:#1a1a1a">Parcours intervenant — Léa, sur le terrain</span></div>
+  <div style="max-width:760px;font-size:12.5px;line-height:1.6;color:rgba(0,0,0,.6);margin:0 0 26px">Ma journée (quoi maintenant, quoi ensuite) puis la mission : segment Tout · Client · Ménage, photo en direct, signalements sticky, clôture.</div>
+  <div style="display:flex;flex-wrap:wrap;gap:36px;align-items:flex-start">
+    <div id="B1" style="flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px">
+      <div style="display:flex;align-items:baseline;gap:8px;font:400 11.5px/1.3 inherit;color:rgba(0,0,0,.6)"><a href="#B1" style="font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none">B1</a><b style="color:#1a1a1a">Ma journée</b> · maintenant / à suivre / terminé</div>
+      <div style="width:390px;height:800px;border-radius:30px;border:1px solid rgba(0,0,0,.14);box-shadow:0 12px 36px rgba(0,0,0,.22);overflow:hidden;background:#F4F2EC">
+        <dc-import name="Choucas Journee" theme="clair" hint-size="390px,800px" style="width:100%;height:100%"></dc-import>
+      </div>
+    </div>
+    <div id="B2" style="flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px">
+      <div style="display:flex;align-items:baseline;gap:8px;font:400 11.5px/1.3 inherit;color:rgba(0,0,0,.6)"><a href="#B2" style="font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none">B2</a><b style="color:#1a1a1a">Mission</b> · Tout · Client · Ménage, photo live, clôture</div>
+      <div style="width:390px;height:800px;border-radius:30px;border:1px solid rgba(0,0,0,.14);box-shadow:0 12px 36px rgba(0,0,0,.22);overflow:hidden;background:#F4F2EC">
+        <dc-import name="Choucas Mission" theme="clair" hint-size="390px,800px" style="width:100%;height:100%"></dc-import>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="p-horsapp" style="padding:44px 48px 44px">
+  <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:6px"><a href="#p-horsapp" style="font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#1a1a1a;color:#fff;border-radius:4px;text-decoration:none">C</a><span style="font:700 14px/1.2 inherit;color:#1a1a1a">Hors app — notifications &amp; rapport propriétaire</span></div>
+  <div style="max-width:760px;font-size:12.5px;line-height:1.6;color:rgba(0,0,0,.6);margin:0 0 26px">L'email transactionnel de clôture (desktop + mobile), le SMS de repli avec la règle d'escalade, et le rapport envoyé à M. Arnaud.</div>
+  <div style="display:flex;flex-wrap:wrap;gap:36px;align-items:flex-start">
+    <div id="C1" style="flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px;max-width:100%">
+      <div style="display:flex;align-items:baseline;gap:8px;font:400 11.5px/1.3 inherit;color:rgba(0,0,0,.6)"><a href="#C1" style="font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none">C1</a><b style="color:#1a1a1a">Notifications</b> · email + SMS + escalade</div>
+      <div style="width:1100px;max-width:100%;background:#f2f0ea;border:1px solid rgba(0,0,0,.08);border-radius:8px;padding:16px"><dc-import name="Choucas Notifications" hint-size="1068px,980px" style="width:100%"></dc-import></div>
+    </div>
+    <div id="C2" style="flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px;max-width:100%">
+      <div style="display:flex;align-items:baseline;gap:8px;font:400 11.5px/1.3 inherit;color:rgba(0,0,0,.6)"><a href="#C2" style="font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none">C2</a><b style="color:#1a1a1a">Rapport propriétaire</b> · envoyé à la validation de clôture</div>
+      <div style="width:692px;max-width:100%;background:#f2f0ea;border:1px solid rgba(0,0,0,.08);border-radius:8px;padding:16px"><dc-import name="Choucas Rapport Proprietaire" hint-size="660px,980px" style="width:100%"></dc-import></div>
+    </div>
+    <div id="C3" style="flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px;max-width:100%">
+      <div style="display:flex;align-items:baseline;gap:8px;font:400 11.5px/1.3 inherit;color:rgba(0,0,0,.6)"><a href="#C3" style="font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none">C3</a><b style="color:#1a1a1a">Rapport hebdomadaire</b> · envoyé chaque dimanche 18 h au propriétaire</div>
+      <div style="width:692px;max-width:100%;background:#f2f0ea;border:1px solid rgba(0,0,0,.08);border-radius:8px;padding:16px"><dc-import name="Choucas Rapport Hebdo" hint-size="660px,1240px" style="width:100%"></dc-import></div>
+    </div>
+    <div id="C4" style="flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px;max-width:100%">
+      <div style="display:flex;align-items:baseline;gap:8px;font:400 11.5px/1.3 inherit;color:rgba(0,0,0,.6)"><a href="#C4" style="font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none">C4</a><b style="color:#1a1a1a">Rapport d'incident</b> · envoyé au propriétaire dès l'intervention terminée</div>
+      <div style="width:692px;max-width:100%;background:#f2f0ea;border:1px solid rgba(0,0,0,.08);border-radius:8px;padding:16px"><dc-import name="Choucas Rapport Incident" hint-size="660px,1500px" style="width:100%"></dc-import></div>
+    </div>
+  </div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const mk = (id, title, sub, dc, ecran) => ({ id, href: "#" + id, title, sub, dc, ecran: ecran || "accueil" });
+    return {
+      managerFrames: [
+        mk("A1", "Saisie du brief", "multi-sources : appel, texte, email, photo", "Choucas Brief Saisie"),
+        mk("A2", "Validation du brief", "une décision à la fois", "Choucas App v2"),
+        mk("A3", "Aujourd'hui", "arrivée, alertes, rotation", "Choucas Manager", "accueil"),
+        mk("A4", "Missions", "en cours / clôturées", "Choucas Manager", "missions"),
+        mk("A5", "Détail mission", "Le Belvédère · Léa V. + vue en direct", "Choucas Manager", "mission"),
+        mk("A6", "Clôture à valider", "Les Troncs · Karim B.", "Choucas Manager", "cloture"),
+        mk("A7", "Biens", "les 4 chalets", "Choucas Manager", "biens"),
+        mk("A8", "Fiche bien", "Le Belvédère : accès, consignes, historique", "Choucas Manager", "bien"),
+        mk("A9", "Équipe", "statuts et disponibilités", "Choucas Manager", "equipe")
+      ],
+      terrainFrames: [
+        mk("B1", "Ma journée", "maintenant / à suivre / terminé", "Choucas Journee"),
+        mk("B2", "Mission", "Tout · Client · Ménage, photo live, clôture", "Choucas Mission")
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

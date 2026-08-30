@@ -1,0 +1,127 @@
+/* ==================================================================
+   CHOUCAS — Tokens du site vitrine
+   Remplace le fichier de tokens des specs UX/UI.
+
+   Corrige un seul point de ces specs : les couleurs. Sur onze tokens,
+   un seul correspondait a la charte Choucas — les dix autres etaient
+   decales d'un a deux points. Le site affiche des captures de l'app
+   (§6.3, §6.4) : deux jeux de verts et de creme voisins mais
+   differents se voient, meme sans etre nommes.
+
+   Ce qui ne change pas : la typographie du site (Newsreader +
+   Manrope), l'echelle typographique, les espacements, la grille.
+   Un site marketing a le droit d'avoir sa propre voix.
+
+   La source de verite reste le §3 des specifications produit.
+   Toute valeur ici doit y correspondre au hex pres.
+   ================================================================== */
+
+:root {
+
+  /* --- Charte Choucas -------------------------------------------
+     Ces dix valeurs sont celles de l'application. Ne pas les
+     modifier ici : les corriger dans les specifications produit
+     d'abord, puis les reporter.                                    */
+
+  --choucas-neige:      #F4F2EC;  /* fond principal                */
+  --choucas-glacier:    #FCFBF7;  /* cartes et surfaces            */
+  --choucas-schiste:    #151816;  /* texte, fond sombre            */
+  --choucas-graphite:   #222622;  /* surfaces sombres              */
+  --choucas-sapin:      #244238;  /* marque, CTA primaire          */
+  --choucas-cuivre:     #B56F46;  /* accent editorial              */
+  --choucas-crepuscule: #466170;  /* information                   */
+  --choucas-mousse:     #3D7358;  /* preuve positive               */
+  --choucas-ambre:      #C18B38;  /* attention                     */
+  --choucas-grenat:     #A64B3F;  /* erreur, alerte                */
+
+  /* --- Propres au site ------------------------------------------
+     Deux tokens que l'application n'a pas et dont le site a besoin.
+     Ils ne portent jamais de texte : uniquement des aplats.        */
+
+  --choucas-lichen:     #95A184;  /* grandes surfaces de respiration,
+                                     sections de profils, montagne   */
+  --choucas-panneau:    #E8E9E0;  /* sections secondaires            */
+
+  /* --- Alias fonctionnels ---------------------------------------
+     Le code du site appelle ces noms-la, jamais les couleurs.
+     Changer un usage = changer un alias, pas cent declarations.    */
+
+  --web-fond:           var(--choucas-neige);
+  --web-fond-alt:       var(--choucas-panneau);
+  --web-fond-sombre:    var(--choucas-schiste);
+  --web-surface:        var(--choucas-glacier);
+  --web-respiration:    var(--choucas-lichen);
+
+  --web-encre:          var(--choucas-schiste);
+  --web-encre-inverse:  var(--choucas-neige);
+  --web-encre-douce:    #5A615B;   /* 7,04:1 sur Neige — texte secondaire */
+
+  --web-cta-fond:       var(--choucas-sapin);
+  --web-cta-encre:      var(--choucas-glacier);
+  --web-cta-presse:     #17271D;   /* etat presse, jamais de texte dessus */
+
+  --web-accent:         var(--choucas-cuivre);
+  --web-lien:           var(--choucas-sapin);
+
+  --web-ok:             var(--choucas-mousse);
+  --web-info:           var(--choucas-crepuscule);
+  --web-attention:      #8A5E20;   /* Ambre assombri — voir note ci-dessous */
+  --web-erreur:         var(--choucas-grenat);
+
+  --web-filet:          #DDD9CE;
+}
+
+/* ==================================================================
+   CONTRASTES — mesures WCAG 2.2 AA, calculees sur ces valeurs
+
+   Texte courant                      ratio    seuil 4,5
+   ------------------------------------------------------
+   Schiste sur Neige                  15,98      OK
+   Schiste sur Glacier                17,27      OK
+   Schiste sur panneau                14,62      OK
+   Schiste sur Lichen                  6,57      OK
+   Glacier sur Sapin (CTA)            10,61      OK
+   Sapin sur Neige (lien)              9,81      OK
+   Mousse sur Neige                    4,95      OK
+   Grenat sur Neige                    5,07      OK
+   Crepuscule sur Neige                5,85      OK
+   Neige sur Schiste                  15,98      OK
+
+   Deux valeurs demandent une regle, pas une correction :
+
+   1. CUIVRE sur Neige = 3,52. Sous le seuil du texte courant,
+      au-dessus de celui du texte large (3,0).
+      -> Le Cuivre est reserve aux titres de 24 px et plus, ou au
+         gras de 19 px et plus. Jamais un paragraphe, jamais une
+         legende, jamais un libelle de bouton. C'est deja ce que
+         disent les specs : « ne jamais utiliser le cuivre pour un
+         long paragraphe ». La mesure precise la limite.
+
+   2. AMBRE sur Neige = 2,67. Echoue partout.
+      -> --web-attention utilise #8A5E20, l'Ambre sombre de la
+         charte (--warnInk du theme clair de l'app). Ratio 5,44.
+         L'Ambre clair #C18B38 reste disponible en aplat de fond
+         ou en filet, jamais en texte.
+
+   3. LICHEN sur Neige = 2,43. C'est voulu : le Lichen est une
+      surface, pas une encre. Le texte pose dessus est du Schiste
+      (6,57), jamais l'inverse.
+   ================================================================== */
+
+/* ==================================================================
+   RAPPELS D'USAGE — repris des specs, conserves
+
+   - Le Cuivre est un accent : 10 a 15 % d'une vue au maximum.
+   - Le Sapin porte les actions principales et les moments de
+     transformation.
+   - Le Lichen est reserve aux grandes surfaces de respiration et
+     aux sections de profils.
+   - Tout texte fonctionnel respecte AA : 4,5:1 minimum.
+
+   Une regle en plus, propre a l'alignement :
+
+   - Les captures de l'application affichees dans la page (§6.3,
+     §6.4) gardent les couleurs de l'application. C'est pour elles
+     que cet alignement existe : le fond de la page et le fond de la
+     capture doivent etre le meme creme.
+   ================================================================== */
