@@ -1,0 +1,18 @@
+{
+  "metadata": {
+    "title": "Choucas — Operations software for concierge companies",
+    "titleTemplate": "{page} — Choucas",
+    "description": "Choucas coordinates the briefs, rotations, missions, teams, stock and linen of concierge companies, from the office all the way to the field."
+  },
+  "home": {
+    "title": "Your concierge operation, perfectly orchestrated."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "This address does not match any page on the site.",
+    "backHome": "Back to home"
+  },
+  "languageSwitcher": {
+    "label": "Choose a language"
+  }
+}

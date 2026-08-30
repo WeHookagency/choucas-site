@@ -1,0 +1,18 @@
+{
+  "metadata": {
+    "title": "Choucas — Le logiciel opérationnel des conciergeries",
+    "titleTemplate": "{page} — Choucas",
+    "description": "Choucas coordonne les briefs, rotations, missions, équipes, stocks et linge des conciergeries, du bureau jusqu'au terrain."
+  },
+  "home": {
+    "title": "Votre conciergerie, parfaitement orchestrée."
+  },
+  "notFound": {
+    "title": "Page introuvable",
+    "description": "Cette adresse ne correspond à aucune page du site.",
+    "backHome": "Retour à l'accueil"
+  },
+  "languageSwitcher": {
+    "label": "Choisir une langue"
+  }
+}

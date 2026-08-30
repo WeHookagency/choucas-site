@@ -1,0 +1,86 @@
+/* ==================================================================
+   CHOUCAS — Tokens du site vitrine
+
+   Reprend `references/choucas-web-tokens.css` a l'identique. Ce fichier
+   prime sur les couleurs de CHOUCAS-WEB-DESIGN-SPECS.md, qui divergent
+   de l'application sur dix tokens sur onze : le site affiche des
+   captures de l'application, deux jeux de verts et de cremes voisins
+   mais differents se verraient.
+
+   La source de verite reste le §3 des specifications produit. Toute
+   valeur ici doit y correspondre au hex pres — les corriger la-bas
+   d'abord, puis les reporter ici.
+
+   Les contrastes mesures et les regles d'usage complets sont dans le
+   fichier de reference. L'essentiel est rappele en fin de fichier.
+   ================================================================== */
+
+:root {
+  /* --- Charte Choucas ---------------------------------------------
+     Les dix valeurs de l'application. Ne pas les modifier ici.      */
+
+  --choucas-neige: #f4f2ec; /* fond principal       */
+  --choucas-glacier: #fcfbf7; /* cartes et surfaces   */
+  --choucas-schiste: #151816; /* texte, fond sombre   */
+  --choucas-graphite: #222622; /* surfaces sombres     */
+  --choucas-sapin: #244238; /* marque, CTA primaire */
+  --choucas-cuivre: #b56f46; /* accent editorial     */
+  --choucas-crepuscule: #466170; /* information          */
+  --choucas-mousse: #3d7358; /* preuve positive      */
+  --choucas-ambre: #c18b38; /* attention            */
+  --choucas-grenat: #a64b3f; /* erreur, alerte       */
+
+  /* --- Propres au site --------------------------------------------
+     Deux tokens que l'application n'a pas. Ils ne portent jamais de
+     texte : uniquement des aplats.                                  */
+
+  --choucas-lichen: #95a184; /* surfaces de respiration, profils */
+  --choucas-panneau: #e8e9e0; /* sections secondaires             */
+
+  /* --- Alias fonctionnels -----------------------------------------
+     Le code du site appelle ces noms-la, jamais les couleurs.
+     Changer un usage = changer un alias, pas cent declarations.     */
+
+  --web-fond: var(--choucas-neige);
+  --web-fond-alt: var(--choucas-panneau);
+  --web-fond-sombre: var(--choucas-schiste);
+  --web-surface: var(--choucas-glacier);
+  --web-respiration: var(--choucas-lichen);
+
+  --web-encre: var(--choucas-schiste);
+  --web-encre-inverse: var(--choucas-neige);
+  --web-encre-douce: #5a615b; /* 7,04:1 sur Neige — texte secondaire */
+
+  --web-cta-fond: var(--choucas-sapin);
+  --web-cta-encre: var(--choucas-glacier);
+  --web-cta-presse: #17271d; /* etat presse, jamais de texte dessus */
+
+  --web-accent: var(--choucas-cuivre);
+  --web-lien: var(--choucas-sapin);
+
+  --web-ok: var(--choucas-mousse);
+  --web-info: var(--choucas-crepuscule);
+  --web-attention: #8a5e20; /* Ambre assombri, 5,44:1 sur Neige */
+  --web-erreur: var(--choucas-grenat);
+
+  --web-filet: #ddd9ce;
+}
+
+/* ==================================================================
+   REGLES D'USAGE — trois limites qui ne se lisent pas dans les valeurs
+
+   1. Le CUIVRE sur Neige mesure 3,52:1. Sous le seuil du texte
+      courant, au-dessus de celui du texte large. Reserve aux titres
+      de 24 px et plus, ou au gras de 19 px et plus. Jamais un
+      paragraphe, une legende ou un libelle de bouton.
+
+   2. L'AMBRE clair (#C18B38) mesure 2,67:1 et echoue partout. Il
+      reste disponible en aplat ou en filet. Pour du texte
+      d'attention, utiliser --web-attention.
+
+   3. Le LICHEN mesure 2,43:1 : c'est une surface, pas une encre. Le
+      texte pose dessus est du Schiste (6,57:1), jamais l'inverse.
+
+   Et deux proportions : le Cuivre ne depasse pas 10 a 15 % d'une vue ;
+   le Sapin porte les actions principales.
+   ================================================================== */
