@@ -245,7 +245,7 @@
       "enMission": "En mission",
       "disponible": "Disponible"
     },
-    "captureAlt": "Écran Aujourd'hui de Choucas sur mobile : une alerte urgente en tête, trois exceptions à traiter, puis la journée détaillée mission par mission.",
+    "captureAlt": "Bloc Exceptions de Choucas : le Chalet La Tournette en critique, avec le signalement de l'intervenante et deux actions possibles, puis deux chalets en attente de contrôle.",
     "lienDemo": "Ouvrir la démonstration Choucas dans un nouvel onglet"
   },
   "terrain": {
@@ -275,7 +275,8 @@
       "missions": "Missions",
       "stocks": "Stocks",
       "equipe": "Équipe"
-    }
+    },
+    "captureAlt": "Carte Maintenant de l'application terrain : ménage en cours depuis 13:15 au Chalet Balme, progression 11 sur 24, consignes à savoir avant d'entrer et bouton Reprendre la mission."
   },
   "ctaFinal": {
     "label": "Prêt à voir Choucas sur vos propres rotations ?",

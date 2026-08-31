@@ -53,7 +53,7 @@ export function Hospitality() {
                 style={{ '--i': i + 1 } as CSSProperties}
                 className="flex gap-4"
               >
-                <span aria-hidden className="text-label pt-1 font-semibold text-encre-douce">
+                <span aria-hidden className="text-numero shrink-0 font-semibold tabular-nums text-encre-douce">
                   {String(i + 1).padStart(2, '0')}
                 </span>
                 <span className="text-corps">{t(`principes.${cle}`)}</span>

@@ -26,9 +26,12 @@ export const HAUTEUR_BARRE_MOBILE = 60;
 /**
  * Destination des CTA « Demander une demo ».
  *
- * Provisoire : ramene a la section de conversion, faute de mecanisme de prise
- * de rendez-vous. Les specs §6.11 et §11 listent l'adresse de contact et le
- * systeme de reservation parmi les elements a arreter avant production.
- * Une seule constante a changer le jour venu.
+ * Une adresse de courrier, en attendant un vrai mecanisme de prise de
+ * rendez-vous — les specs §6.11 et §11 le rangent parmi les elements a
+ * arreter avant production. Les quatre boutons de la page lisent cette seule
+ * constante : la remplacer par une URL de reservation suffira.
+ *
+ * Pas de `target="_blank"` : un `mailto:` ouvre le client de messagerie, pas
+ * une page. Le nouvel onglet resterait vide derriere lui.
  */
-export const LIEN_DEMO = `#${ancres.demo}`;
+export const LIEN_DEMO = 'mailto:mathieudv@wehookagency.com';

@@ -43,7 +43,7 @@ export function BriefToProof() {
     pret: estPret(cle),
     libelle: (
       <span className="flex items-baseline gap-3">
-        <span aria-hidden className="text-label opacity-60">
+        <span aria-hidden className="text-numero tabular-nums opacity-60">
           {String(i + 1).padStart(2, '0')}
         </span>
         {t(`onglets.${cle}`)}

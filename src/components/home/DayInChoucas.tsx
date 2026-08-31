@@ -47,7 +47,7 @@ export function DayInChoucas() {
     pret: estPret(cle),
     libelle: (
       <span className="flex flex-col items-center gap-0.5 tablette:flex-row tablette:gap-2">
-        <span className="font-semibold">{t(`moments.${cle}.heure`)}</span>
+        <span className="font-semibold tabular-nums">{t(`moments.${cle}.heure`)}</span>
         <span aria-hidden className="hidden tablette:inline opacity-50">
           ·
         </span>
@@ -90,7 +90,7 @@ export function DayInChoucas() {
       <Panneau idBase="journee" id={actif} className="mt-titre">
         <div className="grid gap-8 desktop:grid-cols-3 desktop:gap-12">
           <div>
-            <p className="text-label font-semibold uppercase text-encre-douce">
+            <p className="text-micro font-semibold uppercase tracking-[0.08em] tabular-nums text-encre-douce">
               {t(`moments.${actif}.heure`)} · {t(`moments.${actif}.verbe`)}
             </p>
             <h3 className="font-serif text-h3 mt-4 text-balance">
@@ -102,7 +102,7 @@ export function DayInChoucas() {
 
           <Card rayon="majeure" ombre>
             <p className="text-label flex items-center gap-2 font-semibold uppercase text-encre-douce">
-              <Icon name={icone} size={20} />
+              <Icon name={icone} size={24} />
               {t(`panneaux.${actif}.carteTitre`)}
             </p>
             {t(`panneaux.${actif}.carteLigne`) ? (

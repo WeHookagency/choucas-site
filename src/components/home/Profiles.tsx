@@ -67,7 +67,7 @@ export function Profiles() {
                 <div className="flex items-start justify-between gap-4">
                   <span
                     aria-hidden
-                    className={`text-label font-semibold ${central ? 'text-cta-encre/70' : 'text-encre-douce'}`}
+                    className={`text-numero font-semibold tabular-nums ${central ? 'text-cta-encre/70' : 'text-encre-douce'}`}
                   >
                     {String(i + 1).padStart(2, '0')}
                   </span>
@@ -82,7 +82,7 @@ export function Profiles() {
                 <p className="text-corps mt-3">{t(`${cle}.phrase`)}</p>
 
                 <p className="text-corps mt-auto flex items-start gap-2 pt-6 font-semibold">
-                  <Icon name="coche" size={20} className="mt-0.5 shrink-0" />
+                  <Icon name="coche" size={24} className="mt-0.5 shrink-0" />
                   {t(`${cle}.benefice`)}
                 </p>
               </Card>

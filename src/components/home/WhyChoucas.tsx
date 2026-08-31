@@ -107,7 +107,7 @@ export function WhyChoucas() {
           ] as const
         ).map(([valeur, libelle]) => (
           <li key={valeur}>
-            <p className="font-serif text-h3">{t(`resultats.${valeur}`)}</p>
+            <p className="font-serif text-h3 tabular-nums">{t(`resultats.${valeur}`)}</p>
             <p className="text-corps mt-1 text-encre-douce">{t(`resultats.${libelle}`)}</p>
           </li>
         ))}
