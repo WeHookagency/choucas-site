@@ -140,7 +140,7 @@ export function FieldDemo() {
           <ul className="mt-titre space-y-3">
             {POINTS.map((cle) => (
               <li key={cle} className="text-corps flex items-start gap-3">
-                <Icon name="coche" size={20} className="mt-0.5 shrink-0 text-ok" />
+                <Icon name="coche" size={24} graisse="bold" className="mt-px shrink-0 text-ok" />
                 {t(`points.${cle}`)}
               </li>
             ))}
