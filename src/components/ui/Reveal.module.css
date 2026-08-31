@@ -1,0 +1,32 @@
+/* Primitive d'apparition — brief d'animation V7 de la maquette.
+   Une seule primitive pour tout le site : fondu + translation de 12 px vers
+   le haut, 220 ms, courbe des specs §8. Le CSS porte l'animation, le JS ne
+   fait qu'ajouter une classe. */
+
+.hidden {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.animated {
+  transition:
+    opacity 0.22s cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Decalage d'un groupe : 90 ms entre elements, pose par --i sur chaque
+   enfant. Le produit entre en dernier, comme un element du groupe. */
+.group > * {
+  transition-delay: calc(var(--i, 0) * 90ms);
+}
+
+/* Les specs demandent la suppression des transitions, pas leur
+   raccourcissement. Le contenu s'affiche alors sans mouvement. */
+@media (prefers-reduced-motion: reduce) {
+  .hidden,
+  .animated {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

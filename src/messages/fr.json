@@ -4,9 +4,6 @@
     "titleTemplate": "{page} — Choucas",
     "description": "Choucas coordonne les briefs, rotations, missions, équipes, stocks et linge des conciergeries, du bureau jusqu'au terrain."
   },
-  "home": {
-    "title": "Votre conciergerie, parfaitement orchestrée."
-  },
   "notFound": {
     "title": "Page introuvable",
     "description": "Cette adresse ne correspond à aucune page du site.",
@@ -14,5 +11,276 @@
   },
   "languageSwitcher": {
     "label": "Choisir une langue"
+  },
+  "nav": {
+    "marque": "Choucas",
+    "aria": "Navigation principale",
+    "ouvrirMenu": "Ouvrir le menu",
+    "fermerMenu": "Fermer le menu",
+    "pourquoi": "Pourquoi Choucas",
+    "produit": "Le produit",
+    "fonctionnement": "Fonctionnement",
+    "aPropos": "À propos"
+  },
+  "footer": {
+    "aria": "Navigation de pied de page",
+    "contexte": "Hospitality operations · Alpes françaises · 2026"
+  },
+  "actions": {
+    "demo": "Demander une démo",
+    "fonctionnement": "Voir comment ça fonctionne"
+  },
+  "hero": {
+    "label": "CHOUCAS · OPÉRATIONS DE CONCIERGERIE",
+    "titre": "Votre conciergerie, <accent>parfaitement orchestrée.</accent>",
+    "intro": "Choucas transforme chaque demande en action et suit chaque opération jusqu'à ce que le bien soit prêt."
+  },
+  "tension": {
+    "label": "Le problème n'est pas le service. C'est tout ce qui se perd entre deux personnes.",
+    "titre": "Messages dispersés. Rotations sous tension. Équipes sans contexte. <accent>Choucas remet tout le monde sur la même ligne.</accent>",
+    "photoAlt": "Une employée de conciergerie replace un oreiller sur un lit préparé, dans une chambre en lumière naturelle."
+  },
+  "hospitalite": {
+    "label": "L'hospitalité en action",
+    "titre": "Le luxe n'est pas une apparence. <accent>C'est l'absence de friction.</accent>",
+    "principes": {
+      "responsable": "Une information possède toujours un responsable.",
+      "contexte": "Une mission conserve le contexte du client.",
+      "anomalie": "Une anomalie devient une action, pas un message perdu.",
+      "rotation": "Une rotation relie planning, ressources et preuves."
+    },
+    "photoAlt": "Chambre d'un chalet en bois : lit fait et linge de maison roulé au pied du lit."
+  },
+  "pourquoi": {
+    "label": "Pourquoi Choucas ?",
+    "titre": "Du bruit opérationnel <accent>à une journée maîtrisée.</accent>",
+    "avant": {
+      "titre": "Avant · Informations dispersées",
+      "messages": "Messages clients",
+      "calendriers": "Calendriers séparés",
+      "appels": "Appels & imprévus",
+      "stocks": "Tableaux de stocks"
+    },
+    "moteur": {
+      "nom": "Choucas",
+      "verbes": "Centralise · Priorise · Attribue"
+    },
+    "apres": {
+      "titre": "Après · Opérations synchronisées",
+      "rotations": "Rotations anticipées",
+      "missions": "Missions contextualisées",
+      "stocks": "Linge et stocks disponibles",
+      "preuves": "Preuves archivées"
+    },
+    "resultats": {
+      "vueValeur": "1",
+      "vueLibelle": "vue commune",
+      "perteValeur": "0",
+      "perteLibelle": "information perdue",
+      "contexteValeur": "100 %",
+      "contexteLibelle": "du contexte terrain"
+    }
+  },
+  "profils": {
+    "label": "Un outil pour toute la conciergerie",
+    "titre": "Une même information. <accent>Trois façons d'agir.</accent>",
+    "dirigeant": {
+      "verbe": "Piloter",
+      "role": "Dirigeant",
+      "phrase": "Une vision nette de l'activité, des biens et de la qualité.",
+      "benefice": "Moins de dépendance au dirigeant"
+    },
+    "exploitation": {
+      "verbe": "Coordonner",
+      "role": "Responsable d'exploitation",
+      "phrase": "Les rotations, équipes et imprévus réunis dans une vue.",
+      "benefice": "Moins d'appels et de relances"
+    },
+    "terrain": {
+      "verbe": "Exécuter",
+      "role": "Équipe terrain",
+      "phrase": "La prochaine action, son contexte et sa preuve dans la poche.",
+      "benefice": "Moins d'hésitation sur le terrain"
+    }
+  },
+  "brief": {
+    "label": "Une seule logique opérationnelle",
+    "titre": "Du brief <accent>à la preuve.</accent>",
+    "resultatLabel": "Résultat",
+    "onglets": {
+      "brief": "Brief",
+      "rotations": "Rotations & iCal",
+      "missions": "Missions",
+      "stocks": "Stocks, linge & blanchisserie"
+    },
+    "panneaux": {
+      "brief": {
+        "titre": "Le brief devient action.",
+        "texte": "Les demandes arrivent par message, appel, email ou note. Choucas les structure, détecte les conflits et les distribue aux bonnes personnes.",
+        "resultat": "Une consigne claire, attribuée et validée."
+      },
+      "rotations": {
+        "titre": "Une seule frise pour la journée",
+        "texte": "Plateformes, propriétaire et séjours arrivent chacun de leur côté. Choucas les pose sur la même ligne : départs, ménages, arrivées.",
+        "resultat": "Un chevauchement vu la veille"
+      },
+      "missions": {
+        "titre": "Chacun sait quoi faire, et pourquoi",
+        "texte": "Chaque consigne validée se transforme en mission assignée. L'équipier reçoit l'action à faire et le contexte qui l'explique.",
+        "resultat": "Aucune consigne sans mission"
+      },
+      "stocks": {
+        "titre": "Le linge suit la rotation",
+        "texte": "Les besoins en linge se déduisent des séjours à venir. Ce qui manque remonte avant le départ, pas au moment de faire le lit.",
+        "resultat": "Le manque signalé avant l'arrivée"
+      }
+    }
+  },
+  "pret": {
+    "label": "LE CŒUR DU SYSTÈME",
+    "titre": "PRÊT n'est pas une case cochée. <accent>C'est un état validé.</accent>",
+    "corps": "La personne qui contrôle n'est pas celle qui a exécuté la mission. Le bien devient PRÊT seulement après validation."
+  },
+  "journee": {
+    "label": "Une journée dans Choucas",
+    "titre": "Le bon signal, <accent>au bon moment.</accent>",
+    "moments": {
+      "preparer": {
+        "heure": "08:00",
+        "verbe": "Préparer"
+      },
+      "coordonner": {
+        "heure": "11:30",
+        "verbe": "Coordonner"
+      },
+      "controler": {
+        "heure": "15:00",
+        "verbe": "Contrôler"
+      },
+      "accueillir": {
+        "heure": "17:30",
+        "verbe": "Accueillir"
+      }
+    },
+    "panneaux": {
+      "preparer": {
+        "titre": "Les rotations du jour sont prêtes avant le café.",
+        "texte": "Le planning relie les séjours, les missions et les ressources : chacun sait où aller, avec quoi, et pourquoi. Les briefs de la veille sont déjà décomposés en consignes attribuées.",
+        "carteTitre": "Choucas · Planning",
+        "carteLigne": "3 rotations · 5 missions attribuées",
+        "carteEtat": "Linge confirmé pour Le Belvédère"
+      },
+      "coordonner": {
+        "titre": "Ce qui change la journée remonte, le reste avance",
+        "texte": "Une arrivée décalée, un équipier absent, un accès qui ne répond pas. Choucas ne montre au manager que ce qui demande une décision. Les missions normales continuent sans lui.",
+        "carteTitre": "Choucas · Accueil manager",
+        "carteLigne": "",
+        "carteEtat": "2 exceptions traitées"
+      },
+      "controler": {
+        "titre": "Terminé n'est pas prêt",
+        "texte": "La mission est faite, la photo est là. Une autre personne que celle qui a exécuté ouvre le contrôle et valide. C'est cette règle qui fait passer le bien en PRÊT.",
+        "carteTitre": "Choucas · Contrôle de mission",
+        "carteLigne": "",
+        "carteEtat": "Validé par un second regard"
+      },
+      "accueillir": {
+        "titre": "La consigne du matin est tenue",
+        "texte": "Le lit bébé demandé à 8h est en place, contrôlé, prouvé. Le bien est PRÊT avant que les clients ne sonnent, et le manager n'a rien eu à vérifier lui-même.",
+        "carteTitre": "Choucas · Fiche du bien",
+        "carteLigne": "",
+        "carteEtat": "PRÊT · 17:12"
+      }
+    }
+  },
+  "manager": {
+    "label": "Démonstration · Choucas Manager",
+    "aria": "Démonstration de l'interface Choucas Manager",
+    "navAria": "Navigation de la démonstration",
+    "onglets": {
+      "aujourdhui": "Aujourd'hui",
+      "missions": "Missions",
+      "biens": "Biens",
+      "equipe": "Équipe"
+    },
+    "noms": {
+      "belvedere": "Le Belvédère",
+      "roseraie": "La Roseraie",
+      "troncs": "Les Troncs",
+      "renard": "Le Grand Renard",
+      "lea": "Léa V.",
+      "karim": "Karim B.",
+      "thomas": "Thomas M."
+    },
+    "aujourdhui": {
+      "arriveeLabel": "Prochaine arrivée",
+      "arriveeDans": "dans 2 h 40",
+      "alertes": "Alertes",
+      "alerteLinge": "Linge à confirmer",
+      "alerteAction": "Traiter",
+      "rotation": "Rotation du jour",
+      "depart": "Départ",
+      "menage": "Ménage",
+      "arrivee": "Arrivée",
+      "enCours": "en cours"
+    },
+    "missions": {
+      "enCours": "En cours",
+      "aControler": "À contrôler",
+      "taches": "{faites}/{total} tâches",
+      "photos": "{n} photos",
+      "retard": "Retard",
+      "menage": "Ménage"
+    },
+    "biens": {
+      "occupe": "Occupé",
+      "rotation": "Rotation",
+      "libre": "Libre",
+      "equipeSemaine": "Équipe de la semaine"
+    },
+    "equipe": {
+      "equipiere": "Équipière",
+      "equipier": "Équipier",
+      "chef": "Chef",
+      "enMission": "En mission",
+      "disponible": "Disponible"
+    },
+    "captureAlt": "Écran Aujourd'hui de Choucas sur mobile : une alerte urgente en tête, trois exceptions à traiter, puis la journée détaillée mission par mission.",
+    "lienDemo": "Ouvrir la démonstration Choucas dans un nouvel onglet"
+  },
+  "terrain": {
+    "label": "Choucas sur le terrain",
+    "titre": "La mission dans la poche. <accent>Le contexte reste avec elle.</accent>",
+    "intro": "L'équipe voit sa journée, reprend sa mission, comprend pourquoi une tâche existe et signale un problème sans quitter le parcours.",
+    "points": {
+      "mission": "Mission en cours, progression et alerte linge",
+      "taches": "Tâches cochables — de vrais boutons, bascule fait / non fait",
+      "signalement": "Signalement et navigation Planning · Missions · Stocks · Équipe"
+    },
+    "ecran": {
+      "aria": "Démonstration de l'application terrain Choucas",
+      "mission": "Ménage",
+      "heure": "13:00",
+      "alerteTitre": "Alerte linge",
+      "alerte": "2 draps housse manquants",
+      "tachesTitre": "Tâches",
+      "progression": "{faites}/{total}",
+      "tacheFaite": "Fait",
+      "chambres": "Chambres — lits faits",
+      "bains": "Salles de bain",
+      "cuisine": "Cuisine — plan de travail",
+      "signaler": "Signaler un problème",
+      "navAria": "Navigation de l'application terrain",
+      "planning": "Planning",
+      "missions": "Missions",
+      "stocks": "Stocks",
+      "equipe": "Équipe"
+    }
+  },
+  "ctaFinal": {
+    "label": "Prêt à voir Choucas sur vos propres rotations ?",
+    "titre": "Le terrain change. <accent>Le niveau d'exigence, non.</accent>",
+    "intro": "Une démonstration courte, construite autour de votre organisation, de vos biens et de vos équipes.",
+    "micro": "30 minutes · Sans engagement"
   }
 }

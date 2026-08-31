@@ -43,7 +43,7 @@ export default async function RootNotFound() {
           <p className="mt-titre">
             <a
               href={getPathname({ href: '/', locale: defaultLocale })}
-              className="text-cta font-bold"
+              className="text-bouton font-bold"
             >
               {t('backHome')}
             </a>
