@@ -114,7 +114,7 @@
       "brief": "Brief",
       "rotations": "Rotations",
       "missions": "Missions",
-      "stocks": "Stocks, linge & blanchisserie"
+      "stocks": "Linge & stocks"
     },
     "panneaux": {
       "brief": {
@@ -133,9 +133,9 @@
         "resultat": "Aucune consigne sans mission"
       },
       "stocks": {
-        "titre": "Le linge suit la rotation",
-        "texte": "Les besoins en linge se déduisent des séjours à venir. Ce qui manque remonte avant le départ, pas au moment de faire le lit.",
-        "resultat": "Le manque signalé avant l'arrivée"
+        "titre": "Le manque signalé avant l'arrivée",
+        "texte": "Deux draps housse manquants au Belvédère. L'alerte remonte sur la mission de l'équipière, pas dans un tableau que personne ne consulte.",
+        "resultat": "Un manque vu avant, pas pendant"
       }
     }
   },
