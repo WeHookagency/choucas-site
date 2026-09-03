@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl';
 
-import { ancres, LIEN_DEMO } from '../anchors';
+import { ancres, ATTRS_DEMO, LIEN_DEMO } from '../anchors';
 import { Accent } from '../ui/Accent';
 import { Cta } from '../ui/Cta';
 import { Reveal } from '../ui/Reveal';
@@ -32,7 +32,7 @@ export function FinalCta() {
         />
 
         <div className="mt-titre flex flex-col items-center gap-4">
-          <Cta href={LIEN_DEMO} fleche pleineLargeur>
+          <Cta href={LIEN_DEMO} {...ATTRS_DEMO} fleche pleineLargeur>
             {actions('demo')}
           </Cta>
           <p className="text-micro text-encre-inverse/75">{t('micro')}</p>

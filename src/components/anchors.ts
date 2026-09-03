@@ -24,14 +24,15 @@ export const HAUTEUR_BARRE_DESKTOP = 68;
 export const HAUTEUR_BARRE_MOBILE = 60;
 
 /**
- * Destination des CTA « Demander une demo ».
+ * Destination des CTA « Demander une demo » — la prise de rendez-vous.
  *
- * Une adresse de courrier, en attendant un vrai mecanisme de prise de
- * rendez-vous — les specs §6.11 et §11 le rangent parmi les elements a
- * arreter avant production. Les quatre boutons de la page lisent cette seule
- * constante : la remplacer par une URL de reservation suffira.
- *
- * Pas de `target="_blank"` : un `mailto:` ouvre le client de messagerie, pas
- * une page. Le nouvel onglet resterait vide derriere lui.
+ * Les quatre boutons de la page lisent cette seule constante.
  */
-export const LIEN_DEMO = 'mailto:mathieudv@wehookagency.com';
+export const LIEN_DEMO = 'https://calendly.com/mathieudv/rencontre-1o1';
+
+/**
+ * Attributs du lien de demonstration. Poses a cote de l'adresse pour qu'un
+ * appel ne puisse pas les oublier : la cible est externe, elle s'ouvre dans
+ * un nouvel onglet et n'accorde rien a la page appelee.
+ */
+export const ATTRS_DEMO = { target: '_blank', rel: 'noopener' } as const;

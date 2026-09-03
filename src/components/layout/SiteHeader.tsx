@@ -7,7 +7,7 @@ import { Link } from '@/i18n/navigation';
 
 import { LanguageSwitcher } from './LanguageSwitcher';
 
-import { ancres, LIEN_DEMO } from '../anchors';
+import { ancres, ATTRS_DEMO, LIEN_DEMO } from '../anchors';
 import { Cta } from '../ui/Cta';
 import { Icon } from '../ui/Icon';
 
@@ -86,7 +86,7 @@ export function SiteHeader() {
           {/* La visibilite est portee par l'enveloppe, pas par le CTA : sa
               classe `inline-flex` de base l'emporterait sur un `hidden` passe
               en className, les deux reglant la meme propriete. */}
-          <Cta href={LIEN_DEMO} fleche>
+          <Cta href={LIEN_DEMO} {...ATTRS_DEMO} fleche>
             {actions('demo')}
           </Cta>
         </div>
@@ -123,6 +123,7 @@ export function SiteHeader() {
 
           <Cta
             href={LIEN_DEMO}
+            {...ATTRS_DEMO}
             fleche
             onClick={() => setOuvert(false)}
             className="mt-6 w-full"
