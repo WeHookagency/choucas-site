@@ -109,7 +109,7 @@
     "resultatLabel": "Résultat",
     "onglets": {
       "brief": "Brief",
-      "rotations": "Rotations & iCal",
+      "rotations": "Rotations",
       "missions": "Missions",
       "stocks": "Stocks, linge & blanchisserie"
     },
@@ -120,9 +120,9 @@
         "resultat": "Une consigne claire, attribuée et validée."
       },
       "rotations": {
-        "titre": "Une seule frise pour la journée",
-        "texte": "Plateformes, propriétaire et séjours arrivent chacun de leur côté. Choucas les pose sur la même ligne : départs, ménages, arrivées.",
-        "resultat": "Un chevauchement vu la veille"
+        "titre": "Départs, ménages, arrivées sur la même ligne",
+        "texte": "Les trois moments d'une rotation tiennent sur une seule vue. Le manager voit d'un coup ce qui s'enchaîne dans la journée, et où ça coince.",
+        "resultat": "La journée lisible en un écran"
       },
       "missions": {
         "titre": "Chacun sait quoi faire, et pourquoi",
