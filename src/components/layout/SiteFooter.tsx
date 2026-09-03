@@ -1,26 +1,44 @@
 import { useTranslations } from 'next-intl';
 
+import { useLocale } from 'next-intl';
+
+import type { Locale } from '@/i18n/locales';
+import { getPathname, Link } from '@/i18n/navigation';
+
 import { ancres } from '../anchors';
 
 /**
  * Pied de page — specs §6.12.
  *
- * Marque, navigation courte et contexte geographique. Les entrees Contact,
- * Mentions legales et Confidentialite figurent sur la maquette mais n'ont pas
- * encore de page : les specs §12 interdisent les liens factices en
- * production, elles arriveront avec leurs pages. La mention « Maquette UX/UI ·
- * contenu provisoire » de la maquette n'est pas reprise, elle doit disparaitre
- * en production.
+ * Marque, navigation courte, pages legales et contexte geographique.
+ *
+ * Les liens legaux passent par le `Link` de next-intl : ils suivent les slugs
+ * traduits, /fr/mentions-legales devenant /en/legal-notice. L'entree Contact
+ * de la maquette reste absente, faute de page — les specs §12 interdisent les
+ * liens factices. La mention « Maquette UX/UI · contenu provisoire » n'est pas
+ * reprise non plus, elle doit disparaitre en production.
  */
+/**
+ * Lien vers une section de l'accueil, depuis n'importe quelle page.
+ *
+ * Une ancre nue ne vaut que sur l'accueil : ailleurs elle ne mene nulle part,
+ * ce que les specs §12 interdisent. On prefixe donc du chemin d'accueil de la
+ * langue courante — /fr#produit depuis les mentions legales.
+ */
+function lienSection(locale: Locale, ancre: string) {
+  return `${getPathname({ href: '/', locale })}#${ancre}`;
+}
+
 export function SiteFooter() {
   const t = useTranslations('footer');
   const nav = useTranslations('nav');
+  const locale = useLocale();
 
   const liens = [
-    { href: `#${ancres.pourquoi}`, libelle: nav('pourquoi') },
-    { href: `#${ancres.produit}`, libelle: nav('produit') },
-    { href: `#${ancres.fonctionnement}`, libelle: nav('fonctionnement') },
-    { href: `#${ancres.aPropos}`, libelle: nav('aPropos') },
+    { href: lienSection(locale, ancres.pourquoi), libelle: nav('pourquoi') },
+    { href: lienSection(locale, ancres.produit), libelle: nav('produit') },
+    { href: lienSection(locale, ancres.fonctionnement), libelle: nav('fonctionnement') },
+    { href: lienSection(locale, ancres.aPropos), libelle: nav('aPropos') },
   ];
 
   return (
@@ -41,6 +59,27 @@ export function SiteFooter() {
                   </a>
                 </li>
               ))}
+            </ul>
+          </nav>
+
+          <nav aria-label={t('ariaLegal')}>
+            <ul className="flex flex-wrap gap-x-6 gap-y-2">
+              <li>
+                <Link
+                  href="/mentions-legales"
+                  className="text-nav text-encre-douce no-underline hover:text-encre"
+                >
+                  {t('mentions')}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/confidentialite"
+                  className="text-nav text-encre-douce no-underline hover:text-encre"
+                >
+                  {t('confidentialite')}
+                </Link>
+              </li>
             </ul>
           </nav>
         </div>

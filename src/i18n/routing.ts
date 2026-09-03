@@ -18,6 +18,8 @@ import { defaultLocale, locales } from './locales';
  */
 export const pathnames = {
   '/': '/',
+  '/mentions-legales': { fr: '/mentions-legales', en: '/legal-notice' },
+  '/confidentialite': { fr: '/confidentialite', en: '/privacy-policy' },
 } as const;
 
 export const routing = defineRouting({

@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
+import { SiteFooter } from '@/components/layout/SiteFooter';
+import { SiteHeader } from '@/components/layout/SiteHeader';
 import { manrope, newsreader } from '@/fonts';
 import { siteUrl } from '@/i18n/metadata';
 import { routing } from '@/i18n/routing';
@@ -55,7 +57,13 @@ export default async function LocaleLayout({ children, params }: LayoutProps<'/[
   return (
     <html lang={locale} className={`${newsreader.variable} ${manrope.variable}`}>
       <body className="bg-fond text-encre">
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        {/* L'en-tete et le pied sont communs a toutes les pages : ils vivent
+            ici depuis qu'il y en a plus d'une. */}
+        <NextIntlClientProvider>
+          <SiteHeader />
+          {children}
+          <SiteFooter />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

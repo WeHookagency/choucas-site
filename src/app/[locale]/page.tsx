@@ -3,8 +3,6 @@ import { notFound } from 'next/navigation';
 import { hasLocale } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
 
-import { SiteFooter } from '@/components/layout/SiteFooter';
-import { SiteHeader } from '@/components/layout/SiteHeader';
 import { Hero } from '@/components/home/Hero';
 import { BriefToProof } from '@/components/home/BriefToProof';
 import { DayInChoucas } from '@/components/home/DayInChoucas';
@@ -22,10 +20,6 @@ import { routing } from '@/i18n/routing';
 /**
  * Homepage.
  *
- * L'en-tete et le pied de page vivent ici plutot que dans le layout : le site
- * n'a qu'une page pour l'instant, et le layout porte le routage, les polices
- * et les metadonnees. Ils remonteront d'un cran quand une deuxieme page
- * arrivera.
  */
 
 export async function generateMetadata(props: {
@@ -48,10 +42,7 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
   setRequestLocale(locale);
 
   return (
-    <>
-      <SiteHeader />
-
-      <main>
+    <main>
         <Hero />
         <ManagerDemo />
         <FieldDemo />
@@ -63,9 +54,6 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
         <DayInChoucas />
         <Profiles />
         <FinalCta />
-      </main>
-
-      <SiteFooter />
-    </>
+    </main>
   );
 }

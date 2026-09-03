@@ -24,7 +24,10 @@
   },
   "footer": {
     "aria": "Navigation de pied de page",
-    "contexte": "Hospitality operations · Alpes françaises · 2026"
+    "contexte": "Hospitality operations · Alpes françaises · 2026",
+    "mentions": "Mentions légales",
+    "confidentialite": "Confidentialité",
+    "ariaLegal": "Informations légales"
   },
   "actions": {
     "demo": "Book a demo",
@@ -283,5 +286,32 @@
     "titre": "Le terrain change. <accent>Le niveau d'exigence, non.</accent>",
     "intro": "Une démonstration courte, construite autour de votre organisation, de vos biens et de vos équipes.",
     "micro": "30 minutes · Sans engagement"
+  },
+  "mentions": {
+    "titre": "Mentions légales",
+    "metaDescription": "Éditeur, directeur de la publication et hébergeur du site choucas.app.",
+    "editeurTitre": "Éditeur du site",
+    "editeurNom": "Mathieu Dupont-Vieux, entreprise individuelle",
+    "editeurAdresse": "98 Impasse de la Planchette, 74450 Saint-Jean-de-Sixt, France",
+    "editeurSiret": "SIRET 80922027000023",
+    "editeurTelephone": "+33 6 75 12 34 79",
+    "editeurEmail": "mathieudv@wehookagency.com",
+    "directeurLabel": "Directeur de la publication",
+    "directeurNom": "Mathieu Dupont-Vieux",
+    "hebergeurTitre": "Hébergeur",
+    "hebergeurNom": "Netlify, Inc.",
+    "hebergeurAdresse": "512 2nd Street, Suite 200, San Francisco, CA 94107, États-Unis"
+  },
+  "confidentialite": {
+    "titre": "Politique de confidentialité",
+    "metaDescription": "La seule donnée collectée par ce site l'est lors d'une prise de rendez-vous.",
+    "traitementTitre": "La seule donnée que ce site collecte",
+    "traitementTexte": "En cliquant sur « Demander une démo », vous êtes dirigé vers Calendly pour choisir un créneau. Y sont recueillis votre nom, votre adresse e-mail et l'horaire retenu. C'est le seul traitement de données personnelles lié à ce site.",
+    "sousTraitantTitre": "Un prestataire établi hors de l'Union européenne",
+    "sousTraitantTexte": "Calendly assure la prise de rendez-vous en qualité de sous-traitant. Il est établi hors de l'Union européenne, et les informations saisies sur son service y sont traitées.",
+    "droitsTitre": "Vos droits",
+    "droitsTexte": "Vous disposez d'un droit d'accès, de rectification et de suppression des données qui vous concernent. Pour l'exercer, écrivez à l'adresse indiquée dans les mentions légales.",
+    "absenceTitre": "Ce que ce site ne fait pas",
+    "absenceTexte": "Il ne comporte aucun autre formulaire. Il ne dépose, à ce stade, aucun cookie de mesure d'audience."
   }
 }
