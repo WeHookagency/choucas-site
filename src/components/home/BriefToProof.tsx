@@ -10,14 +10,14 @@ import { Section } from '../ui/Section';
 import { SectionHeader } from '../ui/SectionHeader';
 
 /** Les quatre onglets. Leurs libelles sont tous dessines. */
-const ONGLETS = ['brief', 'rotations', 'missions', 'stocks'] as const;
+const ONGLETS = ['brief', 'controle', 'pret', 'rapport'] as const;
 
 /**
  * Panneaux dont la copie est ecrite. Le jour ou un panneau arrive, deposer
  * ses chaines puis ajouter sa cle ici : TypeScript refuse de compiler une
  * cle listee dont les chaines manquent.
  */
-const PANNEAUX = ['brief', 'rotations', 'missions', 'stocks'] as const;
+const PANNEAUX = ['brief', 'controle', 'pret', 'rapport'] as const;
 type PanneauCle = (typeof PANNEAUX)[number];
 
 const estPret = (cle: string): cle is PanneauCle =>
@@ -29,10 +29,9 @@ const estPret = (cle: string): cle is PanneauCle =>
  * Fond encre, texte clair. Quatre onglets, un seul panneau visible. Onglets
  * et panneau en deux colonnes sur desktop, empiles en dessous.
  *
- * Trois panneaux sur quatre n'ont pas encore de copie : la maquette ne
- * dessine que l'onglet actif. Leur onglet reste visible et inactivable —
- * `t.has` decide. Deposer les chaines suffit a les activer, sans toucher
- * a ce fichier.
+ * Les quatre onglets suivent le parcours commercial de la V8 : le brief
+ * devient operationnel, une autre personne controle, le bien passe en PRET,
+ * la preuve remonte au proprietaire.
  */
 export function BriefToProof() {
   const t = useTranslations('brief');

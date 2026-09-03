@@ -12,9 +12,15 @@
 export const ancres = {
   produit: 'produit',
   fonctionnement: 'fonctionnement',
-  pourquoi: 'pourquoi-choucas',
+  implantation: 'implantation',
   aPropos: 'a-propos',
   demo: 'demander-une-demo',
+
+  // Plus aucune section de la Home ne porte cette ancre depuis la refonte V8 :
+  // `WhyChoucas` en est sorti. La cle reste parce que ce composant vit encore
+  // dans le depot et que Next type-verifie tous les fichiers, rendus ou non.
+  // A retirer le jour ou les quatre composants ecartes seront supprimes.
+  pourquoi: 'pourquoi-choucas',
 } as const;
 
 export type Ancre = (typeof ancres)[keyof typeof ancres];

@@ -56,9 +56,9 @@ export function SiteHeader() {
   // ne garde que Le produit et Fonctionnement dans la barre a 768 px — les
   // quatre libelles plus la marque et le CTA n'y tiennent pas.
   const liens = [
-    { href: lienSection(locale, ancres.pourquoi), libelle: t('pourquoi'), desDesktop: true },
     { href: lienSection(locale, ancres.produit), libelle: t('produit'), desDesktop: false },
     { href: lienSection(locale, ancres.fonctionnement), libelle: t('fonctionnement'), desDesktop: false },
+    { href: lienSection(locale, ancres.implantation), libelle: t('implantation'), desDesktop: true },
     { href: lienSection(locale, ancres.aPropos), libelle: t('aPropos'), desDesktop: true },
   ];
 

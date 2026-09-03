@@ -35,9 +35,9 @@ export function SiteFooter() {
   const locale = useLocale();
 
   const liens = [
-    { href: lienSection(locale, ancres.pourquoi), libelle: nav('pourquoi') },
     { href: lienSection(locale, ancres.produit), libelle: nav('produit') },
     { href: lienSection(locale, ancres.fonctionnement), libelle: nav('fonctionnement') },
+    { href: lienSection(locale, ancres.implantation), libelle: nav('implantation') },
     { href: lienSection(locale, ancres.aPropos), libelle: nav('aPropos') },
   ];
 

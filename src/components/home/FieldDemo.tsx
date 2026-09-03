@@ -7,7 +7,7 @@ import { Icon } from '../ui/Icon';
 import { Reveal } from '../ui/Reveal';
 import { Section } from '../ui/Section';
 
-const POINTS = ['mission', 'taches', 'signalement'] as const;
+const POINTS = ['consigne', 'contexte', 'preuves'] as const;
 
 /**
  * Demonstration mobile terrain — specs §6.4.

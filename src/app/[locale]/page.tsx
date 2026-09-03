@@ -4,16 +4,15 @@ import { hasLocale } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
 
 import { Hero } from '@/components/home/Hero';
+import { Implementation } from '@/components/home/Implementation';
 import { BriefToProof } from '@/components/home/BriefToProof';
-import { DayInChoucas } from '@/components/home/DayInChoucas';
 import { FieldDemo } from '@/components/home/FieldDemo';
 import { FinalCta } from '@/components/home/FinalCta';
-import { Hospitality } from '@/components/home/Hospitality';
 import { ManagerDemo } from '@/components/home/ManagerDemo';
-import { OperationalTension } from '@/components/home/OperationalTension';
+import { OwnerReport } from '@/components/home/OwnerReport';
+import { Philosophy } from '@/components/home/Philosophy';
 import { Profiles } from '@/components/home/Profiles';
 import { ReadyState } from '@/components/home/ReadyState';
-import { WhyChoucas } from '@/components/home/WhyChoucas';
 import { localeAlternates } from '@/i18n/metadata';
 import { routing } from '@/i18n/routing';
 
@@ -43,17 +42,16 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
 
   return (
     <main>
-        <Hero />
-        <ManagerDemo />
-        <FieldDemo />
-        <OperationalTension />
-        <BriefToProof />
-        <ReadyState />
-        <Hospitality />
-        <WhyChoucas />
-        <DayInChoucas />
-        <Profiles />
-        <FinalCta />
+      <Hero />
+      <ManagerDemo />
+      <BriefToProof />
+      <FieldDemo />
+      <ReadyState />
+      <OwnerReport />
+      <Philosophy />
+      <Implementation />
+      <Profiles />
+      <FinalCta />
     </main>
   );
 }

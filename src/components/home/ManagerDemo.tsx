@@ -2,6 +2,7 @@ import { useTranslations } from 'next-intl';
 
 import blocExceptions from '../../../public/demo/bloc-exceptions.png';
 import { ancres } from '../anchors';
+import { Accent } from '../ui/Accent';
 import { CaptureProduit } from '../ui/CaptureProduit';
 import { Reveal } from '../ui/Reveal';
 
@@ -22,7 +23,7 @@ export function ManagerDemo() {
   return (
     <section
       id={ancres.produit}
-      aria-label={t('aria')}
+      aria-labelledby="manager-titre"
       className="scroll-mt-[60px] bg-fond desktop:scroll-mt-[68px]"
     >
       <Reveal group className="mx-auto max-w-scene">
@@ -32,9 +33,17 @@ export function ManagerDemo() {
           style={{ ['--i' as string]: 0 }}
           className="rounded-t-[28px] bg-respiration px-marge py-10"
         >
-          <p className="text-label text-center font-semibold uppercase text-encre">
-            {t('label')}
-          </p>
+          {/* L'etiquette garde le mot « Demonstration » : la capture porte de
+              vrais noms de chalets et pourrait sinon se lire comme un compte
+              d'exploitation reel. Le brief V8 proposait « CHOUCAS MANAGER »
+              seul, ecarte pour cette raison. */}
+          <div className="mx-auto max-w-[62ch] text-center">
+            <p className="text-label font-semibold uppercase text-encre">{t('label')}</p>
+            <h2 id="manager-titre" className="font-serif text-h3 mt-4 text-balance">
+              {t.rich('titre', { accent: (chunks) => <Accent>{chunks}</Accent> })}
+            </h2>
+            <p className="text-corps mt-4 text-encre">{t('intro')}</p>
+          </div>
 
           <CaptureProduit
             src={blocExceptions}

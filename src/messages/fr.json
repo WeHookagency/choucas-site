@@ -2,7 +2,7 @@
   "metadata": {
     "title": "Choucas — Le logiciel opérationnel des conciergeries",
     "titleTemplate": "{page} — Choucas",
-    "description": "Choucas coordonne les briefs, rotations, missions, équipes, stocks et linge des conciergeries, du bureau jusqu'au terrain."
+    "description": "Choucas transforme les briefs clients en actions terrain, organise le double contrôle jusqu'à l'état PRÊT et prépare les rapports propriétaires."
   },
   "notFound": {
     "title": "Page introuvable",
@@ -17,10 +17,10 @@
     "aria": "Navigation principale",
     "ouvrirMenu": "Ouvrir le menu",
     "fermerMenu": "Fermer le menu",
-    "pourquoi": "Pourquoi Choucas",
     "produit": "Le produit",
     "fonctionnement": "Fonctionnement",
-    "aPropos": "À propos"
+    "aPropos": "À propos",
+    "implantation": "Implantation"
   },
   "footer": {
     "aria": "Navigation de pied de page",
@@ -31,12 +31,12 @@
   },
   "actions": {
     "demo": "Demander une démo",
-    "fonctionnement": "Voir comment ça fonctionne"
+    "fonctionnement": "Voir le parcours"
   },
   "hero": {
     "label": "CHOUCAS · OPÉRATIONS DE CONCIERGERIE",
     "titre": "Votre conciergerie, <accent>parfaitement orchestrée.</accent>",
-    "intro": "Choucas transforme chaque demande en action et suit chaque opération jusqu'à ce que le bien soit prêt."
+    "intro": "Choucas transforme les briefs clients en actions terrain, organise le double contrôle jusqu'à l'état PRÊT et prépare les rapports propriétaires."
   },
   "tension": {
     "label": "Le problème n'est pas le service. C'est tout ce qui se perd entre deux personnes.",
@@ -90,59 +90,63 @@
     "dirigeant": {
       "verbe": "Piloter",
       "role": "Dirigeant",
-      "phrase": "Une vision nette de l'activité, des biens et de la qualité.",
-      "benefice": "Moins de dépendance au dirigeant"
+      "phrase": "Une vision nette de la qualité rendue sur chaque bien.",
+      "benefice": "Le service devient visible et prouvable"
     },
     "exploitation": {
       "verbe": "Coordonner",
       "role": "Responsable d'exploitation",
-      "phrase": "Les rotations, équipes et imprévus réunis dans une vue.",
-      "benefice": "Moins d'appels et de relances"
+      "phrase": "Du brief au contrôle, il voit ce qui demande réellement son attention.",
+      "benefice": "Savoir quels biens sont réellement PRÊTS"
     },
     "terrain": {
       "verbe": "Exécuter",
       "role": "Équipe terrain",
-      "phrase": "La prochaine action, son contexte et sa preuve dans la poche.",
-      "benefice": "Moins d'hésitation sur le terrain"
+      "phrase": "La prochaine action et son contexte sont disponibles là où le travail se fait.",
+      "benefice": "Savoir quoi faire, et pourquoi"
     }
   },
   "brief": {
-    "label": "Une seule logique opérationnelle",
-    "titre": "Du brief <accent>à la preuve.</accent>",
+    "label": "Le parcours Choucas",
+    "titre": "Du brief <accent>au PRÊT. Du PRÊT à la preuve.</accent>",
     "resultatLabel": "Résultat",
     "onglets": {
       "brief": "Brief",
-      "rotations": "Rotations",
-      "missions": "Missions",
-      "stocks": "Linge & stocks"
+      "controle": "Double contrôle",
+      "pret": "PRÊT",
+      "rapport": "Rapport propriétaire"
     },
     "panneaux": {
       "brief": {
-        "titre": "Le brief devient action.",
-        "texte": "Les demandes arrivent par message, appel, email ou note. Choucas les structure, détecte les conflits et les distribue aux bonnes personnes.",
-        "resultat": "Une consigne claire, attribuée et validée."
+        "titre": "Le brief devient opérationnel.",
+        "texte": "Une demande reçue par message, appel, email ou note est structurée en actions. Le terrain reçoit ce qu'il doit faire, quand le faire et le contexte utile pour comprendre pourquoi.",
+        "resultat": "Ce qui est demandé devient ce qui doit être fait."
       },
-      "rotations": {
-        "titre": "Départs, ménages, arrivées sur la même ligne",
-        "texte": "Les trois moments d'une rotation tiennent sur une seule vue. Le manager voit d'un coup ce qui s'enchaîne dans la journée, et où ça coince.",
-        "resultat": "La journée lisible en un écran"
+      "controle": {
+        "titre": "Terminé ne veut pas dire contrôlé.",
+        "texte": "Une mission terminée passe à une autre personne pour validation. La personne qui contrôle n'est jamais celle qui a exécuté la mission.",
+        "resultat": "Un second regard avant de déclarer le bien prêt."
       },
-      "missions": {
-        "titre": "Chacun sait quoi faire, et pourquoi",
-        "texte": "Chaque consigne validée se transforme en mission assignée. L'équipier reçoit l'action à faire et le contexte qui l'explique.",
-        "resultat": "Aucune consigne sans mission"
+      "pret": {
+        "titre": "Le check-in repose sur un état clair.",
+        "texte": "Une fois les missions nécessaires terminées et contrôlées, le bien peut passer en PRÊT. Le manager sait quels logements peuvent réellement accueillir leurs clients.",
+        "resultat": "PRÊT est un état validé, pas un pourcentage d'avancement."
       },
-      "stocks": {
-        "titre": "Le manque signalé avant l'arrivée",
-        "texte": "Deux draps housse manquants au Belvédère. L'alerte remonte sur la mission de l'équipière, pas dans un tableau que personne ne consulte.",
-        "resultat": "Un manque vu avant, pas pendant"
+      "rapport": {
+        "titre": "Le travail accompli devient visible.",
+        "texte": "Photos, actions, contrôles et points d'attention peuvent alimenter un rapport propriétaire préparé dans Choucas puis relu avant envoi.",
+        "resultat": "Une preuve claire du travail réalisé sur le bien."
       }
     }
   },
   "pret": {
-    "label": "LE CŒUR DU SYSTÈME",
-    "titre": "PRÊT n'est pas une case cochée. <accent>C'est un état validé.</accent>",
-    "corps": "La personne qui contrôle n'est pas celle qui a exécuté la mission. Le bien devient PRÊT seulement après validation."
+    "label": "Double contrôle · PRÊT",
+    "titre": "Terminé ne veut pas dire <accent>PRÊT.</accent>",
+    "corps": "La personne qui contrôle n'est pas celle qui a exécuté la mission. Le bien passe en PRÊT seulement après validation — avant le check-in.",
+    "etapesAria": "Les trois états d'une mission, dans l'ordre",
+    "etape1": "Mission terminée",
+    "etape2": "À contrôler",
+    "etape3": "PRÊT"
   },
   "journee": {
     "label": "Une journée dans Choucas",
@@ -249,16 +253,18 @@
       "disponible": "Disponible"
     },
     "captureAlt": "Bloc Exceptions de Choucas : le Chalet La Tournette en critique, avec le signalement de l'intervenante et deux actions possibles, puis deux chalets en attente de contrôle.",
-    "lienDemo": "Ouvrir la démonstration Choucas dans un nouvel onglet"
+    "lienDemo": "Ouvrir la démonstration Choucas dans un nouvel onglet",
+    "titre": "Tout va bien ? <accent>Choucas se tait.</accent>",
+    "intro": "Le manager suit ce qui change l'état d'un bien : une exception, un contrôle à faire ou une décision à prendre. Le reste continue d'avancer."
   },
   "terrain": {
-    "label": "Choucas sur le terrain",
-    "titre": "La mission dans la poche. <accent>Le contexte reste avec elle.</accent>",
-    "intro": "L'équipe voit sa journée, reprend sa mission, comprend pourquoi une tâche existe et signale un problème sans quitter le parcours.",
+    "label": "Le brief devient terrain",
+    "titre": "Le terrain sait quoi faire. <accent>Et pourquoi.</accent>",
+    "intro": "Chaque mission garde le contexte utile du brief. L'équipe ne reçoit pas seulement une tâche : elle comprend ce qui est attendu avant d'agir.",
     "points": {
-      "mission": "Mission en cours, progression et alerte linge",
-      "taches": "Tâches cochables — de vrais boutons, bascule fait / non fait",
-      "signalement": "Signalement et navigation Planning · Missions · Stocks · Équipe"
+      "consigne": "Une consigne issue du brief validé",
+      "contexte": "Le contexte client reste accessible à l'équipe",
+      "preuves": "Photos et signalements remontent vers le contrôle"
     },
     "ecran": {
       "aria": "Démonstration de l'application terrain Choucas",
@@ -282,10 +288,10 @@
     "captureAlt": "Carte Maintenant de l'application terrain : ménage en cours depuis 13:15 au Chalet Balme, progression 11 sur 24, consignes à savoir avant d'entrer et bouton Reprendre la mission."
   },
   "ctaFinal": {
-    "label": "Prêt à voir Choucas sur vos propres rotations ?",
+    "label": "Montrez-nous une de vos rotations",
     "titre": "Le terrain change. <accent>Le niveau d'exigence, non.</accent>",
-    "intro": "Une démonstration courte, construite autour de votre organisation, de vos biens et de vos équipes.",
-    "micro": "30 minutes · Sans engagement"
+    "intro": "En 30 minutes, partons d'un de vos briefs, de votre façon de contrôler les biens et de vos check-ins. Nous vous montrons comment Choucas s'intègre à cette chaîne.",
+    "micro": "30 minutes · Avec vos cas opérationnels"
   },
   "mentions": {
     "titre": "Mentions légales",
@@ -313,5 +319,59 @@
     "droitsTexte": "Vous disposez d'un droit d'accès, de rectification et de suppression des données qui vous concernent. Pour l'exercer, écrivez à l'adresse indiquée dans les mentions légales.",
     "absenceTitre": "Ce que ce site ne fait pas",
     "absenceTexte": "Il ne comporte aucun autre formulaire. Il ne dépose, à ce stade, aucun cookie de mesure d'audience."
+  },
+  "rapport": {
+    "label": "Rapport propriétaire",
+    "titre": "Le travail invisible <accent>devient visible.</accent>",
+    "intro": "Une conciergerie réalise chaque jour des contrôles, interventions et vérifications que le propriétaire ne voit pas. Choucas transforme ces preuves opérationnelles en un rapport prêt à relire.",
+    "micro": "Le manager relit avant envoi.",
+    "points": {
+      "fait": "Ce qui a été fait",
+      "attention": "Points d'attention",
+      "photos": "Photos",
+      "passage": "Prochain passage"
+    },
+    "apercuPastille": "Aperçu",
+    "apercuLegende": "Représentation d'un rapport en préparation. Ce module n'est pas encore disponible.",
+    "apercuTitre": "Chalet Le Belvédère",
+    "apercuDate": "Rapport du 5 septembre",
+    "apercuFait": "Ménage de départ contrôlé · Linge remplacé · Extérieurs dégagés",
+    "apercuAttention": "Sonde de température du jacuzzi hors service, artisan prévenu",
+    "apercuPhotos": "4 photos jointes",
+    "apercuPassage": "Prochain passage le 8 septembre"
+  },
+  "philosophie": {
+    "label": "Une autre façon de piloter",
+    "titre": "On mesure les biens et les missions. <accent>Jamais les personnes.</accent>",
+    "intro": "Choucas suit l'état opérationnel et fait remonter ce qui demande une décision, un contrôle ou une intervention. Il n'a pas vocation à transformer le terrain en tableau de productivité.",
+    "lignes": {
+      "terrain": "Le terrain exécute.",
+      "choucas": "Choucas suit l'opération.",
+      "manager": "Le manager intervient quand il apporte quelque chose."
+    }
+  },
+  "implantation": {
+    "label": "L'implantation Choucas",
+    "titre": "Vos opérations. <accent>Configurées avec vous, sur le terrain.</accent>",
+    "intro": "Nous passons une journée avec vos équipes pour comprendre votre exploitation et configurer Choucas autour de vos biens, vos rôles, vos standards et vos règles.",
+    "cloture": "Un produit commun. Une configuration adaptée à votre exploitation.",
+    "etapes": {
+      "observer": {
+        "titre": "Observer",
+        "texte": "Comprendre votre journée réelle et vos points de passage critiques."
+      },
+      "structurer": {
+        "titre": "Structurer",
+        "texte": "Traduire vos briefs, contrôles, rôles et standards en logique opérationnelle."
+      },
+      "configurer": {
+        "titre": "Configurer",
+        "texte": "Activer ce dont votre équipe a besoin et masquer le reste."
+      },
+      "tester": {
+        "titre": "Tester",
+        "texte": "Faire tourner Choucas sur vos cas réels et ajuster avec l'équipe."
+      }
+    }
   }
 }

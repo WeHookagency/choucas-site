@@ -189,6 +189,20 @@ Ne pas ajouter de CTA « Voir sur mobile » sur la HomePage. La route d’aperç
 
 ## 6. Spécifications par section
 
+> **⚠️ Ce §6 est obsolète depuis le 3 septembre 2026.**
+>
+> Le brief `CHOUCAS-HOME-V8-BRIEF-CLAUDE-CODE.md` a refondu l'architecture de
+> la HomePage autour de quatre piliers — Brief, Double contrôle, PRÊT, Rapport
+> propriétaire. Quatre des sections décrites ci-dessous ne sont plus rendues :
+> §6.5 Tension opérationnelle, §6.7 Photographie et hospitalité, §6.8 Pourquoi
+> Choucas, §6.9 Une journée dans Choucas. Trois sections nouvelles s'y sont
+> ajoutées : Rapport propriétaire, Philosophie, Implantation.
+>
+> En cas de divergence, le brief V8 prime pour l'architecture et le contenu.
+> Le reste de ce document — §3 échelle et espacements, §4 grille, §7
+> composants, §8 animations, §9 accessibilité, §10 performance — reste en
+> vigueur.
+
 ### 6.1 Navigation
 
 **Objectif :** identifier la marque, donner accès aux sections principales et convertir.

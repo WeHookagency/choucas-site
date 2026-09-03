@@ -44,7 +44,7 @@ export function Hero() {
             <Cta href={LIEN_DEMO} {...ATTRS_DEMO} fleche pleineLargeur>
               {actions('demo')}
             </Cta>
-            <Cta href={`#${ancres.produit}`} variante="secondaire" pleineLargeur>
+            <Cta href={`#${ancres.fonctionnement}`} variante="secondaire" pleineLargeur>
               {actions('fonctionnement')}
             </Cta>
           </div>
