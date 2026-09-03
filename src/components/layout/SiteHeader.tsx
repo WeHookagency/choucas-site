@@ -8,7 +8,6 @@ import { useLocale } from 'next-intl';
 import type { Locale } from '@/i18n/locales';
 import { getPathname, Link } from '@/i18n/navigation';
 
-import { LanguageSwitcher } from './LanguageSwitcher';
 
 import { ancres, ATTRS_DEMO, LIEN_DEMO } from '../anchors';
 import { Cta } from '../ui/Cta';
@@ -96,8 +95,10 @@ export function SiteHeader() {
           </ul>
         </nav>
 
+        {/* Selecteur de langue retire le 3 septembre 2026, avec la version
+            anglaise. Le composant existe toujours : le remettre ici et dans
+            le menu suffira. Voir la marche a suivre dans i18n/locales.ts. */}
         <div className="hidden items-center gap-4 tablette:flex">
-          <LanguageSwitcher />
           {/* La visibilite est portee par l'enveloppe, pas par le CTA : sa
               classe `inline-flex` de base l'emporterait sur un `hidden` passe
               en className, les deux reglant la meme propriete. */}
@@ -134,8 +135,6 @@ export function SiteHeader() {
               </li>
             ))}
           </ul>
-          <LanguageSwitcher className="mt-4 border-t border-filet pt-2" />
-
           <Cta
             href={LIEN_DEMO}
             {...ATTRS_DEMO}

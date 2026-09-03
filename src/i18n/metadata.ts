@@ -18,17 +18,22 @@ type Href = Parameters<typeof getPathname>[0]['href'];
  *
  * `x-default` pointe vers la langue par defaut : c'est la page servie a un
  * moteur qui ne sait pas quelle langue proposer, et la cible de « / ».
+ *
+ * Tant qu'une seule langue est servie, aucune balise `alternate` n'est
+ * emise : elles n'ont de sens qu'entre plusieurs versions d'une meme page.
+ * Elles reviennent d'elles-memes des qu'une deuxieme langue rejoint le
+ * registre — il n'y a rien a remettre ici.
  */
 export function localeAlternates(href: Href, locale: Locale): Metadata['alternates'] {
-  const languages: Record<string, string> = {};
+  const canonical = getPathname({ href, locale });
 
+  if (locales.length < 2) return { canonical };
+
+  const languages: Record<string, string> = {};
   for (const served of locales) {
     languages[localeMetadata[served].hreflang] = getPathname({ href, locale: served });
   }
   languages['x-default'] = getPathname({ href, locale: defaultLocale });
 
-  return {
-    canonical: getPathname({ href, locale }),
-    languages,
-  };
+  return { canonical, languages };
 }
