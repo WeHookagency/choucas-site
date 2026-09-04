@@ -89,7 +89,7 @@
     "titre": "Une même information. <accent>Trois façons d'agir.</accent>",
     "dirigeant": {
       "verbe": "Piloter",
-      "role": "Dirigeant",
+      "role": "Concierge company owner",
       "phrase": "A clear view of the quality delivered across every property.",
       "benefice": "Service becomes visible and provable"
     },
@@ -120,22 +120,26 @@
       "brief": {
         "titre": "The brief becomes operational.",
         "texte": "A request received by message, call, email or note is structured into actions. The field team receives what needs to be done, when, and the context needed to understand why.",
-        "resultat": "What was requested becomes what needs to be done."
+        "resultat": "What was requested becomes what needs to be done.",
+        "captureAlt": ""
       },
       "controle": {
         "titre": "Completed does not mean controlled.",
         "texte": "A completed mission is reviewed by someone other than the person who carried it out.",
-        "resultat": "A second pair of eyes before the property is declared ready."
+        "resultat": "A second pair of eyes before the property is declared ready.",
+        "captureAlt": ""
       },
       "pret": {
         "titre": "Check-in relies on one clear state.",
         "texte": "Once the required missions are completed and controlled, the property can move to READY. The manager knows which homes can actually welcome their guests.",
-        "resultat": "READY is a validated state, not a progress percentage."
+        "resultat": "READY is a validated state, not a progress percentage.",
+        "captureAlt": ""
       },
       "rapport": {
         "titre": "Completed work becomes visible.",
         "texte": "Photos, actions, controls and attention points can feed an owner report prepared in Choucas and reviewed before it is sent.",
-        "resultat": "Clear proof of the work completed on the property."
+        "resultat": "Clear proof of the work completed on the property.",
+        "captureAlt": ""
       }
     }
   },

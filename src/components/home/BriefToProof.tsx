@@ -1,54 +1,151 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
+import Image, { type StaticImageData } from 'next/image';
 import { useTranslations } from 'next-intl';
 
 import { ancres } from '../anchors';
 import { Accent } from '../ui/Accent';
-import { Panneau, Tablist, type Onglet } from '../ui/Tablist';
 import { Section } from '../ui/Section';
 import { SectionHeader } from '../ui/SectionHeader';
 
-/** Les quatre onglets. Leurs libelles sont tous dessines. */
-const ONGLETS = ['brief', 'controle', 'pret', 'rapport'] as const;
+/** Les quatre etapes du parcours, dans l'ordre ou elles s'enchainent. */
+const ETAPES = ['brief', 'controle', 'pret', 'rapport'] as const;
+type EtapeCle = (typeof ETAPES)[number];
 
 /**
- * Panneaux dont la copie est ecrite. Le jour ou un panneau arrive, deposer
- * ses chaines puis ajouter sa cle ici : TypeScript refuse de compiler une
- * cle listee dont les chaines manquent.
+ * Captures d'ecran des etapes.
+ *
+ * Vide pour l'instant : aucun des quatre ecrans n'est encore exporte. Pour en
+ * ajouter un : importer le fichier, l'inscrire ici sous sa cle, et remplir
+ * `panneaux.<cle>.captureAlt` dans les deux fichiers de traduction. L'image ne
+ * s'affiche que si les deux sont presents — pas de capture sans texte
+ * alternatif.
+ *
+ * Les quatre doivent partager le rapport 1340 x 1000, faute de quoi la colonne
+ * de droite changerait de hauteur d'une etape a l'autre.
  */
-const PANNEAUX = ['brief', 'controle', 'pret', 'rapport'] as const;
-type PanneauCle = (typeof PANNEAUX)[number];
-
-const estPret = (cle: string): cle is PanneauCle =>
-  (PANNEAUX as readonly string[]).includes(cle);
+const CAPTURES: Partial<Record<EtapeCle, StaticImageData>> = {};
 
 /**
- * Du brief a la preuve — specs §6.6.
+ * Reserve grise au format 1340 x 1000 a la place des captures manquantes.
  *
- * Fond encre, texte clair. Quatre onglets, un seul panneau visible. Onglets
- * et panneau en deux colonnes sur desktop, empiles en dessous.
+ * Sert a juger une mise en page, jamais a partir en production : une reserve
+ * pointillee sur un site public se lit comme une image qui n'a pas charge.
+ */
+const RESERVE_PROVISOIRE = false;
+
+/** Etat d'un maillon vis-a-vis de l'etape ouverte. */
+type Position = 'passe' | 'courant' | 'avenir';
+
+/**
+ * Le fil qui relie les quatre etapes.
  *
- * Les quatre onglets suivent le parcours commercial de la V8 : le brief
- * devient operationnel, une autre personne controle, le bien passe en PRET,
- * la preuve remonte au proprietaire.
+ * Il longe le bloc entier — en-tete et zone depliee — parce qu'il porte la
+ * continuite du parcours : une etape ouverte reste un maillon de la chaine,
+ * pas un panneau detache.
+ *
+ * Le segment haut est de hauteur fixe, ce qui aligne le point sur le titre ;
+ * le segment bas prend tout le reste et traverse donc le contenu deplie.
+ *
+ * Vert Mousse sur le parcouru — 3,23:1 sur le Schiste de la section, au-dessus
+ * du seuil de 3:1 des elements graphiques. Le Sapin n'y arrive pas : 1,63:1.
+ *
+ * Decoratif : l'ordre est deja porte par les numeros et par `aria-expanded`.
+ */
+function Fil({
+  position,
+  premier,
+  dernier,
+}: {
+  position: Position;
+  premier: boolean;
+  dernier: boolean;
+}) {
+  const avant = position === 'avenir' ? 'bg-encre-inverse/30' : 'bg-ok';
+  const apres = position === 'passe' ? 'bg-ok' : 'bg-encre-inverse/30';
+  const point =
+    position === 'courant'
+      ? 'size-3 border-ok bg-ok'
+      : position === 'passe'
+        ? 'size-2.5 border-ok bg-ok'
+        : 'size-2.5 border-encre-inverse/50';
+
+  return (
+    <span aria-hidden className="flex w-3 shrink-0 flex-col items-center self-stretch">
+      <span className={`w-px h-6 shrink-0 ${premier ? 'bg-transparent' : avant}`} />
+      <span className={`shrink-0 rounded-full border transition-colors duration-200 ease-choucas ${point}`} />
+      <span className={`w-px flex-1 ${dernier ? 'bg-transparent' : apres}`} />
+    </span>
+  );
+}
+
+/** Emplacement de la capture d'une etape, a hauteur constante. */
+function Apercu({ etape, className }: { etape: EtapeCle; className?: string }) {
+  const t = useTranslations('brief');
+  const capture = CAPTURES[etape];
+  const alt = t(`panneaux.${etape}.captureAlt`);
+
+  if (capture && alt) {
+    return (
+      <Image
+        src={capture}
+        alt={alt}
+        sizes="(min-width: 1000px) 600px, 100vw"
+        className={`h-auto w-full rounded-carte border border-encre-inverse/15 ${className ?? ''}`}
+      />
+    );
+  }
+
+  if (!RESERVE_PROVISOIRE) return null;
+
+  /* ⚠️ PROVISOIRE — voir RESERVE_PROVISOIRE en tete de fichier. */
+  return (
+    <div
+      aria-hidden
+      className={`text-micro grid aspect-[1340/1000] w-full place-items-center rounded-carte border border-dashed border-encre-inverse/30 bg-encre-inverse/5 text-encre-inverse/50 ${className ?? ''}`}
+    >
+      Réserve provisoire · 1340 × 1000
+    </div>
+  );
+}
+
+/**
+ * Du brief a la preuve — brief V8 §7, cœur commercial de la Home.
+ *
+ * Accordeon plutot qu'onglets : le detail d'une etape se deplie sous son
+ * propre titre, a l'interieur de la chaine, au lieu de partir dans un panneau
+ * separe. Le fil traverse la zone depliee, ce qui maintient la lecture du
+ * parcours pendant qu'on lit une etape.
+ *
+ * Une seule etape ouverte a la fois, et jamais aucune : la colonne de droite
+ * doit toujours avoir une capture a montrer. Cliquer l'en-tete ouvert ne le
+ * referme donc pas.
+ *
+ * Clavier : les quatre en-tetes sont dans l'ordre de tabulation, Entree et
+ * Espace ouvrent. Les fleches haut et bas, Debut et Fin deplacent le focus
+ * d'un en-tete a l'autre — ce que le motif accordeon prevoit en option, et
+ * que le tablist precedent offrait deja.
  */
 export function BriefToProof() {
   const t = useTranslations('brief');
-  const [actif, setActif] = useState<PanneauCle>('brief');
+  const [ouverte, setOuverte] = useState<EtapeCle>('brief');
+  const rangOuvert = ETAPES.indexOf(ouverte);
+  const enTetes = useRef<Record<string, HTMLButtonElement | null>>({});
 
-  const onglets: Onglet[] = ONGLETS.map((cle, i) => ({
-    id: cle,
-    pret: estPret(cle),
-    libelle: (
-      <span className="flex items-baseline gap-3">
-        <span aria-hidden className="text-numero tabular-nums opacity-60">
-          {String(i + 1).padStart(2, '0')}
-        </span>
-        {t(`onglets.${cle}`)}
-      </span>
-    ),
-  }));
+  /** Y a-t-il seulement quelque chose a montrer a droite ? */
+  const avecApercu = RESERVE_PROVISOIRE || ETAPES.some((cle) => CAPTURES[cle]);
+
+  function surTouche(e: React.KeyboardEvent, index: number) {
+    let cible: number | null = null;
+    if (e.key === 'ArrowDown') cible = (index + 1) % ETAPES.length;
+    else if (e.key === 'ArrowUp') cible = (index - 1 + ETAPES.length) % ETAPES.length;
+    else if (e.key === 'Home') cible = 0;
+    else if (e.key === 'End') cible = ETAPES.length - 1;
+    if (cible === null) return;
+    e.preventDefault();
+    enTetes.current[ETAPES[cible]]?.focus();
+  }
 
   return (
     <Section id={ancres.fonctionnement} fond="sombre" aria-labelledby="brief-titre">
@@ -60,42 +157,85 @@ export function BriefToProof() {
         titre={t.rich('titre', { accent: (chunks) => <Accent>{chunks}</Accent> })}
       />
 
-      <div className="mt-titre grid gap-6 desktop:grid-cols-2 desktop:gap-10">
-        <Tablist
-          idBase="brief"
-          orientation="verticale"
-          onglets={onglets}
-          actif={actif}
-          onChange={(id) => estPret(id) && setActif(id)}
-          aria-label={t('label')}
-          className="flex flex-col gap-3"
-          classeOnglet={({ actif: sel, pret }) =>
-            [
-              'w-full rounded-carte border px-5 py-4 text-left text-corps',
-              'transition-colors duration-200 ease-choucas',
-              sel
-                ? 'border-encre-inverse/45 bg-encre-inverse/10 font-semibold'
-                : 'border-encre-inverse/15',
-              // Un onglet sans copie s'annonce comme tel, sans disparaitre.
-              pret ? 'hover:border-encre-inverse/40' : 'opacity-45',
-            ].join(' ')
-          }
-        />
+      <div
+        className={`mt-titre grid items-start gap-6 desktop:gap-10 ${
+          avecApercu ? 'desktop:grid-cols-2' : ''
+        }`}
+      >
+        <ul className="flex flex-col">
+          {ETAPES.map((cle, i) => {
+            const ouvert = cle === ouverte;
+            const position: Position =
+              i < rangOuvert ? 'passe' : i === rangOuvert ? 'courant' : 'avenir';
 
-        <Panneau idBase="brief" id={actif} className="rounded-carte border border-encre-inverse/15 p-6 desktop:p-8">
-          <h3 className="font-serif text-h3">{t(`panneaux.${actif}.titre`)}</h3>
-          <p className="text-corps mt-4 text-encre-inverse/85">
-            {t(`panneaux.${actif}.texte`)}
-          </p>
+            return (
+              <li key={cle} className="flex items-stretch gap-4">
+                <Fil position={position} premier={i === 0} dernier={i === ETAPES.length - 1} />
 
-          <p className="text-corps mt-6 rounded-carte border border-cta bg-cta/40 px-4 py-3">
-            <span className="text-label font-semibold uppercase">
-              {t('resultatLabel')}
-            </span>
-            <span aria-hidden> — </span>
-            {t(`panneaux.${actif}.resultat`)}
-          </p>
-        </Panneau>
+                <div className="min-w-0 flex-1 pb-2">
+                  <h3>
+                    <button
+                      ref={(el) => {
+                        enTetes.current[cle] = el;
+                      }}
+                      type="button"
+                      id={`brief-entete-${cle}`}
+                      aria-expanded={ouvert}
+                      aria-controls={`brief-zone-${cle}`}
+                      onClick={() => setOuverte(cle)}
+                      onKeyDown={(e) => surTouche(e, i)}
+                      className={[
+                        'text-corps flex w-full items-baseline gap-3 rounded-carte px-4 py-3 text-left',
+                        'transition-colors duration-200 ease-choucas',
+                        ouvert ? 'bg-encre-inverse/10 font-semibold' : 'text-encre-inverse/70 hover:text-encre-inverse',
+                      ].join(' ')}
+                    >
+                      <span aria-hidden className="text-numero tabular-nums opacity-60">
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                      {t(`onglets.${cle}`)}
+                    </button>
+                  </h3>
+
+                  <div
+                    id={`brief-zone-${cle}`}
+                    role="region"
+                    aria-labelledby={`brief-entete-${cle}`}
+                    hidden={!ouvert}
+                    className="px-4 pb-4 pt-3"
+                  >
+                    <p className="text-corps font-serif text-h3 not-italic">
+                      {t(`panneaux.${cle}.titre`)}
+                    </p>
+                    <p className="text-corps mt-3 text-encre-inverse/85">
+                      {t(`panneaux.${cle}.texte`)}
+                    </p>
+
+                    <p className="text-corps mt-5 rounded-carte border border-cta bg-cta/40 px-4 py-3">
+                      <span className="text-label font-semibold uppercase">{t('resultatLabel')}</span>
+                      <span aria-hidden> — </span>
+                      {t(`panneaux.${cle}.resultat`)}
+                    </p>
+
+                    {/* Sous 1000 px, la capture appartient a l'etape ouverte et
+                        se lit avec elle. Au-dessus, elle vit dans la colonne de
+                        droite : l'exemplaire masque n'est jamais charge. */}
+                    {avecApercu ? <Apercu etape={cle} className="mt-5 desktop:hidden" /> : null}
+                  </div>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+
+        {/* Hauteur constante d'une etape a l'autre : la colonne ne saute pas.
+            Tant qu'aucune capture n'existe, la colonne n'est pas rendue du
+            tout — une moitie de section vide vaut moins que rien. */}
+        {avecApercu ? (
+          <div className="hidden desktop:block desktop:sticky desktop:top-24">
+            <Apercu etape={ouverte} />
+          </div>
+        ) : null}
       </div>
     </Section>
   );

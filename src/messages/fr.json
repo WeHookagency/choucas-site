@@ -89,7 +89,7 @@
     "titre": "Une même information. <accent>Trois façons d'agir.</accent>",
     "dirigeant": {
       "verbe": "Piloter",
-      "role": "Dirigeant",
+      "role": "Dirigeant de conciergerie",
       "phrase": "Une vision nette de la qualité rendue sur chaque bien.",
       "benefice": "Le service devient visible et prouvable"
     },
@@ -120,22 +120,26 @@
       "brief": {
         "titre": "Le brief devient opérationnel.",
         "texte": "Une demande reçue par message, appel, email ou note est structurée en actions. Le terrain reçoit ce qu'il doit faire, quand le faire et le contexte utile pour comprendre pourquoi.",
-        "resultat": "Ce qui est demandé devient ce qui doit être fait."
+        "resultat": "Ce qui est demandé devient ce qui doit être fait.",
+        "captureAlt": ""
       },
       "controle": {
         "titre": "Terminé ne veut pas dire contrôlé.",
         "texte": "Une mission terminée passe à une autre personne pour validation. La personne qui contrôle n'est jamais celle qui a exécuté la mission.",
-        "resultat": "Un second regard avant de déclarer le bien prêt."
+        "resultat": "Un second regard avant de déclarer le bien prêt.",
+        "captureAlt": ""
       },
       "pret": {
         "titre": "Le check-in repose sur un état clair.",
         "texte": "Une fois les missions nécessaires terminées et contrôlées, le bien peut passer en PRÊT. Le manager sait quels logements peuvent réellement accueillir leurs clients.",
-        "resultat": "PRÊT est un état validé, pas un pourcentage d'avancement."
+        "resultat": "PRÊT est un état validé, pas un pourcentage d'avancement.",
+        "captureAlt": ""
       },
       "rapport": {
         "titre": "Le travail accompli devient visible.",
         "texte": "Photos, actions, contrôles et points d'attention peuvent alimenter un rapport propriétaire préparé dans Choucas puis relu avant envoi.",
-        "resultat": "Une preuve claire du travail réalisé sur le bien."
+        "resultat": "Une preuve claire du travail réalisé sur le bien.",
+        "captureAlt": ""
       }
     }
   },
