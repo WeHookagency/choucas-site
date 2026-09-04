@@ -140,7 +140,7 @@ export function BriefToProof() {
     id: cle,
     entete: (
       <>
-        <span aria-hidden className="text-numero tabular-nums opacity-60">
+        <span aria-hidden className="text-numero tabular-nums text-numero-inverse">
           {String(i + 1).padStart(2, '0')}
         </span>
         {t(`onglets.${cle}`)}
@@ -172,7 +172,7 @@ export function BriefToProof() {
         align="centre"
         inverse
         label={t('label')}
-        titre={t.rich('titre', { accent: (chunks) => <Accent>{chunks}</Accent> })}
+        titre={t.rich('titre', { accent: (chunks) => <Accent inverse>{chunks}</Accent> })}
       />
 
       <div

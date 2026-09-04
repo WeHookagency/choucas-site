@@ -41,6 +41,10 @@
   --color-cta-presse: var(--web-cta-presse);
 
   --color-accent: var(--web-accent);
+  /* Cuivres de fond sombre. Voir la regle d'usage dans tokens.css : ils ne
+     remplacent pas l'accent, ils s'emploient la ou il echoue. */
+  --color-accent-inverse: var(--web-accent-inverse);
+  --color-numero-inverse: var(--web-numero-inverse);
   --color-lien: var(--web-lien);
 
   --color-ok: var(--web-ok);

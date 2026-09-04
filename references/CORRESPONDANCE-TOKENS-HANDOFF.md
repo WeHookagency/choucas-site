@@ -65,15 +65,20 @@ Elles servent toutes sur fond sombre, où le Cuivre du site s'affaiblit.
 Pour comparaison, le **Cuivre du site** donne 4,54:1 sur Schiste et **2,79:1 sur Sapin** — sous le
 seuil de 3:1 même pour un élément graphique.
 
-**Décision, à valider.** Aucun token n'a été ajouté. Les trois variantes cuivre du handoff comblent
-un manque réel : le site n'a pas de cuivre lisible sur Sapin. Deux voies, au choix du fondateur :
+**Arbitré le 4 septembre 2026.** Deux des trois valeurs sont entrées dans les tokens du site — les
+seuls tokens neufs autorisés, parce qu'ils comblent un trou réel :
 
-1. ajouter un alias `--web-accent-sombre` aux tokens, valeur à arrêter — c'est un token neuf, donc
-   hors de ce que le backlog autorise sans arbitrage ;
-2. ne pas poser de cuivre sur fond Sapin, et réserver les italiques de titre au fond Schiste, où le
-   Cuivre du site passe à 4,54:1.
+| Token | Valeur | Usage |
+|---|---|---|
+| `--web-accent-inverse` | `#DB9A72` | italiques de titre sur fond sombre |
+| `--web-numero-inverse` | `#E4A177` | chiffres sur fond sombre |
 
-En attendant l'arbitrage, la seconde voie s'applique : c'est celle qui n'invente rien.
+**La règle : cuivre standard sur fond clair, éclairci sur fond sombre, jamais l'inverse.** Ce ne
+sont pas des variantes interchangeables mais deux jeux disjoints — l'éclairci mesure 2,11:1 sur
+Neige, il y disparaît aussi sûrement que le standard disparaît sur Sapin.
+
+`#C97A4E`, le cuivre des courbes de niveau de la page Contact, n'a pas été ajouté : il n'a pas
+encore d'emploi. Il le sera au lot T2.4 si les courbes sont reprises.
 
 Pour les filets sur fond sombre, le site a déjà son équivalent : `border-encre-inverse/15`.
 

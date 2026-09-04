@@ -37,6 +37,12 @@
   --choucas-lichen: #95a184; /* surfaces de respiration, profils */
   --choucas-panneau: #e8e9e0; /* sections secondaires             */
 
+  /* Deux cuivres eclaircis, pour fond sombre uniquement. Le Cuivre de la
+     charte tombe a 2,79:1 sur Sapin — sous le seuil des elements graphiques.
+     Ils viennent du handoff du site et ne servent nulle part ailleurs.       */
+  --choucas-cuivre-clair: #db9a72; /* italiques de titre sur fond sombre */
+  --choucas-cuivre-chiffre: #e4a177; /* chiffres sur fond sombre          */
+
   /* --- Alias fonctionnels -----------------------------------------
      Le code du site appelle ces noms-la, jamais les couleurs.
      Changer un usage = changer un alias, pas cent declarations.     */
@@ -56,6 +62,8 @@
   --web-cta-presse: #17271d; /* etat presse, jamais de texte dessus */
 
   --web-accent: var(--choucas-cuivre);
+  --web-accent-inverse: var(--choucas-cuivre-clair);
+  --web-numero-inverse: var(--choucas-cuivre-chiffre);
   --web-lien: var(--choucas-sapin);
 
   --web-ok: var(--choucas-mousse);
@@ -83,4 +91,21 @@
 
    Et deux proportions : le Cuivre ne depasse pas 10 a 15 % d'une vue ;
    le Sapin porte les actions principales.
+
+   --- LES DEUX CUIVRES, ET LEQUEL EMPLOYER --------------------------
+
+   La regle tient en une phrase : cuivre standard sur fond clair, cuivre
+   eclairci sur fond sombre, jamais l'inverse. Les mesures :
+
+                        Schiste  Sapin  |  Neige  Panneau
+     --web-accent         4,54    2,79  |   3,52    3,22
+     --web-accent-inverse 7,56    4,64  |   2,11    1,93
+     --web-numero-inverse 8,23    5,06  |   1,94    1,78
+
+   Le Cuivre standard echoue sur Sapin. Les deux eclaircis echouent sur
+   fond clair, et largement — d'ou le « jamais l'inverse » : ce ne sont
+   pas des variantes interchangeables mais deux jeux disjoints.
+
+   Ils restent soumis a la limite de taille du Cuivre : titres de 24 px
+   et plus, ou gras de 19 px et plus. Jamais un paragraphe.
    ================================================================== */
