@@ -1,11 +1,12 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import Image, { type StaticImageData } from 'next/image';
 import { useTranslations } from 'next-intl';
 
 import { ancres } from '../anchors';
 import { Accent } from '../ui/Accent';
+import { Accordeon, type ElementAccordeon } from '../ui/Accordeon';
 import { Section } from '../ui/Section';
 import { SectionHeader } from '../ui/SectionHeader';
 
@@ -131,21 +132,38 @@ export function BriefToProof() {
   const t = useTranslations('brief');
   const [ouverte, setOuverte] = useState<EtapeCle>('brief');
   const rangOuvert = ETAPES.indexOf(ouverte);
-  const enTetes = useRef<Record<string, HTMLButtonElement | null>>({});
 
   /** Y a-t-il seulement quelque chose a montrer a droite ? */
   const avecApercu = RESERVE_PROVISOIRE || ETAPES.some((cle) => CAPTURES[cle]);
 
-  function surTouche(e: React.KeyboardEvent, index: number) {
-    let cible: number | null = null;
-    if (e.key === 'ArrowDown') cible = (index + 1) % ETAPES.length;
-    else if (e.key === 'ArrowUp') cible = (index - 1 + ETAPES.length) % ETAPES.length;
-    else if (e.key === 'Home') cible = 0;
-    else if (e.key === 'End') cible = ETAPES.length - 1;
-    if (cible === null) return;
-    e.preventDefault();
-    enTetes.current[ETAPES[cible]]?.focus();
-  }
+  const elements: ElementAccordeon[] = ETAPES.map((cle, i) => ({
+    id: cle,
+    entete: (
+      <>
+        <span aria-hidden className="text-numero tabular-nums opacity-60">
+          {String(i + 1).padStart(2, '0')}
+        </span>
+        {t(`onglets.${cle}`)}
+      </>
+    ),
+    contenu: (
+      <>
+        <p className="text-corps font-serif text-h3 not-italic">{t(`panneaux.${cle}.titre`)}</p>
+        <p className="text-corps mt-3 text-encre-inverse/85">{t(`panneaux.${cle}.texte`)}</p>
+
+        <p className="text-corps mt-5 rounded-carte border border-cta bg-cta/40 px-4 py-3">
+          <span className="text-label font-semibold uppercase">{t('resultatLabel')}</span>
+          <span aria-hidden> — </span>
+          {t(`panneaux.${cle}.resultat`)}
+        </p>
+
+        {/* Sous 1000 px, la capture appartient a l'etape ouverte et se lit avec
+            elle. Au-dessus, elle vit dans la colonne de droite : l'exemplaire
+            masque n'est jamais charge. */}
+        {avecApercu ? <Apercu etape={cle} className="mt-5 desktop:hidden" /> : null}
+      </>
+    ),
+  }));
 
   return (
     <Section id={ancres.fonctionnement} fond="sombre" aria-labelledby="brief-titre">
@@ -162,71 +180,32 @@ export function BriefToProof() {
           avecApercu ? 'desktop:grid-cols-2' : ''
         }`}
       >
-        <ul className="flex flex-col">
-          {ETAPES.map((cle, i) => {
-            const ouvert = cle === ouverte;
-            const position: Position =
-              i < rangOuvert ? 'passe' : i === rangOuvert ? 'courant' : 'avenir';
-
-            return (
-              <li key={cle} className="flex items-stretch gap-4">
-                <Fil position={position} premier={i === 0} dernier={i === ETAPES.length - 1} />
-
-                <div className="min-w-0 flex-1 pb-2">
-                  <h3>
-                    <button
-                      ref={(el) => {
-                        enTetes.current[cle] = el;
-                      }}
-                      type="button"
-                      id={`brief-entete-${cle}`}
-                      aria-expanded={ouvert}
-                      aria-controls={`brief-zone-${cle}`}
-                      onClick={() => setOuverte(cle)}
-                      onKeyDown={(e) => surTouche(e, i)}
-                      className={[
-                        'text-corps flex w-full items-baseline gap-3 rounded-carte px-4 py-3 text-left',
-                        'transition-colors duration-200 ease-choucas',
-                        ouvert ? 'bg-encre-inverse/10 font-semibold' : 'text-encre-inverse/70 hover:text-encre-inverse',
-                      ].join(' ')}
-                    >
-                      <span aria-hidden className="text-numero tabular-nums opacity-60">
-                        {String(i + 1).padStart(2, '0')}
-                      </span>
-                      {t(`onglets.${cle}`)}
-                    </button>
-                  </h3>
-
-                  <div
-                    id={`brief-zone-${cle}`}
-                    role="region"
-                    aria-labelledby={`brief-entete-${cle}`}
-                    hidden={!ouvert}
-                    className="px-4 pb-4 pt-3"
-                  >
-                    <p className="text-corps font-serif text-h3 not-italic">
-                      {t(`panneaux.${cle}.titre`)}
-                    </p>
-                    <p className="text-corps mt-3 text-encre-inverse/85">
-                      {t(`panneaux.${cle}.texte`)}
-                    </p>
-
-                    <p className="text-corps mt-5 rounded-carte border border-cta bg-cta/40 px-4 py-3">
-                      <span className="text-label font-semibold uppercase">{t('resultatLabel')}</span>
-                      <span aria-hidden> — </span>
-                      {t(`panneaux.${cle}.resultat`)}
-                    </p>
-
-                    {/* Sous 1000 px, la capture appartient a l'etape ouverte et
-                        se lit avec elle. Au-dessus, elle vit dans la colonne de
-                        droite : l'exemplaire masque n'est jamais charge. */}
-                    {avecApercu ? <Apercu etape={cle} className="mt-5 desktop:hidden" /> : null}
-                  </div>
-                </div>
-              </li>
-            );
-          })}
-        </ul>
+        <Accordeon
+          idBase="brief"
+          elements={elements}
+          ouverts={[ouverte]}
+          onChange={([id]) => id && setOuverte(id as EtapeCle)}
+          toujoursUn
+          className="flex flex-col"
+          classeElement={() => 'flex items-stretch gap-4'}
+          avant={({ index, premier, dernier }) => (
+            <Fil
+              position={index < rangOuvert ? 'passe' : index === rangOuvert ? 'courant' : 'avenir'}
+              premier={premier}
+              dernier={dernier}
+            />
+          )}
+          classeEntete={({ ouvert }) =>
+            [
+              'text-corps flex w-full items-baseline gap-3 rounded-carte px-4 py-3 text-left',
+              'transition-colors duration-200 ease-choucas',
+              ouvert
+                ? 'bg-encre-inverse/10 font-semibold'
+                : 'text-encre-inverse/70 hover:text-encre-inverse',
+            ].join(' ')
+          }
+          classeZone={() => 'px-4 pb-4 pt-3'}
+        />
 
         {/* Hauteur constante d'une etape a l'autre : la colonne ne saute pas.
             Tant qu'aucune capture n'existe, la colonne n'est pas rendue du

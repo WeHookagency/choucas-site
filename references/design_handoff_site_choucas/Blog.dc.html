@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;-webkit-font-smoothing:antialiased}
+  body{margin:0}
+  a{color:var(--ink);text-decoration:underline;text-decoration-color:rgba(18,21,18,.35);text-underline-offset:2px}
+  a:hover{color:var(--fir-deep);text-decoration-color:currentColor}
+</style>
+</helmet>
+<div style="--ink:#121512;--paper:#F6F5EF;--panel:#E8E9E0;--fir:#263F30;--fir-deep:#17271D;--copper:#B7683F;--border:rgba(18,21,18,.14);font-family:'Manrope',Arial,sans-serif;background:#dcd9cf;padding:56px 40px 96px;display:flex;flex-direction:column;gap:48px;align-items:flex-start;min-height:100vh">
+
+  <div style="font-size:12px;color:var(--ink);opacity:.65">Choucas — Blog index — brief §4</div>
+
+  <div style="display:flex;flex-wrap:wrap;gap:40px;align-items:flex-start">
+
+    <!-- DESKTOP -->
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div style="font-size:12px;font-weight:700;color:var(--ink);opacity:.65;text-transform:uppercase;letter-spacing:.06em">Desktop — 1440px</div>
+      <div style="width:1440px;background:var(--paper);box-shadow:0 1px 3px rgba(0,0,0,.12);overflow:hidden">
+
+        <nav style="display:flex;align-items:center;justify-content:space-between;padding:24px 64px;border-bottom:1px solid var(--border)">
+          <div style="font-family:'Manrope',Arial,sans-serif;font-weight:800;font-size:15px;letter-spacing:.08em;color:var(--ink)">CHOUCAS</div>
+          <div style="display:flex;gap:32px;font-size:13px;color:var(--ink)">
+            <span style="font-weight:400">Produit</span><span style="font-weight:400">Solutions</span><span style="font-weight:400">Tarifs</span><span style="font-weight:600">Blog</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:24px"><div style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--ink)"><span>FR</span><span style="opacity:.35">·</span><span style="opacity:.65">EN</span></div><div style="background:var(--fir);color:#fff;font-size:13px;font-weight:600;padding:10px 22px;border-radius:999px;border:1px solid var(--fir-deep);box-shadow:3px 3px 0 var(--fir-deep)">Nous rencontrer</div></div>
+        </nav>
+
+        <main style="display:flex;flex-direction:column;align-items:center;padding:128px 64px 96px">
+          <div style="width:900px;display:flex;flex-direction:column;gap:0">
+
+            <!-- A. Titre + intention -->
+            <header style="display:flex;flex-direction:column;gap:16px;margin-bottom:64px">
+              <h1 style="margin:0;font-family:'Newsreader',Georgia,serif;font-weight:400;font-size:56px;line-height:1.02;color:var(--ink)">Notes <span style="font-style:italic;color:var(--copper)">d'exploitation.</span></h1>
+              <p style="margin:0;font-size:17px;line-height:1.55;color:var(--ink);opacity:.75;max-width:560px">Ce qu'on apprend en regardant des conciergeries travailler. Pas de conseils génériques.</p>
+            </header>
+
+            <!-- B. Article en avant -->
+            <a href="#" style="text-decoration:none;color:var(--ink);display:block;background:var(--paper);border:1px solid var(--border);border-radius:22px;box-shadow:8px 8px 0 var(--fir-deep);padding:48px;margin-bottom:72px">
+              <div style="font-size:12px;color:var(--ink);opacity:.65;margin-bottom:16px">14 mars 2026 · 7 min de lecture</div>
+              <div style="font-family:'Newsreader',Georgia,serif;font-weight:500;font-size:38px;line-height:1.08;color:var(--ink);margin-bottom:16px">Ce qui se perd entre 10 h et 16 h un samedi de rotation</div>
+              <p style="margin:0;font-size:16px;line-height:1.6;color:var(--ink);opacity:.8;max-width:640px">Un samedi de haute saison, une conciergerie de douze biens fait sortir huit familles et en fait entrer huit autres, entre dix heures et seize heures. Ce texte décrit ce qui se passe dans cette fenêtre.</p>
+            </a>
+
+            <!-- C. Liste des autres articles -->
+            <div style="display:flex;flex-direction:column">
+              <sc-for list="{{ articles }}" as="art" hint-placeholder-count="3">
+                <a href="#" style="text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:10px;padding:32px 0;border-top:1px solid var(--border)">
+                  <div style="font-family:'Newsreader',Georgia,serif;font-weight:500;font-size:26px;line-height:1.2;color:var(--ink)">{{ art.title }}</div>
+                  <p style="margin:0;font-size:15px;line-height:1.55;color:var(--ink);opacity:.75;max-width:640px">{{ art.excerpt }}</p>
+                  <div style="font-size:12px;color:var(--ink);opacity:.65">{{ art.date }}</div>
+                </a>
+              </sc-for>
+            </div>
+
+            <!-- E. CTA -->
+            <div style="margin-top:72px;padding-top:40px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between">
+              <p style="margin:0;font-size:16px;color:var(--ink)">Une question sur votre exploitation ?</p>
+              <div style="border:1px solid var(--border);border-radius:999px;padding:12px 24px;font-size:14px;font-weight:600;color:var(--ink)">Poser une question</div>
+            </div>
+          </div>
+        </main>
+
+        <footer style="padding:64px;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:48px">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:64px">
+            <div style="font-family:'Manrope',Arial,sans-serif;font-weight:800;font-size:15px;letter-spacing:.08em;color:var(--ink)">CHOUCAS</div>
+            <div style="display:flex;gap:96px">
+              <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="font-size:13px;font-weight:700;color:var(--ink);letter-spacing:.01em">Produit</div>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">Fonctionnalités</a>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">Tarifs</a>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">Solutions</a>
+            </div>
+              <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="font-size:13px;font-weight:700;color:var(--ink);letter-spacing:.01em">Entreprise</div>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">À propos</a>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">Nous rencontrer</a>
+            </div>
+              <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="font-size:13px;font-weight:700;color:var(--ink);letter-spacing:.01em">Ressources</div>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">Blog</a>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">FAQ</a>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">Poser une question</a>
+            </div>
+            </div>
+          </div>
+          <div style="border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:flex-start;gap:32px;font-size:12px;color:var(--ink);opacity:.65">
+            <span>© 2026 Choucas</span>
+            <span>Aravis · Megève · Chamonix · Courchevel · Val d'Isère</span>
+            <div style="display:flex;gap:24px"><a href="#" style="color:var(--ink);text-decoration:none">Mentions légales</a><a href="#" style="color:var(--ink);text-decoration:none">Confidentialité</a></div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <!-- MOBILE -->
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div style="font-size:12px;font-weight:700;color:var(--ink);opacity:.65;text-transform:uppercase;letter-spacing:.06em">Mobile — 390px</div>
+      <div style="width:390px;background:var(--paper);box-shadow:0 1px 3px rgba(0,0,0,.12);overflow:hidden">
+
+        <nav style="display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--border)">
+          <div style="font-family:'Manrope',Arial,sans-serif;font-weight:800;font-size:13px;letter-spacing:.08em;color:var(--ink)">CHOUCAS</div>
+          <div style="width:24px;height:18px;display:flex;flex-direction:column;justify-content:space-between">
+            <span style="height:2px;background:var(--ink);border-radius:1px"></span>
+            <span style="height:2px;background:var(--ink);border-radius:1px"></span>
+            <span style="height:2px;background:var(--ink);border-radius:1px"></span>
+          </div>
+        </nav>
+
+        <main style="padding:72px 24px 72px">
+          <header style="display:flex;flex-direction:column;gap:12px;margin-bottom:40px">
+            <h1 style="margin:0;font-family:'Newsreader',Georgia,serif;font-weight:400;font-size:43px;line-height:1.05;color:var(--ink)">Notes <span style="font-style:italic;color:var(--copper)">d'exploitation.</span></h1>
+            <p style="margin:0;font-size:15px;line-height:1.55;color:var(--ink);opacity:.75">Ce qu'on apprend en regardant des conciergeries travailler. Pas de conseils génériques.</p>
+          </header>
+
+          <a href="#" style="text-decoration:none;color:var(--ink);display:block;background:var(--paper);border:1px solid var(--border);border-radius:18px;box-shadow:6px 6px 0 var(--fir-deep);padding:24px;margin-bottom:48px">
+            <div style="font-size:11px;color:var(--ink);opacity:.65;margin-bottom:12px">14 mars 2026 · 7 min</div>
+            <div style="font-family:'Newsreader',Georgia,serif;font-weight:500;font-size:24px;line-height:1.15;color:var(--ink);margin-bottom:12px">Ce qui se perd entre 10 h et 16 h un samedi de rotation</div>
+            <p style="margin:0;font-size:14px;line-height:1.55;color:var(--ink);opacity:.8">Un samedi de haute saison, une conciergerie de douze biens fait sortir huit familles et en fait entrer huit autres.</p>
+          </a>
+
+          <div style="display:flex;flex-direction:column">
+            <sc-for list="{{ articles }}" as="art" hint-placeholder-count="3">
+              <a href="#" style="text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:8px;padding:24px 0;border-top:1px solid var(--border)">
+                <div style="font-family:'Newsreader',Georgia,serif;font-weight:500;font-size:20px;line-height:1.2;color:var(--ink)">{{ art.title }}</div>
+                <p style="margin:0;font-size:14px;line-height:1.55;color:var(--ink);opacity:.75">{{ art.excerpt }}</p>
+                <div style="font-size:11px;color:var(--ink);opacity:.65">{{ art.date }}</div>
+              </a>
+            </sc-for>
+          </div>
+
+          <div style="margin-top:48px;padding-top:32px;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:16px">
+            <p style="margin:0;font-size:15px;color:var(--ink)">Une question sur votre exploitation ?</p>
+            <div style="border:1px solid var(--border);border-radius:999px;padding:14px 22px;font-size:14px;font-weight:600;color:var(--ink);width:fit-content;min-height:44px;display:flex;align-items:center">Poser une question</div>
+          </div>
+        </main>
+
+        <footer style="padding:48px 24px;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:32px">
+          <div style="font-family:'Manrope',Arial,sans-serif;font-weight:800;font-size:13px;letter-spacing:.08em;color:var(--ink)">CHOUCAS</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px 24px">
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="font-size:13px;font-weight:700;color:var(--ink);letter-spacing:.01em">Produit</div>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">Fonctionnalités</a>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">Tarifs</a>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">Solutions</a>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="font-size:13px;font-weight:700;color:var(--ink);letter-spacing:.01em">Entreprise</div>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">À propos</a>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">Nous rencontrer</a>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="font-size:13px;font-weight:700;color:var(--ink);letter-spacing:.01em">Ressources</div>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">Blog</a>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">FAQ</a>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">Poser une question</a>
+            </div>
+          </div>
+          <div style="border-top:1px solid var(--border);padding-top:20px;display:flex;flex-direction:column;gap:8px;font-size:11px;color:var(--ink);opacity:.65">
+            <span>© 2026 Choucas</span>
+            <span>Aravis · Megève · Chamonix · Courchevel · Val d'Isère</span>
+            <div style="display:flex;gap:20px;margin-top:4px"><a href="#" style="color:var(--ink);text-decoration:none">Mentions légales</a><a href="#" style="color:var(--ink);text-decoration:none">Confidentialité</a></div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ÉTAT VIDE -->
+  <div style="display:flex;flex-direction:column;gap:16px;margin-top:24px">
+    <div style="font-size:12px;font-weight:700;color:var(--ink);opacity:.65;text-transform:uppercase;letter-spacing:.06em">État vide</div>
+    <div style="width:900px;background:var(--paper);border:1px solid var(--border);border-radius:22px;padding:64px;display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center">
+      <p style="margin:0;font-family:'Newsreader',Georgia,serif;font-size:26px;color:var(--ink)">Le premier article arrive bientôt.</p>
+      <a href="#" style="font-size:15px;font-weight:600;color:var(--ink)">Poser une question en attendant</a>
+    </div>
+  </div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const articles = [
+      { title: `Pourquoi « terminé » ne veut rien dire`, excerpt: 'Terminé est déclaré par celui qui exécute. Prêt est validé par un tiers. La différence n\'est pas du vocabulaire.', date: '2 février 2026' },
+      { title: 'Le brief de séjour arrive par quatre canaux différents. C\'est le vrai problème.', excerpt: 'SMS, email, appel, post-it sur le comptoir : la même information circule quatre fois, et se perd une fois sur quatre.', date: '12 janvier 2026' },
+      { title: 'Faire travailler une équipe dans une cave sans réseau', excerpt: 'Les caves et les sous-sols ne captent pas. Ce que ça change pour une application censée fonctionner partout.', date: '18 décembre 2025' },
+    ];
+    return { articles };
+  }
+}
+</script>
+</body>
+</html>

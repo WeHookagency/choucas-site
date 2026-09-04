@@ -1,11 +1,7 @@
 import { useTranslations } from 'next-intl';
 
-import { useLocale } from 'next-intl';
+import { Link } from '@/i18n/navigation';
 
-import type { Locale } from '@/i18n/locales';
-import { getPathname, Link } from '@/i18n/navigation';
-
-import { ancres } from '../anchors';
 
 /**
  * Pied de page — specs §6.12.
@@ -18,28 +14,25 @@ import { ancres } from '../anchors';
  * liens factices. La mention « Maquette UX/UI · contenu provisoire » n'est pas
  * reprise non plus, elle doit disparaitre en production.
  */
-/**
- * Lien vers une section de l'accueil, depuis n'importe quelle page.
- *
- * Une ancre nue ne vaut que sur l'accueil : ailleurs elle ne mene nulle part,
- * ce que les specs §12 interdisent. On prefixe donc du chemin d'accueil de la
- * langue courante — /fr#produit depuis les mentions legales.
- */
-function lienSection(locale: Locale, ancre: string) {
-  return `${getPathname({ href: '/', locale })}#${ancre}`;
-}
-
 export function SiteFooter() {
   const t = useTranslations('footer');
   const nav = useTranslations('nav');
-  const locale = useLocale();
 
-  const liens = [
-    { href: lienSection(locale, ancres.produit), libelle: nav('produit') },
-    { href: lienSection(locale, ancres.fonctionnement), libelle: nav('fonctionnement') },
-    { href: lienSection(locale, ancres.implantation), libelle: nav('implantation') },
-    { href: lienSection(locale, ancres.aPropos), libelle: nav('aPropos') },
-  ];
+  /**
+   * Le pied recoit ce que la barre ne porte pas : « A propos », decision du
+   * backlog, et les deux pages legales.
+   *
+   * Le Blog n'y figure pas non plus : trois titres sans corps d'article ne
+   * font pas un index a lier.
+   */
+  const pages = [
+    { href: '/produit', libelle: nav('produit') },
+    { href: '/solutions', libelle: nav('solutions') },
+    { href: '/tarifs', libelle: nav('tarifs') },
+    { href: '/faq', libelle: nav('faq') },
+    { href: '/contact', libelle: nav('contact') },
+    { href: '/a-propos', libelle: nav('aPropos') },
+  ] as const;
 
   return (
     <footer className="border-t border-filet bg-fond text-encre">
@@ -47,16 +40,16 @@ export function SiteFooter() {
         <div className="flex flex-col gap-6 desktop:flex-row desktop:items-center desktop:gap-10">
           <p className="text-label font-bold uppercase tracking-[0.14em]">{nav('marque')}</p>
 
-          <nav aria-label={t('aria')}>
+          <nav aria-label={t('ariaPages')}>
             <ul className="flex flex-wrap gap-x-6 gap-y-2">
-              {liens.map((lien) => (
-                <li key={lien.href}>
-                  <a
-                    href={lien.href}
+              {pages.map((page) => (
+                <li key={page.href}>
+                  <Link
+                    href={page.href}
                     className="text-nav text-encre no-underline hover:text-accent"
                   >
-                    {lien.libelle}
-                  </a>
+                    {page.libelle}
+                  </Link>
                 </li>
               ))}
             </ul>

@@ -18,6 +18,17 @@ import { defaultLocale, locales } from './locales';
  */
 export const pathnames = {
   '/': '/',
+
+  // Pages du site, dans l'ordre de la navigation puis du pied.
+  '/produit': { fr: '/produit', en: '/product' },
+  '/solutions': { fr: '/solutions', en: '/solutions' },
+  '/tarifs': { fr: '/tarifs', en: '/pricing' },
+  '/blog': { fr: '/blog', en: '/blog' },
+  '/blog/[slug]': { fr: '/blog/[slug]', en: '/blog/[slug]' },
+  '/faq': { fr: '/faq', en: '/faq' },
+  '/contact': { fr: '/contact', en: '/contact' },
+  '/a-propos': { fr: '/a-propos', en: '/about' },
+
   '/mentions-legales': { fr: '/mentions-legales', en: '/legal-notice' },
   '/confidentialite': { fr: '/confidentialite', en: '/privacy-policy' },
 } as const;

@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;-webkit-font-smoothing:antialiased}
+  body{margin:0}
+  a{color:var(--ink);text-decoration:underline;text-decoration-color:rgba(18,21,18,.35);text-underline-offset:2px}
+  a:hover{color:var(--fir-deep);text-decoration-color:currentColor}
+</style>
+<script src="./image-slot.js"></script>
+</helmet>
+<div style="--ink:#121512;--paper:#F6F5EF;--panel:#E8E9E0;--moss:#95A184;--fir:#263F30;--fir-deep:#17271D;--copper:#B7683F;--warning:#986428;--danger:#A45C4F;--border:rgba(18,21,18,.14);font-family:'Manrope',Arial,sans-serif;background:#dcd9cf;padding:56px 40px 96px;display:flex;flex-direction:column;gap:48px;align-items:flex-start;min-height:100vh">
+
+  <div style="font-size:12px;color:var(--ink);opacity:.65">Choucas — Solutions — itération 3 · captures produit réelles · emplacements photo à remplir</div>
+
+  <div style="display:flex;flex-wrap:wrap;gap:40px;align-items:flex-start">
+
+    <!-- DESKTOP -->
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div style="font-size:12px;font-weight:700;color:var(--ink);opacity:.65;text-transform:uppercase;letter-spacing:.06em">Desktop — 1440px</div>
+      <div style="width:1440px;background:var(--paper);box-shadow:0 1px 3px rgba(0,0,0,.12)">
+
+        <nav style="display:flex;align-items:center;justify-content:space-between;height:72px;padding:0 64px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--paper);z-index:3;box-sizing:border-box">
+          <div style="font-family:'Manrope',Arial,sans-serif;font-weight:800;font-size:15px;letter-spacing:.08em;color:var(--ink)">CHOUCAS</div>
+          <div style="display:flex;gap:32px;font-size:13px;color:var(--ink)">
+            <span style="font-weight:400">Produit</span><span style="font-weight:600">Solutions</span><span style="font-weight:400">Tarifs</span><span style="font-weight:400">Blog</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:24px"><div style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--ink)"><span>FR</span><span style="opacity:.35">·</span><span style="opacity:.65">EN</span></div><div style="background:var(--fir);color:#fff;font-size:13px;font-weight:600;padding:10px 22px;border-radius:999px;border:1px solid var(--fir-deep);box-shadow:3px 3px 0 var(--fir-deep)">Nous rencontrer</div></div>
+        </nav>
+
+        <!-- A. Ouverture -->
+        <section style="display:flex;flex-direction:column;align-items:center;padding:128px 64px">
+          <div style="width:720px;display:flex;flex-direction:column;gap:20px;text-align:left">
+            <h1 style="margin:0;font-family:'Newsreader',Georgia,serif;font-weight:400;font-size:56px;line-height:1.02;color:var(--ink)">Trois rôles. <span style="font-style:italic;color:var(--copper)">Une seule version des faits.</span></h1>
+            <p style="margin:0;font-size:17px;line-height:1.55;color:var(--ink);opacity:.8">Le même bien vu depuis la direction, l'exploitation et le terrain. Choucas relie les trois sans multiplier les outils.</p>
+          </div>
+        </section>
+
+        <!-- B. Sélecteur -->
+        <div style="display:flex;justify-content:center;gap:20px;padding:20px 64px 0;position:sticky;top:72px;background:var(--paper);z-index:2;border-bottom:1px solid var(--border)">
+          <sc-for list="{{ roles }}" as="r" hint-placeholder-count="3">
+            <a href="{{ r.href }}" onClick="{{ r.onClick }}" style="text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:14px;cursor:pointer">
+              <span style="{{ r.label }}" style-hover="border-color:#17271D">{{ r.text }}</span>
+              <span style="{{ r.filet }}"></span>
+            </a>
+          </sc-for>
+        </div>
+
+        <!-- A2. Bande humaine -->
+        <section style="background:var(--panel);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:128px 64px;display:flex;flex-direction:column;align-items:center">
+          <div style="width:1200px;display:flex;flex-direction:column;gap:56px">
+            <div style="max-width:560px;display:flex;flex-direction:column;gap:12px">
+              <div style="width:40px;height:2px;background:var(--copper)"></div>
+              <h2 style="margin:0;font-family:'Newsreader',Georgia,serif;font-weight:500;font-size:38px;line-height:1.05;color:var(--ink)">Trois métiers, trois écrans, <span>une même journée.</span></h2>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px">
+              <figure style="margin:0;display:flex;flex-direction:column;gap:20px">
+                <div style="position:relative;width:100%;aspect-ratio:4/5;background:var(--panel);border-radius:18px;overflow:hidden">
+                  <image-slot id="sol-dirigeant" shape="rect" placeholder="Photo — dirigeant, en situation"></image-slot>
+                </div>
+                <figcaption style="display:flex;flex-direction:column;gap:8px">
+                  <span style="font-family:'Newsreader',Georgia,serif;font-size:24px;line-height:1.15;color:var(--ink)">Dirigeant</span>
+                  <span style="font-size:15px;line-height:1.55;color:var(--ink);opacity:.8">Décide sur les écarts, pas sur les détails. Regarde le parc une fois le matin.</span>
+                </figcaption>
+              </figure>
+              <figure style="margin:0;display:flex;flex-direction:column;gap:20px">
+                <div style="position:relative;width:100%;aspect-ratio:4/5;background:var(--panel);border-radius:18px;overflow:hidden">
+                  <image-slot id="sol-responsable" shape="rect" placeholder="Photo — responsable d’exploitation, en situation"></image-slot>
+                </div>
+                <figcaption style="display:flex;flex-direction:column;gap:8px">
+                  <span style="font-family:'Newsreader',Georgia,serif;font-size:24px;line-height:1.15;color:var(--ink)">Responsable d’exploitation</span>
+                  <span style="font-size:15px;line-height:1.55;color:var(--ink);opacity:.8">Arbitre la journée. Contrôle ce que le terrain a déclaré terminé.</span>
+                </figcaption>
+              </figure>
+              <figure style="margin:0;display:flex;flex-direction:column;gap:20px">
+                <div style="position:relative;width:100%;aspect-ratio:4/5;background:var(--panel);border-radius:18px;overflow:hidden">
+                  <image-slot id="sol-equipier" shape="rect" placeholder="Photo — terrain, en situation"></image-slot>
+                </div>
+                <figcaption style="display:flex;flex-direction:column;gap:8px">
+                  <span style="font-family:'Newsreader',Georgia,serif;font-size:24px;line-height:1.15;color:var(--ink)">Terrain</span>
+                  <span style="font-size:15px;line-height:1.55;color:var(--ink);opacity:.8">Exécute, documente, signale. Ne valide jamais sa propre mission.</span>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <!-- C. Dirigeants — cadrage large, agrégé -->
+        <section id="dirigeants" style="scroll-margin-top:158px;background:var(--moss);padding:128px 64px;display:flex;flex-direction:column;align-items:center">
+          <div style="width:1200px;display:grid;grid-template-columns:1fr 340px;gap:96px;align-items:start">
+            <div style="max-width:560px;display:flex;flex-direction:column;gap:16px">
+              <div style="font-family:'Manrope',Arial,sans-serif;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--fir-deep)">Dirigeants</div>
+              <h2 style="margin:0;font-family:'Newsreader',Georgia,serif;font-weight:500;font-size:38px;line-height:1.05;color:var(--ink)">Piloter sans devenir le centre <span>de toutes les opérations.</span></h2>
+              <p style="margin:0;font-size:16px;line-height:1.6;color:var(--ink)">Choucas donne au dirigeant une lecture de l'exploitation par les biens, les missions et les exceptions — sans transformer l'outil en système de surveillance des équipes.</p>
+              <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
+                <p style="margin:0;font-size:16px;line-height:1.6;color:var(--ink)"><strong style="font-weight:700">Vous voyez :</strong> ce qui est PRÊT, ce qui demande un contrôle, ce qui est bloqué et ce qui nécessite une décision.</p>
+                <p style="margin:0;font-size:16px;line-height:1.6;color:var(--ink)"><strong style="font-weight:700">Vous évitez :</strong> les relances permanentes, les informations reconstruites par téléphone et les tableaux de performance individuels.</p>
+              </div>
+              <a href="#" style="margin-top:8px;font-size:15px;font-weight:600;color:var(--ink);width:fit-content">Voir Choucas côté dirigeant</a>
+            </div>
+            <figure style="margin:0;display:flex;flex-direction:column;gap:20px">
+              <div style="position:relative;width:340px;max-height:640px;overflow:hidden;background:#3d7259;border-radius:24px;border:1px solid rgba(18,21,18,.18)">
+                <img src="uploads/bloc-exceptions-clair.png" alt="Bloc Exceptions : un chalet critique et deux ménages en attente de contrôle" style="display:block;width:100%;height:auto"/>
+                <div style="position:absolute;left:0;right:0;bottom:0;height:96px;background:linear-gradient(to bottom,rgba(0,0,0,0),#3d7259);pointer-events:none"></div>
+              </div>
+              <figcaption style="max-width:340px;font-size:14px;line-height:1.5;color:var(--ink);opacity:.7">Le bloc Exceptions, tel qu’il s’affiche. Trois lignes, trois décisions.</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <!-- D. Exploitation — orientation inversée, densité moyenne -->
+        <section id="exploitation" style="scroll-margin-top:158px;background:var(--paper);padding:128px 64px;display:flex;flex-direction:column;align-items:center;border-top:1px solid rgba(18,21,18,.12)">
+          <div style="width:1200px;display:grid;grid-template-columns:340px 1fr;gap:96px;align-items:start">
+            <figure style="margin:0;display:flex;flex-direction:column;gap:20px">
+              <div style="position:relative;width:340px;max-height:640px;overflow:hidden;background:#3d7259;border-radius:24px;border:1px solid rgba(18,21,18,.18)">
+                <img src="uploads/accueil-responsable-clair.png" alt="Écran responsable : samedi 5 septembre, 10 missions, 3 exceptions" style="display:block;width:100%;height:auto"/>
+                <div style="position:absolute;left:0;right:0;bottom:0;height:96px;background:linear-gradient(to bottom,rgba(0,0,0,0),#3d7259);pointer-events:none"></div>
+              </div>
+              <figcaption style="max-width:340px;font-size:14px;line-height:1.5;color:var(--ink);opacity:.7">Samedi 5 septembre. La journée tient sur un écran — l’en-tête, les exceptions, puis les heures.</figcaption>
+            </figure>
+            <div style="max-width:560px;display:flex;flex-direction:column;gap:16px">
+              <div style="font-family:'Manrope',Arial,sans-serif;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--fir-deep)">Responsables d’exploitation</div>
+              <h2 style="margin:0;font-family:'Newsreader',Georgia,serif;font-weight:500;font-size:38px;line-height:1.05;color:var(--ink)">Voir moins. <span>Savoir mieux.</span></h2>
+              <p style="margin:0;font-size:16px;line-height:1.6;color:var(--ink)">Le responsable d'exploitation n'a pas besoin de suivre chaque mouvement. Il doit savoir ce qui change la journée et où son intervention apporte de la valeur.</p>
+              <p style="margin:0;font-size:16px;line-height:1.6;color:var(--ink)">L'en-tête donne l'état du parc — six arrivées, un prêt, quatre en préparation, un bloqué. Les exceptions passent devant. Les huit autres missions restent en dessous, dans l'ordre des heures.</p>
+              <p style="margin:0;font-size:16px;line-height:1.6;color:var(--ink);opacity:.8">Arrivées · missions à contrôler · retards · blocages · urgences · renfort · rapports à relire.</p>
+              <a href="#" style="margin-top:8px;font-size:15px;font-weight:600;color:var(--ink);width:fit-content">Voir l'expérience Manager</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- E. Terrain — gros plan mobile -->
+        <section id="terrain" style="scroll-margin-top:158px;background:var(--moss);padding:128px 64px;display:flex;flex-direction:column;align-items:center;border-top:1px solid rgba(18,21,18,.12)">
+          <div style="width:1200px;display:grid;grid-template-columns:1fr 340px;gap:96px;align-items:start">
+            <div style="max-width:560px;display:flex;flex-direction:column;gap:16px">
+              <div style="font-family:'Manrope',Arial,sans-serif;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--fir-deep)">Terrain</div>
+              <h2 style="margin:0;font-family:'Newsreader',Georgia,serif;font-weight:500;font-size:38px;line-height:1.05;color:var(--ink)">Savoir quoi faire. <span>Et pourquoi.</span></h2>
+              <p style="margin:0;font-size:16px;line-height:1.6;color:var(--ink)">Le terrain retrouve sa journée, ses missions, les accès nécessaires, le contexte utile, les preuves attendues et les signalements au même endroit.</p>
+              <p style="margin:0;font-size:16px;line-height:1.6;color:var(--ink)">Une mission en cours, une à suivre, une terminée. Ce qu'il faut savoir avant d'entrer est écrit avant d'entrer : jacuzzi extérieur, accès 4×4 conseillé après chute de neige, sonde de température hors service.</p>
+              <p style="margin:0;font-size:16px;line-height:1.6;color:var(--ink)">L'interface privilégie l'action actuelle. Les détails restent accessibles lorsque la situation l'exige.</p>
+              <a href="#" style="margin-top:8px;font-size:15px;font-weight:600;color:var(--ink);width:fit-content">Voir Choucas sur le terrain</a>
+            </div>
+            <figure style="margin:0;display:flex;flex-direction:column;gap:20px">
+              <div style="position:relative;width:340px;max-height:640px;overflow:hidden;background:#3d7259;border-radius:24px;border:1px solid rgba(18,21,18,.18)">
+                <img src="uploads/accueil-equipier-clair.png" alt="Écran équipière : deux missions, trois chalets, une action urgente" style="display:block;width:100%;height:auto"/>
+                <div style="position:absolute;left:0;right:0;bottom:0;height:96px;background:linear-gradient(to bottom,rgba(0,0,0,0),#3d7259);pointer-events:none"></div>
+              </div>
+              <figcaption style="max-width:340px;font-size:14px;line-height:1.5;color:var(--ink);opacity:.7">Deux missions, trois chalets, une action urgente. Rien d’autre.</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <!-- E2. Gros plan Maintenant -->
+        <section style="background:var(--fir);color:#fff;padding:128px 64px;display:flex;flex-direction:column;align-items:center;gap:56px">
+          <div style="width:640px;display:flex;flex-direction:column;gap:16px;text-align:center;align-items:center">
+            <div style="width:40px;height:2px;background:var(--copper)"></div>
+            <h2 style="margin:0;font-family:'Newsreader',Georgia,serif;font-weight:500;font-size:38px;line-height:1.05">Une seule chose <span style="font-style:italic;color:#DB9A72">à la fois.</span></h2>
+            <p style="margin:0;font-size:16px;line-height:1.6;opacity:.85">La carte « Maintenant » ne montre que la mission en cours : l'heure de début, l'avancement — onze tâches sur vingt-quatre — le contexte du chalet, et un seul bouton.</p>
+          </div>
+          <div style="display:flex;gap:40px;justify-content:center">
+            <figure style="margin:0;display:flex;flex-direction:column;gap:20px">
+              <div style="position:relative;width:420px;max-height:420px;overflow:hidden;background:#3d7259;border-radius:24px;border:1px solid rgba(18,21,18,.18)">
+                <img src="uploads/carte-maintenant-clair.png" alt="Carte Maintenant : ménage arrivée en cours au Chalet Balme" style="display:block;width:100%;height:auto"/>
+                <div style="position:absolute;left:0;right:0;bottom:0;height:96px;background:linear-gradient(to bottom,rgba(0,0,0,0),#3d7259);pointer-events:none"></div>
+              </div>
+              <figcaption style="max-width:420px;font-size:14px;line-height:1.5;opacity:.75">Mode clair — Chalet Balme, La Clusaz.</figcaption>
+            </figure>
+            <figure style="margin:0;display:flex;flex-direction:column;gap:20px">
+              <div style="position:relative;width:420px;max-height:420px;overflow:hidden;background:#7ea799;border-radius:24px;border:1px solid rgba(18,21,18,.18)">
+                <img src="uploads/carte-maintenant-sombre.png" alt="Carte Maintenant en mode sombre" style="display:block;width:100%;height:auto"/>
+                <div style="position:absolute;left:0;right:0;bottom:0;height:96px;background:linear-gradient(to bottom,rgba(0,0,0,0),#7ea799);pointer-events:none"></div>
+              </div>
+              <figcaption style="max-width:420px;font-size:14px;line-height:1.5;opacity:.75">Mode sombre — pour les départs avant le jour.</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <!-- F. Point de jonction -->
+        <section style="background:var(--fir);color:#fff;padding:96px 64px;display:flex;flex-direction:column;align-items:center">
+          <div style="width:900px;display:flex;flex-direction:column;align-items:center;gap:56px">
+            <div style="max-width:600px;text-align:center;display:flex;flex-direction:column;gap:16px">
+              <h2 style="margin:0;font-family:'Newsreader',Georgia,serif;font-weight:500;font-size:38px;line-height:1.05">Personne ne valide <span style="font-style:italic;color:#DB9A72">son propre travail.</span></h2>
+              <p style="margin:0;font-size:16px;line-height:1.6;opacity:.85">L'exécutant déclare terminé. Un tiers contrôle. Le bien passe PRÊT.</p>
+            </div>
+            <div style="display:flex;align-items:center;gap:28px">
+              <div style="width:250px;background:var(--paper);border-radius:20px;border:1px solid var(--border);padding:24px;display:flex;flex-direction:column;gap:14px;box-shadow:6px 6px 0 rgba(0,0,0,.28)">
+                <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
+                  <span style="font-family:'Newsreader',Georgia,serif;font-size:18px;color:var(--ink)">Chalet L'Aiguille</span>
+                  <span style="font-size:10px;font-weight:700;letter-spacing:.03em;color:var(--ink);opacity:.65;border:1px solid var(--border);border-radius:999px;padding:4px 9px;white-space:nowrap">TERMINÉ</span>
+                </div>
+                <div style="font-size:12px;color:var(--ink);opacity:.65">Déclaré par Marie L. · Équipière · 10:25</div>
+                <div style="display:flex;gap:8px;align-items:center;font-size:13px;color:var(--ink);padding-top:8px;border-top:1px solid var(--border)"><span style="width:14px;height:14px;border-radius:999px;background:var(--fir);color:#fff;display:flex;align-items:center;justify-content:center;font-size:8px;flex-shrink:0">✓</span>Ménage départ · 24 tâches</div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:8px;width:120px">
+                <div style="width:32px;height:1px;background:rgba(255,255,255,.3)"></div>
+                <span style="font-size:11px;opacity:.65;text-align:center;line-height:1.4">contrôlé par Sophie M., responsable d'exploitation</span>
+                <div style="width:32px;height:1px;background:rgba(255,255,255,.3)"></div>
+              </div>
+              <div style="width:250px;background:var(--paper);border-radius:20px;border:1px solid var(--border);padding:24px;display:flex;flex-direction:column;gap:14px;box-shadow:6px 6px 0 var(--fir-deep)">
+                <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
+                  <span style="font-family:'Newsreader',Georgia,serif;font-size:18px;color:var(--ink)">Chalet L'Aiguille</span>
+                  <span style="font-size:10px;font-weight:700;letter-spacing:.03em;color:#fff;background:var(--fir);border-radius:999px;padding:4px 9px;white-space:nowrap">PRÊT</span>
+                </div>
+                <div style="font-size:12px;color:var(--ink);opacity:.65">Validé par Sophie M. · Responsable · 10:41</div>
+                <div style="display:flex;gap:8px;align-items:center;font-size:13px;color:var(--ink);padding-top:8px;border-top:1px solid var(--border)"><span style="width:14px;height:14px;border-radius:999px;background:var(--copper);color:#fff;display:flex;align-items:center;justify-content:center;font-size:8px;flex-shrink:0">✓</span>Contrôle qualité effectué</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- G. CTA -->
+        <section style="padding:128px 64px;display:flex;flex-direction:column;align-items:center">
+          <div style="width:1100px;display:flex;flex-direction:column;gap:56px">
+            <div style="position:relative;width:100%;aspect-ratio:21/9;background:var(--panel);border-radius:24px;overflow:hidden">
+              <image-slot id="sol-journee" shape="rect" placeholder="Photo large — l'équipe Choucas en journée d'implantation chez une conciergerie"></image-slot>
+            </div>
+            <div style="max-width:640px;display:flex;flex-direction:column;gap:20px;align-items:flex-start">
+              <h2 style="margin:0;font-family:'Newsreader',Georgia,serif;font-weight:500;font-size:38px;line-height:1.05;color:var(--ink)">Une journée sur site</h2>
+              <p style="margin:0;font-size:17px;line-height:1.55;color:var(--ink);opacity:.8">On installe Choucas sur une journée réelle chez vous, avec vos rotations et vos équipes.</p>
+              <div style="background:var(--fir);color:#fff;font-size:14px;font-weight:600;padding:14px 28px;border-radius:999px;border:1px solid var(--fir-deep);box-shadow:3px 3px 0 var(--fir-deep)">Nous rencontrer</div>
+            </div>
+          </div>
+        </section>
+
+        <footer style="padding:64px;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:48px">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:64px">
+            <div style="font-family:'Manrope',Arial,sans-serif;font-weight:800;font-size:15px;letter-spacing:.08em;color:var(--ink)">CHOUCAS</div>
+            <div style="display:flex;gap:96px">
+              <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="font-size:13px;font-weight:700;color:var(--ink);letter-spacing:.01em">Produit</div>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">Fonctionnalités</a>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">Tarifs</a>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">Solutions</a>
+            </div>
+              <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="font-size:13px;font-weight:700;color:var(--ink);letter-spacing:.01em">Entreprise</div>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">À propos</a>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">Nous rencontrer</a>
+            </div>
+              <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="font-size:13px;font-weight:700;color:var(--ink);letter-spacing:.01em">Ressources</div>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">Blog</a>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">FAQ</a>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">Poser une question</a>
+            </div>
+            </div>
+          </div>
+          <div style="border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:flex-start;gap:32px;font-size:12px;color:var(--ink);opacity:.65">
+            <span>© 2026 Choucas</span>
+            <span>Aravis · Megève · Chamonix · Courchevel · Val d'Isère</span>
+            <div style="display:flex;gap:24px"><a href="#" style="color:var(--ink);text-decoration:none">Mentions légales</a><a href="#" style="color:var(--ink);text-decoration:none">Confidentialité</a></div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <!-- MOBILE -->
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div style="font-size:12px;font-weight:700;color:var(--ink);opacity:.65;text-transform:uppercase;letter-spacing:.06em">Mobile — 390px</div>
+      <div style="width:390px;background:var(--paper);box-shadow:0 1px 3px rgba(0,0,0,.12)">
+
+        <nav style="display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--border)">
+          <div style="font-family:'Manrope',Arial,sans-serif;font-weight:800;font-size:13px;letter-spacing:.08em;color:var(--ink)">CHOUCAS</div>
+          <div style="width:24px;height:18px;display:flex;flex-direction:column;justify-content:space-between">
+            <span style="height:2px;background:var(--ink);border-radius:1px"></span>
+            <span style="height:2px;background:var(--ink);border-radius:1px"></span>
+            <span style="height:2px;background:var(--ink);border-radius:1px"></span>
+          </div>
+        </nav>
+
+        <section style="padding:56px 24px;display:flex;flex-direction:column;gap:16px">
+          <h1 style="margin:0;font-family:'Newsreader',Georgia,serif;font-weight:400;font-size:43px;line-height:1.05;color:var(--ink)">Trois rôles. <span style="font-style:italic;color:var(--copper)">Une seule version des faits.</span></h1>
+          <p style="margin:0;font-size:15px;line-height:1.55;color:var(--ink);opacity:.8">Le même bien vu depuis la direction, l'exploitation et le terrain. Choucas relie les trois sans multiplier les outils.</p>
+        </section>
+
+        <div style="display:flex;gap:16px;padding:0 24px;overflow-x:auto;margin-bottom:40px;border-bottom:1px solid var(--border)">
+          <sc-for list="{{ rolesM }}" as="r" hint-placeholder-count="3">
+            <a href="{{ r.href }}" onClick="{{ r.onClick }}" style="flex-shrink:0;text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:12px;cursor:pointer">
+              <span style="{{ r.label }}">{{ r.text }}</span>
+              <span style="{{ r.filet }}"></span>
+            </a>
+          </sc-for>
+        </div>
+
+        <section style="background:var(--panel);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:72px 24px;display:flex;flex-direction:column;gap:32px;margin-bottom:40px">
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="width:32px;height:2px;background:var(--copper)"></div>
+            <h2 style="margin:0;font-family:'Newsreader',Georgia,serif;font-weight:500;font-size:30px;line-height:1.1;color:var(--ink)">Trois métiers, trois écrans, <span>une même journée.</span></h2>
+          </div>
+            <figure style="margin:0;display:flex;flex-direction:column;gap:14px">
+              <div style="position:relative;width:100%;aspect-ratio:4/5;background:var(--panel);border-radius:14px;overflow:hidden">
+                <image-slot id="sol-m-dirigeant" shape="rect" placeholder="Photo — dirigeant"></image-slot>
+              </div>
+              <figcaption style="display:flex;flex-direction:column;gap:6px">
+                <span style="font-family:'Newsreader',Georgia,serif;font-size:20px;line-height:1.15;color:var(--ink)">Dirigeant</span>
+                <span style="font-size:14px;line-height:1.55;color:var(--ink);opacity:.8">Décide sur les écarts, pas sur les détails.</span>
+              </figcaption>
+            </figure>
+            <figure style="margin:0;display:flex;flex-direction:column;gap:14px">
+              <div style="position:relative;width:100%;aspect-ratio:4/5;background:var(--panel);border-radius:14px;overflow:hidden">
+                <image-slot id="sol-m-responsable" shape="rect" placeholder="Photo — responsable d’exploitation"></image-slot>
+              </div>
+              <figcaption style="display:flex;flex-direction:column;gap:6px">
+                <span style="font-family:'Newsreader',Georgia,serif;font-size:20px;line-height:1.15;color:var(--ink)">Responsable d’exploitation</span>
+                <span style="font-size:14px;line-height:1.55;color:var(--ink);opacity:.8">Arbitre la journée. Contrôle ce que le terrain a déclaré terminé.</span>
+              </figcaption>
+            </figure>
+            <figure style="margin:0;display:flex;flex-direction:column;gap:14px">
+              <div style="position:relative;width:100%;aspect-ratio:4/5;background:var(--panel);border-radius:14px;overflow:hidden">
+                <image-slot id="sol-m-equipier" shape="rect" placeholder="Photo — terrain"></image-slot>
+              </div>
+              <figcaption style="display:flex;flex-direction:column;gap:6px">
+                <span style="font-family:'Newsreader',Georgia,serif;font-size:20px;line-height:1.15;color:var(--ink)">Terrain</span>
+                <span style="font-size:14px;line-height:1.55;color:var(--ink);opacity:.8">Exécute, documente, signale. Ne valide jamais sa propre mission.</span>
+              </figcaption>
+            </figure>
+        </section>
+
+        <section id="dirigeants-m" style="scroll-margin-top:24px;background:var(--moss);padding:72px 24px;display:flex;flex-direction:column;gap:20px">
+          <div style="font-family:'Manrope',Arial,sans-serif;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--fir-deep)">Dirigeants</div>
+          <h2 style="margin:0;font-family:'Newsreader',Georgia,serif;font-weight:500;font-size:32px;line-height:1.1;color:var(--ink)">Piloter sans devenir le centre <span>de toutes les opérations.</span></h2>
+          <p style="margin:0;font-size:14px;line-height:1.6;color:var(--ink)">Choucas donne au dirigeant une lecture de l'exploitation par les biens, les missions et les exceptions — sans transformer l'outil en système de surveillance des équipes.</p>
+          <p style="margin:0;font-size:14px;line-height:1.6;color:var(--ink)"><strong style="font-weight:700">Vous voyez :</strong> ce qui est PRÊT, ce qui demande un contrôle, ce qui est bloqué et ce qui nécessite une décision.</p>
+          <p style="margin:0;font-size:14px;line-height:1.6;color:var(--ink)"><strong style="font-weight:700">Vous évitez :</strong> les relances permanentes, les informations reconstruites par téléphone et les tableaux de performance individuels.</p>
+          <figure style="margin:0;display:flex;flex-direction:column;gap:16px">
+            <div style="position:relative;width:100%;max-height:420px;overflow:hidden;background:#3d7259;border-radius:18px;border:1px solid rgba(18,21,18,.18)">
+              <img src="uploads/bloc-exceptions-clair.png" alt="Bloc Exceptions" style="display:block;width:100%;height:auto"/>
+              <div style="position:absolute;left:0;right:0;bottom:0;height:72px;background:linear-gradient(to bottom,rgba(0,0,0,0),#3d7259);pointer-events:none"></div>
+            </div>
+            <figcaption style="font-size:14px;line-height:1.5;color:var(--ink);opacity:.7">Un chalet bloqué avant une arrivée dans 3 h 30, deux ménages en attente de contrôle.</figcaption>
+          </figure>
+        </section>
+
+        <section id="exploitation-m" style="scroll-margin-top:24px;background:var(--paper);padding:72px 24px;display:flex;flex-direction:column;gap:20px;border-top:1px solid rgba(18,21,18,.12)">
+          <div style="font-family:'Manrope',Arial,sans-serif;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--fir-deep)">Responsables d’exploitation</div>
+          <h2 style="margin:0;font-family:'Newsreader',Georgia,serif;font-weight:500;font-size:32px;line-height:1.1;color:var(--ink)">Voir moins. <span>Savoir mieux.</span></h2>
+          <p style="margin:0;font-size:14px;line-height:1.6;color:var(--ink)">Le responsable d'exploitation n'a pas besoin de suivre chaque mouvement. Il doit savoir ce qui change la journée et où son intervention apporte de la valeur.</p>
+          <p style="margin:0;font-size:14px;line-height:1.6;color:var(--ink);opacity:.8">Arrivées · missions à contrôler · retards · blocages · urgences · renfort · rapports à relire.</p>
+          <figure style="margin:0;display:flex;flex-direction:column;gap:16px">
+            <div style="position:relative;width:100%;max-height:520px;overflow:hidden;background:#3d7259;border-radius:18px;border:1px solid rgba(18,21,18,.18)">
+              <img src="uploads/accueil-responsable-clair.png" alt="Écran responsable" style="display:block;width:100%;height:auto"/>
+              <div style="position:absolute;left:0;right:0;bottom:0;height:72px;background:linear-gradient(to bottom,rgba(0,0,0,0),#3d7259);pointer-events:none"></div>
+            </div>
+            <figcaption style="font-size:14px;line-height:1.5;color:var(--ink);opacity:.7">Samedi 5 septembre. Dix missions, six arrivées, trois exceptions.</figcaption>
+          </figure>
+        </section>
+
+        <section id="terrain-m" style="scroll-margin-top:24px;background:var(--moss);padding:72px 24px;display:flex;flex-direction:column;gap:20px;border-top:1px solid rgba(18,21,18,.12)">
+          <div style="font-family:'Manrope',Arial,sans-serif;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--fir-deep)">Terrain</div>
+          <h2 style="margin:0;font-family:'Newsreader',Georgia,serif;font-weight:500;font-size:32px;line-height:1.1;color:var(--ink)">Savoir quoi faire. <span>Et pourquoi.</span></h2>
+          <p style="margin:0;font-size:14px;line-height:1.6;color:var(--ink)">Le terrain retrouve sa journée, ses missions, les accès nécessaires, le contexte utile, les preuves attendues et les signalements au même endroit.</p>
+          <p style="margin:0;font-size:14px;line-height:1.6;color:var(--ink)">L'interface privilégie l'action actuelle. Les détails restent accessibles lorsque la situation l'exige.</p>
+          <figure style="margin:0;display:flex;flex-direction:column;gap:16px">
+            <div style="position:relative;width:100%;max-height:520px;overflow:hidden;background:#3d7259;border-radius:18px;border:1px solid rgba(18,21,18,.18)">
+              <img src="uploads/accueil-equipier-clair.png" alt="Écran équipière" style="display:block;width:100%;height:auto"/>
+              <div style="position:absolute;left:0;right:0;bottom:0;height:72px;background:linear-gradient(to bottom,rgba(0,0,0,0),#3d7259);pointer-events:none"></div>
+            </div>
+            <figcaption style="font-size:14px;line-height:1.5;color:var(--ink);opacity:.7">Deux missions, trois chalets, une action urgente. Rien d’autre.</figcaption>
+          </figure>
+        </section>
+
+        <section style="background:var(--fir);color:#fff;padding:72px 24px;display:flex;flex-direction:column;gap:32px">
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div style="width:32px;height:2px;background:var(--copper)"></div>
+            <h2 style="margin:0;font-family:'Newsreader',Georgia,serif;font-weight:500;font-size:30px;line-height:1.1">Une seule chose <span style="font-style:italic;color:#DB9A72">à la fois.</span></h2>
+            <p style="margin:0;font-size:14px;line-height:1.6;opacity:.85">La carte « Maintenant » ne montre que la mission en cours : l'heure de début, l'avancement, le contexte du chalet, et un seul bouton.</p>
+          </div>
+          <figure style="margin:0;display:flex;flex-direction:column;gap:16px">
+            <div style="position:relative;width:100%;max-height:400px;overflow:hidden;background:#3d7259;border-radius:18px;border:1px solid rgba(18,21,18,.18)">
+              <img src="uploads/carte-maintenant-clair.png" alt="Carte Maintenant, mode clair" style="display:block;width:100%;height:auto"/>
+              <div style="position:absolute;left:0;right:0;bottom:0;height:72px;background:linear-gradient(to bottom,rgba(0,0,0,0),#3d7259);pointer-events:none"></div>
+            </div>
+            <figcaption style="font-size:14px;line-height:1.5;opacity:.75">Mode clair — Chalet Balme, La Clusaz.</figcaption>
+          </figure>
+          <figure style="margin:0;display:flex;flex-direction:column;gap:16px">
+            <div style="position:relative;width:100%;max-height:400px;overflow:hidden;background:#7ea799;border-radius:18px;border:1px solid rgba(18,21,18,.18)">
+              <img src="uploads/carte-maintenant-sombre.png" alt="Carte Maintenant, mode sombre" style="display:block;width:100%;height:auto"/>
+              <div style="position:absolute;left:0;right:0;bottom:0;height:72px;background:linear-gradient(to bottom,rgba(0,0,0,0),#7ea799);pointer-events:none"></div>
+            </div>
+            <figcaption style="font-size:14px;line-height:1.5;opacity:.75">Mode sombre — pour les départs avant le jour.</figcaption>
+          </figure>
+        </section>
+
+        <section style="background:var(--panel);padding:72px 24px;display:flex;flex-direction:column;gap:32px;align-items:center;border-top:1px solid var(--border)">
+          <div style="text-align:center;display:flex;flex-direction:column;gap:12px">
+            <h2 style="margin:0;font-family:'Newsreader',Georgia,serif;font-weight:500;font-size:28px;line-height:1.1">Personne ne valide <span style="font-style:italic;color:#DB9A72">son propre travail.</span></h2>
+            <p style="margin:0;font-size:14px;line-height:1.55;opacity:.85">L'exécutant déclare terminé. Un tiers contrôle. Le bien passe PRÊT.</p>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:16px">
+            <div style="width:230px;background:var(--paper);border-radius:18px;border:1px solid var(--border);padding:20px;display:flex;flex-direction:column;gap:12px;box-shadow:5px 5px 0 rgba(0,0,0,.28)">
+              <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
+                <span style="font-family:'Newsreader',Georgia,serif;font-size:16px;color:var(--ink)">Chalet L'Aiguille</span>
+                <span style="font-size:9px;font-weight:700;letter-spacing:.03em;color:var(--ink);opacity:.65;border:1px solid var(--border);border-radius:999px;padding:3px 8px;white-space:nowrap">TERMINÉ</span>
+              </div>
+              <div style="font-size:11px;color:var(--ink);opacity:.65">Déclaré par Marie L. · 10:25</div>
+            </div>
+            <span style="font-size:11px;opacity:.65;text-align:center">contrôlé par Sophie M., responsable d'exploitation</span>
+            <div style="width:230px;background:var(--paper);border-radius:18px;border:1px solid var(--border);padding:20px;display:flex;flex-direction:column;gap:12px;box-shadow:5px 5px 0 var(--fir-deep)">
+              <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
+                <span style="font-family:'Newsreader',Georgia,serif;font-size:16px;color:var(--ink)">Chalet L'Aiguille</span>
+                <span style="font-size:9px;font-weight:700;letter-spacing:.03em;color:#fff;background:var(--fir);border-radius:999px;padding:3px 8px;white-space:nowrap">PRÊT</span>
+              </div>
+              <div style="font-size:11px;color:var(--ink);opacity:.65">Validé par Sophie M. · 10:41</div>
+            </div>
+          </div>
+        </section>
+
+        <section style="padding:72px 24px;display:flex;flex-direction:column;gap:28px">
+          <div style="position:relative;width:100%;aspect-ratio:4/3;background:var(--panel);border-radius:18px;overflow:hidden">
+            <image-slot id="sol-m-journee" shape="rect" placeholder="Photo — journée d'implantation"></image-slot>
+          </div>
+          <h2 style="margin:0;font-family:'Newsreader',Georgia,serif;font-weight:500;font-size:30px;line-height:1.1;color:var(--ink)">Une journée sur site</h2>
+          <p style="margin:0;font-size:15px;line-height:1.55;color:var(--ink);opacity:.8">On installe Choucas sur une journée réelle chez vous, avec vos rotations et vos équipes.</p>
+          <div style="background:var(--fir);color:#fff;font-size:14px;font-weight:600;padding:14px 26px;border-radius:999px;border:1px solid var(--fir-deep);box-shadow:3px 3px 0 var(--fir-deep);min-height:44px;display:flex;align-items:center;width:fit-content">Nous rencontrer</div>
+        </section>
+
+        <footer style="padding:48px 24px;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:32px">
+          <div style="font-family:'Manrope',Arial,sans-serif;font-weight:800;font-size:13px;letter-spacing:.08em;color:var(--ink)">CHOUCAS</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px 24px">
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="font-size:13px;font-weight:700;color:var(--ink);letter-spacing:.01em">Produit</div>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">Fonctionnalités</a>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">Tarifs</a>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">Solutions</a>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="font-size:13px;font-weight:700;color:var(--ink);letter-spacing:.01em">Entreprise</div>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">À propos</a>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">Nous rencontrer</a>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="font-size:13px;font-weight:700;color:var(--ink);letter-spacing:.01em">Ressources</div>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">Blog</a>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">FAQ</a>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">Poser une question</a>
+            </div>
+          </div>
+          <div style="border-top:1px solid var(--border);padding-top:20px;display:flex;flex-direction:column;gap:8px;font-size:11px;color:var(--ink);opacity:.65">
+            <span>© 2026 Choucas</span>
+            <span>Aravis · Megève · Chamonix · Courchevel · Val d'Isère</span>
+            <div style="display:flex;gap:20px;margin-top:4px"><a href="#" style="color:var(--ink);text-decoration:none">Mentions légales</a><a href="#" style="color:var(--ink);text-decoration:none">Confidentialité</a></div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const ROLES = [
+  ['dirigeants', 'Dirigeants'],
+  ['exploitation', "Responsables d'exploitation"],
+  ['terrain', 'Terrain'],
+];
+
+class Component extends DCLogic {
+  state = { active: 'dirigeants', activeM: 'dirigeants-m' };
+
+  ensureTracking() {
+    if (this._tracking) return;
+    this._tracking = true;
+    const measure = () => {
+      const pick = (ids, offset) => {
+        let cur = ids[0], found = false;
+        for (const id of ids) {
+          const el = document.getElementById(id);
+          if (!el) continue;
+          found = true;
+          if (el.getBoundingClientRect().top <= offset) cur = id;
+        }
+        return found ? cur : null;
+      };
+      const d = pick(ROLES.map(r => r[0]), 200);
+      const m = pick(ROLES.map(r => r[0] + '-m'), 160);
+      const next = {};
+      if (d && d !== this.state.active) next.active = d;
+      if (m && m !== this.state.activeM) next.activeM = m;
+      if (Object.keys(next).length) this.setState(next);
+    };
+    this._timer = setInterval(measure, 150);
+    measure();
+  }
+
+  componentDidMount() { this.ensureTracking(); }
+  componentWillUnmount() { clearInterval(this._timer); }
+
+  jump(id, offset) {
+    return ev => {
+      const el = document.getElementById(id);
+      if (!el) return; // pas de preventDefault : l'ancre native reste le filet de sécurité
+      ev.preventDefault();
+      const y = Math.max(0, el.getBoundingClientRect().top + window.scrollY - offset);
+      const before = window.scrollY;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+      // repli synchrone : si le smooth est ignoré (reduced-motion, export), on saute sèchement
+      if (Math.abs(window.scrollY - before) < 2 && Math.abs(y - before) >= 2) {
+        window.scrollTo(0, y);
+      }
+      this.setState(id.endsWith('-m') ? { activeM: id } : { active: id });
+    };
+  }
+
+  renderVals() {
+    this.ensureTracking();
+
+    const pill = (on, size) =>
+      'font-family:\'Manrope\',Arial,sans-serif;font-size:' + size + 'px;border-radius:999px;'
+      + 'padding:' + (size > 13 ? '12px 24px' : '10px 18px') + ';white-space:nowrap;'
+      + 'background:var(--paper);color:#121512;transition:border-color .15s,opacity .15s;'
+      + (on
+        ? 'font-weight:700;opacity:1;border:1px solid rgba(18,21,18,.3)'
+        : 'font-weight:600;opacity:.6;border:1px solid rgba(18,21,18,.14)');
+
+    const filet = (on, w) =>
+      'display:block;width:' + w + ';height:2px;border-radius:2px;'
+      + (on ? 'background:#B7683F' : 'background:transparent');
+
+    const roles = ROLES.map(([id, text]) => {
+      const on = this.state.active === id;
+      return { href: '#' + id, text, label: pill(on, 14), filet: filet(on, '100%'), onClick: this.jump(id, 158) };
+    });
+
+    const rolesM = ROLES.map(([id, text]) => {
+      const mid = id + '-m';
+      const on = this.state.activeM === mid;
+      return { href: '#' + mid, text, label: pill(on, 13), filet: filet(on, '100%'), onClick: this.jump(mid, 24) };
+    });
+
+    return { roles, rolesM };
+  }
+}
+</script>
+</body>
+</html>

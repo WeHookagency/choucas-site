@@ -17,17 +17,21 @@
     "aria": "Navigation principale",
     "ouvrirMenu": "Ouvrir le menu",
     "fermerMenu": "Fermer le menu",
-    "produit": "The product",
-    "fonctionnement": "How it works",
+    "produit": "Product",
     "aPropos": "About",
-    "implantation": "Implementation"
+    "solutions": "Solutions",
+    "tarifs": "Pricing",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "blog": "Field notes"
   },
   "footer": {
     "aria": "Navigation de pied de page",
     "contexte": "Hospitality operations · Alpes françaises · 2026",
     "mentions": "Mentions légales",
     "confidentialite": "Confidentialité",
-    "ariaLegal": "Informations légales"
+    "ariaLegal": "Informations légales",
+    "ariaPages": "Site pages"
   },
   "actions": {
     "demo": "Book a demo",
@@ -376,6 +380,32 @@
         "titre": "Test",
         "texte": "Run Choucas against real cases and adjust it with the team."
       }
+    }
+  },
+  "pages": {
+    "produit": {
+      "titre": "The product"
+    },
+    "solutions": {
+      "titre": "Solutions"
+    },
+    "tarifs": {
+      "titre": "Pricing"
+    },
+    "blog": {
+      "titre": "Field notes"
+    },
+    "article": {
+      "titre": "Article"
+    },
+    "faq": {
+      "titre": "Frequently asked questions"
+    },
+    "contact": {
+      "titre": "Contact"
+    },
+    "aPropos": {
+      "titre": "About"
     }
   }
 }

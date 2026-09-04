@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;-webkit-font-smoothing:antialiased}
+  body{margin:0}
+  a{color:var(--copper);text-decoration:underline;text-decoration-color:rgba(183,104,63,.4);text-underline-offset:2px}
+  a:hover{color:var(--fir-deep);text-decoration-color:currentColor}
+</style>
+</helmet>
+<div style="--ink:#121512;--paper:#F6F5EF;--panel:#E8E9E0;--fir:#263F30;--fir-deep:#17271D;--copper:#B7683F;--warning:#986428;--border:rgba(18,21,18,.14);font-family:'Manrope',Arial,sans-serif;background:#dcd9cf;padding:56px 40px 96px;display:flex;flex-direction:column;gap:48px;align-items:flex-start;min-height:100vh">
+
+  <div style="font-size:12px;color:var(--ink);opacity:.65">Choucas — FAQ — itération 2 · réponses sourcées CONTENUS §17 · 2 entrées [À ARBITRER]</div>
+
+  <div style="display:flex;flex-wrap:wrap;gap:40px;align-items:flex-start">
+
+    <!-- DESKTOP -->
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div style="font-size:12px;font-weight:700;color:var(--ink);opacity:.65;text-transform:uppercase;letter-spacing:.06em">Desktop — 1440px</div>
+      <div style="width:1440px;background:var(--paper);box-shadow:0 1px 3px rgba(0,0,0,.12);overflow:hidden">
+
+        <nav style="display:flex;align-items:center;justify-content:space-between;padding:24px 64px;border-bottom:1px solid var(--border)">
+          <div style="font-family:'Manrope',Arial,sans-serif;font-weight:800;font-size:15px;letter-spacing:.08em;color:var(--ink)">CHOUCAS</div>
+          <div style="display:flex;gap:32px;font-size:13px;color:var(--ink)">
+            <span style="font-weight:400">Produit</span><span style="font-weight:400">Solutions</span><span style="font-weight:400">Tarifs</span><span style="font-weight:400">Blog</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:24px">
+            <div style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--ink)"><span>FR</span><span style="opacity:.35">·</span><span style="opacity:.65">EN</span></div>
+            <div style="background:var(--fir);color:#fff;font-size:13px;font-weight:600;padding:10px 22px;border-radius:999px;border:1px solid var(--fir-deep);box-shadow:3px 3px 0 var(--fir-deep)">Nous rencontrer</div>
+          </div>
+        </nav>
+
+        <section style="display:flex;flex-direction:column;align-items:center;padding:128px 64px 0">
+          <div style="width:720px;display:flex;flex-direction:column;gap:16px;margin-bottom:64px">
+            <h1 style="margin:0;font-family:'Newsreader',Georgia,serif;font-weight:400;font-size:56px;line-height:1.02;color:var(--ink)">Questions <span style="font-style:italic;color:var(--copper)">fréquentes.</span></h1>
+            <p style="margin:0;font-size:17px;line-height:1.55;color:var(--ink);opacity:.8">Ce qu'on nous demande avant de commencer. Y compris ce que Choucas ne fait pas.</p>
+          </div>
+        </section>
+
+        <section style="display:flex;justify-content:center;padding:0 64px 96px">
+          <div style="width:1200px;display:flex;gap:64px">
+            <div style="width:220px;position:sticky;top:24px;display:flex;flex-direction:column;gap:2px;height:fit-content">
+              <sc-for list="{{ sidebarGroups }}" as="g" hint-placeholder-count="5">
+                <a href="{{ g.href }}" onClick="{{ g.onClick }}" style="{{ g.sidebarStyle }}">{{ g.label }}</a>
+              </sc-for>
+            </div>
+            <div style="flex:1;max-width:720px;display:flex;flex-direction:column;gap:64px">
+              <sc-for list="{{ groups }}" as="group" hint-placeholder-count="5">
+                <div id="{{ group.id }}" style="display:flex;flex-direction:column;gap:8px">
+                  <h2 style="margin:0 0 16px;font-family:'Newsreader',Georgia,serif;font-weight:500;font-size:38px;line-height:1.05;color:var(--ink)">{{ group.title }}</h2>
+                  <sc-for list="{{ group.items }}" as="item" hint-placeholder-count="5">
+                    <div style="border-top:1px solid var(--border)">
+                      <button onClick="{{ item.toggle }}" style="all:unset;cursor:pointer;width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 0">
+                        <span style="font-family:'Manrope',Arial,sans-serif;font-weight:600;font-size:16px;color:var(--ink);text-align:left">{{ item.q }}</span>
+                        <span style="display:flex;align-items:center;gap:10px;flex-shrink:0">
+                          <sc-if value="{{ item.arbitrated }}">
+                            <span style="font-size:10px;font-weight:700;letter-spacing:.03em;color:var(--warning);border:1px solid rgba(152,100,40,.4);border-radius:999px;padding:3px 9px;background:rgba(152,100,40,.08)">À ARBITRER</span>
+                          </sc-if>
+                          <span style="position:relative;width:16px;height:16px;flex-shrink:0">
+                            <span style="position:absolute;top:7px;left:0;width:16px;height:2px;background:var(--ink)"></span>
+                            <span style="position:absolute;top:0;left:7px;width:2px;height:16px;background:var(--ink);transform:{{ item.indicatorTransform }};transition:transform .2s"></span>
+                          </span>
+                        </span>
+                      </button>
+                      <sc-if value="{{ item.isOpen }}" hint-placeholder-val="{{ false }}">
+                        <p style="margin:0 0 24px;font-size:16px;line-height:1.6;color:var(--ink);opacity:.85;max-width:680px">{{ item.a }}</p>
+                      </sc-if>
+                    </div>
+                  </sc-for>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </section>
+
+        <section style="display:flex;flex-direction:column;align-items:center;padding:0 64px 96px">
+          <div style="width:900px;padding-top:40px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between">
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <div style="font-family:'Newsreader',Georgia,serif;font-size:24px;color:var(--ink)">Une question qui n'est pas là ?</div>
+              <p style="margin:0;font-size:15px;color:var(--ink);opacity:.75">Écrivez-nous. On répond sous 48 h ouvrées.</p>
+            </div>
+            <div style="border:1px solid var(--border);border-radius:999px;padding:12px 24px;font-size:14px;font-weight:600;color:var(--ink);flex-shrink:0">Poser une question</div>
+          </div>
+        </section>
+
+        <footer style="padding:64px;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:48px">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:64px">
+            <div style="font-family:'Manrope',Arial,sans-serif;font-weight:800;font-size:15px;letter-spacing:.08em;color:var(--ink)">CHOUCAS</div>
+            <div style="display:flex;gap:96px">
+              <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="font-size:13px;font-weight:700;color:var(--ink);letter-spacing:.01em">Produit</div>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">Fonctionnalités</a>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">Tarifs</a>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">Solutions</a>
+            </div>
+              <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="font-size:13px;font-weight:700;color:var(--ink);letter-spacing:.01em">Entreprise</div>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">À propos</a>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">Nous rencontrer</a>
+            </div>
+              <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="font-size:13px;font-weight:700;color:var(--ink);letter-spacing:.01em">Ressources</div>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">Blog</a>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">FAQ</a>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">Poser une question</a>
+            </div>
+            </div>
+          </div>
+          <div style="border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:flex-start;gap:32px;font-size:12px;color:var(--ink);opacity:.65">
+            <span>© 2026 Choucas</span>
+            <span>Aravis · Megève · Chamonix · Courchevel · Val d'Isère</span>
+            <div style="display:flex;gap:24px"><a href="#" style="color:var(--ink);text-decoration:none">Mentions légales</a><a href="#" style="color:var(--ink);text-decoration:none">Confidentialité</a></div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <!-- MOBILE -->
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div style="font-size:12px;font-weight:700;color:var(--ink);opacity:.65;text-transform:uppercase;letter-spacing:.06em">Mobile — 390px</div>
+      <div style="width:390px;background:var(--paper);box-shadow:0 1px 3px rgba(0,0,0,.12);overflow:hidden">
+
+        <nav style="display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--border)">
+          <div style="font-family:'Manrope',Arial,sans-serif;font-weight:800;font-size:13px;letter-spacing:.08em;color:var(--ink)">CHOUCAS</div>
+          <div style="width:24px;height:18px;display:flex;flex-direction:column;justify-content:space-between">
+            <span style="height:2px;background:var(--ink);border-radius:1px"></span>
+            <span style="height:2px;background:var(--ink);border-radius:1px"></span>
+            <span style="height:2px;background:var(--ink);border-radius:1px"></span>
+          </div>
+        </nav>
+
+        <section style="padding:56px 24px 24px;display:flex;flex-direction:column;gap:14px">
+          <h1 style="margin:0;font-family:'Newsreader',Georgia,serif;font-weight:400;font-size:43px;line-height:1.05;color:var(--ink)">Questions <span style="font-style:italic;color:var(--copper)">fréquentes.</span></h1>
+          <p style="margin:0;font-size:15px;line-height:1.55;color:var(--ink);opacity:.8">Ce qu'on nous demande avant de commencer. Y compris ce que Choucas ne fait pas.</p>
+        </section>
+
+        <div style="display:flex;gap:8px;padding:0 24px 32px;overflow-x:auto">
+          <sc-for list="{{ sidebarGroups }}" as="g" hint-placeholder-count="5">
+            <a href="{{ g.href }}" onClick="{{ g.onClick }}" style="{{ g.pillStyle }}">{{ g.label }}</a>
+          </sc-for>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:40px;padding:0 24px 64px">
+          <sc-for list="{{ groups }}" as="group" hint-placeholder-count="5">
+            <div id="{{ group.mobileId }}" style="display:flex;flex-direction:column;gap:6px">
+              <h2 style="margin:0 0 12px;font-family:'Newsreader',Georgia,serif;font-weight:500;font-size:32px;line-height:1.08;color:var(--ink)">{{ group.title }}</h2>
+              <sc-for list="{{ group.items }}" as="item" hint-placeholder-count="5">
+                <div style="border-top:1px solid var(--border)">
+                  <button onClick="{{ item.toggle }}" style="all:unset;cursor:pointer;width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 0;min-height:44px">
+                    <span style="font-family:'Manrope',Arial,sans-serif;font-weight:600;font-size:14px;color:var(--ink);text-align:left">{{ item.q }}</span>
+                    <span style="display:flex;align-items:center;gap:8px;flex-shrink:0">
+                      <sc-if value="{{ item.arbitrated }}">
+                        <span style="font-size:9px;font-weight:700;letter-spacing:.03em;color:var(--warning);border:1px solid rgba(152,100,40,.4);border-radius:999px;padding:3px 8px;background:rgba(152,100,40,.08)">ARBITRER</span>
+                      </sc-if>
+                      <span style="position:relative;width:14px;height:14px;flex-shrink:0">
+                        <span style="position:absolute;top:6px;left:0;width:14px;height:2px;background:var(--ink)"></span>
+                        <span style="position:absolute;top:0;left:6px;width:2px;height:14px;background:var(--ink);transform:{{ item.indicatorTransform }};transition:transform .2s"></span>
+                      </span>
+                    </span>
+                  </button>
+                  <sc-if value="{{ item.isOpen }}" hint-placeholder-val="{{ false }}">
+                    <p style="margin:0 0 20px;font-size:14px;line-height:1.55;color:var(--ink);opacity:.85">{{ item.a }}</p>
+                  </sc-if>
+                </div>
+              </sc-for>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="padding:0 24px 48px;display:flex;flex-direction:column;gap:16px;padding-top:32px;border-top:1px solid var(--border)">
+          <div style="font-family:'Newsreader',Georgia,serif;font-size:22px;color:var(--ink)">Une question qui n'est pas là ?</div>
+          <p style="margin:0;font-size:14px;color:var(--ink);opacity:.75">Écrivez-nous. On répond sous 48 h ouvrées.</p>
+          <div style="border:1px solid var(--border);border-radius:999px;padding:12px 22px;font-size:14px;font-weight:600;color:var(--ink);width:fit-content;min-height:44px;display:flex;align-items:center">Poser une question</div>
+        </div>
+
+        <footer style="padding:48px 24px;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:32px">
+          <div style="font-family:'Manrope',Arial,sans-serif;font-weight:800;font-size:13px;letter-spacing:.08em;color:var(--ink)">CHOUCAS</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px 24px">
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="font-size:13px;font-weight:700;color:var(--ink);letter-spacing:.01em">Produit</div>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">Fonctionnalités</a>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">Tarifs</a>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">Solutions</a>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="font-size:13px;font-weight:700;color:var(--ink);letter-spacing:.01em">Entreprise</div>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">À propos</a>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">Nous rencontrer</a>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="font-size:13px;font-weight:700;color:var(--ink);letter-spacing:.01em">Ressources</div>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">Blog</a>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">FAQ</a>
+              <a href="#" style="font-size:14px;font-weight:400;color:var(--ink);opacity:.75;text-decoration:none">Poser une question</a>
+            </div>
+          </div>
+          <div style="border-top:1px solid var(--border);padding-top:20px;display:flex;flex-direction:column;gap:8px;font-size:11px;color:var(--ink);opacity:.65">
+            <span>© 2026 Choucas</span>
+            <span>Aravis · Megève · Chamonix · Courchevel · Val d'Isère</span>
+            <div style="display:flex;gap:20px;margin-top:4px"><a href="#" style="color:var(--ink);text-decoration:none">Mentions légales</a><a href="#" style="color:var(--ink);text-decoration:none">Confidentialité</a></div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { open: {}, active: 'produit' };
+
+  toggle(key) {
+    this.setState(s => ({ open: { ...s.open, [key]: !s.open[key] } }));
+  }
+
+  ensureTracking() {
+    if (this._tracking) return;
+    this._tracking = true;
+    const ids = ['produit', 'perimetre', 'equipe', 'donnees', 'prix'];
+    const measure = () => {
+      let current = ids[0];
+      let found = false;
+      for (const id of ids) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        found = true;
+        if (el.getBoundingClientRect().top <= 160) current = id;
+      }
+      if (found && current !== this.state.active) this.setState({ active: current });
+    };
+    this._timer = setInterval(measure, 150);
+    measure();
+  }
+
+  componentDidMount() { this.ensureTracking(); }
+
+  componentWillUnmount() { clearInterval(this._timer); }
+
+  renderVals() {
+    this.ensureTracking();
+    const raw = [
+      { id: 'produit', label: 'Le produit', title: 'Le produit', items: [
+        { q: 'Qu\u2019est-ce que Choucas ?', a: 'Choucas est un système opérationnel pour conciergeries. Il transforme les demandes en actions, accompagne le terrain, sépare l\u2019exécution du contrôle et suit l\u2019état du bien jusqu\u2019au PRÊT.' },
+        { q: 'Qu\u2019est-ce que l\u2019état PRÊT ?', a: 'PRÊT qualifie un bien après contrôle. Une mission terminée n\u2019est pas automatiquement considérée comme un bien prêt pour l\u2019arrivée suivante.' },
+        { q: 'Qui peut contrôler une mission ?', a: 'Une personne ne contrôle pas une mission qu\u2019elle a elle-même exécutée.' },
+        { q: 'Choucas fonctionne-t-il hors réseau ?', a: 'Le produit prévoit une file locale permettant de continuer le travail puis de synchroniser au retour de connexion. Les alertes urgentes tentent immédiatement les canaux disponibles.' },
+        { q: 'Les messages aux propriétaires ou prestataires partent-ils automatiquement ?', a: 'Non. Choucas peut préparer les informations et automatiser des flux internes, mais les communications externes passent par une relecture et un geste humain.' },
+        { q: 'Comment se passe l\u2019implantation ?', a: 'L\u2019équipe Choucas passe une journée avec la conciergerie pour observer l\u2019exploitation, structurer les workflows, configurer Choucas et tester la configuration avec l\u2019équipe.' },
+      ]},
+      { id: 'perimetre', label: 'Périmètre', title: 'Périmètre', items: [
+        { q: 'Choucas remplace-t-il mon PMS ?', a: 'Choucas est conçu pour la couche opérationnelle entre les demandes, le terrain, le contrôle et le rapport. Il ne remplace pas un PMS ni un channel manager.' },
+        { q: 'Est-ce que Choucas gère les réservations ?', a: 'Non, cette fonction reste dans votre PMS. Choucas démarre au départ du voyageur et s\u2019arrête à l\u2019arrivée du suivant.' },
+        { q: 'Choucas se connecte-t-il à mon PMS ?', a: 'Oui, via les rotations et les calendriers iCal de vos biens. Le lien précis dépend du PMS utilisé — à voir ensemble lors de la journée d\u2019implantation.' },
+        { q: 'Ça marche pour de la location longue durée ?', a: 'Choucas est pensé pour les rotations courtes et fréquentes propres à la location saisonnière. Pour de la longue durée, avec peu de rotations par an, l\u2019intérêt du double contrôle est plus faible.' },
+        { q: 'Et si je n\u2019ai qu\u2019une seule personne sur le terrain ?', a: 'Le double contrôle exige qu\u2019une personne différente de l\u2019exécutant valide chaque mission. Avec une seule personne, ce n\u2019est pas possible, et il n\u2019existe pas d\u2019offre solo. Si vous êtes dans ce cas, on en parle directement — ce n\u2019est pas la bonne solution en l\u2019état.' },
+      ]},
+      { id: 'equipe', label: 'Équipe', title: 'Équipe et adoption', items: [
+        { q: 'Est-ce que Choucas surveille les salariés ?', a: 'Non. La doctrine produit est de mesurer les biens et les missions, jamais les personnes. Choucas n\u2019est pas conçu autour d\u2019un classement ou de compteurs de performance individuels.' },
+        { q: 'Mes équipes ne sont pas à l\u2019aise avec le numérique.', a: 'L\u2019interface terrain affiche une mission à la fois, avec de gros boutons et peu de texte. Elle est pensée pour être utilisée gantée, en extérieur, pas pour naviguer dans des menus.' },
+        { q: 'Combien de temps pour former quelqu\u2019un ?', a: 'Comptez moins d\u2019une demi-journée pour une personne qui exécute des missions. Le rôle de contrôle demande un peu plus de pratique, car il engage la responsabilité de valider le travail d\u2019un autre.' },
+        { q: 'J\u2019ai des saisonniers qui changent chaque hiver.', a: 'Les rôles et les droits se réattribuent en quelques minutes par personne. Aucune reconfiguration des biens n\u2019est nécessaire d\u2019une saison à l\u2019autre.' },
+        { q: 'Et si mon équipe refuse le double contrôle ?', a: 'C\u2019est le point de résistance le plus fréquent, et il se travaille avant la mise en place, pas après. La journée d\u2019implantation sert notamment à expliquer que ce n\u2019est pas un contrôle hiérarchique, mais une vérification croisée entre pairs.' },
+      ]},
+      { id: 'donnees', label: 'Données', title: 'Données', items: [
+        { q: 'Où sont hébergées les données ?', a: 'En Europe, chez un hébergeur soumis au RGPD. Le détail contractuel est fourni sur demande.' },
+        { q: 'Que deviennent les photos de biens privés ?', a: 'Elles servent uniquement au contrôle qualité de la mission concernée et restent liées au bien. Elles ne sont pas partagées hors de votre équipe.' },
+        { q: 'Un propriétaire peut-il exiger de voir ce qui a été enregistré ?', a: 'Oui, dans les limites du droit d\u2019accès applicable. La demande passe par vous, en tant que responsable du traitement pour vos biens.' },
+        { q: 'Que se passe-t-il si j\u2019arrête — je récupère quoi ?', a: 'Vos données de biens, de missions et d\u2019historique de contrôle, exportées dans un format lisible. Rien ne reste retenu chez nous après la fin du contrat.' },
+        { q: 'Comment sont traitées les informations de santé ou d\u2019allergie d\u2019un voyageur ?', a: 'Point non tranché à ce jour. Ce type d\u2019information sensible demande un traitement spécifique que nous n\u2019avons pas encore formalisé.', arbitrated: true },
+      ]},
+      { id: 'prix', label: 'Prix', title: 'Prix et engagement', items: [
+        { q: 'Combien ça coûte pour 12 biens ?', a: 'Le prix se calcule aux biens actifs, avec un nombre illimité d\u2019utilisateurs terrain. Le détail par palier est sur la page Tarifs.' },
+        { q: 'Que se passe-t-il hors saison, quand mes biens ne tournent pas ?', a: 'Le prix suit vos biens actifs : un bien fermé hors saison ne compte pas.' },
+        { q: 'Engagement, durée, résiliation ?', a: 'Engagement annuel avec résiliation à l\u2019échéance, sans clause de reconduction cachée. Le détail exact est précisé au contrat, à voir ensemble lors de la journée d\u2019implantation.' },
+        { q: 'La journée d\u2019implantation est-elle facturée en plus ?', a: 'Non, elle est comprise dans le tarif d\u2019implantation initial, pas facturée en supplément.' },
+        { q: 'Le support répond-il le samedi après-midi ?', a: 'Point non tranché à ce jour, alors même que c\u2019est le moment le plus chargé pour nos clients.', arbitrated: true },
+      ]},
+    ];
+
+    const groups = raw.map(g => ({
+      id: g.id,
+      mobileId: g.id + '-m',
+      title: g.title,
+      items: g.items.map((it, i) => {
+        const key = g.id + '-' + i;
+        const isOpen = !!this.state.open[key];
+        return {
+          q: it.q,
+          a: it.a,
+          arbitrated: !!it.arbitrated,
+          isOpen,
+          indicatorTransform: isOpen ? 'rotate(90deg)' : 'rotate(0deg)',
+          toggle: () => this.toggle(key),
+        };
+      }),
+    }));
+
+    const sidebarGroups = raw.map(g => {
+      const on = this.state.active === g.id;
+      return {
+        href: '#' + g.id,
+        label: g.label,
+        onClick: () => this.setState({ active: g.id }),
+        sidebarStyle: 'text-decoration:none;font-size:13px;padding:10px 14px;color:#121512;'
+          + (on
+            ? 'border-left:2px solid #B7683F;font-weight:700;opacity:1'
+            : 'border-left:2px solid transparent;font-weight:600;opacity:.65'),
+        pillStyle: 'flex-shrink:0;text-decoration:none;font-size:12px;font-weight:600;border-radius:999px;padding:9px 16px;white-space:nowrap;'
+          + (on
+            ? 'color:#fff;background:#263F30;border:1px solid #17271D'
+            : 'color:#121512;opacity:.65;border:1px solid rgba(18,21,18,.14)'),
+      };
+    });
+
+    return { groups, sidebarGroups };
+  }
+}
+</script>
+</body>
+</html>

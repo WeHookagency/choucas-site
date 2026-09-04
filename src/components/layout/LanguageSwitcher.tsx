@@ -1,5 +1,6 @@
 'use client';
 
+import { useParams } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 
 import { locales, localeMetadata } from '@/i18n/locales';
@@ -25,6 +26,15 @@ export function LanguageSwitcher({ className }: { className?: string }) {
   const t = useTranslations('languageSwitcher');
   const actuelle = useLocale();
   const chemin = usePathname();
+  const params = useParams();
+
+  // Depuis que la table des slugs contient une route parametree — /blog/[slug] —
+  // `usePathname` peut rendre un gabarit, que `Link` n'accepte qu'accompagne de
+  // ses parametres. TypeScript ne sait pas verifier que les parametres
+  // correspondent au chemin ; c'est le seul endroit ou on l'affirme.
+  const cible = { pathname: chemin, params } as unknown as Parameters<
+    typeof Link
+  >[0]['href'];
 
   return (
     <nav aria-label={t('label')} className={className}>
@@ -39,7 +49,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
                 </span>
               ) : null}
               <Link
-                href={chemin}
+                href={cible}
                 locale={langue}
                 hrefLang={langue}
                 aria-current={courante ? true : undefined}

@@ -3,13 +3,10 @@
 import { useEffect, useId, useState } from 'react';
 import { useTranslations } from 'next-intl';
 
-import { useLocale } from 'next-intl';
-
-import type { Locale } from '@/i18n/locales';
-import { getPathname, Link } from '@/i18n/navigation';
+import { Link } from '@/i18n/navigation';
 
 
-import { ancres, ATTRS_DEMO, LIEN_DEMO } from '../anchors';
+import { ATTRS_DEMO, LIEN_DEMO } from '../anchors';
 import { Cta } from '../ui/Cta';
 import { Icon } from '../ui/Icon';
 
@@ -24,21 +21,9 @@ import { Icon } from '../ui/Icon';
  * specs : une barre de 60 px ne peut pas porter marque, menu et action sans
  * descendre sous la cible tactile de 44 px.
  */
-/**
- * Lien vers une section de l'accueil, depuis n'importe quelle page.
- *
- * Une ancre nue ne vaut que sur l'accueil : ailleurs elle ne mene nulle part,
- * ce que les specs §12 interdisent. On prefixe donc du chemin d'accueil de la
- * langue courante — /fr#produit depuis les mentions legales.
- */
-function lienSection(locale: Locale, ancre: string) {
-  return `${getPathname({ href: '/', locale })}#${ancre}`;
-}
-
 export function SiteHeader() {
   const t = useTranslations('nav');
   const actions = useTranslations('actions');
-  const locale = useLocale();
   const [ouvert, setOuvert] = useState(false);
   const idMenu = useId();
 
@@ -52,15 +37,21 @@ export function SiteHeader() {
     return () => document.removeEventListener('keydown', surTouche);
   }, [ouvert]);
 
-  // `desDesktop` : le lien n'apparait qu'a partir de 1000 px. La maquette V4
-  // ne garde que Le produit et Fonctionnement dans la barre a 768 px — les
-  // quatre libelles plus la marque et le CTA n'y tiennent pas.
+  /**
+   * Trois entrees, decision du backlog. « A propos » descend au pied.
+   *
+   * Le Blog en est absent volontairement : le handoff ne fournit que trois
+   * titres et leurs chapeaux, sans corps d'article. Un lien de navigation vers
+   * trois pages vides est un lien mort au sens du §12.
+   *
+   * `desDesktop` : le lien n'apparait qu'a partir de 1000 px, faute de place
+   * dans la barre a 768 avec la marque et le CTA.
+   */
   const liens = [
-    { href: lienSection(locale, ancres.produit), libelle: t('produit'), desDesktop: false },
-    { href: lienSection(locale, ancres.fonctionnement), libelle: t('fonctionnement'), desDesktop: false },
-    { href: lienSection(locale, ancres.implantation), libelle: t('implantation'), desDesktop: true },
-    { href: lienSection(locale, ancres.aPropos), libelle: t('aPropos'), desDesktop: true },
-  ];
+    { href: '/produit', libelle: t('produit'), desDesktop: false },
+    { href: '/solutions', libelle: t('solutions'), desDesktop: false },
+    { href: '/tarifs', libelle: t('tarifs'), desDesktop: true },
+  ] as const;
 
   return (
     <header
@@ -125,13 +116,13 @@ export function SiteHeader() {
           <ul className="flex flex-col gap-1">
             {liens.map((lien) => (
               <li key={lien.href}>
-                <a
+                <Link
                   href={lien.href}
                   onClick={() => setOuvert(false)}
                   className="flex min-h-11 items-center text-intro text-encre no-underline"
                 >
                   {lien.libelle}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
