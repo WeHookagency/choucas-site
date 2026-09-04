@@ -1,6 +1,8 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
+
+import { creerSuiviSection } from '../ui/suiviSection';
 
 export type EntreeSommaire = { id: string; libelle: string };
 
@@ -18,7 +20,8 @@ export type EntreeSommaire = { id: string; libelle: string };
  *
  * Le suivi passe par un `IntersectionObserver` et non par un intervalle : la
  * maquette scrute la position au timer, ce qui reveille le fil principal pour
- * rien.
+ * rien. Le groupe actif est designe par `suiviSection`, partage avec la barre
+ * de section.
  */
 export function SommaireFaq({
   entrees,
@@ -30,13 +33,6 @@ export function SommaireFaq({
   'aria-label': string;
 }) {
   const [actif, setActif] = useState(entrees[0]?.id ?? '');
-  /**
-   * L'observateur ne livre que les cibles dont l'etat a change. Deux groupes
-   * peuvent toucher la bande en meme temps ; si l'on ne regarde que la
-   * livraison, le second efface le premier alors qu'il est plus bas. On tient
-   * donc l'etat de tous les groupes, et on choisit toujours le plus haut.
-   */
-  const traverses = useRef<Set<string>>(new Set());
 
   useEffect(() => {
     const ordre = entrees.map((e) => e.id);
@@ -45,16 +41,13 @@ export function SommaireFaq({
       .filter((el): el is HTMLElement => el !== null);
     if (!cibles.length) return;
 
-    const vus = traverses.current;
+    const suivi = creerSuiviSection(ordre);
     const io = new IntersectionObserver(
       (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) vus.add(e.target.id);
-          else vus.delete(e.target.id);
-        });
-        // Le premier dans l'ordre du document, pas le dernier livre.
-        const premier = ordre.find((id) => vus.has(id));
-        if (premier) setActif(premier);
+        const actuel = suivi.appliquer(
+          entries.map((e) => ({ id: e.target.id, visible: e.isIntersecting })),
+        );
+        if (actuel) setActif(actuel);
       },
       { rootMargin: '-15% 0px -60% 0px' },
     );
@@ -62,7 +55,7 @@ export function SommaireFaq({
     cibles.forEach((el) => io.observe(el));
     return () => {
       io.disconnect();
-      vus.clear();
+      suivi.reinitialiser();
     };
   }, [entrees]);
 

@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from 'react';
 
+import { creerSuiviSection } from './suiviSection';
+
 export type EntreeBarre = { id: string; libelle: string };
 
 /**
@@ -13,7 +15,10 @@ export type EntreeBarre = { id: string; libelle: string };
  * l'information ne repose pas sur la seule couleur.
  *
  * Le handoff suit le defilement par un intervalle ; on emploie un
- * `IntersectionObserver`, comme le demande son propre §5.
+ * `IntersectionObserver`, comme le demande son propre §5. La section active
+ * est designee par `suiviSection`, qui tient l'etat de toutes les cibles :
+ * l'observateur ne livre que ce qui change, et deux sections peuvent toucher
+ * la bande en meme temps.
  *
  * `prefers-reduced-motion` supprime le defilement anime : le saut est alors
  * sec, ce que les specs §8 prescrivent.
@@ -30,25 +35,30 @@ export function BarreSection({
   const [actif, setActif] = useState(entrees[0]?.id ?? '');
 
   useEffect(() => {
-    const cibles = entrees
-      .map((e) => document.getElementById(e.id))
+    const ordre = entrees.map((e) => e.id);
+    const cibles = ordre
+      .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => el !== null);
     if (!cibles.length) return;
 
+    // La section active est la plus haute de celles qui touchent la moitie
+    // superieure de la fenetre.
+    const suivi = creerSuiviSection(ordre);
     const io = new IntersectionObserver(
       (entries) => {
-        // La section active est la plus haute de celles qui touchent la
-        // moitie superieure de la fenetre.
-        const visibles = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-        if (visibles[0]) setActif(visibles[0].target.id);
+        const actuel = suivi.appliquer(
+          entries.map((e) => ({ id: e.target.id, visible: e.isIntersecting })),
+        );
+        if (actuel) setActif(actuel);
       },
       { rootMargin: '-20% 0px -55% 0px' },
     );
 
     cibles.forEach((el) => io.observe(el));
-    return () => io.disconnect();
+    return () => {
+      io.disconnect();
+      suivi.reinitialiser();
+    };
   }, [entrees]);
 
   function allerA(e: React.MouseEvent<HTMLAnchorElement>, id: string) {
