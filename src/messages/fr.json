@@ -339,14 +339,33 @@
       "photos": "Photos",
       "passage": "Prochain passage"
     },
-    "apercuPastille": "Aperçu",
-    "apercuLegende": "Représentation d'un rapport en préparation. Ce module n'est pas encore disponible.",
-    "apercuTitre": "Chalet Le Belvédère",
-    "apercuDate": "Rapport du 5 septembre",
-    "apercuFait": "Ménage de départ contrôlé · Linge remplacé · Extérieurs dégagés",
-    "apercuAttention": "Sonde de température du jacuzzi hors service, artisan prévenu",
-    "apercuPhotos": "4 photos jointes",
-    "apercuPassage": "Prochain passage le 8 septembre"
+    "apercu": {
+      "pastille": "Aperçu",
+      "legende": "Représentation d'un rapport en préparation. Ce module n'est pas encore disponible.",
+      "expediteur": "Choucas",
+      "enTete": "Rapport d'intervention · 17 janvier",
+      "salutation": "Bonjour M. Arnaud,",
+      "titre": "Votre chalet Les Troncs a été entretenu ce jour",
+      "chapeau": "Intervention de maintenance réalisée le samedi 17 janvier, de 11 h 30 à 14 h 12, par notre équipe technique.",
+      "faitLabel": "Ce qui a été fait",
+      "fait": {
+        "chaufferie": "Contrôle complet de la chaufferie — pression conforme (1,5 bar)",
+        "evacuations": "Évacuations cuisine et buanderie vérifiées et dégagées",
+        "robinet": "Robinet d'arrêt général repéré, accès dégagé",
+        "zone": "Zone technique sécurisée après intervention"
+      },
+      "attentionLabel": "Point d'attention",
+      "attentionTitre": "Store de la terrasse : moteur fatigué",
+      "attentionTexte": ", descente bloquée par intermittence. Nous recommandons un remplacement du moteur avant la haute saison. Sur votre accord, nous vous transmettons un devis sous 48 h.",
+      "attentionDevis": "Demander le devis",
+      "attentionPhoto": "Voir la photo",
+      "photosLabel": "Photos de l'intervention · 4",
+      "passageLabel": "Prochain passage :",
+      "passageTexte": " tour de conciergerie prévu lundi 19 janvier. Votre chalet accueille la famille V. jusqu'au samedi 24.",
+      "rapportComplet": "Voir le rapport complet",
+      "signature": "Rapport établi par Mathieu B. · Choucas Conciergerie",
+      "reponse": "Une question ? Répondez directement à cet email."
+    }
   },
   "philosophie": {
     "label": "Une autre façon de piloter",

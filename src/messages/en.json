@@ -339,14 +339,7 @@
       "photos": "Photos",
       "passage": "Next visit"
     },
-    "apercuPastille": "Preview",
-    "apercuLegende": "Representation of a report in preparation. This module is not available yet.",
-    "apercuTitre": "Chalet Le Belvédère",
-    "apercuDate": "Report of 5 September",
-    "apercuFait": "Departure clean controlled · Linen replaced · Outdoor areas cleared",
-    "apercuAttention": "Hot tub temperature probe out of order, contractor notified",
-    "apercuPhotos": "4 photos attached",
-    "apercuPassage": "Next visit on 8 September"
+    "_apercuIncomplet": "L'apercu du rapport proprietaire n'a pas de source anglaise. Voir le rapport du lot rapport proprietaire."
   },
   "philosophie": {
     "label": "A different way to operate",
