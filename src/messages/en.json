@@ -407,5 +407,42 @@
     "aPropos": {
       "titre": "About"
     }
+  },
+  "faq": {
+    "_incomplet": "Seize questions et le chrome de page n'ont pas de source anglaise. Voir le rapport du lot FAQ avant de reactiver 'en'.",
+    "questions": {
+      "definition": {
+        "q": "What is Choucas?",
+        "r": "Choucas is an operations system for concierge companies. It turns requests into actions, supports field teams, separates execution from quality control and follows property status all the way to READY."
+      },
+      "etat-pret": {
+        "q": "What does READY mean?",
+        "r": "READY qualifies a property after review. A completed mission does not automatically mean the property is ready for the next arrival."
+      },
+      "qui-controle": {
+        "q": "Who can review a mission?",
+        "r": "A person cannot review a mission they executed themselves."
+      },
+      "hors-reseau": {
+        "q": "Does Choucas work offline?",
+        "r": "The product is designed with a local queue so teams can keep working and synchronize when connectivity returns. Urgent alerts immediately attempt the available channels."
+      },
+      "envois-automatiques": {
+        "q": "Are owner or contractor messages sent automatically?",
+        "r": "No. Choucas can prepare information and automate internal workflows, but external communication requires review and a human action."
+      },
+      "implantation": {
+        "q": "How does implementation work?",
+        "r": "The Choucas team spends a day with the concierge company to observe operations, structure workflows, configure Choucas and test the configuration with the team."
+      },
+      "remplace-pms": {
+        "q": "Does Choucas replace my PMS?",
+        "r": "Choucas is designed for the operational layer between requests, field execution, quality control and reporting. It does not replace a PMS or a channel manager."
+      },
+      "surveillance": {
+        "q": "Does Choucas monitor employees?",
+        "r": "No. The product doctrine is to measure properties and missions, never people. Choucas is not built around individual rankings or employee performance counters."
+      }
+    }
   }
 }

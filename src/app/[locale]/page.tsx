@@ -6,6 +6,7 @@ import { setRequestLocale } from 'next-intl/server';
 import { Hero } from '@/components/home/Hero';
 import { Implementation } from '@/components/home/Implementation';
 import { BriefToProof } from '@/components/home/BriefToProof';
+import { FaqHome } from '@/components/home/FaqHome';
 import { FieldDemo } from '@/components/home/FieldDemo';
 import { FinalCta } from '@/components/home/FinalCta';
 import { ManagerDemo } from '@/components/home/ManagerDemo';
@@ -50,6 +51,7 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
       <OwnerReport />
       <Philosophy />
       <Implementation />
+      <FaqHome />
       <Profiles />
       <FinalCta />
     </main>

@@ -1,0 +1,134 @@
+'use client';
+
+import { useEffect, useRef, useState } from 'react';
+
+export type EntreeSommaire = { id: string; libelle: string };
+
+/**
+ * Sommaire de la page FAQ.
+ *
+ * Deux rendus pour une seule logique : colonne collante a gauche en desktop,
+ * rangee de pastilles au-dessus du premier groupe en mobile. Les deux
+ * partagent l'observateur, donc le meme groupe actif.
+ *
+ * Le groupe courant est marque par un filet cuivre, pas par un fond colore —
+ * c'est le seul mouvement de la page avec l'ouverture d'un accordeon. Il
+ * porte aussi `aria-current` : l'information ne repose jamais sur la seule
+ * couleur.
+ *
+ * Le suivi passe par un `IntersectionObserver` et non par un intervalle : la
+ * maquette scrute la position au timer, ce qui reveille le fil principal pour
+ * rien.
+ */
+export function SommaireFaq({
+  entrees,
+  titre,
+  'aria-label': ariaLabel,
+}: {
+  entrees: EntreeSommaire[];
+  titre: string;
+  'aria-label': string;
+}) {
+  const [actif, setActif] = useState(entrees[0]?.id ?? '');
+  /**
+   * L'observateur ne livre que les cibles dont l'etat a change. Deux groupes
+   * peuvent toucher la bande en meme temps ; si l'on ne regarde que la
+   * livraison, le second efface le premier alors qu'il est plus bas. On tient
+   * donc l'etat de tous les groupes, et on choisit toujours le plus haut.
+   */
+  const traverses = useRef<Set<string>>(new Set());
+
+  useEffect(() => {
+    const ordre = entrees.map((e) => e.id);
+    const cibles = ordre
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null);
+    if (!cibles.length) return;
+
+    const vus = traverses.current;
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) vus.add(e.target.id);
+          else vus.delete(e.target.id);
+        });
+        // Le premier dans l'ordre du document, pas le dernier livre.
+        const premier = ordre.find((id) => vus.has(id));
+        if (premier) setActif(premier);
+      },
+      { rootMargin: '-15% 0px -60% 0px' },
+    );
+
+    cibles.forEach((el) => io.observe(el));
+    return () => {
+      io.disconnect();
+      vus.clear();
+    };
+  }, [entrees]);
+
+  function allerA(e: React.MouseEvent<HTMLAnchorElement>, id: string) {
+    const cible = document.getElementById(id);
+    if (!cible) return;
+    e.preventDefault();
+    const doux = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    cible.scrollIntoView({ behavior: doux ? 'smooth' : 'auto', block: 'start' });
+    setActif(id);
+  }
+
+  return (
+    <nav aria-label={ariaLabel} className="min-w-0">
+      {/* Desktop : colonne collante. */}
+      <div className="hidden desktop:block desktop:sticky desktop:top-[100px]">
+        <p className="text-label font-semibold uppercase text-encre-douce">{titre}</p>
+        <ul className="mt-4 flex flex-col">
+          {entrees.map((entree) => {
+            const courant = entree.id === actif;
+            return (
+              <li key={entree.id}>
+                <a
+                  href={`#${entree.id}`}
+                  onClick={(e) => allerA(e, entree.id)}
+                  aria-current={courant ? true : undefined}
+                  className={[
+                    'text-nav flex min-h-11 items-center border-l-2 py-2 pl-4 no-underline',
+                    'transition-colors duration-200 ease-choucas',
+                    courant
+                      ? 'border-accent font-bold text-encre'
+                      : 'border-transparent font-semibold text-encre-douce hover:text-encre',
+                  ].join(' ')}
+                >
+                  {entree.libelle}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+
+      {/* Mobile et tablette : rangee de pastilles, defilement horizontal. */}
+      <ul className="-mx-marge flex gap-2 overflow-x-auto px-marge desktop:hidden">
+        {entrees.map((entree) => {
+          const courant = entree.id === actif;
+          return (
+            <li key={entree.id}>
+              <a
+                href={`#${entree.id}`}
+                onClick={(e) => allerA(e, entree.id)}
+                aria-current={courant ? true : undefined}
+                className={[
+                  'text-nav inline-flex min-h-11 items-center whitespace-nowrap rounded-capsule border px-4 no-underline',
+                  'font-semibold transition-colors duration-200 ease-choucas',
+                  courant
+                    ? 'border-cta bg-cta text-cta-encre'
+                    : 'border-filet text-encre-douce',
+                ].join(' ')}
+              >
+                {entree.libelle}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
+  );
+}

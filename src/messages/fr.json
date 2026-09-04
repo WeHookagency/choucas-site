@@ -382,6 +382,11 @@
       }
     }
   },
+  "faqHome": {
+    "titre": "Ce qu’on nous demande avant de commencer",
+    "aria": "Questions fréquentes",
+    "lien": "Voir toutes les questions"
+  },
   "pages": {
     "produit": {
       "titre": "Le produit"
@@ -406,6 +411,136 @@
     },
     "aPropos": {
       "titre": "À propos"
+    }
+  },
+  "faq": {
+    "titre": "Questions fréquentes",
+    "metaDescription": "Ce qu’on nous demande avant de commencer : périmètre, double contrôle, équipe, données, prix. Y compris ce que Choucas ne fait pas.",
+    "intro": "Ce qu’on nous demande avant de commencer. Y compris ce que Choucas ne fait pas.",
+    "sommaireTitre": "Sur cette page",
+    "sommaireAria": "Sommaire de la page",
+    "clotureTitre": "Une question qui n’est pas là ?",
+    "clotureTexte": "Écrivez-nous. On répond sous 48 h ouvrées.",
+    "clotureCta": "Poser une question",
+    "groupes": {
+      "produit": {
+        "label": "Le produit",
+        "titre": "Le produit"
+      },
+      "perimetre": {
+        "label": "Périmètre",
+        "titre": "Périmètre"
+      },
+      "equipe": {
+        "label": "Équipe",
+        "titre": "Équipe et adoption"
+      },
+      "donnees": {
+        "label": "Données",
+        "titre": "Données"
+      },
+      "prix": {
+        "label": "Prix",
+        "titre": "Prix et engagement"
+      }
+    },
+    "questions": {
+      "definition": {
+        "q": "Qu’est-ce que Choucas ?",
+        "r": "Choucas est un système opérationnel pour conciergeries. Il transforme les demandes en actions, accompagne le terrain, sépare l’exécution du contrôle et suit l’état du bien jusqu’au PRÊT."
+      },
+      "etat-pret": {
+        "q": "Qu’est-ce que l’état PRÊT ?",
+        "r": "PRÊT qualifie un bien après contrôle. Une mission terminée n’est pas automatiquement considérée comme un bien prêt pour l’arrivée suivante."
+      },
+      "qui-controle": {
+        "q": "Qui peut contrôler une mission ?",
+        "r": "Une personne ne contrôle pas une mission qu’elle a elle-même exécutée."
+      },
+      "hors-reseau": {
+        "q": "Choucas fonctionne-t-il hors réseau ?",
+        "r": "Le produit prévoit une file locale permettant de continuer le travail puis de synchroniser au retour de connexion. Les alertes urgentes tentent immédiatement les canaux disponibles."
+      },
+      "envois-automatiques": {
+        "q": "Les messages aux propriétaires ou prestataires partent-ils automatiquement ?",
+        "r": "Non. Choucas peut préparer les informations et automatiser des flux internes, mais les communications externes passent par une relecture et un geste humain."
+      },
+      "implantation": {
+        "q": "Comment se passe l’implantation ?",
+        "r": "L’équipe Choucas passe une journée avec la conciergerie pour observer l’exploitation, structurer les workflows, configurer Choucas et tester la configuration avec l’équipe."
+      },
+      "remplace-pms": {
+        "q": "Choucas remplace-t-il mon PMS ?",
+        "r": "Choucas est conçu pour la couche opérationnelle entre les demandes, le terrain, le contrôle et le rapport. Il ne remplace pas un PMS ni un channel manager."
+      },
+      "reservations": {
+        "q": "Est-ce que Choucas gère les réservations ?",
+        "r": "Non, cette fonction reste dans votre PMS. Choucas démarre au départ du voyageur et s’arrête à l’arrivée du suivant."
+      },
+      "connexion-pms": {
+        "q": "Choucas se connecte-t-il à mon PMS ?",
+        "r": "Oui, via les rotations et les calendriers iCal de vos biens. Le lien précis dépend du PMS utilisé — à voir ensemble lors de la journée d’implantation."
+      },
+      "longue-duree": {
+        "q": "Ça marche pour de la location longue durée ?",
+        "r": "Choucas est pensé pour les rotations courtes et fréquentes propres à la location saisonnière. Pour de la longue durée, avec peu de rotations par an, l’intérêt du double contrôle est plus faible."
+      },
+      "une-personne": {
+        "q": "Et si je n’ai qu’une seule personne sur le terrain ?",
+        "r": "Le double contrôle exige qu’une personne différente de l’exécutant valide chaque mission. Avec une seule personne, ce n’est pas possible, et il n’existe pas d’offre solo. Si vous êtes dans ce cas, on en parle directement — ce n’est pas la bonne solution en l’état."
+      },
+      "surveillance": {
+        "q": "Est-ce que Choucas surveille les salariés ?",
+        "r": "Non. La doctrine produit est de mesurer les biens et les missions, jamais les personnes. Choucas n’est pas conçu autour d’un classement ou de compteurs de performance individuels."
+      },
+      "aisance-numerique": {
+        "q": "Mes équipes ne sont pas à l’aise avec le numérique.",
+        "r": "L’interface terrain affiche une mission à la fois, avec de gros boutons et peu de texte. Elle est pensée pour être utilisée gantée, en extérieur, pas pour naviguer dans des menus."
+      },
+      "formation": {
+        "q": "Combien de temps pour former quelqu’un ?",
+        "r": "Comptez moins d’une demi-journée pour une personne qui exécute des missions. Le rôle de contrôle demande un peu plus de pratique, car il engage la responsabilité de valider le travail d’un autre."
+      },
+      "saisonniers": {
+        "q": "J’ai des saisonniers qui changent chaque hiver.",
+        "r": "Les rôles et les droits se réattribuent en quelques minutes par personne. Aucune reconfiguration des biens n’est nécessaire d’une saison à l’autre."
+      },
+      "refus-double-controle": {
+        "q": "Et si mon équipe refuse le double contrôle ?",
+        "r": "C’est le point de résistance le plus fréquent, et il se travaille avant la mise en place, pas après. La journée d’implantation sert notamment à expliquer que ce n’est pas un contrôle hiérarchique, mais une vérification croisée entre pairs."
+      },
+      "hebergement": {
+        "q": "Où sont hébergées les données ?",
+        "r": "En Europe, chez un hébergeur soumis au RGPD. Le détail contractuel est fourni sur demande."
+      },
+      "photos": {
+        "q": "Que deviennent les photos de biens privés ?",
+        "r": "Elles servent uniquement au contrôle qualité de la mission concernée et restent liées au bien. Elles ne sont pas partagées hors de votre équipe."
+      },
+      "acces-proprietaire": {
+        "q": "Un propriétaire peut-il exiger de voir ce qui a été enregistré ?",
+        "r": "Oui, dans les limites du droit d’accès applicable. La demande passe par vous, en tant que responsable du traitement pour vos biens."
+      },
+      "sortie": {
+        "q": "Que se passe-t-il si j’arrête — je récupère quoi ?",
+        "r": "Vos données de biens, de missions et d’historique de contrôle, exportées dans un format lisible. Rien ne reste retenu chez nous après la fin du contrat."
+      },
+      "cout": {
+        "q": "Combien ça coûte pour 12 biens ?",
+        "r": "Le prix se calcule aux biens actifs, avec un nombre illimité d’utilisateurs terrain. Le détail par palier est sur la page Tarifs."
+      },
+      "hors-saison": {
+        "q": "Que se passe-t-il hors saison, quand mes biens ne tournent pas ?",
+        "r": "Le prix suit vos biens actifs : un bien fermé hors saison ne compte pas."
+      },
+      "engagement": {
+        "q": "Engagement, durée, résiliation ?",
+        "r": "Engagement annuel avec résiliation à l’échéance, sans clause de reconduction cachée. Le détail exact est précisé au contrat, à voir ensemble lors de la journée d’implantation."
+      },
+      "implantation-facturee": {
+        "q": "La journée d’implantation est-elle facturée en plus ?",
+        "r": "Non, elle est comprise dans le tarif d’implantation initial, pas facturée en supplément."
+      }
     }
   }
 }
