@@ -147,6 +147,56 @@
       }
     }
   },
+  "briefIntake": {
+    "label": "Le brief de séjour",
+    "titre": "Un brief n'arrive jamais <accent>en ordre.</accent>",
+    "intro": "Un appel la veille, un message à 21 h, un mail de l'assistant du client. Choucas les rassemble en un seul brief, le manager arbitre ce qui s'oppose, et le terrain reçoit une consigne.",
+    "sequenceAria": "Du brief reçu à la consigne transmise, en trois temps",
+    "liaisons": {
+      "rassemble": "rassemblés dans un seul brief, le texte d'origine conservé",
+      "arbitre": "arbitré par Sophie M., responsable d'exploitation"
+    },
+    "etapes": {
+      "arrivee": {
+        "temps": "Ce qui arrive"
+      },
+      "arbitrage": {
+        "temps": "Ce qui se tranche"
+      },
+      "consigne": {
+        "temps": "Ce qui en sort"
+      }
+    },
+    "sources": {
+      "appel": {
+        "canal": "Appel",
+        "quand": "la veille · 18:40",
+        "mot": "« Les parents dorment au rez-de-chaussée. »"
+      },
+      "message": {
+        "canal": "Message",
+        "quand": "21:12",
+        "mot": "« Personne dans la maison avant 9 h. »"
+      },
+      "mail": {
+        "canal": "Mail",
+        "quand": "07:05",
+        "mot": "« Des pancakes chaque matin, sans faute. »"
+      }
+    },
+    "arbitrage": {
+      "titre": "Deux demandes s'opposent",
+      "etat": "À ARBITRER",
+      "corps": "« Personne avant 9 h » et « des pancakes chaque matin » ne tiennent pas ensemble. Choucas ne transmet pas les deux aveuglément : il pose le conflit et propose les options.",
+      "meta": "Aucune ligne ne reste en suspens : elle est attribuée, ou écartée en connaissance de cause."
+    },
+    "consigne": {
+      "bien": "Chalet L'Aiguille",
+      "etat": "CONSIGNE",
+      "texte": "Petit-déjeuner dressé la veille au soir, déposé à 8:45. Entrée dans la maison à partir de 9:00. Chambre du rez-de-chaussée pour les parents, lit double.",
+      "meta": "Transmis à Marie L. · Équipière · pas les quarante lignes du brief"
+    }
+  },
   "pret": {
     "label": "Double contrôle · PRÊT",
     "titre": "Terminé ne veut pas dire <accent>PRÊT.</accent>",

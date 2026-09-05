@@ -5,6 +5,7 @@ import { setRequestLocale } from 'next-intl/server';
 
 import { Hero } from '@/components/home/Hero';
 import { Implementation } from '@/components/home/Implementation';
+import { BriefIntake } from '@/components/home/BriefIntake';
 import { BriefToProof } from '@/components/home/BriefToProof';
 import { FaqHome } from '@/components/home/FaqHome';
 import { FieldDemo } from '@/components/home/FieldDemo';
@@ -46,6 +47,7 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
       <Hero />
       <ManagerDemo />
       <BriefToProof />
+      <BriefIntake />
       <FieldDemo />
       <ReadyState />
       <OwnerReport />

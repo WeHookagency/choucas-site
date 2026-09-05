@@ -147,6 +147,56 @@
       }
     }
   },
+  "briefIntake": {
+    "label": "The stay brief",
+    "titre": "A brief never arrives <accent>in order.</accent>",
+    "intro": "A call the night before, a message at 9 pm, an email from the client's assistant. Choucas gathers them into a single brief, the manager settles what conflicts, and the field receives one instruction.",
+    "sequenceAria": "From brief received to instruction sent, in three stages",
+    "liaisons": {
+      "rassemble": "gathered into a single brief, the original text kept",
+      "arbitre": "settled by Sophie M., operations manager"
+    },
+    "etapes": {
+      "arrivee": {
+        "temps": "What comes in"
+      },
+      "arbitrage": {
+        "temps": "What gets settled"
+      },
+      "consigne": {
+        "temps": "What comes out"
+      }
+    },
+    "sources": {
+      "appel": {
+        "canal": "Call",
+        "quand": "night before · 6:40 pm",
+        "mot": "“The parents sleep on the ground floor.”"
+      },
+      "message": {
+        "canal": "Message",
+        "quand": "9:12 pm",
+        "mot": "“Nobody in the house before 9 am.”"
+      },
+      "mail": {
+        "canal": "Email",
+        "quand": "7:05 am",
+        "mot": "“Pancakes every morning, without fail.”"
+      }
+    },
+    "arbitrage": {
+      "titre": "Two requests collide",
+      "etat": "TO SETTLE",
+      "corps": "“Nobody before 9 am” and “pancakes every morning” cannot both hold. Choucas does not pass the two along blindly: it states the conflict and offers the options.",
+      "meta": "No line is left hanging: it is assigned, or set aside knowingly."
+    },
+    "consigne": {
+      "bien": "Chalet L'Aiguille",
+      "etat": "INSTRUCTION",
+      "texte": "Breakfast laid out the evening before, delivered at 8:45. Entry to the house from 9:00. Ground-floor bedroom for the parents, double bed.",
+      "meta": "Sent to Marie L. · Field team · not the brief's forty lines"
+    }
+  },
   "pret": {
     "label": "Independent control · READY",
     "titre": "Completed does not mean <accent>READY.</accent>",
