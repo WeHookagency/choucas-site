@@ -15,14 +15,22 @@ import { getPathname } from '@/i18n/navigation';
  * Ajouter une route a cette liste au moment ou son contenu arrive, et retirer
  * alors la directive `noindex` de la page.
  */
-const AVEC_CONTENU = ['/', '/solutions', '/faq', '/mentions-legales', '/confidentialite'] as const;
+const AVEC_CONTENU = [
+  '/',
+  '/solutions',
+  '/faq',
+  '/contact',
+  '/mentions-legales',
+  '/confidentialite',
+] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return AVEC_CONTENU.flatMap((href) =>
     locales.map((locale) => ({
       url: new URL(getPathname({ href, locale }), siteUrl).toString(),
       lastModified: new Date(),
-      priority: href === '/' ? 1 : href === '/faq' || href === '/solutions' ? 0.7 : 0.3,
+      priority:
+        href === '/' ? 1 : ['/faq', '/solutions', '/contact'].includes(href) ? 0.7 : 0.3,
       alternates:
         locales.length > 1
           ? {

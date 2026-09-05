@@ -482,6 +482,91 @@
       "titre": "À propos"
     }
   },
+  "contact": {
+    "titre": "Parlons d'une vraie journée <accent>d'exploitation.</accent>",
+    "intro": "Pas de démo générique. On regarde vos rotations, vos biens, vos équipes.",
+    "voies": {
+      "aria": "Choisir une voie de contact",
+      "impl": {
+        "eyebrow": "Voie principale",
+        "titre": "Une journée sur site",
+        "texte": "On installe Choucas sur une journée réelle chez vous.",
+        "action": "Organiser une journée sur site"
+      },
+      "question": {
+        "eyebrow": "Voie secondaire",
+        "titre": "Poser une question",
+        "texte": "Pour tout le reste.",
+        "action": "Écrire un message"
+      }
+    },
+    "formTitreImpl": "Journée d'implantation — une journée sur site",
+    "formTitreQuestion": "Poser une question",
+    "champs": {
+      "nom": {
+        "label": "Nom",
+        "exemple": "Mathieu Bertrand",
+        "erreur": "Indiquez le nom qu'on doit utiliser pour vous répondre."
+      },
+      "conciergerie": {
+        "label": "Conciergerie",
+        "exemple": "Conciergerie des Aravis",
+        "erreur": "Indiquez le nom de votre conciergerie."
+      },
+      "station": {
+        "label": "Station ou vallée",
+        "exemple": "Le Grand-Bornand",
+        "erreur": "Indiquez la station ou la vallée où vous opérez."
+      },
+      "biens": {
+        "label": "Nombre de biens gérés",
+        "exemple": "12",
+        "erreur": "Indiquez un nombre de biens, par exemple 12."
+      },
+      "terrain": {
+        "label": "Personnes sur le terrain",
+        "exemple": "4",
+        "erreur": "Indiquez combien de personnes travaillent sur le terrain."
+      },
+      "email": {
+        "label": "Email",
+        "exemple": "mathieu@conciergerie.fr",
+        "erreur": "Indiquez l'adresse email où vous joindre.",
+        "erreurDomaine": "Il manque le domaine après le @, par exemple mathieu@conciergerie.fr"
+      },
+      "tel": {
+        "label": "Téléphone",
+        "exemple": "06 12 34 56 78",
+        "erreur": "Indiquez un numéro à dix chiffres, par exemple 06 12 34 56 78."
+      },
+      "dispo": {
+        "label": "Période de disponibilité",
+        "erreur": "Choisissez une période, même approximative."
+      },
+      "message": {
+        "label": "Message",
+        "erreur": "Écrivez votre question en une phrase au moins."
+      }
+    },
+    "dispoOptions": {
+      "horsSaison": "Hors saison",
+      "intersaison": "Intersaison",
+      "aDiscuter": "À discuter"
+    },
+    "alerteSolo": "Le double contrôle demande qu'une personne différente de l'exécutant valide chaque mission. À une seule personne sur le terrain, ce n'est pas possible — et il n'existe pas d'offre solo. Écrivez-nous quand même si votre organisation évolue.",
+    "resumeErreurs": "{nombre} champs sont à compléter avant l'envoi.",
+    "envoyerImpl": "Envoyer la demande",
+    "envoyerQuestion": "Envoyer le message",
+    "apres": {
+      "titre": "Ce qui se passe après l'envoi",
+      "etapes": {
+        "reponse": "On vous répond sous 48 h ouvrées.",
+        "appel": "Un appel de 20 minutes pour comprendre votre exploitation.",
+        "date": "On fixe une date de journée d'implantation, ou on vous dit que ce n'est pas le moment."
+      }
+    },
+    "zone": "Zone d'intervention : Aravis · Megève · Chamonix · Courchevel · Val d'Isère"
+  },
   "solutions": {
     "titre": "Trois rôles. <accent>Une seule version des faits.</accent>",
     "intro": "Le même bien vu depuis la direction, l'exploitation et le terrain. Choucas relie les trois sans multiplier les outils.",
