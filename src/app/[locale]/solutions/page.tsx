@@ -3,9 +3,13 @@ import { notFound } from 'next/navigation';
 import { hasLocale } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
+import blocExceptions from '../../../../public/demo/bloc-exceptions.png';
+import carteMaintenant from '../../../../public/demo/carte-maintenant.png';
+
 import { ATTRS_DEMO, LIEN_DEMO } from '@/components/anchors';
+import { PointJonction } from '@/components/solutions/PointJonction';
+import { TroisMetiers } from '@/components/solutions/TroisMetiers';
 import { VoletRole } from '@/components/solutions/VoletRole';
-import { Accent } from '@/components/ui/Accent';
 import { BarreSection } from '@/components/ui/BarreSection';
 import { Cta } from '@/components/ui/Cta';
 import { Section } from '@/components/ui/Section';
@@ -56,12 +60,19 @@ export default async function Page({ params }: PageProps<'/[locale]/solutions'>)
 
   const t = await getTranslations('solutions');
   const actions = await getTranslations('actions');
+  // Les deux captures existent deja sur la Home ; leur description aussi. On
+  // la relit plutot que de la recopier.
+  const manager = await getTranslations('manager');
+  const terrain = await getTranslations('terrain');
 
   return (
     <main>
       <Section fond="fond" aria-labelledby="solutions-titre">
         <h1 id="solutions-titre" className="font-serif text-h2 max-w-[16ch] text-balance">
-          {t.rich('titre', { accent: (chunks) => <Accent>{chunks}</Accent> })}
+          {/* Sans accent : le §0.4 des correctifs n'autorise qu'un titre
+              colore par page, et sur Solutions il revient au point de
+              jonction. */}
+          {t.rich('titre', { accent: (chunks) => <>{chunks}</> })}
         </h1>
         <p className="text-intro mt-6 max-w-[62ch] text-encre-douce">{t('intro')}</p>
       </Section>
@@ -71,6 +82,8 @@ export default async function Page({ params }: PageProps<'/[locale]/solutions'>)
         aria-label={t('barreAria')}
       />
 
+      <TroisMetiers />
+
       {/* Fond Lichen. Le titre y reste en encre pleine : le cuivre mesure
           1,45:1 sur ce fond, la moitie du titre y disparaitrait. */}
       <VoletRole
@@ -79,9 +92,11 @@ export default async function Page({ params }: PageProps<'/[locale]/solutions'>)
         eyebrow={t('dirigeants.eyebrow')}
         titre={t('dirigeants.titre')}
         legende={t('dirigeants.legende')}
+        capture={blocExceptions}
+        captureAlt={manager('captureAlt')}
+        libelleLien={manager('lienDemo')}
       >
-        <p className="text-intro font-semibold">{t('dirigeants.lead')}</p>
-        <p className="text-corps">{t('dirigeants.benefice')}</p>
+        <p className="text-corps">{t('dirigeants.corps')}</p>
         <p className="text-corps">
           <strong className="font-bold">{t('dirigeants.eviteLabel')} : </strong>
           {t('dirigeants.evite')}
@@ -106,10 +121,15 @@ export default async function Page({ params }: PageProps<'/[locale]/solutions'>)
         eyebrow={t('terrain.eyebrow')}
         titre={t('terrain.titre')}
         legende={t('terrain.legende')}
+        capture={carteMaintenant}
+        captureAlt={terrain('captureAlt')}
+        libelleLien={manager('lienDemo')}
       >
         <p className="text-corps">{t('terrain.lead')}</p>
         <p className="text-corps">{t('terrain.suite')}</p>
       </VoletRole>
+
+      <PointJonction />
 
       <Section fond="fond-alt" aria-labelledby="solutions-cloture">
         <h2 id="solutions-cloture" className="font-serif text-h3 text-balance">

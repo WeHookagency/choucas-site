@@ -436,12 +436,22 @@
     "titre": "Trois rôles. <accent>Une seule version des faits.</accent>",
     "intro": "Le même bien vu depuis la direction, l'exploitation et le terrain. Choucas relie les trois sans multiplier les outils.",
     "barreAria": "Navigation par rôle",
+    "metiers": {
+      "titre": "Trois métiers, une même journée.",
+      "exploitation": {
+        "role": "Responsable d'exploitation",
+        "phrase": "Arbitre la journée. Contrôle ce que le terrain a déclaré terminé."
+      },
+      "terrain": {
+        "role": "Terrain",
+        "phrase": "Exécute, documente, signale. Ne valide jamais sa propre mission."
+      }
+    },
     "dirigeants": {
       "label": "Dirigeants",
       "eyebrow": "Dirigeants",
       "titre": "Piloter sans devenir le centre de toutes les opérations.",
-      "lead": "Une vision nette de la qualité rendue sur chaque bien.",
-      "benefice": "Le service devient visible et prouvable.",
+      "corps": "Les décisions se prennent là où elles se prennent. Le dirigeant n'est plus le point de passage obligé de chaque information.",
       "eviteLabel": "Vous évitez",
       "evite": "les relances permanentes, les informations reconstruites par téléphone et les tableaux de performance individuels.",
       "legende": "Le bloc Exceptions, tel qu'il s'affiche. Trois lignes, trois décisions."
@@ -461,6 +471,23 @@
       "lead": "Le terrain retrouve sa journée, ses missions, les accès nécessaires, le contexte utile, les preuves attendues et les signalements au même endroit.",
       "suite": "L'interface privilégie l'action actuelle. Les détails restent accessibles lorsque la situation l'exige.",
       "legende": "Deux missions, trois chalets, une action urgente. Rien d'autre."
+    },
+    "jonction": {
+      "titre": "Personne ne valide <accent>son propre travail.</accent>",
+      "intro": "L'exécutant déclare terminé. Un tiers contrôle. Le bien passe PRÊT.",
+      "termine": {
+        "bien": "Chalet L'Aiguille",
+        "etat": "TERMINÉ",
+        "meta": "Déclaré par Marie L. · Équipière · 10:25",
+        "fait": "Ménage départ · 24 tâches"
+      },
+      "liaison": "contrôlé par Sophie M., responsable d'exploitation",
+      "pret": {
+        "bien": "Chalet L'Aiguille",
+        "etat": "PRÊT",
+        "meta": "Validé par Sophie M. · Responsable · 10:41",
+        "fait": "Contrôle qualité effectué"
+      }
     },
     "cloture": {
       "titre": "Une journée sur site",

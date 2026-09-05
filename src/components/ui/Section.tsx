@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-type Fond = 'fond' | 'fond-alt' | 'surface' | 'sombre' | 'respiration';
+type Fond = 'fond' | 'fond-alt' | 'surface' | 'sombre' | 'sapin' | 'respiration';
 
 type SectionProps = {
   children: ReactNode;
@@ -31,6 +31,9 @@ const fonds: Record<Fond, string> = {
   surface: 'bg-surface text-encre',
   // Schiste sur Neige inverse : 15,98:1.
   sombre: 'bg-fond-sombre text-encre-inverse',
+  // Neige sur Sapin : 9,81:1. Le cuivre standard y tombe a 2,79:1, d'ou
+  // l'accent inverse pour les italiques de titre.
+  sapin: 'bg-cta text-encre-inverse',
   // Le Lichen est une surface, jamais une encre : le texte pose dessus est
   // du Schiste (6,57:1), jamais l'inverse.
   respiration: 'bg-respiration text-encre',
