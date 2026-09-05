@@ -58,7 +58,9 @@ function ApercuRapport() {
           <div>
             <p className="text-corps text-encre-douce">{t('salutation')}</p>
             <p className="font-serif text-h3 mt-3 max-w-[22ch] text-balance">{t('titre')}</p>
-            <p className="text-corps mt-3 text-encre-douce">{t('chapeau')}</p>
+            {/* Un courriel se lit sur 600 px environ, comme la maquette le
+                pose. Sans plafond, l'apercu s'etirait a 92 caracteres. */}
+            <p className="text-corps mt-3 max-w-[62ch] text-encre-douce">{t('chapeau')}</p>
           </div>
 
           <div>
@@ -83,7 +85,7 @@ function ApercuRapport() {
               <Icon name="alerte" size={16} />
               {t('attentionLabel')}
             </p>
-            <p className="text-corps mt-2">
+            <p className="text-corps mt-2 max-w-[62ch]">
               <strong className="font-bold">{t('attentionTitre')}</strong>
               {t('attentionTexte')}
             </p>
@@ -111,7 +113,7 @@ function ApercuRapport() {
             </div>
           </div>
 
-          <p className="text-corps rounded-carte bg-fond-alt p-4 text-encre-douce">
+          <p className="text-corps max-w-[62ch] rounded-carte bg-fond-alt p-4 text-encre-douce">
             <strong className="font-bold text-encre">{t('passageLabel')}</strong>
             {t('passageTexte')}
           </p>

@@ -35,8 +35,9 @@ export function Hero() {
             })}
           </h1>
 
-          {/* Largeur de lecture plafonnee a 720 px, §6.2. */}
-          <p className="text-intro mt-6 max-w-[720px] text-encre-douce tablette:mx-auto">
+          {/* Mesure de lecture. Les 720 px du §6.2 donnent 92 caracteres par
+              ligne a cette taille ; le plafond des specs §3 est de 75. */}
+          <p className="text-intro mt-6 max-w-[62ch] text-encre-douce tablette:mx-auto">
             {t('intro')}
           </p>
 

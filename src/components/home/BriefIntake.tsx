@@ -190,7 +190,9 @@ function Arbitrage() {
         </span>
       </div>
       <p className="text-corps mt-3">{t('corps')}</p>
-      <p className="text-micro mt-4 border-t border-filet pt-3 text-encre-douce">{t('meta')}</p>
+      <p className="text-micro mt-4 max-w-[62ch] border-t border-filet pt-3 text-encre-douce">
+        {t('meta')}
+      </p>
     </div>
   );
 }

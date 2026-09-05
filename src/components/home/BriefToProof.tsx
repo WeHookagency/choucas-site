@@ -148,10 +148,18 @@ export function BriefToProof() {
     ),
     contenu: (
       <>
-        <p className="text-corps font-serif text-h3 not-italic">{t(`panneaux.${cle}.titre`)}</p>
-        <p className="text-corps mt-3 text-encre-inverse/85">{t(`panneaux.${cle}.texte`)}</p>
+        {/* Mesure de lecture. Sans plafond, le panneau prend les 1 360 px du
+            conteneur des que la colonne d'apercu est absente : 167 caracteres
+            par ligne a 1440, pour un plafond de 75 dans les specs §3. Il ne
+            depend donc pas de la presence d'une capture. */}
+        <p className="text-corps font-serif text-h3 max-w-[22ch] not-italic">
+          {t(`panneaux.${cle}.titre`)}
+        </p>
+        <p className="text-corps mt-3 max-w-[62ch] text-encre-inverse/85">
+          {t(`panneaux.${cle}.texte`)}
+        </p>
 
-        <p className="text-corps mt-5 rounded-carte border border-cta bg-cta/40 px-4 py-3">
+        <p className="text-corps mt-5 max-w-[62ch] rounded-carte border border-cta bg-cta/40 px-4 py-3">
           <span className="text-label font-semibold uppercase">{t('resultatLabel')}</span>
           <span aria-hidden> — </span>
           {t(`panneaux.${cle}.resultat`)}
