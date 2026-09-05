@@ -3,11 +3,10 @@ import type { ReactNode } from 'react';
 
 import { CaptureProduit } from '../ui/CaptureProduit';
 import { Eyebrow } from '../ui/Eyebrow';
-import { Reserve } from '../ui/Reserve';
 import { Section } from '../ui/Section';
 
 /** Largeur de la colonne d'ecran, et hauteur maximale, comme la maquette. */
-const ECRAN = { largeur: 340, ratio: '340 / 640' };
+const ECRAN = { largeur: 340, hauteurMax: 640 };
 
 /**
  * Un volet de la page Solutions : un role, son texte, son ecran.
@@ -19,9 +18,10 @@ const ECRAN = { largeur: 340, ratio: '340 / 640' };
  * Sur fond Lichen, tout le texte est en encre pleine : l'encre douce y tombe
  * a 2,34:1 et le cuivre a 1,45:1. Aucun titre colore sur ces fonds.
  *
- * L'ecran est une vraie capture quand elle existe, une reserve aux memes
- * dimensions sinon. Aucune ombre solide ici : le §0.5 des correctifs n'en
- * autorise qu'une par page, et elle revient au point de jonction.
+ * Les trois ecrans sont de vraies captures, plafonnees a 640 px comme la
+ * maquette : au-dela, un fondu dit que l'ecran continue. Aucune ombre solide
+ * ici — le §0.5 des correctifs n'en autorise qu'une par page, et elle revient
+ * au point de jonction.
  */
 export function VoletRole({
   id,
@@ -40,10 +40,9 @@ export function VoletRole({
   eyebrow: string;
   titre: string;
   legende: string;
-  /** Absente, la place est reservee a ses dimensions. */
-  capture?: StaticImageData;
-  captureAlt?: string;
-  libelleLien?: string;
+  capture: StaticImageData;
+  captureAlt: string;
+  libelleLien: string;
   /** La maquette alterne le cote de l'ecran d'un volet a l'autre. */
   ecranAGauche?: boolean;
   children: ReactNode;
@@ -68,17 +67,14 @@ export function VoletRole({
         </div>
 
         <figure className={`m-0 flex flex-col gap-4 ${ecranAGauche ? 'desktop:order-1' : ''}`}>
-          {capture && captureAlt && libelleLien ? (
-            <CaptureProduit
-              src={capture}
-              alt={captureAlt}
-              libelleLien={libelleLien}
-              largeurMax={ECRAN.largeur}
-              ombre={false}
-            />
-          ) : (
-            <Reserve ratio={ECRAN.ratio} largeurMax={ECRAN.largeur} teinte="mousse" />
-          )}
+          <CaptureProduit
+            src={capture}
+            alt={captureAlt}
+            libelleLien={libelleLien}
+            largeurMax={ECRAN.largeur}
+            hauteurMax={ECRAN.hauteurMax}
+            ombre={false}
+          />
           <figcaption
             style={{ maxWidth: `${ECRAN.largeur}px` }}
             className={`text-corps ${fond === 'respiration' ? 'text-encre' : 'text-encre-douce'}`}

@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { hasLocale } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
+import accueilResponsable from '../../../../public/demo/accueil-responsable.png';
 import blocExceptions from '../../../../public/demo/bloc-exceptions.png';
 import carteMaintenant from '../../../../public/demo/carte-maintenant.png';
 
@@ -110,6 +111,9 @@ export default async function Page({ params }: PageProps<'/[locale]/solutions'>)
         eyebrow={t('exploitation.eyebrow')}
         titre={t('exploitation.titre')}
         legende={t('exploitation.legende')}
+        capture={accueilResponsable}
+        captureAlt={t('exploitation.captureAlt')}
+        libelleLien={manager('lienDemo')}
       >
         <p className="text-corps text-encre-douce">{t('exploitation.lead')}</p>
         <p className="text-corps">{t('exploitation.liste')}</p>
