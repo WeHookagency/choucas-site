@@ -438,6 +438,10 @@
     "barreAria": "Navigation par rôle",
     "metiers": {
       "titre": "Trois métiers, une même journée.",
+      "dirigeant": {
+        "role": "Dirigeant de conciergerie",
+        "phrase": "Le service devient visible et prouvable."
+      },
       "exploitation": {
         "role": "Responsable d'exploitation",
         "phrase": "Arbitre la journée. Contrôle ce que le terrain a déclaré terminé."
