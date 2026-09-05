@@ -76,7 +76,10 @@
   --text-hero--line-height: 1.02;
 
   --text-h2: clamp(2.6875rem, 5.4vw, 4.6875rem); /* 43 → 75 px */
-  --text-h2--line-height: 0.97;
+  /* 1,00 et non 0,97 : a 0,97, le « g » de « exigence » entrait dans le « i »
+     de la ligne suivante sur le CTA final a 390 px. La plage des specs §3 va
+     de 0,94 a 1,00 — on prend le haut. */
+  --text-h2--line-height: 1;
 
   --text-h3: clamp(2rem, 3.2vw, 2.5rem); /* 32 → 40 px */
   --text-h3--line-height: 1.04;
