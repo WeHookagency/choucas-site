@@ -75,9 +75,13 @@ export function SiteHeader() {
           <ul className="flex items-center gap-6 desktop:gap-8">
             {liens.map((lien) => (
               <li key={lien.href} className={lien.desDesktop ? 'hidden desktop:block' : undefined}>
+                {/* Cible de 44 px, §9 des specs, comme la marque et le menu
+                    mobile. La barre fait 60 px puis 68 : la boite y tient
+                    sans deplacer quoi que ce soit, et `items-center` garde le
+                    texte sur la meme ligne. */}
                 <a
                   href={lien.href}
-                  className="text-nav text-encre no-underline hover:text-accent"
+                  className="text-nav inline-flex min-h-11 items-center text-encre no-underline hover:text-accent"
                 >
                   {lien.libelle}
                 </a>
