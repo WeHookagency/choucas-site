@@ -20,8 +20,13 @@ type SectionProps = {
   'aria-labelledby'?: string;
 };
 
+/**
+ * Ce qui surplombe une ancre, bordure comprise. L'en-tete mesure 60 px plus
+ * son filet d'un pixel — l'omettre posait la premiere ligne de la section
+ * visee exactement sous le trait.
+ */
 const surplombs = {
-  entete: 'scroll-mt-[60px] desktop:scroll-mt-[68px]',
+  entete: 'scroll-mt-[61px] desktop:scroll-mt-[69px]',
   'entete-barre': 'scroll-mt-[112px] desktop:scroll-mt-[122px]',
 } as const;
 
