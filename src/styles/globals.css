@@ -68,7 +68,12 @@
      serres sur les grands titres, ouverts sur le texte courant.      */
 
   --text-hero: clamp(3rem, 7.7vw, 7rem); /* 48 → 112 px */
-  --text-hero--line-height: 0.88;
+  /* Les specs §3 demandent 0,86 a 0,90. Cette plage est inatteignable avec
+     l'italique de Newsreader : le « h » monte a 0,715 em et le « g » romain
+     descend a 0,256 em, soit 0,971 em d'encre avant le moindre jour. A 0,88
+     le « g » de « conciergerie » entrait dans le « h » d'« orchestree » — de
+     3,8 px a 390 jusqu'a 10,1 px a 1440. 1,02 laisse 2,7 a 5,4 px. */
+  --text-hero--line-height: 1.02;
 
   --text-h2: clamp(2.6875rem, 5.4vw, 4.6875rem); /* 43 → 75 px */
   --text-h2--line-height: 0.97;
