@@ -14,8 +14,8 @@ import { localeAlternates } from '@/i18n/metadata';
 import { Link } from '@/i18n/navigation';
 import { routing } from '@/i18n/routing';
 
-/** Les quatre paliers d'abonnement, seuils du §16 des contenus. */
-const PALIERS = ['p1', 'p2', 'p3', 'p4'] as const;
+/** Les cinq paliers d'abonnement, seuils du §16 des contenus. */
+const PALIERS = ['p1', 'p2', 'p3', 'p4', 'p5'] as const;
 
 /** Les trois lignes de ce qui est facture, et les trois du positionnement. */
 const FACTURE = ['implantation', 'abonnement', 'utilisateurs'] as const;

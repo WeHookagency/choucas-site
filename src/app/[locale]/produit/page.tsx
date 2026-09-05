@@ -35,7 +35,9 @@ export async function generateMetadata(props: {
   const tPages = await getTranslations({ locale, namespace: 'pages' });
 
   return {
-    title: tPages('produit.titre'),
+    // `absolute` : le titre du §5 nomme deja Choucas, le gabarit
+    // « {page} — Choucas » le repeterait.
+    title: { absolute: tPages('produit.titre') },
     description: t('metaDescription'),
     alternates: localeAlternates('/produit', locale),
   };

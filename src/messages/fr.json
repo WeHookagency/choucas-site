@@ -458,7 +458,7 @@
   },
   "pages": {
     "produit": {
-      "titre": "Le produit"
+      "titre": "Choucas — Logiciel opérationnel pour conciergeries"
     },
     "solutions": {
       "titre": "Solutions"
@@ -601,6 +601,10 @@
       "p4": {
         "biens": "61–100",
         "montant": "699 €"
+      },
+      "p5": {
+        "biens": "100+",
+        "montant": "Sur devis"
       }
     },
     "positionTitre": "Ce que Choucas couvre",
@@ -888,7 +892,7 @@
       },
       "cout": {
         "q": "Combien ça coûte pour 12 biens ?",
-        "r": "Le prix se calcule aux biens actifs, avec un nombre illimité d’utilisateurs terrain. Le détail par palier est sur la page Tarifs."
+        "r": "Le prix se calcule aux biens actifs, avec un nombre illimité d’utilisateurs terrain. Douze biens, c’est le palier 1–15 : 249 € HT par mois."
       },
       "hors-saison": {
         "q": "Que se passe-t-il hors saison, quand mes biens ne tournent pas ?",
