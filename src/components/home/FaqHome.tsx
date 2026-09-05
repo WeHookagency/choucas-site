@@ -42,7 +42,7 @@ export function FaqHome() {
         <Reveal>
           {/* Aucun accent cuivre dans ce titre : le motif « seconde moitie en
               italique » est deja porte par cinq sections au-dessus. */}
-          <h2 id="faq-home-titre" className="font-serif text-h3 text-balance">
+          <h2 id="faq-home-titre" className="font-serif text-h2 text-balance">
             {tSection('titre')}
           </h2>
         </Reveal>

@@ -78,7 +78,9 @@ export function Profiles() {
 
                 <Icon name={icone} size={28} className="mt-6" />
 
-                <p className="font-serif text-h3 mt-4">{t(`${cle}.role`)}</p>
+                {/* Titre de la carte : il en a le poids visuel, il en prend
+                    le niveau. */}
+                <h3 className="font-serif text-h3 mt-4">{t(`${cle}.role`)}</h3>
                 <p className="text-corps mt-3">{t(`${cle}.phrase`)}</p>
 
                 <p className="text-corps mt-auto flex items-start gap-2 pt-6 font-semibold">

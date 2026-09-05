@@ -39,7 +39,7 @@ export function ManagerDemo() {
               seul, ecarte pour cette raison. */}
           <div className="mx-auto max-w-[62ch] text-center">
             <p className="text-label font-semibold uppercase text-encre">{t('label')}</p>
-            <h2 id="manager-titre" className="font-serif text-h3 mt-4 text-balance">
+            <h2 id="manager-titre" className="font-serif text-h2 mt-4 text-balance">
               {/* Panneau Lichen : le cuivre y mesure 1,45:1. L'accent tient par
                   l'italique seul, en encre pleine a 6,57:1. */}
               {t.rich('titre', { accent: (chunks) => <Accent ton="encre">{chunks}</Accent> })}

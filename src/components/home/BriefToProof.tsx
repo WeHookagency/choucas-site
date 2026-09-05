@@ -138,13 +138,23 @@ export function BriefToProof() {
 
   const elements: ElementAccordeon[] = ETAPES.map((cle, i) => ({
     id: cle,
+    // L'en-tete porte le titre de l'etape, pas seulement son etiquette : le
+    // motif ARIA veut le bouton dans un titre, et ce titre doit etre celui
+    // qu'on lit. La ligne editoriale vivait auparavant dans la zone depliee,
+    // en <p> a 40 px sous un h3 a 14 px — on lisait un titre qui n'en etait
+    // pas un.
     entete: (
-      <>
-        <span aria-hidden className="text-numero tabular-nums text-numero-inverse">
-          {String(i + 1).padStart(2, '0')}
+      <span className="flex flex-col gap-1">
+        <span className="text-label flex items-baseline gap-2 font-semibold uppercase">
+          <span aria-hidden className="text-numero tabular-nums text-numero-inverse">
+            {String(i + 1).padStart(2, '0')}
+          </span>
+          {t(`onglets.${cle}`)}
         </span>
-        {t(`onglets.${cle}`)}
-      </>
+        <span className="font-serif text-h3 max-w-[22ch] not-italic">
+          {t(`panneaux.${cle}.titre`)}
+        </span>
+      </span>
     ),
     contenu: (
       <>
@@ -152,10 +162,7 @@ export function BriefToProof() {
             conteneur des que la colonne d'apercu est absente : 167 caracteres
             par ligne a 1440, pour un plafond de 75 dans les specs §3. Il ne
             depend donc pas de la presence d'une capture. */}
-        <p className="text-corps font-serif text-h3 max-w-[22ch] not-italic">
-          {t(`panneaux.${cle}.titre`)}
-        </p>
-        <p className="text-corps mt-3 max-w-[62ch] text-encre-inverse/85">
+        <p className="text-corps max-w-[62ch] text-encre-inverse/85">
           {t(`panneaux.${cle}.texte`)}
         </p>
 
@@ -205,7 +212,7 @@ export function BriefToProof() {
           )}
           classeEntete={({ ouvert }) =>
             [
-              'text-corps flex w-full items-baseline gap-3 rounded-carte px-4 py-3 text-left',
+              'text-corps flex w-full rounded-carte px-4 py-4 text-left',
               'transition-colors duration-200 ease-choucas',
               ouvert
                 ? 'bg-encre-inverse/10 font-semibold'
