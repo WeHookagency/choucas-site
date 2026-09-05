@@ -136,7 +136,9 @@ export function BriefToProof() {
   /** Y a-t-il seulement quelque chose a montrer a droite ? */
   const avecApercu = RESERVE_PROVISOIRE || ETAPES.some((cle) => CAPTURES[cle]);
 
-  const elements: ElementAccordeon[] = ETAPES.map((cle, i) => ({
+  const elements: ElementAccordeon[] = ETAPES.map((cle, i) => {
+    const estOuverte = cle === ouverte;
+    return {
     id: cle,
     // L'en-tete porte le titre de l'etape, pas seulement son etiquette : le
     // motif ARIA veut le bouton dans un titre, et ce titre doit etre celui
@@ -151,7 +153,18 @@ export function BriefToProof() {
           </span>
           {t(`onglets.${cle}`)}
         </span>
-        <span className="font-serif text-h3 max-w-[22ch] not-italic">
+        {/* Les quatre phrases sont au meme niveau de titre, mais pas au meme
+            etat. L'ouverte prend le poids plein — 32 a 40 px, graisse 500 ;
+            les trois autres reculent en taille et en graisse, sans changer de
+            niveau. Newsreader n'est sous-ensemble qu'en 400 et 500 : au-dela
+            le navigateur graisserait le trait lui-meme. */}
+        <span
+          // La mesure suit la taille : 22 caracteres cadrent une ligne de
+          // 40 px, ils hachent une ligne de 15.
+          className={`font-serif not-italic ${
+            estOuverte ? 'text-h3 max-w-[22ch] font-medium' : 'text-intro max-w-[48ch] font-normal'
+          }`}
+        >
           {t(`panneaux.${cle}.titre`)}
         </span>
       </span>
@@ -178,7 +191,8 @@ export function BriefToProof() {
         {avecApercu ? <Apercu etape={cle} className="mt-5 desktop:hidden" /> : null}
       </>
     ),
-  }));
+    };
+  });
 
   return (
     <Section id={ancres.fonctionnement} fond="sombre" aria-labelledby="brief-titre">
@@ -215,7 +229,7 @@ export function BriefToProof() {
               'text-corps flex w-full rounded-carte px-4 py-4 text-left',
               'transition-colors duration-200 ease-choucas',
               ouvert
-                ? 'bg-encre-inverse/10 font-semibold'
+                ? 'bg-encre-inverse/10'
                 : 'text-encre-inverse/70 hover:text-encre-inverse',
             ].join(' ')
           }
