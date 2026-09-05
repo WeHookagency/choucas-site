@@ -539,6 +539,25 @@
     },
     "retour": "Toutes les notes"
   },
+  "tarifs": {
+    "eyebrow": "Une tarification liée à votre parc, pas à votre équipe",
+    "titre": "Des utilisateurs terrain illimités. <accent>Un prix basé sur les biens actifs.</accent>",
+    "intro": "Choucas ne facture pas chaque personne supplémentaire sur le terrain. La tarification évolue avec le nombre de biens actifs suivis dans Choucas.",
+    "blocs": {
+      "configuration": {
+        "titre": "Configuration",
+        "texte": "L'implantation comprend la cartographie opérationnelle, la configuration, une journée avec l'équipe, les tests et les ajustements convenus."
+      },
+      "abonnement": {
+        "titre": "Abonnement",
+        "texte": "Selon le nombre de biens actifs. Utilisateurs terrain illimités."
+      },
+      "support": {
+        "titre": "Maintenance et support"
+      }
+    },
+    "cloture": "Un produit commun. Une configuration adaptée à votre exploitation."
+  },
   "contact": {
     "titre": "Parlons d'une vraie journée <accent>d'exploitation.</accent>",
     "intro": "Pas de démo générique. On regarde vos rotations, vos biens, vos équipes.",
