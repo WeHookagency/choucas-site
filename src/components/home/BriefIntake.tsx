@@ -45,6 +45,11 @@ const ETAPES = [
  * ses trois temps sont nommes ; le canal de chaque source est ecrit ; la
  * sortie se distingue par sa pastille pleine et son ombre solide autant que
  * par son ton.
+ *
+ * La progression se lit sur une colonne de gauche : le chiffre d'etape au
+ * traitement de la charte — Newsreader 400, 34 px en mobile et 52 px en
+ * desktop, cuivre eclairci — et un fil vertical qui relie les trois temps en
+ * traversant les liaisons ecrites, au lieu de les laisser flotter.
  */
 export function BriefIntake() {
   const t = useTranslations('briefIntake');
@@ -62,28 +67,47 @@ export function BriefIntake() {
         />
       </Reveal>
 
-      <ol
-        aria-label={t('sequenceAria')}
-        className="mt-titre mx-auto flex max-w-[900px] flex-col items-stretch"
-      >
+      <ol aria-label={t('sequenceAria')} className="mt-titre mx-auto max-w-[900px]">
         {ETAPES.map(({ cle, liaison }, i) => (
-          <li key={cle} className="flex flex-col items-center">
+          <li
+            key={cle}
+            className="grid grid-cols-[2.75rem_minmax(0,1fr)] gap-x-5 desktop:grid-cols-[4.5rem_minmax(0,1fr)] desktop:gap-x-8"
+          >
             {/* La liaison appartient a l'etape qu'elle introduit : elle dit ce
-                qui vient de se passer, en toutes lettres. */}
-            {liaison ? <Liaison texte={t(`liaisons.${liaison}`)} /> : null}
+                qui vient de se passer, en toutes lettres. Le fil la traverse. */}
+            {liaison ? (
+              <>
+                <Fil />
+                <Liaison texte={t(`liaisons.${liaison}`)} />
+              </>
+            ) : null}
 
-            <p className="text-label flex items-baseline justify-center gap-2 font-semibold uppercase text-encre-inverse/75">
-              <span aria-hidden className="text-numero-inverse tabular-nums">
+            <div className="flex flex-col items-center">
+              <span
+                aria-hidden
+                className="font-serif text-[2.125rem] leading-none tabular-nums text-numero-inverse desktop:text-[3.25rem]"
+              >
                 {String(i + 1).padStart(2, '0')}
               </span>
-              {t(`etapes.${cle}.temps`)}
-            </p>
+              {/* Le segment bas prend tout le reste : le fil longe donc le
+                  contenu de l'etape jusqu'a la liaison suivante. */}
+              {i < ETAPES.length - 1 ? <Fil className="mt-3 flex-1" /> : null}
+            </div>
 
-            <Reveal className="mt-5 w-full">
-              {cle === 'arrivee' ? <Sources /> : null}
-              {cle === 'arbitrage' ? <Arbitrage /> : null}
-              {cle === 'consigne' ? <Consigne /> : null}
-            </Reveal>
+            <div>
+              {/* Meme hauteur que le chiffre : le libelle se cale sur son
+                  milieu optique sans dependre d'une ligne de base partagee,
+                  que la grille ne peut pas donner. */}
+              <p className="text-label flex min-h-[2.125rem] items-center font-semibold uppercase text-encre-inverse desktop:min-h-[3.25rem]">
+                {t(`etapes.${cle}.temps`)}
+              </p>
+
+              <Reveal className="mt-5 w-full">
+                {cle === 'arrivee' ? <Sources /> : null}
+                {cle === 'arbitrage' ? <Arbitrage /> : null}
+                {cle === 'consigne' ? <Consigne /> : null}
+              </Reveal>
+            </div>
           </li>
         ))}
       </ol>
@@ -92,18 +116,34 @@ export function BriefIntake() {
 }
 
 /**
+ * Le fil qui relie les trois temps.
+ *
+ * Neige a 45 % : 3,33:1 sur le Sapin, au-dessus du seuil des objets
+ * graphiques. Les 18 % du handoff n'y donnent que 1,66:1, et le vert Mousse
+ * du parcours de la Home, qui tient sur le Schiste, tombe a 1,98:1 ici — le
+ * fond change, la couleur du fil doit changer avec lui.
+ *
+ * Decoratif : l'ordre est deja porte par les chiffres et par la liste
+ * ordonnee.
+ */
+function Fil({ className }: { className?: string }) {
+  return (
+    <span
+      aria-hidden
+      className={`w-px justify-self-center bg-encre-inverse/45 ${className ?? 'self-stretch'}`}
+    />
+  );
+}
+
+/**
  * Le lien entre deux etapes, ecrit.
  *
- * Les deux filets sont decoratifs : la phrase suffit a comprendre le passage
- * d'une etape a la suivante, filets masques ou non.
+ * En encre pleine, 9,81:1 : ces deux phrases portent le mecanisme, elles ne
+ * peuvent pas etre le texte le moins lisible du bloc.
  */
 function Liaison({ texte }: { texte: string }) {
   return (
-    <p className="flex flex-col items-center gap-2 py-6 text-center">
-      <span aria-hidden className="h-6 w-px bg-encre-inverse/30" />
-      <span className="text-micro max-w-[38ch] text-encre-inverse/75">{texte}</span>
-      <span aria-hidden className="h-6 w-px bg-encre-inverse/30" />
-    </p>
+    <p className="text-micro flex max-w-[38ch] items-center py-6 text-encre-inverse">{texte}</p>
   );
 }
 

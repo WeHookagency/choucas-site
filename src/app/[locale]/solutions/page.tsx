@@ -9,7 +9,6 @@ import carteMaintenant from '../../../../public/demo/carte-maintenant.png';
 
 import { ATTRS_DEMO, LIEN_DEMO } from '@/components/anchors';
 import { PointJonction } from '@/components/solutions/PointJonction';
-import { PriseDeBrief } from '@/components/solutions/PriseDeBrief';
 import { TroisMetiers } from '@/components/solutions/TroisMetiers';
 import { VoletRole } from '@/components/solutions/VoletRole';
 import { BarreSection } from '@/components/ui/BarreSection';
@@ -133,10 +132,6 @@ export default async function Page({ params }: PageProps<'/[locale]/solutions'>)
         <p className="text-corps">{t('terrain.lead')}</p>
         <p className="text-corps">{t('terrain.suite')}</p>
       </VoletRole>
-
-      {/* Une seule bande sapin, deux demonstrations : par ou l'information
-          entre, par ou la preuve sort. */}
-      <PriseDeBrief />
 
       <PointJonction />
 
