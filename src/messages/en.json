@@ -404,7 +404,7 @@
   "implantation": {
     "label": "Choucas implementation",
     "titre": "Your operations. <accent>Configured with you, on site.</accent>",
-    "intro": "We spend a day with your team to understand how your operation actually runs and configure Choucas around your properties, roles, standards and rules.",
+    "intro": "Montrez-moi comment vous travaillez aujourd'hui. On adapte Choucas à votre terrain pour demain.",
     "cloture": "One product. A configuration adapted to your operation.",
     "etapes": {
       "observer": {
