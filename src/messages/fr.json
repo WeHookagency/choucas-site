@@ -539,6 +539,31 @@
     },
     "retour": "Toutes les notes"
   },
+  "produit": {
+    "eyebrow": "Résoudre",
+    "titre": "L'imprévu reste <accent>dans le flux.</accent>",
+    "intro": "Un manque, un problème ou une urgence ne devrait pas obliger le manager à reconstruire la situation depuis plusieurs conversations.",
+    "metaDescription": "Centralisez les briefs, missions, contrôles, incidents et rapports propriétaires dans une même logique opérationnelle jusqu'au PRÊT.",
+    "etapes": {
+      "signaler": {
+        "titre": "Signaler depuis la mission",
+        "texte": "Le terrain renseigne le bien, le niveau de gravité, la situation et, si utile, une photo."
+      },
+      "remonter": {
+        "titre": "Faire remonter ce qui mérite vraiment l'attention",
+        "texte": "Les incidents importants sont remontés au manager avec leur contexte."
+      },
+      "transmettre": {
+        "titre": "Transmettre à un prestataire avec relecture",
+        "texte": "Choucas peut préparer la transmission. Le message externe est relu et envoyé par un humain."
+      },
+      "controle": {
+        "titre": "Revenir au contrôle",
+        "texte": "Une intervention réalisée ne suffit pas à qualifier automatiquement le logement PRÊT. Le flux retourne au contrôle."
+      }
+    },
+    "ailleursAria": "Le reste du produit, ailleurs sur le site"
+  },
   "tarifs": {
     "eyebrow": "Une tarification liée à votre parc, pas à votre équipe",
     "titre": "Des utilisateurs terrain illimités. <accent>Un prix basé sur les biens actifs.</accent>",
