@@ -15,7 +15,7 @@ type SectionProps = {
    * quand une barre de section collante s'ajoute dessous, sinon le titre
    * vise se gare derriere elle.
    */
-  surplomb?: 'entete' | 'entete-barre';
+  surplomb?: Surplomb;
   className?: string;
   'aria-labelledby'?: string;
 };
@@ -24,11 +24,19 @@ type SectionProps = {
  * Ce qui surplombe une ancre, bordure comprise. L'en-tete mesure 60 px plus
  * son filet d'un pixel — l'omettre posait la premiere ligne de la section
  * visee exactement sous le trait.
+ *
+ * Exporte : toutes les ancres du site doivent lire la meme table, y compris
+ * celles qui ne peuvent pas passer par `Section`. Les groupes de la FAQ sont
+ * imbriques dans une grille a deux colonnes ; leur donner une `Section`, qui
+ * pose un fond pleine largeur et son propre rythme vertical, casserait la
+ * mise en page. Ils prennent la classe, pas le composant.
  */
-const surplombs = {
+export const surplombs = {
   entete: 'scroll-mt-[61px] desktop:scroll-mt-[69px]',
   'entete-barre': 'scroll-mt-[112px] desktop:scroll-mt-[122px]',
 } as const;
+
+export type Surplomb = keyof typeof surplombs;
 
 const fonds: Record<Fond, string> = {
   fond: 'bg-fond text-encre',

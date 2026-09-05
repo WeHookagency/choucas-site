@@ -6,7 +6,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { ListeFaq, type EntreeFaq } from '@/components/faq/ListeFaq';
 import { SommaireFaq } from '@/components/faq/SommaireFaq';
 import { Cta } from '@/components/ui/Cta';
-import { Section } from '@/components/ui/Section';
+import { Section, surplombs } from '@/components/ui/Section';
 import { groupesFaq } from '@/content/faq';
 import { localeAlternates } from '@/i18n/metadata';
 import { getPathname } from '@/i18n/navigation';
@@ -107,7 +107,9 @@ export default async function Page({ params }: PageProps<'/[locale]/faq'>) {
                 key={groupe.id}
                 id={groupe.id}
                 aria-labelledby={`faq-${groupe.id}`}
-                className="scroll-mt-[80px]"
+                // Meme table que les sections de plein format : une seule
+                // marge d'ancre pour tout le site.
+                className={surplombs.entete}
               >
                 <h2 id={`faq-${groupe.id}`} className="font-serif text-h3">
                   {groupe.titre}
