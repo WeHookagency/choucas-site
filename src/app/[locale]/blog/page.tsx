@@ -21,9 +21,11 @@ export async function generateMetadata(props: {
   if (!hasLocale(routing.locales, locale)) notFound();
 
   const t = await getTranslations({ locale, namespace: 'blog' });
+  const tPages = await getTranslations({ locale, namespace: 'pages' });
 
   return {
-    title: t('titre'),
+    // Le titre d'onglet vient de la table des pages, comme partout ailleurs.
+    title: tPages('blog.titre'),
     description: t('intro'),
     alternates: localeAlternates('/blog', locale),
   };
