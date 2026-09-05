@@ -1,0 +1,44 @@
+# Déploiement Netlify — site vitrine Choucas.
+#
+# Le site n'est pas ouvert : il est verrouillé par mot de passe et retiré de
+# l'indexation. Les deux blocs marqués « avant ouverture » sont à supprimer le
+# jour de la mise en ligne, et rien d'autre.
+
+[build]
+  command = "npm run build"
+  # Le runtime Next de Netlify lit la sortie de `next build` ici. Il est
+  # détecté et installé automatiquement : rien à déclarer en plugin.
+  publish = ".next"
+
+[build.environment]
+  # Next 16 exige au moins 20.9. On prend le LTS courant, qui fait aussi
+  # tourner le banc de tests — `node --test` dépouille les types sans drapeau
+  # à partir de 22.18.
+  NODE_VERSION = "22"
+  # Un build qui échoue doit échouer, pas se rattraper sur un cache.
+  NPM_FLAGS = "--no-audit --no-fund"
+
+# ---------------------------------------------------------------------------
+# Avant ouverture — verrou par mot de passe
+#
+# Le mot de passe vit dans les variables d'environnement Netlify, jamais ici :
+#   SITE_MOT_DE_PASSE  (obligatoire, sinon le site répond 503)
+#   SITE_IDENTIFIANT   (facultatif, « choucas » par défaut)
+#
+# La fonction s'applique à tout : production, aperçus de déploiement et
+# branches.
+# ---------------------------------------------------------------------------
+[[edge_functions]]
+  function = "protection"
+  path = "/*"
+
+# ---------------------------------------------------------------------------
+# Avant ouverture — hors index
+#
+# Ceinture et bretelles : le 401 suffit à écarter un robot, cet en-tête le dit
+# une seconde fois pour tout ce qui passerait au travers.
+# ---------------------------------------------------------------------------
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow, noarchive"
