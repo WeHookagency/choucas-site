@@ -56,10 +56,10 @@
       "anomalie": "Une anomalie devient une action, pas un message perdu.",
       "rotation": "Une rotation relie planning, ressources et preuves."
     },
-    "photoAlt": "Chambre d'un chalet en bois : lit fait et linge de maison roulé au pied du lit."
+    "photoAlt": "Chambre d'un chalet en bois : lit fait et linge de maison roulé au pied du lit."
   },
   "pourquoi": {
-    "label": "Pourquoi Choucas ?",
+    "label": "Pourquoi Choucas ?",
     "titre": "Du bruit opérationnel <accent>à une journée maîtrisée.</accent>",
     "avant": {
       "titre": "Avant · Informations dispersées",
@@ -84,7 +84,7 @@
       "vueLibelle": "vue commune",
       "perteValeur": "0",
       "perteLibelle": "information perdue",
-      "contexteValeur": "100 %",
+      "contexteValeur": "100 %",
       "contexteLibelle": "du contexte terrain"
     }
   },
@@ -150,7 +150,7 @@
   "briefIntake": {
     "label": "Le brief de séjour",
     "titre": "Un brief n'arrive jamais <accent>en ordre.</accent>",
-    "intro": "Un appel la veille, un message à 21 h, un mail de l'assistant du client. Choucas les rassemble en un seul brief, le manager arbitre ce qui s'oppose, et le terrain reçoit une consigne.",
+    "intro": "Un appel la veille, un message à 21 h, un mail de l'assistant du client. Choucas les rassemble en un seul brief, le manager arbitre ce qui s'oppose, et le terrain reçoit une consigne.",
     "sequenceAria": "Du brief reçu à la consigne transmise, en trois temps",
     "liaisons": {
       "rassemble": "rassemblés dans un seul brief, le texte d'origine conservé",
@@ -171,24 +171,24 @@
       "appel": {
         "canal": "Appel",
         "quand": "la veille · 18:40",
-        "mot": "« Les parents dorment au rez-de-chaussée. »"
+        "mot": "« Les parents dorment au rez-de-chaussée. »"
       },
       "message": {
         "canal": "Message",
         "quand": "21:12",
-        "mot": "« Personne dans la maison avant 9 h. »"
+        "mot": "« Personne dans la maison avant 9 h. »"
       },
       "mail": {
         "canal": "Mail",
         "quand": "07:05",
-        "mot": "« Des pancakes chaque matin, sans faute. »"
+        "mot": "« Des pancakes chaque matin, sans faute. »"
       }
     },
     "arbitrage": {
       "titre": "Deux demandes s'opposent",
       "etat": "À ARBITRER",
-      "corps": "« Personne avant 9 h » et « des pancakes chaque matin » ne tiennent pas ensemble. Choucas ne transmet pas les deux aveuglément : il pose le conflit et propose les options.",
-      "meta": "Aucune ligne ne reste en suspens : elle est attribuée, ou écartée en connaissance de cause."
+      "corps": "« Personne avant 9 h » et « des pancakes chaque matin » ne tiennent pas ensemble. Choucas ne transmet pas les deux aveuglément : il pose le conflit et propose les options.",
+      "meta": "Aucune ligne ne reste en suspens : elle est attribuée, ou écartée en connaissance de cause."
     },
     "consigne": {
       "bien": "Chalet L'Aiguille",
@@ -230,7 +230,7 @@
     "panneaux": {
       "preparer": {
         "titre": "Les rotations du jour sont prêtes avant le café.",
-        "texte": "Le planning relie les séjours, les missions et les ressources : chacun sait où aller, avec quoi, et pourquoi. Les briefs de la veille sont déjà décomposés en consignes attribuées.",
+        "texte": "Le planning relie les séjours, les missions et les ressources : chacun sait où aller, avec quoi, et pourquoi. Les briefs de la veille sont déjà décomposés en consignes attribuées.",
         "carteTitre": "Choucas · Planning",
         "carteLigne": "3 rotations · 5 missions attribuées",
         "carteEtat": "Linge confirmé pour Le Belvédère"
@@ -279,7 +279,7 @@
     },
     "aujourdhui": {
       "arriveeLabel": "Prochaine arrivée",
-      "arriveeDans": "dans 2 h 40",
+      "arriveeDans": "dans 2 h 40",
       "alertes": "Alertes",
       "alerteLinge": "Linge à confirmer",
       "alerteAction": "Traiter",
@@ -310,15 +310,15 @@
       "enMission": "En mission",
       "disponible": "Disponible"
     },
-    "captureAlt": "Bloc Exceptions de Choucas : le Chalet La Tournette en critique, avec le signalement de l'intervenante et deux actions possibles, puis deux chalets en attente de contrôle.",
+    "captureAlt": "Bloc Exceptions de Choucas : le Chalet La Tournette en critique, avec le signalement de l'intervenante et deux actions possibles, puis deux chalets en attente de contrôle.",
     "lienDemo": "Ouvrir la démonstration Choucas dans un nouvel onglet",
-    "titre": "Tout va bien ? <accent>Choucas se tait.</accent>",
-    "intro": "Le manager suit ce qui change l'état d'un bien : une exception, un contrôle à faire ou une décision à prendre. Le reste continue d'avancer."
+    "titre": "Tout va bien ? <accent>Choucas se tait.</accent>",
+    "intro": "Le manager suit ce qui change l'état d'un bien : une exception, un contrôle à faire ou une décision à prendre. Le reste continue d'avancer."
   },
   "terrain": {
     "label": "Le brief devient terrain",
     "titre": "Le terrain sait quoi faire. <accent>Et pourquoi.</accent>",
-    "intro": "Chaque mission garde le contexte utile du brief. L'équipe ne reçoit pas seulement une tâche : elle comprend ce qui est attendu avant d'agir.",
+    "intro": "Chaque mission garde le contexte utile du brief. L'équipe ne reçoit pas seulement une tâche : elle comprend ce qui est attendu avant d'agir.",
     "points": {
       "consigne": "Une consigne issue du brief validé",
       "contexte": "Le contexte client reste accessible à l'équipe",
@@ -343,7 +343,7 @@
       "stocks": "Stocks",
       "equipe": "Équipe"
     },
-    "captureAlt": "Carte Maintenant de l'application terrain : ménage en cours depuis 13:15 au Chalet Balme, progression 11 sur 24, consignes à savoir avant d'entrer et bouton Reprendre la mission."
+    "captureAlt": "Carte Maintenant de l'application terrain : ménage en cours depuis 13:15 au Chalet Balme, progression 11 sur 24, consignes à savoir avant d'entrer et bouton Reprendre la mission."
   },
   "ctaFinal": {
     "label": "Montrez-nous une de vos rotations",
@@ -370,7 +370,7 @@
     "titre": "Politique de confidentialité",
     "metaDescription": "La seule donnée collectée par ce site l'est lors d'une prise de rendez-vous.",
     "traitementTitre": "La seule donnée que ce site collecte",
-    "traitementTexte": "En cliquant sur « Demander une démo », vous êtes dirigé vers Calendly pour choisir un créneau. Y sont recueillis votre nom, votre adresse e-mail et l'horaire retenu. C'est le seul traitement de données personnelles lié à ce site.",
+    "traitementTexte": "En cliquant sur « Demander une démo », vous êtes dirigé vers Calendly pour choisir un créneau. Y sont recueillis votre nom, votre adresse e-mail et l'horaire retenu. C'est le seul traitement de données personnelles lié à ce site.",
     "sousTraitantTitre": "Un prestataire établi hors de l'Union européenne",
     "sousTraitantTexte": "Calendly assure la prise de rendez-vous en qualité de sous-traitant. Il est établi hors de l'Union européenne, et les informations saisies sur son service y sont traitées.",
     "droitsTitre": "Vos droits",
@@ -396,7 +396,7 @@
       "enTete": "Rapport d'intervention · 17 janvier",
       "salutation": "Bonjour M. Arnaud,",
       "titre": "Votre chalet Les Troncs a été entretenu ce jour",
-      "chapeau": "Intervention de maintenance réalisée le samedi 17 janvier, de 11 h 30 à 14 h 12, par notre équipe technique.",
+      "chapeau": "Intervention de maintenance réalisée le samedi 17 janvier, de 11 h 30 à 14 h 12, par notre équipe technique.",
       "faitLabel": "Ce qui a été fait",
       "fait": {
         "chaufferie": "Contrôle complet de la chaufferie — pression conforme (1,5 bar)",
@@ -405,16 +405,16 @@
         "zone": "Zone technique sécurisée après intervention"
       },
       "attentionLabel": "Point d'attention",
-      "attentionTitre": "Store de la terrasse : moteur fatigué",
-      "attentionTexte": ", descente bloquée par intermittence. Nous recommandons un remplacement du moteur avant la haute saison. Sur votre accord, nous vous transmettons un devis sous 48 h.",
+      "attentionTitre": "Store de la terrasse : moteur fatigué",
+      "attentionTexte": ", descente bloquée par intermittence. Nous recommandons un remplacement du moteur avant la haute saison. Sur votre accord, nous vous transmettons un devis sous 48 h.",
       "attentionDevis": "Demander le devis",
       "attentionPhoto": "Voir la photo",
       "photosLabel": "Photos de l'intervention · 4",
-      "passageLabel": "Prochain passage :",
+      "passageLabel": "Prochain passage :",
       "passageTexte": " tour de conciergerie prévu lundi 19 janvier. Votre chalet accueille la famille V. jusqu'au samedi 24.",
       "rapportComplet": "Voir le rapport complet",
       "signature": "Rapport établi par Mathieu B. · Choucas Conciergerie",
-      "reponse": "Une question ? Répondez directement à cet email."
+      "reponse": "Une question ? Répondez directement à cet email."
     }
   },
   "philosophie": {
@@ -517,7 +517,7 @@
       "lead": "Le responsable d'exploitation n'a pas besoin de suivre chaque mouvement. Il doit savoir ce qui change la journée et où son intervention apporte de la valeur.",
       "liste": "Arrivées · missions à contrôler · retards · blocages · urgences · renfort · rapports à relire.",
       "legende": "Samedi 5 septembre. La journée tient sur un écran — l'en-tête, les exceptions, puis les heures.",
-      "captureAlt": "Écran d'accueil du responsable d'exploitation : samedi 5 septembre, 2 départs et 10 missions, un bandeau d'état du parc, trois exceptions en tête — un chalet critique et deux ménages à contrôler — puis les huit autres missions dans l'ordre des heures."
+      "captureAlt": "Écran d'accueil du responsable d'exploitation : samedi 5 septembre, 2 départs et 10 missions, un bandeau d'état du parc, trois exceptions en tête — un chalet critique et deux ménages à contrôler — puis les huit autres missions dans l'ordre des heures."
     },
     "terrain": {
       "label": "Terrain",
@@ -551,12 +551,12 @@
   },
   "faq": {
     "titre": "Questions fréquentes",
-    "metaDescription": "Ce qu’on nous demande avant de commencer : périmètre, double contrôle, équipe, données, prix. Y compris ce que Choucas ne fait pas.",
+    "metaDescription": "Ce qu’on nous demande avant de commencer : périmètre, double contrôle, équipe, données, prix. Y compris ce que Choucas ne fait pas.",
     "intro": "Ce qu’on nous demande avant de commencer. Y compris ce que Choucas ne fait pas.",
     "sommaireTitre": "Sur cette page",
     "sommaireAria": "Sommaire de la page",
-    "clotureTitre": "Une question qui n’est pas là ?",
-    "clotureTexte": "Écrivez-nous. On répond sous 48 h ouvrées.",
+    "clotureTitre": "Une question qui n’est pas là ?",
+    "clotureTexte": "Écrivez-nous. On répond sous 48 h ouvrées.",
     "clotureCta": "Poser une question",
     "groupes": {
       "produit": {
@@ -582,51 +582,51 @@
     },
     "questions": {
       "definition": {
-        "q": "Qu’est-ce que Choucas ?",
+        "q": "Qu’est-ce que Choucas ?",
         "r": "Choucas est un système opérationnel pour conciergeries. Il transforme les demandes en actions, accompagne le terrain, sépare l’exécution du contrôle et suit l’état du bien jusqu’au PRÊT."
       },
       "etat-pret": {
-        "q": "Qu’est-ce que l’état PRÊT ?",
+        "q": "Qu’est-ce que l’état PRÊT ?",
         "r": "PRÊT qualifie un bien après contrôle. Une mission terminée n’est pas automatiquement considérée comme un bien prêt pour l’arrivée suivante."
       },
       "qui-controle": {
-        "q": "Qui peut contrôler une mission ?",
+        "q": "Qui peut contrôler une mission ?",
         "r": "Une personne ne contrôle pas une mission qu’elle a elle-même exécutée."
       },
       "hors-reseau": {
-        "q": "Choucas fonctionne-t-il hors réseau ?",
+        "q": "Choucas fonctionne-t-il hors réseau ?",
         "r": "Le produit prévoit une file locale permettant de continuer le travail puis de synchroniser au retour de connexion. Les alertes urgentes tentent immédiatement les canaux disponibles."
       },
       "envois-automatiques": {
-        "q": "Les messages aux propriétaires ou prestataires partent-ils automatiquement ?",
+        "q": "Les messages aux propriétaires ou prestataires partent-ils automatiquement ?",
         "r": "Non. Choucas peut préparer les informations et automatiser des flux internes, mais les communications externes passent par une relecture et un geste humain."
       },
       "implantation": {
-        "q": "Comment se passe l’implantation ?",
+        "q": "Comment se passe l’implantation ?",
         "r": "L’équipe Choucas passe une journée avec la conciergerie pour observer l’exploitation, structurer les workflows, configurer Choucas et tester la configuration avec l’équipe."
       },
       "remplace-pms": {
-        "q": "Choucas remplace-t-il mon PMS ?",
+        "q": "Choucas remplace-t-il mon PMS ?",
         "r": "Choucas est conçu pour la couche opérationnelle entre les demandes, le terrain, le contrôle et le rapport. Il ne remplace pas un PMS ni un channel manager."
       },
       "reservations": {
-        "q": "Est-ce que Choucas gère les réservations ?",
+        "q": "Est-ce que Choucas gère les réservations ?",
         "r": "Non, cette fonction reste dans votre PMS. Choucas démarre au départ du voyageur et s’arrête à l’arrivée du suivant."
       },
       "connexion-pms": {
-        "q": "Choucas se connecte-t-il à mon PMS ?",
+        "q": "Choucas se connecte-t-il à mon PMS ?",
         "r": "Oui, via les rotations et les calendriers iCal de vos biens. Le lien précis dépend du PMS utilisé — à voir ensemble lors de la journée d’implantation."
       },
       "longue-duree": {
-        "q": "Ça marche pour de la location longue durée ?",
+        "q": "Ça marche pour de la location longue durée ?",
         "r": "Choucas est pensé pour les rotations courtes et fréquentes propres à la location saisonnière. Pour de la longue durée, avec peu de rotations par an, l’intérêt du double contrôle est plus faible."
       },
       "une-personne": {
-        "q": "Et si je n’ai qu’une seule personne sur le terrain ?",
+        "q": "Et si je n’ai qu’une seule personne sur le terrain ?",
         "r": "Le double contrôle exige qu’une personne différente de l’exécutant valide chaque mission. Avec une seule personne, ce n’est pas possible, et il n’existe pas d’offre solo. Si vous êtes dans ce cas, on en parle directement — ce n’est pas la bonne solution en l’état."
       },
       "surveillance": {
-        "q": "Est-ce que Choucas surveille les salariés ?",
+        "q": "Est-ce que Choucas surveille les salariés ?",
         "r": "Non. La doctrine produit est de mesurer les biens et les missions, jamais les personnes. Choucas n’est pas conçu autour d’un classement ou de compteurs de performance individuels."
       },
       "aisance-numerique": {
@@ -634,7 +634,7 @@
         "r": "L’interface terrain affiche une mission à la fois, avec de gros boutons et peu de texte. Elle est pensée pour être utilisée gantée, en extérieur, pas pour naviguer dans des menus."
       },
       "formation": {
-        "q": "Combien de temps pour former quelqu’un ?",
+        "q": "Combien de temps pour former quelqu’un ?",
         "r": "Comptez moins d’une demi-journée pour une personne qui exécute des missions. Le rôle de contrôle demande un peu plus de pratique, car il engage la responsabilité de valider le travail d’un autre."
       },
       "saisonniers": {
@@ -642,39 +642,39 @@
         "r": "Les rôles et les droits se réattribuent en quelques minutes par personne. Aucune reconfiguration des biens n’est nécessaire d’une saison à l’autre."
       },
       "refus-double-controle": {
-        "q": "Et si mon équipe refuse le double contrôle ?",
+        "q": "Et si mon équipe refuse le double contrôle ?",
         "r": "C’est le point de résistance le plus fréquent, et il se travaille avant la mise en place, pas après. La journée d’implantation sert notamment à expliquer que ce n’est pas un contrôle hiérarchique, mais une vérification croisée entre pairs."
       },
       "hebergement": {
-        "q": "Où sont hébergées les données ?",
+        "q": "Où sont hébergées les données ?",
         "r": "En Europe, chez un hébergeur soumis au RGPD. Le détail contractuel est fourni sur demande."
       },
       "photos": {
-        "q": "Que deviennent les photos de biens privés ?",
+        "q": "Que deviennent les photos de biens privés ?",
         "r": "Elles servent uniquement au contrôle qualité de la mission concernée et restent liées au bien. Elles ne sont pas partagées hors de votre équipe."
       },
       "acces-proprietaire": {
-        "q": "Un propriétaire peut-il exiger de voir ce qui a été enregistré ?",
+        "q": "Un propriétaire peut-il exiger de voir ce qui a été enregistré ?",
         "r": "Oui, dans les limites du droit d’accès applicable. La demande passe par vous, en tant que responsable du traitement pour vos biens."
       },
       "sortie": {
-        "q": "Que se passe-t-il si j’arrête — je récupère quoi ?",
+        "q": "Que se passe-t-il si j’arrête — je récupère quoi ?",
         "r": "Vos données de biens, de missions et d’historique de contrôle, exportées dans un format lisible. Rien ne reste retenu chez nous après la fin du contrat."
       },
       "cout": {
-        "q": "Combien ça coûte pour 12 biens ?",
+        "q": "Combien ça coûte pour 12 biens ?",
         "r": "Le prix se calcule aux biens actifs, avec un nombre illimité d’utilisateurs terrain. Le détail par palier est sur la page Tarifs."
       },
       "hors-saison": {
-        "q": "Que se passe-t-il hors saison, quand mes biens ne tournent pas ?",
-        "r": "Le prix suit vos biens actifs : un bien fermé hors saison ne compte pas."
+        "q": "Que se passe-t-il hors saison, quand mes biens ne tournent pas ?",
+        "r": "Le prix suit vos biens actifs : un bien fermé hors saison ne compte pas."
       },
       "engagement": {
-        "q": "Engagement, durée, résiliation ?",
+        "q": "Engagement, durée, résiliation ?",
         "r": "Engagement annuel avec résiliation à l’échéance, sans clause de reconduction cachée. Le détail exact est précisé au contrat, à voir ensemble lors de la journée d’implantation."
       },
       "implantation-facturee": {
-        "q": "La journée d’implantation est-elle facturée en plus ?",
+        "q": "La journée d’implantation est-elle facturée en plus ?",
         "r": "Non, elle est comprise dans le tarif d’implantation initial, pas facturée en supplément."
       }
     }

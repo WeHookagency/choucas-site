@@ -56,10 +56,10 @@
       "anomalie": "Une anomalie devient une action, pas un message perdu.",
       "rotation": "Une rotation relie planning, ressources et preuves."
     },
-    "photoAlt": "Chambre d'un chalet en bois : lit fait et linge de maison roulé au pied du lit."
+    "photoAlt": "Chambre d'un chalet en bois : lit fait et linge de maison roulé au pied du lit."
   },
   "pourquoi": {
-    "label": "Pourquoi Choucas ?",
+    "label": "Pourquoi Choucas ?",
     "titre": "Du bruit opérationnel <accent>à une journée maîtrisée.</accent>",
     "avant": {
       "titre": "Avant · Informations dispersées",
@@ -84,7 +84,7 @@
       "vueLibelle": "vue commune",
       "perteValeur": "0",
       "perteLibelle": "information perdue",
-      "contexteValeur": "100 %",
+      "contexteValeur": "100 %",
       "contexteLibelle": "du contexte terrain"
     }
   },
@@ -230,7 +230,7 @@
     "panneaux": {
       "preparer": {
         "titre": "Les rotations du jour sont prêtes avant le café.",
-        "texte": "Le planning relie les séjours, les missions et les ressources : chacun sait où aller, avec quoi, et pourquoi. Les briefs de la veille sont déjà décomposés en consignes attribuées.",
+        "texte": "Le planning relie les séjours, les missions et les ressources : chacun sait où aller, avec quoi, et pourquoi. Les briefs de la veille sont déjà décomposés en consignes attribuées.",
         "carteTitre": "Choucas · Planning",
         "carteLigne": "3 rotations · 5 missions attribuées",
         "carteEtat": "Linge confirmé pour Le Belvédère"
@@ -279,7 +279,7 @@
     },
     "aujourdhui": {
       "arriveeLabel": "Prochaine arrivée",
-      "arriveeDans": "dans 2 h 40",
+      "arriveeDans": "dans 2 h 40",
       "alertes": "Alertes",
       "alerteLinge": "Linge à confirmer",
       "alerteAction": "Traiter",
@@ -310,7 +310,7 @@
       "enMission": "En mission",
       "disponible": "Disponible"
     },
-    "captureAlt": "Bloc Exceptions de Choucas : le Chalet La Tournette en critique, avec le signalement de l'intervenante et deux actions possibles, puis deux chalets en attente de contrôle.",
+    "captureAlt": "Bloc Exceptions de Choucas : le Chalet La Tournette en critique, avec le signalement de l'intervenante et deux actions possibles, puis deux chalets en attente de contrôle.",
     "lienDemo": "Ouvrir la démonstration Choucas dans un nouvel onglet",
     "titre": "When everything is running normally, <accent>Choucas stays quiet.</accent>",
     "intro": "The manager sees what changes the state of a property: an exception, a control to complete or a decision to make. Everything else keeps moving."
@@ -343,7 +343,7 @@
       "stocks": "Stocks",
       "equipe": "Équipe"
     },
-    "captureAlt": "Carte Maintenant de l'application terrain : ménage en cours depuis 13:15 au Chalet Balme, progression 11 sur 24, consignes à savoir avant d'entrer et bouton Reprendre la mission."
+    "captureAlt": "Carte Maintenant de l'application terrain : ménage en cours depuis 13:15 au Chalet Balme, progression 11 sur 24, consignes à savoir avant d'entrer et bouton Reprendre la mission."
   },
   "ctaFinal": {
     "label": "Show us one of your turnovers",
@@ -370,7 +370,7 @@
     "titre": "Politique de confidentialité",
     "metaDescription": "La seule donnée collectée par ce site l'est lors d'une prise de rendez-vous.",
     "traitementTitre": "La seule donnée que ce site collecte",
-    "traitementTexte": "En cliquant sur « Demander une démo », vous êtes dirigé vers Calendly pour choisir un créneau. Y sont recueillis votre nom, votre adresse e-mail et l'horaire retenu. C'est le seul traitement de données personnelles lié à ce site.",
+    "traitementTexte": "En cliquant sur « Demander une démo », vous êtes dirigé vers Calendly pour choisir un créneau. Y sont recueillis votre nom, votre adresse e-mail et l'horaire retenu. C'est le seul traitement de données personnelles lié à ce site.",
     "sousTraitantTitre": "Un prestataire établi hors de l'Union européenne",
     "sousTraitantTexte": "Calendly assure la prise de rendez-vous en qualité de sous-traitant. Il est établi hors de l'Union européenne, et les informations saisies sur son service y sont traitées.",
     "droitsTitre": "Vos droits",
