@@ -543,19 +543,58 @@
     "eyebrow": "Une tarification liée à votre parc, pas à votre équipe",
     "titre": "Des utilisateurs terrain illimités. <accent>Un prix basé sur les biens actifs.</accent>",
     "intro": "Choucas ne facture pas chaque personne supplémentaire sur le terrain. La tarification évolue avec le nombre de biens actifs suivis dans Choucas.",
-    "blocs": {
-      "configuration": {
-        "titre": "Configuration",
-        "texte": "L'implantation comprend la cartographie opérationnelle, la configuration, une journée avec l'équipe, les tests et les ajustements convenus."
+    "factureTitre": "Ce qui est facturé",
+    "facture": {
+      "implantation": "Une implantation, une fois.",
+      "abonnement": "Puis un abonnement, selon le nombre de biens actifs.",
+      "utilisateurs": "Utilisateurs terrain illimités."
+    },
+    "grilleTitre": "La grille",
+    "htMention": "Tous les montants sont hors taxes.",
+    "implantation": {
+      "titre": "Implantation",
+      "montant": "2 490 €",
+      "unite": "HT, une fois",
+      "texte": "L'implantation comprend la cartographie opérationnelle, la configuration, une journée avec l'équipe, les tests et les ajustements convenus."
+    },
+    "abonnementTitre": "Abonnement mensuel",
+    "colonneBiens": "Biens actifs",
+    "colonneMontant": "Abonnement mensuel HT",
+    "paliers": {
+      "p1": {
+        "biens": "1–15",
+        "montant": "249 €"
       },
-      "abonnement": {
-        "titre": "Abonnement",
-        "texte": "Selon le nombre de biens actifs. Utilisateurs terrain illimités."
+      "p2": {
+        "biens": "16–30",
+        "montant": "349 €"
       },
-      "support": {
-        "titre": "Maintenance et support"
+      "p3": {
+        "biens": "31–60",
+        "montant": "499 €"
+      },
+      "p4": {
+        "biens": "61–100",
+        "montant": "699 €"
       }
     },
+    "positionTitre": "Ce que Choucas couvre",
+    "position": {
+      "intervalle": {
+        "titre": "L'intervalle entre deux séjours",
+        "texte": "Choucas couvre ce qui se passe entre le départ d'un voyageur et l'arrivée du suivant."
+      },
+      "controle": {
+        "titre": "Le double contrôle",
+        "texte": "Le double contrôle avant de déclarer un bien prêt."
+      },
+      "contexte": {
+        "titre": "Le contexte du terrain",
+        "texte": "Le contexte qui reste attaché à la mission."
+      }
+    },
+    "faqTitre": "Les questions de prix",
+    "faqLien": "Toutes les questions",
     "cloture": "Un produit commun. Une configuration adaptée à votre exploitation."
   },
   "contact": {

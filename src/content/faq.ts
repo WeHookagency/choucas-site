@@ -69,6 +69,16 @@ export const groupesFaq = [
 export const questionsNonArbitrees = ['donnees/sante', 'prix/support-samedi'] as const;
 
 /**
+ * Les questions de prix reprises sur la page Tarifs, depuis la meme source
+ * que `/faq`.
+ *
+ * `engagement` n'y figure pas : sa reponse annonce un engagement annuel avec
+ * resiliation a l'echeance, et la duree n'est pas tranchee. Tant qu'elle ne
+ * l'est pas, la page qui porte les montants ne l'annonce pas.
+ */
+export const questionsTarifs = ['cout', 'hors-saison', 'implantation-facturee'] as const;
+
+/**
  * Les cinq questions de la Home, dans l'ordre demande. La cinquieme porte sur
  * les envois automatiques ; celle qui la precede sert de rampe vers le CTA.
  */
