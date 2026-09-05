@@ -172,7 +172,7 @@ export function BriefToProof() {
         align="centre"
         inverse
         label={t('label')}
-        titre={t.rich('titre', { accent: (chunks) => <Accent inverse>{chunks}</Accent> })}
+        titre={t.rich('titre', { accent: (chunks) => <Accent ton="inverse">{chunks}</Accent> })}
       />
 
       <div

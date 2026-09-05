@@ -27,7 +27,7 @@ export function PointJonction() {
       <div className="mx-auto flex max-w-[900px] flex-col items-center gap-14">
         <div className="max-w-[600px] text-center">
           <h2 id="jonction-titre" className="font-serif text-h3 text-balance">
-            {t.rich('titre', { accent: (chunks) => <Accent inverse>{chunks}</Accent> })}
+            {t.rich('titre', { accent: (chunks) => <Accent ton="inverse">{chunks}</Accent> })}
           </h2>
           <p className="text-corps mt-4 text-encre-inverse/85">{t('intro')}</p>
         </div>

@@ -12,20 +12,30 @@ import type { ReactNode } from 'react';
  *
  * L'inverse ne vaut jamais : l'eclairci mesure 2,11:1 sur Neige. Voir la
  * regle complete dans tokens.css.
+ *
+ * Sur Lichen, aucun des deux ne passe : le Cuivre y tombe a 1,45:1 et le
+ * blanc que propose le handoff a 2,43:1. Le ton `encre` s'y emploie donc —
+ * 6,57:1 — et l'accent ne tient plus que par l'italique. C'est la regle des
+ * correctifs §0.6 : jamais de cuivre sur un fond mousse.
  */
+const tons = {
+  /** Fond clair : Neige, Glacier, Panneau. */
+  accent: 'text-accent',
+  /** Fond sombre : Schiste, Sapin. */
+  inverse: 'text-accent-inverse',
+  /** Fond Lichen : l'italique porte seul, sans couleur d'accent. */
+  encre: 'text-encre',
+} as const;
+
 export function Accent({
   children,
-  /** Sur fond sombre. */
-  inverse = false,
+  ton = 'accent',
   className,
 }: {
   children: ReactNode;
-  inverse?: boolean;
+  /** Le fond decide : voir la table ci-dessus. */
+  ton?: keyof typeof tons;
   className?: string;
 }) {
-  return (
-    <em className={`${inverse ? 'text-accent-inverse' : 'text-accent'} ${className ?? ''}`}>
-      {children}
-    </em>
-  );
+  return <em className={`${tons[ton]} ${className ?? ''}`}>{children}</em>;
 }

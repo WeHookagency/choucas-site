@@ -206,10 +206,20 @@
   }
 
   /* Contour cuivre de 2 px, offset 3 px — §6.1 des specs web. Sur
-     :focus-visible seulement : la souris ne declenche pas de contour. */
+     :focus-visible seulement : la souris ne declenche pas de contour.
+
+     La couleur passe par une variable, parce qu'elle depend du fond sur
+     lequel l'anneau se dessine : l'offset de 3 px le place hors de
+     l'element, donc sur le fond du parent. Sur Lichen le cuivre tombe a
+     1,45:1, sous le seuil de 3:1 des indicateurs de focus ; l'encre y
+     mesure 6,57:1. */
   :focus-visible {
-    outline: 2px solid var(--web-accent);
+    outline: 2px solid var(--anneau-focus, var(--web-accent));
     outline-offset: 3px;
+  }
+
+  .bg-respiration {
+    --anneau-focus: var(--web-encre);
   }
 
   /* Un changement d'etat ne peut jamais reposer sur la seule couleur.

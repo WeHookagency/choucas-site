@@ -73,6 +73,7 @@ export function VoletRole({
             libelleLien={libelleLien}
             largeurMax={ECRAN.largeur}
             hauteurMax={ECRAN.hauteurMax}
+            cadre
             ombre={false}
           />
           <figcaption

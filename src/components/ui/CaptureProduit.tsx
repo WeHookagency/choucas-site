@@ -19,6 +19,10 @@ const LIEN_PWA = 'https://choucasv2.netlify.app';
  * L'ombre solide est facultative : le §0.5 des correctifs n'en autorise
  * qu'une par page, et sur Solutions elle revient au point de jonction.
  *
+ * `cadre` pose le filet et le fond Mousse de la maquette de Solutions, ou
+ * la capture est presentee comme un ecran dans son cadre. Sur la Home elle
+ * est posee a plat, sans filet ni fond : c'est le traitement d'origine.
+ *
  * `hauteurMax` plafonne l'ecran, comme la maquette de Solutions : au-dela, la
  * capture est coupee et un fondu vers le fond du cadre dit qu'elle continue.
  * Le fondu n'apparait que si la coupe a lieu — la hauteur affichee se deduit
@@ -34,6 +38,7 @@ export function CaptureProduit({
   largeurMax = 420,
   hauteurMax,
   ombre = true,
+  cadre = false,
   className,
 }: {
   src: StaticImageData;
@@ -42,6 +47,8 @@ export function CaptureProduit({
   largeurMax?: number;
   hauteurMax?: number;
   ombre?: boolean;
+  /** Filet et fond Mousse, comme la maquette de Solutions. */
+  cadre?: boolean;
   className?: string;
 }) {
   const hauteurAffichee = (largeurMax * src.height) / src.width;
@@ -52,9 +59,9 @@ export function CaptureProduit({
       target="_blank"
       rel="noopener"
       style={{ maxWidth: `${largeurMax}px`, maxHeight: hauteurMax ? `${hauteurMax}px` : undefined }}
-      className={`relative block w-full overflow-hidden rounded-carte-majeure border border-encre/20 bg-ok transition-transform duration-200 ease-choucas hover:-translate-y-0.5 ${
-        ombre ? 'shadow-carte' : ''
-      } ${className ?? ''}`}
+      className={`relative mx-auto block w-full overflow-hidden rounded-carte-majeure transition-transform duration-200 ease-choucas hover:-translate-y-0.5 ${
+        cadre ? 'border border-encre/20 bg-ok' : ''
+      } ${ombre ? 'shadow-carte' : ''} ${className ?? ''}`}
     >
       <Image src={src} alt={alt} sizes={`${largeurMax}px`} className="h-auto w-full" />
       {coupee ? (
