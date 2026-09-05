@@ -7,6 +7,7 @@ import { Hero } from '@/components/home/Hero';
 import { Implementation } from '@/components/home/Implementation';
 import { BriefIntake } from '@/components/home/BriefIntake';
 import { BriefToProof } from '@/components/home/BriefToProof';
+import { CtaIntermediaire } from '@/components/home/CtaIntermediaire';
 import { FaqHome } from '@/components/home/FaqHome';
 import { FieldDemo } from '@/components/home/FieldDemo';
 import { FinalCta } from '@/components/home/FinalCta';
@@ -50,6 +51,7 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
       <FieldDemo />
       <BriefToProof />
       <ReadyState />
+      <CtaIntermediaire />
       <OwnerReport />
       <Philosophy />
       <Implementation />

@@ -206,6 +206,9 @@
     "etape2": "À contrôler",
     "etape3": "PRÊT"
   },
+  "ctaIntermediaire": {
+    "phrase": "Chez vous, qui valide qu'un bien est prêt ?"
+  },
   "journee": {
     "label": "Une journée dans Choucas",
     "titre": "Le bon signal, <accent>au bon moment.</accent>",
