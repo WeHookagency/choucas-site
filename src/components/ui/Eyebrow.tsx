@@ -11,23 +11,31 @@ import type { ReactNode } from 'react';
  * mais a 11-12 px le cuivre mesure 3,52:1 sur Neige — sous le seuil du texte
  * courant. Le handoff le reconnait d'ailleurs lui-meme : « jamais sur un
  * eyebrow ». Voir CORRESPONDANCE-TOKENS-HANDOFF.md.
+ *
+ * Sur Lichen, l'encre douce tombe a 2,34:1 : il faut alors l'encre pleine,
+ * qui y mesure 6,57:1. C'est le ton `encre`.
  */
+const tons = {
+  /** Fond clair : Neige, Glacier, Panneau. */
+  douce: 'text-encre-douce',
+  /** Fond Lichen, ou l'encre douce echoue. */
+  encre: 'text-encre',
+  /** Fond sombre : Schiste, Sapin. */
+  inverse: 'text-encre-inverse/75',
+} as const;
+
 export function Eyebrow({
   children,
-  inverse = false,
+  ton = 'douce',
   className,
 }: {
   children: ReactNode;
-  /** Sur fond sombre, l'encre s'inverse. */
-  inverse?: boolean;
+  /** Le fond decide : voir la table ci-dessus. */
+  ton?: keyof typeof tons;
   className?: string;
 }) {
   return (
-    <p
-      className={`text-label font-semibold uppercase ${
-        inverse ? 'text-encre-inverse/75' : 'text-encre-douce'
-      } ${className ?? ''}`}
-    >
+    <p className={`text-label font-semibold uppercase ${tons[ton]} ${className ?? ''}`}>
       {children}
     </p>
   );

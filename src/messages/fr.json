@@ -432,6 +432,41 @@
       "titre": "À propos"
     }
   },
+  "solutions": {
+    "titre": "Trois rôles. <accent>Une seule version des faits.</accent>",
+    "intro": "Le même bien vu depuis la direction, l'exploitation et le terrain. Choucas relie les trois sans multiplier les outils.",
+    "barreAria": "Navigation par rôle",
+    "dirigeants": {
+      "label": "Dirigeants",
+      "eyebrow": "Dirigeants",
+      "titre": "Piloter sans devenir le centre de toutes les opérations.",
+      "lead": "Une vision nette de la qualité rendue sur chaque bien.",
+      "benefice": "Le service devient visible et prouvable.",
+      "eviteLabel": "Vous évitez",
+      "evite": "les relances permanentes, les informations reconstruites par téléphone et les tableaux de performance individuels.",
+      "legende": "Le bloc Exceptions, tel qu'il s'affiche. Trois lignes, trois décisions."
+    },
+    "exploitation": {
+      "label": "Exploitation",
+      "eyebrow": "Responsables d'exploitation",
+      "titre": "Voir moins. Savoir mieux.",
+      "lead": "Le responsable d'exploitation n'a pas besoin de suivre chaque mouvement. Il doit savoir ce qui change la journée et où son intervention apporte de la valeur.",
+      "liste": "Arrivées · missions à contrôler · retards · blocages · urgences · renfort · rapports à relire.",
+      "legende": "Samedi 5 septembre. La journée tient sur un écran — l'en-tête, les exceptions, puis les heures."
+    },
+    "terrain": {
+      "label": "Terrain",
+      "eyebrow": "Terrain",
+      "titre": "Savoir quoi faire. Et pourquoi.",
+      "lead": "Le terrain retrouve sa journée, ses missions, les accès nécessaires, le contexte utile, les preuves attendues et les signalements au même endroit.",
+      "suite": "L'interface privilégie l'action actuelle. Les détails restent accessibles lorsque la situation l'exige.",
+      "legende": "Deux missions, trois chalets, une action urgente. Rien d'autre."
+    },
+    "cloture": {
+      "titre": "Une journée sur site",
+      "texte": "On installe Choucas sur une journée réelle chez vous, avec vos rotations et vos équipes."
+    }
+  },
   "faq": {
     "titre": "Questions fréquentes",
     "metaDescription": "Ce qu’on nous demande avant de commencer : périmètre, double contrôle, équipe, données, prix. Y compris ce que Choucas ne fait pas.",

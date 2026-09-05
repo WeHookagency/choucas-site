@@ -10,9 +10,20 @@ type SectionProps = {
   largeur?: 'contenu' | 'scene';
   /** Retire le rythme vertical, pour une section qui gere ses propres bords. */
   sansRythme?: boolean;
+  /**
+   * Ce qui surplombe l'ancre. `entete` seule par defaut ; `entete-barre`
+   * quand une barre de section collante s'ajoute dessous, sinon le titre
+   * vise se gare derriere elle.
+   */
+  surplomb?: 'entete' | 'entete-barre';
   className?: string;
   'aria-labelledby'?: string;
 };
+
+const surplombs = {
+  entete: 'scroll-mt-[60px] desktop:scroll-mt-[68px]',
+  'entete-barre': 'scroll-mt-[112px] desktop:scroll-mt-[122px]',
+} as const;
 
 const fonds: Record<Fond, string> = {
   fond: 'bg-fond text-encre',
@@ -35,14 +46,15 @@ export function Section({
   fond = 'fond',
   largeur = 'contenu',
   sansRythme = false,
+  surplomb = 'entete',
   className,
   ...props
 }: SectionProps) {
   return (
     <section
       id={id}
-      // La barre est collante : une ancre doit se degager sous elle.
-      className={`${fonds[fond]} ${id ? 'scroll-mt-[60px] desktop:scroll-mt-[68px]' : ''} ${className ?? ''}`}
+      // L'en-tete est collante : une ancre doit se degager sous elle.
+      className={`${fonds[fond]} ${id ? surplombs[surplomb] : ''} ${className ?? ''}`}
       {...props}
     >
       <div
