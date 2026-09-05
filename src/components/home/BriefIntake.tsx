@@ -177,12 +177,17 @@ function Sources() {
   );
 }
 
-/** Ce que le manager tranche. Le conflit est nomme, les deux demandes citees. */
+/**
+ * Ce que le manager tranche. Le conflit est nomme, les deux demandes citees.
+ *
+ * Cadree a gauche, comme les trois sources : centree, la carte flottait
+ * decalee par rapport au rail.
+ */
 function Arbitrage() {
   const t = useTranslations('briefIntake.arbitrage');
 
   return (
-    <div className="mx-auto max-w-[560px] rounded-carte border border-filet bg-surface p-6 text-encre">
+    <div className="max-w-[560px] rounded-carte border border-filet bg-surface p-6 text-encre">
       <div className="flex items-baseline justify-between gap-3">
         <span className="font-serif text-intro">{t('titre')}</span>
         <span className="text-label shrink-0 rounded-capsule border border-filet px-2.5 py-1 font-bold text-encre-douce">
@@ -207,7 +212,7 @@ function Consigne() {
   const t = useTranslations('briefIntake.consigne');
 
   return (
-    <div className="mx-auto max-w-[560px] rounded-carte border border-filet bg-surface p-6 text-encre shadow-[6px_6px_0_0_var(--web-cta-presse)]">
+    <div className="max-w-[560px] rounded-carte border border-filet bg-surface p-6 text-encre shadow-[6px_6px_0_0_var(--web-cta-presse)]">
       <div className="flex items-baseline justify-between gap-3">
         <span className="font-serif text-intro">{t('bien')}</span>
         <span className="text-label shrink-0 rounded-capsule bg-cta px-2.5 py-1 font-bold text-cta-encre">

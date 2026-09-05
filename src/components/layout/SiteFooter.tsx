@@ -36,17 +36,21 @@ export function SiteFooter() {
 
   return (
     <footer className="border-t border-filet bg-fond text-encre">
-      <div className="mx-auto flex max-w-scene flex-col gap-6 px-marge py-10 desktop:flex-row desktop:items-center desktop:justify-between">
-        <div className="flex flex-col gap-6 desktop:flex-row desktop:items-center desktop:gap-10">
+      <div className="mx-auto flex max-w-scene flex-col gap-3 px-marge py-7 desktop:flex-row desktop:items-center desktop:justify-between">
+        <div className="flex flex-col gap-3 desktop:flex-row desktop:items-center desktop:gap-10">
           <p className="text-label font-bold uppercase tracking-[0.14em]">{nav('marque')}</p>
 
           <nav aria-label={t('ariaPages')}>
-            <ul className="flex flex-wrap gap-x-6 gap-y-2">
+            {/* Les liens portent une cible de 44 px, §9 des specs. La hauteur
+                vient de la boite, pas du texte : `gap-y` retombe a zero, les
+                boites se separant deja d'elles-memes. L'ecart horizontal de
+                24 px, lui, ne bouge pas. */}
+            <ul className="flex flex-wrap gap-x-6">
               {pages.map((page) => (
                 <li key={page.href}>
                   <Link
                     href={page.href}
-                    className="text-nav text-encre no-underline hover:text-accent"
+                    className="text-nav inline-flex min-h-11 items-center text-encre no-underline hover:text-accent"
                   >
                     {page.libelle}
                   </Link>
@@ -56,11 +60,11 @@ export function SiteFooter() {
           </nav>
 
           <nav aria-label={t('ariaLegal')}>
-            <ul className="flex flex-wrap gap-x-6 gap-y-2">
+            <ul className="flex flex-wrap gap-x-6">
               <li>
                 <Link
                   href="/mentions-legales"
-                  className="text-nav text-encre-douce no-underline hover:text-encre"
+                  className="text-nav inline-flex min-h-11 items-center text-encre-douce no-underline hover:text-encre"
                 >
                   {t('mentions')}
                 </Link>
@@ -68,7 +72,7 @@ export function SiteFooter() {
               <li>
                 <Link
                   href="/confidentialite"
-                  className="text-nav text-encre-douce no-underline hover:text-encre"
+                  className="text-nav inline-flex min-h-11 items-center text-encre-douce no-underline hover:text-encre"
                 >
                   {t('confidentialite')}
                 </Link>

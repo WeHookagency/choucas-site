@@ -51,12 +51,15 @@ export function FaqHome() {
           <ListeFaq entrees={entrees} idBase="faq-home" />
         </Reveal>
 
-        <Reveal className="mt-10">
+        <Reveal className="mt-7">
           {/* Un lien de corps de texte, pas un bouton. En Sapin souligne et
-              non en cuivre : a cette taille le cuivre mesure 3,52:1. */}
+              non en cuivre : a cette taille le cuivre mesure 3,52:1.
+
+              Cible de 44 px sans toucher au texte : la boite grandit de 26 px,
+              la marge du bloc en rend 12. */}
           <Link
             href="/faq"
-            className="text-intro font-semibold text-lien underline underline-offset-4"
+            className="text-intro inline-flex min-h-11 items-center font-semibold text-lien underline underline-offset-4"
           >
             {tSection('lien')}
           </Link>
