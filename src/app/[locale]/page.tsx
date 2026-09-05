@@ -47,8 +47,8 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
       <Hero />
       <ManagerDemo />
       <BriefIntake />
-      <BriefToProof />
       <FieldDemo />
+      <BriefToProof />
       <ReadyState />
       <OwnerReport />
       <Philosophy />
