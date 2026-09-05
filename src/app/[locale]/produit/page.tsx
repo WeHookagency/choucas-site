@@ -112,9 +112,13 @@ export default async function Page({ params }: PageProps<'/[locale]/produit'>) {
           ))}
         </ul>
         <p className="mt-8">
+          {/* La cible vient d'un rembourrage vertical, pas d'un changement de
+                boite : sur un element en ligne, le rembourrage agrandit la
+                zone cliquable sans toucher a la hauteur de ligne. Rien ne se
+                deplace. */}
           <a
             href={`${getPathname({ href: '/', locale })}#${ancres.fonctionnement}`}
-            className="text-intro font-semibold text-lien underline underline-offset-4"
+            className="text-intro py-3 font-semibold text-lien underline underline-offset-4"
           >
             {actions('fonctionnement')}
           </a>
@@ -128,7 +132,7 @@ export default async function Page({ params }: PageProps<'/[locale]/produit'>) {
             <li key={page}>
               <Link
                 href={`/${page}`}
-                className="font-semibold text-lien underline underline-offset-4"
+                className="py-3 font-semibold text-lien underline underline-offset-4"
               >
                 {pages(`${page}.titre`)}
               </Link>

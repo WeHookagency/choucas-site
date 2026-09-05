@@ -103,9 +103,17 @@ export default async function Page({ params }: PageProps<'/[locale]/contact'>) {
 
       <Section fond="fond">
         <div className="flex flex-col gap-3 border-t border-filet pt-8 tablette:flex-row tablette:items-baseline tablette:justify-between">
-          <a href={`mailto:${DESTINATION_FORMULAIRE}`} className="text-corps text-lien underline underline-offset-4">
-            {DESTINATION_FORMULAIRE}
-          </a>
+          {/* Le lien est enveloppe pour rester en ligne : element de flex, il
+              serait blocifie, et son rembourrage deplacerait ses voisins.
+              En ligne, le rembourrage agrandit la seule zone cliquable. */}
+          <p>
+            <a
+              href={`mailto:${DESTINATION_FORMULAIRE}`}
+              className="text-corps py-3.5 text-lien underline underline-offset-4"
+            >
+              {DESTINATION_FORMULAIRE}
+            </a>
+          </p>
           <p className="text-corps text-encre-douce">{t('zone')}</p>
         </div>
       </Section>

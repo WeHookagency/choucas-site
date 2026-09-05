@@ -172,9 +172,13 @@ export default async function Page({ params }: PageProps<'/[locale]/tarifs'>) {
           </h2>
           <ListeFaq entrees={questions} idBase="tarifs-faq" className="mt-titre" />
           <p className="mt-8">
+            {/* La cible vient d'un rembourrage vertical, pas d'un changement de
+                boite : sur un element en ligne, le rembourrage agrandit la
+                zone cliquable sans toucher a la hauteur de ligne. Rien ne se
+                deplace. */}
             <Link
               href="/faq"
-              className="text-intro font-semibold text-lien underline underline-offset-4"
+              className="text-intro py-3 font-semibold text-lien underline underline-offset-4"
             >
               {t('faqLien')}
             </Link>

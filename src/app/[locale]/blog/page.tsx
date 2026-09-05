@@ -88,7 +88,7 @@ export default async function Page({ params }: PageProps<'/[locale]/blog'>) {
               <h2 className="font-serif text-h3 mt-3 text-balance">
                 <Link
                   href={{ pathname: '/blog/[slug]', params: { slug: article.slug } }}
-                  className="no-underline hover:underline"
+                  className="py-2 no-underline hover:underline"
                 >
                   {t(`articles.${article.cle}.titre`)}
                 </Link>
