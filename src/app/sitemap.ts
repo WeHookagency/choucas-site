@@ -14,6 +14,11 @@ import { getPathname } from '@/i18n/navigation';
  *
  * Ajouter une route a cette liste au moment ou son contenu arrive, et retirer
  * alors la directive `noindex` de la page.
+ *
+ * `/blog/[slug]` n'y figure pas : les notes n'ont ni corps ni texte, et
+ * demander l'indexation de quatre pages qui ne portent qu'un titre et un
+ * chapeau coute plus qu'elle ne rapporte. Elles restent en `noindex` jusqu'a
+ * ce que les articles soient ecrits.
  */
 const AVEC_CONTENU = [
   '/',
@@ -21,6 +26,7 @@ const AVEC_CONTENU = [
   '/faq',
   '/contact',
   '/a-propos',
+  '/blog',
   '/mentions-legales',
   '/confidentialite',
 ] as const;
@@ -31,7 +37,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: new URL(getPathname({ href, locale }), siteUrl).toString(),
       lastModified: new Date(),
       priority:
-        href === '/' ? 1 : ['/faq', '/solutions', '/contact', '/a-propos'].includes(href) ? 0.7 : 0.3,
+        href === '/' ? 1 : ['/faq', '/solutions', '/contact', '/a-propos', '/blog'].includes(href) ? 0.7 : 0.3,
       alternates:
         locales.length > 1
           ? {

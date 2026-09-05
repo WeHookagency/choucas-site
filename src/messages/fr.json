@@ -510,6 +510,35 @@
     "stations": "Aravis · Megève · Chamonix · Courchevel · Val d'Isère",
     "cloture": "Né dans les Alpes. Pensé pour aller plus loin."
   },
+  "blog": {
+    "titre": "Notes d'exploitation.",
+    "intro": "Ce qu'on apprend en regardant des conciergeries travailler. Pas de conseils génériques.",
+    "dureeEnAvant": "7 min de lecture",
+    "listeAria": "Toutes les notes",
+    "articles": {
+      "rotation": {
+        "titre": "Ce qui se perd entre 10 h et 16 h un samedi de rotation",
+        "chapeau": "Un samedi de haute saison, une conciergerie de douze biens fait sortir huit familles et en fait entrer huit autres, entre dix heures et seize heures. Ce texte décrit ce qui se passe dans cette fenêtre.",
+        "dateLisible": "14 mars 2026"
+      },
+      "termine": {
+        "titre": "Pourquoi « terminé » ne veut rien dire",
+        "chapeau": "Terminé est déclaré par celui qui exécute. Prêt est validé par un tiers. La différence n'est pas du vocabulaire.",
+        "dateLisible": "2 février 2026"
+      },
+      "canaux": {
+        "titre": "Le brief de séjour arrive par quatre canaux différents. C'est le vrai problème.",
+        "chapeau": "SMS, email, appel, post-it sur le comptoir : la même information circule quatre fois, et se perd une fois sur quatre.",
+        "dateLisible": "12 janvier 2026"
+      },
+      "reseau": {
+        "titre": "Faire travailler une équipe dans une cave sans réseau",
+        "chapeau": "Les caves et les sous-sols ne captent pas. Ce que ça change pour une application censée fonctionner partout.",
+        "dateLisible": "18 décembre 2025"
+      }
+    },
+    "retour": "Toutes les notes"
+  },
   "contact": {
     "titre": "Parlons d'une vraie journée <accent>d'exploitation.</accent>",
     "intro": "Pas de démo générique. On regarde vos rotations, vos biens, vos équipes.",
