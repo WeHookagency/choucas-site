@@ -527,6 +527,27 @@
       "suite": "L'interface privilégie l'action actuelle. Les détails restent accessibles lorsque la situation l'exige.",
       "legende": "Deux missions, trois chalets, une action urgente. Rien d'autre."
     },
+    "priseDeBrief": {
+      "titre": "Une demande. Pas quatre versions.",
+      "sources": {
+        "appel": {
+          "canal": "Appel",
+          "texte": "« Nous arrivons à 18 h avec notre bébé. »"
+        },
+        "message": {
+          "canal": "Message",
+          "texte": "« Possible d'avoir du lait sans lactose ? »"
+        },
+        "email": {
+          "canal": "Email",
+          "texte": "demande de ménage supplémentaire en cours de séjour"
+        }
+      },
+      "liaisonRassemble": "Choucas les rassemble en un seul brief de séjour.",
+      "arbitrage": "Le manager arbitre ce qui devient opérationnel.",
+      "liaisonDescend": "Ce qui est validé descend sur le terrain.",
+      "consigne": "Préparer le lit bébé · Chalet Balme · avant 18 h"
+    },
     "jonction": {
       "titre": "Personne ne valide <accent>son propre travail.</accent>",
       "intro": "L'exécutant déclare terminé. Un tiers contrôle. Le bien passe PRÊT.",
