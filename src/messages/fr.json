@@ -482,6 +482,34 @@
       "titre": "À propos"
     }
   },
+  "aPropos": {
+    "eyebrow": "Conçu dans les Alpes",
+    "titre": "Né là où les opérations ne peuvent pas <accent>se permettre d'être fragiles.</accent>",
+    "intro": "Réseau irrégulier, chalets dispersés, arrivées concentrées, prestataires externes, accès multiples et demandes de dernière minute : les Alpes imposent une exigence opérationnelle particulière.",
+    "suite": "Choucas est conçu à partir de cette réalité, sans être limité à la montagne.",
+    "partisTitre": "Ce qu'on a choisi de ne pas faire",
+    "partis": {
+      "pms": {
+        "titre": "On ne remplace pas votre PMS.",
+        "texte": "Choucas s'occupe de ce qui se passe entre deux réservations, pas des réservations."
+      },
+      "personnes": {
+        "titre": "On ne mesure pas les personnes.",
+        "texte": "On mesure les biens et les missions."
+      },
+      "envoi": {
+        "titre": "On n'envoie rien automatiquement.",
+        "texte": "Un rapport part quand un humain décide qu'il part."
+      },
+      "reseau": {
+        "titre": "On ne suppose pas le réseau.",
+        "texte": "L'application fonctionne hors ligne, parce que les caves et les sous-sols ne captent pas."
+      }
+    },
+    "terrainTitre": "Terrain d'origine",
+    "stations": "Aravis · Megève · Chamonix · Courchevel · Val d'Isère",
+    "cloture": "Né dans les Alpes. Pensé pour aller plus loin."
+  },
   "contact": {
     "titre": "Parlons d'une vraie journée <accent>d'exploitation.</accent>",
     "intro": "Pas de démo générique. On regarde vos rotations, vos biens, vos équipes.",
