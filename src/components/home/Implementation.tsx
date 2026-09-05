@@ -38,12 +38,18 @@ export function Implementation() {
       <Reveal as="ol" group className="mt-titre grid gap-5 tablette:grid-cols-2 desktop:grid-cols-4">
         {ETAPES.map((cle, i) => (
           <li key={cle} style={{ ['--i' as string]: i }}>
-            <Card rayon="majeure" className="flex h-full flex-col">
-              <span aria-hidden className="text-numero font-semibold tabular-nums text-encre-douce">
+            <Card accent="lichen" rayon="majeure" className="flex h-full flex-col">
+              {/* Encre a 80 % : 4,71:1 sur le Lichen, au-dessus du seuil du
+                  texte courant, et assez en retrait pour que le titre passe
+                  devant. L'encre douce y aurait donne 2,34:1. */}
+              <span aria-hidden className="text-numero font-semibold tabular-nums text-encre/80">
                 {String(i + 1).padStart(2, '0')}
               </span>
               <h3 className="font-serif text-h3 mt-3">{t(`etapes.${cle}.titre`)}</h3>
-              <p className="text-corps mt-3 text-encre-douce">{t(`etapes.${cle}.texte`)}</p>
+              {/* Encre pleine, 6,57:1. Sur ce fond il n'existe pas d'encre
+                  secondaire lisible : la hierarchie passe par la taille et la
+                  graisse, pas par la couleur. */}
+              <p className="text-corps mt-3">{t(`etapes.${cle}.texte`)}</p>
             </Card>
           </li>
         ))}
