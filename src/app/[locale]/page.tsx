@@ -13,7 +13,6 @@ import { FieldDemo } from '@/components/home/FieldDemo';
 import { FinalCta } from '@/components/home/FinalCta';
 import { ManagerDemo } from '@/components/home/ManagerDemo';
 import { OwnerReport } from '@/components/home/OwnerReport';
-import { Philosophy } from '@/components/home/Philosophy';
 import { ReadyState } from '@/components/home/ReadyState';
 import { localeAlternates } from '@/i18n/metadata';
 import { routing } from '@/i18n/routing';
@@ -57,7 +56,11 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
       <ReadyState />
       <CtaIntermediaire />
       <OwnerReport />
-      <Philosophy />
+      {/* Philosophy — « Une autre façon de piloter » — retirée le 6 septembre
+          2026. Le fichier et ses clés de traduction restent en place : la
+          remonter ici suffit. Elle portait l'ancre `a-propos`, que rien ne
+          visait. Attention à la couture : sans elle, OwnerReport, Implantation
+          et FaqHome s'enchaînent sur trois fonds Neige identiques. */}
       <Implementation />
       <FaqHome />
       <FinalCta />
