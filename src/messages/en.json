@@ -315,7 +315,7 @@
     "captureAlt": "Choucas manager home: the day's verdict — 6 arrivals, 1 ready, 4 in preparation, 1 blocked — then the three exceptions that need attention, and the start of the day with its times.",
     "lienDemo": "Ouvrir la démonstration Choucas dans un nouvel onglet",
     "titre": "Three things need your attention. <accent>The rest moves on.</accent>",
-    "intro": "The manager sees what changes the state of a property: an exception, a control to complete or a decision to make. Everything else keeps moving."
+    "intro": "An exception, a check to run, a decision to make: Choucas surfaces only what changes the state of a property."
   },
   "terrain": {
     "label": "The brief reaches the field",
