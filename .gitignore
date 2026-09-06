@@ -44,3 +44,6 @@ next-env.d.ts
 # Regenerees a la demande, jamais une source : elles perimen des qu'une page
 # bouge, et 24 PNG pleine page pesent plus que tout le reste du depot.
 references/qa/
+
+# actif depose mais non branche : ne pas alourdir le depot
+public/demo/hiver-piste.jpg

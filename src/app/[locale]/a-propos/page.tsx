@@ -6,6 +6,8 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Accent } from '@/components/ui/Accent';
 import { Cta } from '@/components/ui/Cta';
 import { Eyebrow } from '@/components/ui/Eyebrow';
+import Image from 'next/image';
+
 import { Photo } from '@/components/ui/Photo';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
@@ -54,6 +56,11 @@ export async function generateMetadata(props: {
  * Il ne s'anime pas : la regle d'apparition du site (Reveal, point 1) exempte
  * le bloc qui porte le H1, et le portrait en fait desormais partie. Il est
  * `prioritaire` pour la meme raison — il est au-dessus de la ligne.
+ *
+ * Le bandeau qui suit reprend le rapport de la reserve d'origine — 1440/560
+ * en desktop, 390/300 en mobile — et repond au surtitre : la page dit « Concu
+ * dans les Alpes », le bandeau les montre. Il s'anime, lui : il est sous la
+ * ligne et hors du bloc du H1.
  */
 export default async function Page({ params }: PageProps<'/[locale]/a-propos'>) {
   const { locale } = await params;
@@ -91,6 +98,26 @@ export default async function Page({ params }: PageProps<'/[locale]/a-propos'>) 
             className="mx-auto mt-10 max-w-[520px] desktop:mx-0 desktop:mt-0 desktop:w-[34%] desktop:max-w-[420px] desktop:shrink-0"
           />
         </div>
+      </Section>
+
+      <Section fond="fond" sansRythme>
+        {/* Pleine largeur, sans legende — il n'en existe pas et on n'en
+            invente pas. La source fait 1026 px de large : dans la colonne a
+            1440 elle est agrandie d'un tiers, ramollissement accepte plutot
+            que de plafonner un bandeau qui doit traverser la colonne. */}
+        <Reveal className="relative aspect-[390/300] overflow-hidden rounded-carte desktop:aspect-[1440/560]">
+          {/* `sizes` annonce les largeurs reellement rendues : 1280 au
+              plafond de la colonne, sinon la fenetre moins ses marges.
+              « 100vw » faisait demander une variante de 1920 px pour une
+              source de 1026 — Next l'agrandissait avant de la servir. */}
+          <Image
+            src="/demo/hiver-sapins.jpg"
+            alt={t('bandeauAlt')}
+            fill
+            sizes="(min-width: 1440px) 1280px, (min-width: 1000px) calc(100vw - 96px), calc(100vw - 36px)"
+            className="object-cover"
+          />
+        </Reveal>
       </Section>
 
       <Section fond="fond-alt" aria-labelledby="partis-titre">
