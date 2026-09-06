@@ -26,8 +26,10 @@
     "blog": "Notes d'expérience"
   },
   "footer": {
+    "marqueAlt": "Choucas",
+    "baseline": "Logiciel opérationnel pour conciergeries alpines.",
     "aria": "Navigation de pied de page",
-    "contexte": "Hospitality operations · Alpes françaises · 2026",
+    "contexte": "Alpes françaises · 2026",
     "mentions": "Mentions légales",
     "confidentialite": "Confidentialité",
     "ariaLegal": "Informations légales",

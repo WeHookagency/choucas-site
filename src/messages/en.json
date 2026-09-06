@@ -26,8 +26,10 @@
     "blog": "Field notes"
   },
   "footer": {
+    "marqueAlt": "Choucas",
+    "baseline": "Operations software for alpine concierge companies.",
     "aria": "Navigation de pied de page",
-    "contexte": "Hospitality operations · Alpes françaises · 2026",
+    "contexte": "French Alps · 2026",
     "mentions": "Mentions légales",
     "confidentialite": "Confidentialité",
     "ariaLegal": "Informations légales",
