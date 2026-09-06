@@ -181,7 +181,11 @@ function ApercuRapport() {
               </p>
               <p className="font-serif text-intro mt-2 text-balance">{t('prochainTexte')}</p>
             </div>
-            <div className="flex shrink-0 items-center gap-3">
+            {/* A 390 le groupe passe a la ligne : il y occupait 129 px sur
+                272 et laissait un trou a sa droite. Une fois seul sur sa
+                ligne, il la prend entiere et l'ecart tombe entre le libelle
+                et le pave de date. */}
+            <div className="flex w-full shrink-0 items-center justify-between gap-3 tablette:w-auto tablette:justify-end">
               <span className="text-label font-semibold uppercase tracking-[0.14em] text-cta-encre/80">
                 {t('prochainJusqu')}
               </span>
