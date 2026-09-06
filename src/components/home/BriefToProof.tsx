@@ -7,6 +7,7 @@ import { useTranslations } from 'next-intl';
 import { ancres } from '../anchors';
 import { Accent } from '../ui/Accent';
 import { Accordeon, type ElementAccordeon } from '../ui/Accordeon';
+import { Reveal } from '../ui/Reveal';
 import { Section } from '../ui/Section';
 import { SectionHeader } from '../ui/SectionHeader';
 
@@ -196,15 +197,17 @@ export function BriefToProof() {
 
   return (
     <Section id={ancres.fonctionnement} fond="sombre" aria-labelledby="brief-titre">
-      <SectionHeader
-        id="brief-titre"
-        align="centre"
-        inverse
-        label={t('label')}
-        titre={t.rich('titre', { accent: (chunks) => <Accent ton="inverse">{chunks}</Accent> })}
-      />
+      <Reveal>
+        <SectionHeader
+          id="brief-titre"
+          align="centre"
+          inverse
+          label={t('label')}
+          titre={t.rich('titre', { accent: (chunks) => <Accent ton="inverse">{chunks}</Accent> })}
+        />
+      </Reveal>
 
-      <div
+      <Reveal
         className={`mt-titre grid items-start gap-6 desktop:gap-10 ${
           avecApercu ? 'desktop:grid-cols-2' : ''
         }`}
@@ -244,7 +247,7 @@ export function BriefToProof() {
             <Apercu etape={ouverte} />
           </div>
         ) : null}
-      </div>
+      </Reveal>
     </Section>
   );
 }

@@ -9,6 +9,7 @@ import { FormulaireContact } from '@/components/contact/FormulaireContact';
 import { Accent } from '@/components/ui/Accent';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { FiletAccent } from '@/components/ui/FiletAccent';
+import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
 import { localeAlternates } from '@/i18n/metadata';
 import { routing } from '@/i18n/routing';
@@ -60,7 +61,7 @@ export default async function Page({ params }: PageProps<'/[locale]/contact'>) {
 
         {/* Les deux voies, annoncees avant le formulaire : le visiteur sait
             ce qu'il choisit avant de lire des champs. */}
-        <ul className="mt-titre grid gap-6 tablette:grid-cols-2 desktop:max-w-[820px]">
+        <Reveal as="ul" group className="mt-titre grid gap-6 tablette:grid-cols-2 desktop:max-w-[820px]">
           {(['impl', 'question'] as const).map((voie) => (
             <li key={voie} className="border-t border-filet pt-6">
               <Eyebrow>{t(`voies.${voie}.eyebrow`)}</Eyebrow>
@@ -68,18 +69,18 @@ export default async function Page({ params }: PageProps<'/[locale]/contact'>) {
               <p className="text-corps mt-2 text-encre-douce">{t(`voies.${voie}.texte`)}</p>
             </li>
           ))}
-        </ul>
+        </Reveal>
       </Section>
 
       <Section fond="fond-alt">
-        <div className="max-w-[720px]">
+        <Reveal className="max-w-[720px]">
           <FormulaireContact />
-        </div>
+        </Reveal>
       </Section>
 
       <Section fond="sapin" className="relative overflow-hidden" aria-labelledby="apres-titre">
         <CourbesNiveau />
-        <div className="relative">
+        <Reveal className="relative">
           <FiletAccent />
           <h2 id="apres-titre" className="font-serif text-h3 mt-6 max-w-[20ch] text-balance">
             {t('apres.titre')}
@@ -98,11 +99,11 @@ export default async function Page({ params }: PageProps<'/[locale]/contact'>) {
               </li>
             ))}
           </ol>
-        </div>
+        </Reveal>
       </Section>
 
       <Section fond="fond">
-        <div className="flex flex-col gap-3 border-t border-filet pt-8 tablette:flex-row tablette:items-baseline tablette:justify-between">
+        <Reveal className="flex flex-col gap-3 border-t border-filet pt-8 tablette:flex-row tablette:items-baseline tablette:justify-between">
           {/* Le lien est enveloppe pour rester en ligne : element de flex, il
               serait blocifie, et son rembourrage deplacerait ses voisins.
               En ligne, le rembourrage agrandit la seule zone cliquable. */}
@@ -115,7 +116,7 @@ export default async function Page({ params }: PageProps<'/[locale]/contact'>) {
             </a>
           </p>
           <p className="text-corps text-encre-douce">{t('zone')}</p>
-        </div>
+        </Reveal>
       </Section>
     </main>
   );

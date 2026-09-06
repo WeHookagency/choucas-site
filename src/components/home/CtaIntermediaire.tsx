@@ -2,6 +2,7 @@ import { useTranslations } from 'next-intl';
 
 import { ATTRS_DEMO, LIEN_DEMO } from '../anchors';
 import { Cta } from '../ui/Cta';
+import { Reveal } from '../ui/Reveal';
 import { Section } from '../ui/Section';
 
 /**
@@ -29,12 +30,12 @@ export function CtaIntermediaire() {
 
   return (
     <Section fond="fond-alt" sansRythme>
-      <div className="flex flex-col gap-5 border-t border-filet py-8 tablette:flex-row tablette:items-center tablette:justify-between tablette:gap-8 desktop:py-10">
+      <Reveal className="flex flex-col gap-5 border-t border-filet py-8 tablette:flex-row tablette:items-center tablette:justify-between tablette:gap-8 desktop:py-10">
         <p className="text-intro max-w-[42ch] font-semibold">{t('phrase')}</p>
         <Cta href={LIEN_DEMO} {...ATTRS_DEMO} variante="secondaire" className="shrink-0">
           {actions('demo')}
         </Cta>
-      </div>
+      </Reveal>
     </Section>
   );
 }

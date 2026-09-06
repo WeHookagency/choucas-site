@@ -7,6 +7,7 @@ import { Accent } from '@/components/ui/Accent';
 import { Cta } from '@/components/ui/Cta';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { Reserve } from '@/components/ui/Reserve';
+import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
 import { localeAlternates } from '@/i18n/metadata';
 import { getPathname } from '@/i18n/navigation';
@@ -71,15 +72,19 @@ export default async function Page({ params }: PageProps<'/[locale]/a-propos'>) 
         {/* Pleine largeur, comme la maquette. La légende de la maquette dit
             ce que la photographie devra montrer — un matin d'exploitation,
             de la neige sale, du matériel au sol — pas du paysage. */}
-        <Reserve className="aspect-[390/300] desktop:aspect-[1440/560]" />
+        <Reveal>
+          <Reserve className="aspect-[390/300] desktop:aspect-[1440/560]" />
+        </Reveal>
       </Section>
 
       <Section fond="fond-alt" aria-labelledby="partis-titre">
-        <h2 id="partis-titre" className="font-serif text-h3 max-w-[20ch] text-balance">
-          {t('partisTitre')}
-        </h2>
+        <Reveal>
+          <h2 id="partis-titre" className="font-serif text-h3 max-w-[20ch] text-balance">
+            {t('partisTitre')}
+          </h2>
+        </Reveal>
 
-        <ul className="mt-titre max-w-[820px]">
+        <Reveal as="ul" group className="mt-titre max-w-[820px]">
           {PARTIS.map((cle) => (
             <li key={cle} className="flex gap-4 border-t border-filet py-7">
               <span aria-hidden className="mt-2 size-2 shrink-0 rounded-full bg-accent" />
@@ -89,18 +94,20 @@ export default async function Page({ params }: PageProps<'/[locale]/a-propos'>) 
               </div>
             </li>
           ))}
-        </ul>
+        </Reveal>
       </Section>
 
       <Section fond="fond" aria-labelledby="terrain-origine">
-        <h2 id="terrain-origine" className="font-serif text-h3">
-          {t('terrainTitre')}
-        </h2>
-        <p className="font-serif text-intro mt-6">{t('stations')}</p>
-        <p className="font-serif text-h3 mt-titre max-w-[24ch] text-balance">{t('cloture')}</p>
-        <Cta href={getPathname({ href: '/contact', locale })} variante="secondaire" className="mt-8">
-          {actions('voies.question.titre')}
-        </Cta>
+        <Reveal>
+          <h2 id="terrain-origine" className="font-serif text-h3">
+            {t('terrainTitre')}
+          </h2>
+          <p className="font-serif text-intro mt-6">{t('stations')}</p>
+          <p className="font-serif text-h3 mt-titre max-w-[24ch] text-balance">{t('cloture')}</p>
+          <Cta href={getPathname({ href: '/contact', locale })} variante="secondaire" className="mt-8">
+            {actions('voies.question.titre')}
+          </Cta>
+        </Reveal>
       </Section>
     </main>
   );

@@ -7,6 +7,7 @@ import { ancres, ATTRS_DEMO, LIEN_DEMO } from '@/components/anchors';
 import { Accent } from '@/components/ui/Accent';
 import { Cta } from '@/components/ui/Cta';
 import { Eyebrow } from '@/components/ui/Eyebrow';
+import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
 import { localeAlternates } from '@/i18n/metadata';
 import { getPathname, Link } from '@/i18n/navigation';
@@ -79,7 +80,7 @@ export default async function Page({ params }: PageProps<'/[locale]/produit'>) {
         <h2 id="produit-etapes" className="sr-only">
           {t('eyebrow')}
         </h2>
-        <ol className="grid gap-8 desktop:grid-cols-2 desktop:gap-12">
+        <Reveal as="ol" group className="grid gap-8 desktop:grid-cols-2 desktop:gap-12">
           {ETAPES.map((cle, i) => (
             <li key={cle} className="flex gap-5 border-t border-filet pt-6">
               <span
@@ -96,49 +97,52 @@ export default async function Page({ params }: PageProps<'/[locale]/produit'>) {
               </div>
             </li>
           ))}
-        </ol>
+        </Reveal>
       </Section>
 
       {/* Renvois. Les quatre autres moments sont nommes, pas racontes : ils le
           sont deja sur la Home, et les redire ici ferait lire deux fois la
           meme chose a deux clics d'ecart. */}
       <Section fond="fond" aria-labelledby="produit-ailleurs">
-        <h2 id="produit-ailleurs" className="font-serif text-h3">
-          {brief('label')}
-        </h2>
-        <ul className="text-intro mt-titre flex flex-wrap gap-x-6 gap-y-3 text-encre-douce">
-          {PILIERS.map((cle) => (
-            <li key={cle}>{brief(`onglets.${cle}`)}</li>
-          ))}
-        </ul>
-        <p className="mt-8">
-          {/* La cible vient d'un rembourrage vertical, pas d'un changement de
-                boite : sur un element en ligne, le rembourrage agrandit la
-                zone cliquable sans toucher a la hauteur de ligne. Rien ne se
-                deplace. */}
-          <a
-            href={`${getPathname({ href: '/', locale })}#${ancres.fonctionnement}`}
-            className="text-intro py-3 font-semibold text-lien underline underline-offset-4"
-          >
-            {actions('fonctionnement')}
-          </a>
-        </p>
+        <Reveal>
+          <h2 id="produit-ailleurs" className="font-serif text-h3">
+            {brief('label')}
+          </h2>
 
-        <ul
-          aria-label={t('ailleursAria')}
-          className="text-intro mt-titre flex flex-wrap gap-x-6 gap-y-3"
-        >
-          {AILLEURS.map((page) => (
-            <li key={page}>
-              <Link
-                href={`/${page}`}
-                className="py-3 font-semibold text-lien underline underline-offset-4"
-              >
-                {pages(`${page}.titre`)}
-              </Link>
-            </li>
-          ))}
-        </ul>
+          <ul className="text-intro mt-titre flex flex-wrap gap-x-6 gap-y-3 text-encre-douce">
+            {PILIERS.map((cle) => (
+              <li key={cle}>{brief(`onglets.${cle}`)}</li>
+            ))}
+          </ul>
+
+          <p className="mt-8">
+            {/* La cible vient d'un rembourrage vertical, pas d'un changement
+                de boite : sur un element en ligne, le rembourrage agrandit la
+                zone cliquable sans toucher a la hauteur de ligne. */}
+            <a
+              href={`${getPathname({ href: '/', locale })}#${ancres.fonctionnement}`}
+              className="text-intro py-3 font-semibold text-lien underline underline-offset-4"
+            >
+              {actions('fonctionnement')}
+            </a>
+          </p>
+
+          <ul
+            aria-label={t('ailleursAria')}
+            className="text-intro mt-titre flex flex-wrap gap-x-6 gap-y-3"
+          >
+            {AILLEURS.map((page) => (
+              <li key={page}>
+                <Link
+                  href={`/${page}`}
+                  className="py-3 font-semibold text-lien underline underline-offset-4"
+                >
+                  {pages(`${page}.titre`)}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
       </Section>
 
       {/* Pas de titre ici : la seule phrase qui conviendrait est celle du

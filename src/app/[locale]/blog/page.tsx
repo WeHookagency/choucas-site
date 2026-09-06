@@ -4,6 +4,7 @@ import { hasLocale } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 import { Cta } from '@/components/ui/Cta';
+import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
 import { articles } from '@/content/articles';
 import { localeAlternates } from '@/i18n/metadata';
@@ -59,7 +60,7 @@ export default async function Page({ params }: PageProps<'/[locale]/blog'>) {
         <p className="text-intro mt-6 max-w-[62ch] text-encre-douce">{t('intro')}</p>
 
         {enAvant ? (
-          <article className="mt-titre max-w-[820px] border-t border-filet pt-8">
+          <Reveal as="article" className="mt-titre max-w-[820px] border-t border-filet pt-8">
             <p className="text-micro text-encre-douce">
               {t(`articles.${enAvant.cle}.dateLisible`)} · {t('dureeEnAvant')}
             </p>
@@ -74,12 +75,12 @@ export default async function Page({ params }: PageProps<'/[locale]/blog'>) {
             <p className="text-corps mt-4 max-w-[65ch] text-encre-douce">
               {t(`articles.${enAvant.cle}.chapeau`)}
             </p>
-          </article>
+          </Reveal>
         ) : null}
       </Section>
 
       <Section fond="fond-alt" aria-label={t('listeAria')}>
-        <ul className="max-w-[820px]">
+        <Reveal as="ul" group className="max-w-[820px]">
           {suite.map((article) => (
             <li key={article.slug} className="border-t border-filet py-8">
               <p className="text-micro text-encre-douce">
@@ -98,7 +99,7 @@ export default async function Page({ params }: PageProps<'/[locale]/blog'>) {
               </p>
             </li>
           ))}
-        </ul>
+        </Reveal>
 
         <Cta
           href={getPathname({ href: '/contact', locale })}

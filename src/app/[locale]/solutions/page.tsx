@@ -13,6 +13,7 @@ import { TroisMetiers } from '@/components/solutions/TroisMetiers';
 import { VoletRole } from '@/components/solutions/VoletRole';
 import { BarreSection } from '@/components/ui/BarreSection';
 import { Cta } from '@/components/ui/Cta';
+import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
 import { localeAlternates } from '@/i18n/metadata';
 import { routing } from '@/i18n/routing';
@@ -136,13 +137,15 @@ export default async function Page({ params }: PageProps<'/[locale]/solutions'>)
       <PointJonction />
 
       <Section fond="fond-alt" aria-labelledby="solutions-cloture">
-        <h2 id="solutions-cloture" className="font-serif text-h3 text-balance">
-          {t('cloture.titre')}
-        </h2>
-        <p className="text-intro mt-4 max-w-[62ch] text-encre-douce">{t('cloture.texte')}</p>
-        <Cta href={LIEN_DEMO} {...ATTRS_DEMO} fleche className="mt-8">
-          {actions('demo')}
-        </Cta>
+        <Reveal>
+          <h2 id="solutions-cloture" className="font-serif text-h3 text-balance">
+            {t('cloture.titre')}
+          </h2>
+          <p className="text-intro mt-4 max-w-[62ch] text-encre-douce">{t('cloture.texte')}</p>
+          <Cta href={LIEN_DEMO} {...ATTRS_DEMO} fleche className="mt-8">
+            {actions('demo')}
+          </Cta>
+        </Reveal>
       </Section>
     </main>
   );

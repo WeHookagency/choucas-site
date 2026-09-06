@@ -3,6 +3,7 @@ import type { ReactNode } from 'react';
 
 import { CaptureProduit } from '../ui/CaptureProduit';
 import { Eyebrow } from '../ui/Eyebrow';
+import { Reveal } from '../ui/Reveal';
 import { Section } from '../ui/Section';
 
 /** Largeur de la colonne d'ecran, et hauteur maximale, comme la maquette. */
@@ -57,7 +58,7 @@ export function VoletRole({
       aria-labelledby={`${id}-titre`}
       className={fond === 'fond' ? 'border-t border-filet' : undefined}
     >
-      <div className="grid gap-10 desktop:grid-cols-[1fr_340px] desktop:gap-24">
+      <Reveal className="grid gap-10 desktop:grid-cols-[1fr_340px] desktop:gap-24">
         <div className={ecranAGauche ? 'desktop:order-2' : undefined}>
           <Eyebrow ton={ton}>{eyebrow}</Eyebrow>
           <h2 id={`${id}-titre`} className="font-serif text-h3 mt-4 max-w-[18ch] text-balance">
@@ -83,7 +84,7 @@ export function VoletRole({
             {legende}
           </figcaption>
         </figure>
-      </div>
+      </Reveal>
     </Section>
   );
 }

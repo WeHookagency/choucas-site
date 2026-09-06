@@ -2,6 +2,7 @@ import { useTranslations } from 'next-intl';
 
 import { Accent } from '../ui/Accent';
 import { Icon } from '../ui/Icon';
+import { Reveal } from '../ui/Reveal';
 import { Section } from '../ui/Section';
 
 /**
@@ -24,7 +25,7 @@ export function PointJonction() {
 
   return (
     <Section fond="sapin" aria-labelledby="jonction-titre">
-      <div className="mx-auto flex max-w-[900px] flex-col items-center gap-14">
+      <Reveal className="mx-auto flex max-w-[900px] flex-col items-center gap-14">
         <div className="max-w-[600px] text-center">
           <h2 id="jonction-titre" className="font-serif text-h3 text-balance">
             {t.rich('titre', { accent: (chunks) => <Accent ton="inverse">{chunks}</Accent> })}
@@ -44,7 +45,7 @@ export function PointJonction() {
 
           <CarteEtat cle="pret" plein />
         </div>
-      </div>
+      </Reveal>
     </Section>
   );
 }

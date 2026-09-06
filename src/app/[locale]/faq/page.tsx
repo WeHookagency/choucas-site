@@ -6,6 +6,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { ListeFaq, type EntreeFaq } from '@/components/faq/ListeFaq';
 import { SommaireFaq } from '@/components/faq/SommaireFaq';
 import { Cta } from '@/components/ui/Cta';
+import { Reveal } from '@/components/ui/Reveal';
 import { Section, surplombs } from '@/components/ui/Section';
 import { groupesFaq } from '@/content/faq';
 import { localeAlternates } from '@/i18n/metadata';
@@ -103,7 +104,8 @@ export default async function Page({ params }: PageProps<'/[locale]/faq'>) {
 
           <div className="flex max-w-[720px] flex-col gap-14">
             {groupes.map((groupe) => (
-              <section
+              <Reveal
+                as="section"
                 key={groupe.id}
                 id={groupe.id}
                 aria-labelledby={`faq-${groupe.id}`}
@@ -119,22 +121,24 @@ export default async function Page({ params }: PageProps<'/[locale]/faq'>) {
                   idBase={`faq-${groupe.id}`}
                   className="mt-6"
                 />
-              </section>
+              </Reveal>
             ))}
           </div>
         </div>
       </Section>
 
       <Section fond="fond-alt" aria-labelledby="faq-cloture">
-        <h2 id="faq-cloture" className="font-serif text-h3 text-balance">
+        <Reveal>
+          <h2 id="faq-cloture" className="font-serif text-h3 text-balance">
           {t('clotureTitre')}
-        </h2>
-        <p className="text-intro mt-4 max-w-[60ch] text-encre-douce">{t('clotureTexte')}</p>
+          </h2>
+          <p className="text-intro mt-4 max-w-[60ch] text-encre-douce">{t('clotureTexte')}</p>
         {/* Le chemin est resolu ici : le CTA rend une ancre nue, il ne connait
             pas la langue courante. */}
-        <Cta href={getPathname({ href: '/contact', locale })} variante="secondaire" className="mt-8">
-          {t('clotureCta')}
-        </Cta>
+          <Cta href={getPathname({ href: '/contact', locale })} variante="secondaire" className="mt-8">
+            {t('clotureCta')}
+          </Cta>
+        </Reveal>
       </Section>
     </main>
   );

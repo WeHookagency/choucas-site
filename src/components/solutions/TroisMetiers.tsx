@@ -1,6 +1,7 @@
 import { useTranslations } from 'next-intl';
 
 import { FiletAccent } from '../ui/FiletAccent';
+import { Reveal } from '../ui/Reveal';
 import { Section } from '../ui/Section';
 
 /**
@@ -22,19 +23,21 @@ export function TroisMetiers() {
 
   return (
     <Section fond="fond" aria-labelledby="metiers-titre">
-      <FiletAccent />
-      <h2 id="metiers-titre" className="font-serif text-h3 mt-6 max-w-[20ch] text-balance">
-        {t('titre')}
-      </h2>
+      <Reveal>
+        <FiletAccent />
+        <h2 id="metiers-titre" className="font-serif text-h3 mt-6 max-w-[20ch] text-balance">
+          {t('titre')}
+        </h2>
+      </Reveal>
 
-      <ul className="mt-titre grid gap-8 tablette:grid-cols-3">
+      <Reveal as="ul" group className="mt-titre grid gap-8 tablette:grid-cols-3">
         {METIERS.map((cle) => (
           <li key={cle} className="border-t border-filet pt-6">
             <h3 className="font-serif text-h3 text-balance">{t(`${cle}.role`)}</h3>
             <p className="text-corps mt-3 text-encre-douce">{t(`${cle}.phrase`)}</p>
           </li>
         ))}
-      </ul>
+      </Reveal>
     </Section>
   );
 }

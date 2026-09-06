@@ -8,6 +8,7 @@ import { ListeFaq, type EntreeFaq } from '@/components/faq/ListeFaq';
 import { Accent } from '@/components/ui/Accent';
 import { Cta } from '@/components/ui/Cta';
 import { Eyebrow } from '@/components/ui/Eyebrow';
+import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
 import { questionsTarifs } from '@/content/faq';
 import { localeAlternates } from '@/i18n/metadata';
@@ -88,14 +89,14 @@ export default async function Page({ params }: PageProps<'/[locale]/tarifs'>) {
         <h2 id="facture-titre" className="font-serif text-h3">
           {t('factureTitre')}
         </h2>
-        <ul className="mt-titre max-w-[720px]">
+        <Reveal as="ul" group className="mt-titre max-w-[720px]">
           {FACTURE.map((cle) => (
             <li key={cle} className="text-intro flex gap-4 border-t border-filet py-5">
               <span aria-hidden className="mt-2 size-2 shrink-0 rounded-full bg-accent" />
               {t(`facture.${cle}`)}
             </li>
           ))}
-        </ul>
+        </Reveal>
       </Section>
 
       <Section fond="fond-alt" aria-labelledby="grille-titre">
@@ -105,7 +106,7 @@ export default async function Page({ params }: PageProps<'/[locale]/tarifs'>) {
 
         {/* L'implantation d'abord, et seule : elle se paie une fois, elle ne
             se compare pas aux paliers mensuels. */}
-        <div className="mt-titre max-w-[720px] rounded-carte-majeure border border-filet bg-surface p-6 desktop:p-8">
+        <Reveal className="mt-titre max-w-[720px] rounded-carte-majeure border border-filet bg-surface p-6 desktop:p-8">
           <h3 className="font-serif text-h3">{t('implantation.titre')}</h3>
           <p className="mt-4 flex flex-wrap items-baseline gap-2">
             <span className="font-serif text-[2.125rem] leading-none tabular-nums desktop:text-[3.25rem]">
@@ -114,10 +115,10 @@ export default async function Page({ params }: PageProps<'/[locale]/tarifs'>) {
             <span className="text-corps text-encre-douce">{t('implantation.unite')}</span>
           </p>
           <p className="text-corps mt-6 max-w-[62ch] text-encre-douce">{t('implantation.texte')}</p>
-        </div>
+        </Reveal>
 
         <h3 className="font-serif text-h3 mt-titre">{t('abonnementTitre')}</h3>
-        <div className="mt-6 max-w-[720px] overflow-x-auto">
+        <Reveal className="mt-6 max-w-[720px] overflow-x-auto">
           <table className="w-full border-collapse text-left">
             <caption className="sr-only">{t('abonnementTitre')}</caption>
             <thead>
@@ -146,7 +147,7 @@ export default async function Page({ params }: PageProps<'/[locale]/tarifs'>) {
               ))}
             </tbody>
           </table>
-        </div>
+        </Reveal>
 
         <p className="text-corps mt-6 text-encre-douce">{t('htMention')}</p>
       </Section>
@@ -155,18 +156,18 @@ export default async function Page({ params }: PageProps<'/[locale]/tarifs'>) {
         <h2 id="position-titre" className="font-serif text-h3 max-w-[20ch] text-balance">
           {t('positionTitre')}
         </h2>
-        <ul className="mt-titre grid gap-8 desktop:grid-cols-3">
+        <Reveal as="ul" group className="mt-titre grid gap-8 desktop:grid-cols-3">
           {POSITION.map((cle) => (
             <li key={cle} className="border-t border-filet pt-6">
               <h3 className="font-serif text-h3 text-balance">{t(`position.${cle}.titre`)}</h3>
               <p className="text-corps mt-3 text-encre-douce">{t(`position.${cle}.texte`)}</p>
             </li>
           ))}
-        </ul>
+        </Reveal>
       </Section>
 
       <Section fond="fond-alt" aria-labelledby="tarifs-faq">
-        <div className="max-w-[720px]">
+        <Reveal className="max-w-[720px]">
           <h2 id="tarifs-faq" className="font-serif text-h3">
             {t('faqTitre')}
           </h2>
@@ -183,7 +184,7 @@ export default async function Page({ params }: PageProps<'/[locale]/tarifs'>) {
               {t('faqLien')}
             </Link>
           </p>
-        </div>
+        </Reveal>
       </Section>
 
       <Section fond="fond" aria-labelledby="tarifs-cloture">
