@@ -404,7 +404,7 @@
   "implantation": {
     "label": "Choucas implementation",
     "titre": "Your operations. <accent>Configured with you, on site.</accent>",
-    "intro": "Montrez-moi comment vous travaillez aujourd'hui. On adapte Choucas à votre terrain pour demain.",
+    "intro": "One day on site, morning to evening. Show me how you work today. We configure Choucas around your operation for tomorrow.",
     "moments": {
       "matin": "Morning",
       "midi": "Midday",
