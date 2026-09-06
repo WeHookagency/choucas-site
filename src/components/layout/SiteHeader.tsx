@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useEffect, useId, useState } from 'react';
 import { useTranslations } from 'next-intl';
 
@@ -74,6 +75,23 @@ export function SiteHeader() {
             rien. Le `href` reste : clic milieu, Cmd-clic et menu contextuel
             continuent d'ouvrir l'accueil, et sans JavaScript le lien
             fonctionne comme avant. */}
+        {/* La marque : le dessin puis le mot. `mark-small` et non `mark` —
+            les deux ne sont pas le meme dessin redimensionne mais deux
+            reglages optiques, et le seuil documente est 32 px : a 26 px, le
+            trait de 14 de la marque principale deviendrait une tache.
+
+            `alt` vide et `aria-hidden` : le mot qui suit dit deja « Choucas »,
+            un lecteur d'ecran l'annoncerait deux fois. `unoptimized` parce
+            que l'optimiseur de Next refuse le SVG sans `dangerouslyAllowSVG`.
+
+            Aucune correction verticale : `items-center` suffit. On pouvait
+            croire le contraire — le mot est en capitales, ses glyphes ne
+            descendent jamais sous la ligne de base alors que sa boite reserve
+            la place des jambages — mais la mesure dit l'inverse. Le centre du
+            disque tombe a 0,01 px du centre des capitales, parce que
+            `inline-flex` aligne sur la boite du texte et non sur la ligne.
+            Le pixel de correction que j'avais pose creusait l'ecart au lieu
+            de le combler. */}
         <Link
           href="/"
           onClick={(e) => {
@@ -88,8 +106,17 @@ export function SiteHeader() {
                 : 'smooth',
             });
           }}
-          className="text-label inline-flex min-h-11 items-center font-bold uppercase tracking-[0.14em] text-encre no-underline"
+          className="text-label inline-flex min-h-11 items-center gap-2.5 font-bold uppercase tracking-[0.14em] text-encre no-underline"
         >
+          <Image
+            src="/choucas-mark-small.svg"
+            alt=""
+            aria-hidden
+            width={26}
+            height={26}
+            unoptimized
+            className="shrink-0"
+          />
           {t('marque')}
         </Link>
 
