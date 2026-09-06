@@ -14,7 +14,6 @@ import { FinalCta } from '@/components/home/FinalCta';
 import { ManagerDemo } from '@/components/home/ManagerDemo';
 import { OwnerReport } from '@/components/home/OwnerReport';
 import { Philosophy } from '@/components/home/Philosophy';
-import { Profiles } from '@/components/home/Profiles';
 import { ReadyState } from '@/components/home/ReadyState';
 import { localeAlternates } from '@/i18n/metadata';
 import { routing } from '@/i18n/routing';
@@ -22,6 +21,11 @@ import { routing } from '@/i18n/routing';
 /**
  * Homepage.
  *
+ * `Profiles` est dereference comme l'ont ete `OperationalTension`,
+ * `Hospitality`, `WhyChoucas` et `DayInChoucas` a la passe V8 : le fichier et
+ * ses cles de traduction restent en place, seule la ligne de rendu disparait.
+ * La FAQ retrouve ainsi la place que son brief lui donnait — avant-derniere
+ * section, immediatement suivie du CTA final.
  */
 
 export async function generateMetadata(props: {
@@ -56,7 +60,6 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
       <Philosophy />
       <Implementation />
       <FaqHome />
-      <Profiles />
       <FinalCta />
     </main>
   );
