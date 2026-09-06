@@ -28,14 +28,19 @@ export type Champ =
   | ({ cle: 'message'; type: 'zone' } & Commun);
 
 export const JEUX: Record<Voie, readonly Champ[]> = {
+  // L'ordre est celui de la grille a deux colonnes, par paires qui vont
+  // ensemble : qui vous etes, comment vous joindre, puis les deux volumes.
+  // Sept demi-champs laissaient le dernier seul sur sa rangee, avec la moitie
+  // de la grille vide a cote ; « station » passe en pleine largeur, ou une
+  // conciergerie peut nommer plusieurs vallees sans etre a l'etroit.
   impl: [
     { cle: 'nom', type: 'texte', requis: true },
     { cle: 'conciergerie', type: 'texte', requis: true },
-    { cle: 'station', type: 'texte', requis: true },
-    { cle: 'biens', type: 'nombre', requis: true },
-    { cle: 'terrain', type: 'nombre', requis: true },
     { cle: 'email', type: 'email', requis: true },
     { cle: 'tel', type: 'tel', requis: true },
+    { cle: 'station', type: 'texte', requis: true, large: true },
+    { cle: 'biens', type: 'nombre', requis: true },
+    { cle: 'terrain', type: 'nombre', requis: true },
     { cle: 'dispo', type: 'choix', requis: true, large: true },
   ],
   question: [
