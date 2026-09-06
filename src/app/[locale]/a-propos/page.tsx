@@ -46,8 +46,14 @@ export async function generateMetadata(props: {
  * correctifs le designent comme le bloc le plus credible de la page pour
  * l'audience visee, et c'est ce traitement-la qui le rend credible.
  *
- * La photographie n'existe pas. Sa place est reservee aux rapports de la
- * maquette — 1440/560 en desktop, 390/300 en mobile — sans rien inventer.
+ * Le portrait bascule une seule fois, au seuil `desktop` (1000 px) :
+ * empile et centre sous le chapeau en dessous, colonne de droite au-dessus.
+ * Entre les deux il n'existe pas de largeur ou il soit cale d'un cote avec
+ * la moitie de la colonne vide — c'etait le defaut du plafond fixe.
+ *
+ * Il ne s'anime pas : la regle d'apparition du site (Reveal, point 1) exempte
+ * le bloc qui porte le H1, et le portrait en fait desormais partie. Il est
+ * `prioritaire` pour la meme raison — il est au-dessus de la ligne.
  */
 export default async function Page({ params }: PageProps<'/[locale]/a-propos'>) {
   const { locale } = await params;
@@ -60,22 +66,31 @@ export default async function Page({ params }: PageProps<'/[locale]/a-propos'>) 
   return (
     <main>
       <Section fond="fond" aria-labelledby="apropos-titre">
-        <Eyebrow>{t('eyebrow')}</Eyebrow>
-        <h1 id="apropos-titre" className="font-serif text-h2 mt-4 max-w-[18ch] text-balance">
-          {t.rich('titre', { accent: (chunks) => <Accent>{chunks}</Accent> })}
-        </h1>
-        <p className="text-intro mt-8 max-w-[62ch] text-encre-douce">{t('intro')}</p>
-        <p className="text-intro mt-4 max-w-[62ch] font-semibold">{t('suite')}</p>
-      </Section>
+        <div className="desktop:flex desktop:items-start desktop:gap-12 large:gap-16">
+          <div className="desktop:min-w-0 desktop:flex-1">
+            <Eyebrow>{t('eyebrow')}</Eyebrow>
+            <h1 id="apropos-titre" className="font-serif text-h2 mt-4 max-w-[18ch] text-balance">
+              {t.rich('titre', { accent: (chunks) => <Accent>{chunks}</Accent> })}
+            </h1>
+            <p className="text-intro mt-8 max-w-[62ch] text-encre-douce">{t('intro')}</p>
+            <p className="text-intro mt-4 max-w-[62ch] font-semibold">{t('suite')}</p>
+          </div>
 
-      <Section fond="fond" sansRythme>
-        {/* Portrait au rapport 4:5, recadré sur le visage et le haut des
-            épaules. Il remplace la réserve paysage du handoff : celle-ci
-            attendait un matin d'exploitation, cette page montre désormais
-            quelqu'un. */}
-        <Reveal>
-          <Photo src="/demo/mathieu.jpg" alt={t('portraitAlt')} className="max-w-[460px]" />
-        </Reveal>
+          {/* Portrait au rapport 4:5, recadré sur le visage et le haut des
+              épaules. Il remplace la réserve paysage du handoff, qui attendait
+              un matin d'exploitation : la page montre désormais quelqu'un.
+
+              Empilé, il est centré et plafonné — un trou symétrique se lit
+              comme une marge, un trou d'un seul côté comme un oubli. À partir
+              de 1000 px il passe en colonne et le plafond tombe : la colonne
+              elle-même le mesure. */}
+          <Photo
+            src="/demo/mathieu.jpg"
+            alt={t('portraitAlt')}
+            prioritaire
+            className="mx-auto mt-10 max-w-[520px] desktop:mx-0 desktop:mt-0 desktop:w-[34%] desktop:max-w-[420px] desktop:shrink-0"
+          />
+        </div>
       </Section>
 
       <Section fond="fond-alt" aria-labelledby="partis-titre">
