@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { useTranslations } from 'next-intl';
 
 import { Accent } from '../ui/Accent';
@@ -10,14 +11,34 @@ const POINTS = ['fait', 'attention', 'photos', 'passage'] as const;
 /** Les quatre lignes du releve, dans l'ordre de la maquette. */
 const FAIT = ['chaufferie', 'evacuations', 'robinet', 'zone'] as const;
 
+/** Les quatre vignettes, et ce que chacune montrerait. */
+const PHOTOS = ['chaufferie', 'evacuations', 'robinet', 'zone'] as const;
+
+/** Les quatre mesures de l'intervention, dans l'ordre de la maquette. */
+const CHIFFRES = ['arrivee', 'depart', 'duree', 'points'] as const;
+
 /**
  * Apercu d'un rapport proprietaire.
  *
- * Reprend la structure et le contenu de la maquette du 28 aout : c'est un
+ * Reprend la structure de choucas-rapport-intervention.html : c'est un
  * courriel adresse au proprietaire, pas un ecran de l'application. D'ou
- * l'en-tete d'expediteur, la salutation, les deux boutons du point
- * d'attention et la signature.
+ * l'en-tete d'expediteur, la salutation, la ligne de mesures, les deux
+ * boutons du point d'attention, le bloc du prochain client et la signature.
  *
+ * ---------------------------------------------------------------------------
+ * QUI SIGNE CE RAPPORT — la correction la plus importante du bloc
+ *
+ * La maquette posait la marque Choucas dans l'en-tete et signait « Choucas
+ * Conciergerie ». C'est faux, et pas qu'un peu : le rapport est emis par la
+ * conciergerie cliente, pour son propre proprietaire. Choucas est le logiciel
+ * qui le prepare, il n'apparait nulle part dans le courriel — pas plus qu'un
+ * traitement de texte ne signe une lettre.
+ *
+ * L'expediteur et la signature portent donc « Votre conciergerie ». Aucun
+ * logo n'est dessine a cet endroit : celui de la conciergerie n'est pas a
+ * nous de l'inventer, et y remettre le notre reintroduirait l'erreur.
+ *
+ * ---------------------------------------------------------------------------
  * Ce n'est pas une capture, et tout dans son traitement le dit :
  *
  * - c'est du HTML, pas une image servie par `CaptureProduit` — son texte est
@@ -25,16 +46,16 @@ const FAIT = ['chaufferie', 'evacuations', 'robinet', 'zone'] as const;
  * - rien n'y est cliquable : les boutons de la maquette sont rendus en
  *   `span`, lisibles mais inertes, la ou les deux vraies captures ouvrent la
  *   demonstration publique ;
- * - son cadre est un rayon de carte et un filet, sans l'ombre solide ni le
- *   rayon majeur des captures ;
- * - une pastille et une legende le disent en toutes lettres.
+ * - une pastille et une legende le disent en toutes lettres. Le module
+ *   n'existe toujours pas.
  *
- * Les couleurs sont celles du site, pas celles de la maquette : elle pose un
- * bleu et deux ocres qui n'existent nulle part ici.
+ * Les couleurs sont celles du site, pas celles de la maquette : elle pose le
+ * Sapin #263F30 de la marque et un creme #FDF8F0 qui n'existent pas ici.
  *
  * Le contenu se limite a ce que le brief §10 autorise : ce qui a ete fait, un
- * point d'attention, des photos, le prochain passage. Aucun rendement, aucun
- * score, aucune statistique proprietaire.
+ * point d'attention, des photos, le prochain passage. Les quatre mesures de
+ * l'en-tete decrivent l'intervention — heure d'arrivee, de depart, duree,
+ * points traites — donc la mission, jamais la personne qui l'a menee.
  */
 function ApercuRapport() {
   const t = useTranslations('rapport.apercu');
@@ -43,30 +64,58 @@ function ApercuRapport() {
     <figure className="m-0">
       {/* Pas de `role="img"` : le texte de l'apercu doit rester lisible aux
           lecteurs d'ecran. C'est la legende qui dit ce qu'il est. */}
-      <div className="relative overflow-hidden rounded-carte border border-filet bg-surface">
-        {/* En-tete d'expediteur. */}
-        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-filet px-5 py-4 desktop:px-7">
-          <span className="text-label font-bold uppercase">{t('expediteur')}</span>
-          <span className="text-micro text-encre-douce">{t('enTete')}</span>
+      <div className="overflow-hidden rounded-carte border border-filet bg-surface">
+        {/* En-tete d'expediteur, sur le Sapin de la maquette. */}
+        <div className="flex flex-wrap items-center justify-between gap-2 bg-cta px-5 py-4 text-cta-encre desktop:px-7">
+          <span className="text-label font-bold uppercase tracking-[0.14em]">
+            {t('expediteur')}
+          </span>
+          <span className="text-micro text-cta-encre/80">{t('enTete')}</span>
         </div>
-
-        <span className="text-label absolute right-5 top-16 rounded-capsule bg-fond-alt px-2.5 py-1 font-semibold uppercase text-encre-douce">
-          {t('pastille')}
-        </span>
 
         <div className="flex flex-col gap-6 px-5 py-6 desktop:px-7">
           <div>
-            <p className="text-corps text-encre-douce">{t('salutation')}</p>
+            <div className="flex items-start justify-between gap-4">
+              <p className="text-corps text-encre-douce">{t('salutation')}</p>
+              <span className="text-label shrink-0 rounded-capsule bg-fond-alt px-2.5 py-1 font-semibold uppercase text-encre-douce">
+                {t('pastille')}
+              </span>
+            </div>
             <p className="font-serif text-h3 mt-3 max-w-[22ch] text-balance">{t('titre')}</p>
             {/* Un courriel se lit sur 600 px environ, comme la maquette le
                 pose. Sans plafond, l'apercu s'etirait a 92 caracteres. */}
             <p className="text-corps mt-3 max-w-[62ch] text-encre-douce">{t('chapeau')}</p>
           </div>
 
+          {/* Les quatre mesures de l'intervention. Deux colonnes sous 700 px :
+              a 390, quatre colonnes ecrasaient « Points traites » sur trois
+              lignes. */}
+          <dl className="grid grid-cols-2 gap-4 border-y border-filet py-4 tablette:grid-cols-4">
+            {CHIFFRES.map((cle, i) => (
+              <div
+                key={cle}
+                className={`flex flex-col gap-1 ${
+                  i % 2 === 1 ? 'border-l border-filet pl-4' : ''
+                } tablette:border-l tablette:border-filet tablette:pl-4 tablette:first:border-l-0 tablette:first:pl-0`}
+              >
+                <dt className="text-label font-semibold uppercase tracking-[0.14em] text-encre-douce">
+                  {t(`chiffres.${cle}Label`)}
+                </dt>
+                <dd className="text-intro m-0 font-semibold tabular-nums">
+                  {t(`chiffres.${cle}Valeur`)}
+                  {cle === 'points' ? (
+                    <span className="text-corps font-normal text-encre-douce">
+                      {' '}
+                      {t('chiffres.pointsTotal')}
+                    </span>
+                  ) : null}
+                </dd>
+              </div>
+            ))}
+          </dl>
+
           <div>
-            <p className="text-label font-semibold uppercase text-encre-douce">
-              {t('faitLabel')}
-            </p>
+            <Etiquette>{t('faitLabel')}</Etiquette>
             <ul className="mt-3 flex flex-col gap-2">
               {FAIT.map((cle) => (
                 <li key={cle} className="text-corps flex items-start gap-2">
@@ -81,7 +130,7 @@ function ApercuRapport() {
               repose pas sur la seule couleur, ce que le §9 des specs
               interdit. */}
           <div className="rounded-carte border border-filet bg-fond-alt p-4">
-            <p className="text-label flex items-center gap-2 font-semibold uppercase text-attention">
+            <p className="text-label flex items-center gap-2 font-semibold uppercase tracking-[0.14em] text-attention">
               <Icon name="alerte" size={16} />
               {t('attentionLabel')}
             </p>
@@ -102,27 +151,51 @@ function ApercuRapport() {
           </div>
 
           <div>
-            <p className="text-label font-semibold uppercase text-encre-douce">
-              {t('photosLabel')}
-            </p>
-            {/* Reserves neutres : aucune photographie n'est inventee. */}
-            <div aria-hidden className="mt-3 grid grid-cols-4 gap-2">
-              {[0, 1, 2, 3].map((i) => (
-                <div key={i} className="aspect-square rounded-[8px] bg-respiration/30" />
+            <Etiquette>{t('photosLabel')}</Etiquette>
+            {/* Reserves neutres : aucune photographie n'est inventee. La
+                legende dit ce que chacune montrerait. */}
+            <ul className="mt-3 grid grid-cols-4 gap-2">
+              {PHOTOS.map((cle) => (
+                <li key={cle} className="flex min-w-0 flex-col gap-1.5">
+                  <span aria-hidden className="aspect-4/3 rounded-[8px] bg-respiration/30" />
+                  <span className="text-micro truncate text-encre-douce">
+                    {t(`photos.${cle}`)}
+                  </span>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
 
-          <p className="text-corps max-w-[62ch] rounded-carte bg-fond-alt p-4 text-encre-douce">
-            <strong className="font-bold text-encre">{t('passageLabel')}</strong>
-            {t('passageTexte')}
-          </p>
-
-          <div className="border-t border-filet pt-5 text-center">
+          <div className="text-center">
             <span className="text-micro inline-flex items-center rounded-capsule border border-filet px-5 py-3 font-semibold">
               {t('rapportComplet')}
             </span>
-            <p className="text-micro mt-5 text-encre-douce">{t('signature')}</p>
+          </div>
+
+          {/* Le prochain client. Sur Sapin : Glacier a 10,61:1, et le pave de
+              date en Glacier porte du Schiste. */}
+          <div className="flex flex-wrap items-center gap-5 rounded-carte bg-cta p-5 text-cta-encre">
+            <div className="min-w-0 flex-1 basis-60">
+              <p className="text-label font-semibold uppercase tracking-[0.14em] text-cta-encre/80">
+                {t('prochainLabel')}
+              </p>
+              <p className="font-serif text-intro mt-2 text-balance">{t('prochainTexte')}</p>
+            </div>
+            <div className="flex shrink-0 items-center gap-3">
+              <span className="text-label font-semibold uppercase tracking-[0.14em] text-cta-encre/80">
+                {t('prochainJusqu')}
+              </span>
+              <span className="flex size-13 flex-col items-center justify-center rounded-carte bg-surface text-encre">
+                <span className="text-micro font-semibold uppercase tracking-[0.14em] text-encre-douce">
+                  {t('prochainJour')}
+                </span>
+                <span className="text-intro font-semibold tabular-nums">{t('prochainDate')}</span>
+              </span>
+            </div>
+          </div>
+
+          <div className="border-t border-filet pt-5 text-center">
+            <p className="text-micro text-encre-douce">{t('signature')}</p>
             <p className="text-micro text-encre-douce">{t('reponse')}</p>
           </div>
         </div>
@@ -130,6 +203,15 @@ function ApercuRapport() {
 
       <figcaption className="text-micro mt-3 text-encre-douce">{t('legende')}</figcaption>
     </figure>
+  );
+}
+
+/** Etiquette de rubrique : la pastille pleine de la maquette. */
+function Etiquette({ children }: { children: ReactNode }) {
+  return (
+    <span className="text-label inline-flex rounded-capsule bg-cta px-3.5 py-1.5 font-semibold uppercase tracking-[0.2em] text-cta-encre">
+      {children}
+    </span>
   );
 }
 

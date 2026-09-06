@@ -397,11 +397,22 @@
     "apercu": {
       "pastille": "Aperçu",
       "legende": "Représentation d'un rapport en préparation. Ce module n'est pas encore disponible.",
-      "expediteur": "Choucas",
+      "expediteur": "Votre conciergerie",
       "enTete": "Rapport d'intervention · 17 janvier",
       "salutation": "Bonjour M. Arnaud,",
       "titre": "Votre chalet Les Troncs a été entretenu ce jour",
-      "chapeau": "Intervention de maintenance réalisée le samedi 17 janvier, de 11 h 30 à 14 h 12, par notre équipe technique.",
+      "chapeau": "Intervention de maintenance réalisée le samedi 17 janvier.",
+      "chiffres": {
+        "arriveeLabel": "Arrivée",
+        "arriveeValeur": "11 h 30",
+        "departLabel": "Départ",
+        "departValeur": "14 h 12",
+        "dureeLabel": "Durée",
+        "dureeValeur": "2 h 42",
+        "pointsLabel": "Points traités",
+        "pointsValeur": "4",
+        "pointsTotal": "/ 4"
+      },
       "faitLabel": "Ce qui a été fait",
       "fait": {
         "chaufferie": "Contrôle complet de la chaufferie — pression conforme (1,5 bar)",
@@ -410,15 +421,24 @@
         "zone": "Zone technique sécurisée après intervention"
       },
       "attentionLabel": "Point d'attention",
-      "attentionTitre": "Store de la terrasse : moteur fatigué",
+      "attentionTitre": "Store de la terrasse : moteur en fin de vie",
       "attentionTexte": ", descente bloquée par intermittence. Nous recommandons un remplacement du moteur avant la haute saison. Sur votre accord, nous vous transmettons un devis sous 48 h.",
       "attentionDevis": "Demander le devis",
       "attentionPhoto": "Voir la photo",
       "photosLabel": "Photos de l'intervention · 4",
-      "passageLabel": "Prochain passage :",
-      "passageTexte": " tour de conciergerie prévu lundi 19 janvier. Votre chalet accueille la famille V. jusqu'au samedi 24.",
+      "photos": {
+        "chaufferie": "Chaufferie",
+        "evacuations": "Évacuations",
+        "robinet": "Robinet d'arrêt",
+        "zone": "Zone technique"
+      },
       "rapportComplet": "Voir le rapport complet",
-      "signature": "Rapport établi par Mathieu B. · Choucas Conciergerie",
+      "prochainLabel": "Prochain client",
+      "prochainTexte": "Votre chalet accueille la famille V.",
+      "prochainJusqu": "Jusqu'au",
+      "prochainJour": "sam",
+      "prochainDate": "24",
+      "signature": "Rapport établi par Mathieu B. · Votre conciergerie",
       "reponse": "Une question ? Répondez directement à cet email."
     }
   },

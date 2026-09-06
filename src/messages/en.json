@@ -391,7 +391,54 @@
       "photos": "Photos",
       "passage": "Next visit"
     },
-    "_apercuIncomplet": "L'apercu du rapport proprietaire n'a pas de source anglaise. Voir le rapport du lot rapport proprietaire."
+    "_apercuIncomplet": "L'apercu du rapport proprietaire n'a pas de source anglaise. Voir le rapport du lot rapport proprietaire.",
+    "apercu": {
+      "pastille": "Preview",
+      "legende": "Depiction of a report being prepared. This module is not available yet.",
+      "expediteur": "Your concierge company",
+      "enTete": "Service report · 17 January",
+      "salutation": "Dear Mr Arnaud,",
+      "titre": "Your chalet Les Troncs was serviced today",
+      "chapeau": "Maintenance visit carried out on Saturday 17 January.",
+      "chiffres": {
+        "arriveeLabel": "Arrival",
+        "arriveeValeur": "11:30",
+        "departLabel": "Departure",
+        "departValeur": "14:12",
+        "dureeLabel": "Duration",
+        "dureeValeur": "2 h 42",
+        "pointsLabel": "Items covered",
+        "pointsValeur": "4",
+        "pointsTotal": "/ 4"
+      },
+      "faitLabel": "What was done",
+      "fait": {
+        "chaufferie": "Full boiler room check — pressure within range (1.5 bar)",
+        "evacuations": "Kitchen and laundry drains checked and cleared",
+        "robinet": "Main stopcock located, access cleared",
+        "zone": "Technical area secured after the visit"
+      },
+      "attentionLabel": "Point of attention",
+      "attentionTitre": "Terrace awning: motor at end of life",
+      "attentionTexte": ", lowering intermittently blocked. We recommend replacing the motor before the high season. With your approval, we will send a quote within 48 h.",
+      "attentionDevis": "Request the quote",
+      "attentionPhoto": "View the photo",
+      "photosLabel": "Photos from the visit · 4",
+      "photos": {
+        "chaufferie": "Boiler room",
+        "evacuations": "Drains",
+        "robinet": "Stopcock",
+        "zone": "Technical area"
+      },
+      "rapportComplet": "View the full report",
+      "prochainLabel": "Next guests",
+      "prochainTexte": "Your chalet welcomes the V. family.",
+      "prochainJusqu": "Until",
+      "prochainJour": "sat",
+      "prochainDate": "24",
+      "signature": "Report issued by Mathieu B. · Your concierge company",
+      "reponse": "A question? Reply directly to this email."
+    }
   },
   "philosophie": {
     "label": "A different way to operate",
