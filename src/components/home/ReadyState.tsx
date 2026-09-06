@@ -6,8 +6,22 @@ import { Reveal } from '../ui/Reveal';
 import { Section } from '../ui/Section';
 import { SectionHeader } from '../ui/SectionHeader';
 
-/** Les trois etats d'une mission, dans l'ordre. */
-const ETATS = ['etape1', 'etape2', 'etape3'] as const;
+/**
+ * Les trois etats d'une mission, dans l'ordre, et le ton de chacun.
+ *
+ * Le fond fonce a mesure qu'on avance : c'est ce qui fait lire une
+ * transformation la ou trois capsules identiques faisaient lire trois
+ * options. L'ecart de fond entre « A controler » et « PRET » vaut 4,03:1,
+ * le plus fort de la sequence — il tombe la ou le titre l'annonce.
+ *
+ * Aucune couleur semantique : le Lichen est une surface neutre, pas un
+ * avertissement. Choucas ne juge pas un etat, il le nomme.
+ */
+const ETATS = [
+  { cle: 'etape1', panneau: 'border-filet bg-surface text-encre', numero: 'text-encre-douce' },
+  { cle: 'etape2', panneau: 'border-encre/25 bg-respiration text-encre', numero: 'text-encre/80' },
+  { cle: 'etape3', panneau: 'border-cta bg-cta text-cta-encre', numero: 'text-cta-encre/70' },
+] as const;
 
 /**
  * Double controle et PRET — brief V8 §9.
@@ -21,6 +35,34 @@ const ETATS = ['etape1', 'etape2', 'etape3'] as const;
  *
  * Pas de pourcentage, pas de compteur de personnes — le §9 les exclut, et le
  * §3 rappelle que Choucas mesure les biens, jamais les gens.
+ *
+ * ---------------------------------------------------------------------------
+ * POURQUOI UNE PISTE ET NON TROIS PASTILLES
+ *
+ * La sequence est la demonstration du titre : c'est elle qui montre que
+ * « termine » et « PRET » sont deux etats differents. Elle n'occupait que
+ * 39 % de la colonne, en capsules de 43 px, et ses deux premiers etats
+ * etaient strictement identiques — meme fond, meme filet, meme encre. On y
+ * lisait trois options, pas une mission qui change de statut.
+ *
+ * Trois panneaux de largeur egale poses sur un filet qui ne s'interrompt pas
+ * disent l'inverse : un seul objet qui avance. Les largeurs egales comptent
+ * autant que le filet — 190, 149 puis 109 px se lisaient comme trois
+ * etiquettes de longueurs differentes.
+ *
+ * Le filet ne traverse pas les panneaux : il n'apparait que dans les
+ * intervalles, ou la fleche se pose dessus avec le fond de la section
+ * derriere elle pour ne pas etre barree.
+ *
+ * Les intervalles sont des `li` a leur tour, masques aux technologies
+ * d'assistance : c'est la seule facon d'avoir trois panneaux reellement
+ * egaux. Places dans les `li` des etats, ils volaient 64 px au premier et au
+ * deuxieme, et le troisieme se retrouvait plus large que les autres.
+ *
+ * La rangee n'apparait qu'a partir de 1000 px. A 768 les panneaux tombaient a
+ * 173 px et « Mission terminee » passait sur deux lignes : la piste devenait
+ * bancale la ou elle doit etre la plus lisible. En dessous, elle se lit a la
+ * verticale, filet compris.
  */
 export function ReadyState() {
   const t = useTranslations('pret');
@@ -37,52 +79,52 @@ export function ReadyState() {
         />
       </Reveal>
 
+      {/* Plafonnee a 900 px : au-dela, trois panneaux etires sur 1360 px
+          redeviennent trois blocs isoles. */}
       <Reveal
         as="ol"
         group
         aria-label={t('etapesAria')}
-        className="mt-titre flex flex-col items-stretch gap-3 tablette:flex-row tablette:items-center tablette:justify-center"
+        className="mt-titre mx-auto flex max-w-[900px] flex-col items-stretch desktop:flex-row desktop:items-stretch"
       >
-        {ETATS.map((cle, i) => {
-          const dernier = i === ETATS.length - 1;
-          return (
+        {ETATS.flatMap(({ cle, panneau, numero }, i) => {
+          const panneauLi = (
             <li
               key={cle}
               style={{ ['--i' as string]: i }}
-              className="flex items-center gap-3 tablette:contents"
+              className={`flex items-center justify-center gap-3 rounded-capsule border px-6 py-4 desktop:flex-1 ${panneau}`}
             >
-              <div
-                className={[
-                  'flex flex-1 items-center gap-3 rounded-capsule border px-5 py-3 tablette:flex-none',
-                  // Le dernier etat est le seul en Sapin : c'est le moment de
-                  // transformation, ce que la charte reserve a cette couleur.
-                  dernier
-                    ? 'border-cta bg-cta text-cta-encre'
-                    : 'border-filet bg-surface text-encre',
-                ].join(' ')}
-              >
-                <span
-                  aria-hidden
-                  className={`text-numero font-semibold tabular-nums ${
-                    dernier ? 'text-cta-encre/70' : 'text-encre-douce'
-                  }`}
-                >
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <span className="text-bouton font-semibold">{t(cle)}</span>
-              </div>
-
-              {!dernier ? (
-                <Icon
-                  name="fleche"
-                  size={20}
-                  className="shrink-0 rotate-90 text-encre-douce tablette:rotate-0"
-                />
-              ) : null}
+              <span aria-hidden className={`text-numero font-semibold tabular-nums ${numero}`}>
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <span className="text-intro font-semibold">{t(cle)}</span>
             </li>
           );
+          if (i === 0) return [panneauLi];
+          return [
+            <li
+              key={`${cle}-vers`}
+              aria-hidden
+              style={{ ['--i' as string]: i }}
+              className="relative flex h-8 w-full shrink-0 items-center justify-center desktop:h-auto desktop:w-16"
+            >
+              {/* Le trait prend l'encre douce, celle de la fleche : meme ton
+                  pour le rail et le glyphe, donc un seul objet. Le filet du
+                  site ne mesure que 1,15:1 sur le Panneau de la section — un
+                  trait qu'on ne voit pas ne relie rien ; l'encre douce y
+                  mesure 5,21:1. */}
+              <span className="absolute h-full w-px bg-encre-douce desktop:h-px desktop:w-full" />
+              <Icon
+                name="fleche"
+                size={20}
+                className="relative rotate-90 bg-fond-alt px-1 text-encre-douce desktop:rotate-0"
+              />
+            </li>,
+            panneauLi,
+          ];
         })}
       </Reveal>
+
     </Section>
   );
 }

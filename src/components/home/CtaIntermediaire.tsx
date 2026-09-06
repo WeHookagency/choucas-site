@@ -21,6 +21,12 @@ import { Section } from '../ui/Section';
  * Le fond prolonge celui de la section PRET, un filet l'en detache : la bande
  * se lit comme sa chute, pas comme une coupure dans la descente.
  *
+ * La phrase et le bouton sont centres ensemble, non repousses aux deux bords.
+ * `justify-between` sur une phrase de 297 px dans une bande de 1360 ouvrait
+ * 801 px de vide entre la question et sa reponse : on ne les lisait plus
+ * comme une meme ligne. Le centrage s'accorde en outre a l'en-tete centre de
+ * la section juste au-dessus.
+ *
  * Aucun titre, donc aucun nom accessible : le `section` n'est pas expose
  * comme repere et n'encombre pas la liste des regions.
  */
@@ -30,8 +36,8 @@ export function CtaIntermediaire() {
 
   return (
     <Section fond="fond-alt" sansRythme>
-      <Reveal className="flex flex-col gap-5 border-t border-filet py-8 tablette:flex-row tablette:items-center tablette:justify-between tablette:gap-8 desktop:py-10">
-        <p className="text-intro max-w-[42ch] font-semibold">{t('phrase')}</p>
+      <Reveal className="flex flex-col gap-5 border-t border-filet py-8 tablette:flex-row tablette:items-center tablette:justify-center tablette:gap-8 desktop:py-10">
+        <p className="text-intro max-w-[42ch] font-semibold tablette:text-right">{t('phrase')}</p>
         <Cta href={LIEN_DEMO} {...ATTRS_DEMO} variante="secondaire" className="shrink-0">
           {actions('demo')}
         </Cta>
