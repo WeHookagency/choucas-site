@@ -70,9 +70,13 @@ export default async function Page({ params }: PageProps<'/[locale]/blog'>) {
               {t(`articles.${enAvant.cle}.dateLisible`)} · {t('dureeEnAvant')}
             </p>
             <h2 className="font-serif text-h3 mt-3 text-balance">
+              {/* Meme `py-2` que les titres de la liste : sur une seule ligne
+                  le lien mesurait 33 px de haut, sous la cible de 44. Le
+                  remplissage vertical d'un element en ligne agrandit la boite
+                  sensible sans toucher a l'interligne. */}
               <Link
                   href={{ pathname: '/blog/[slug]', params: { slug: enAvant.slug } }}
-                  className="no-underline hover:underline"
+                  className="py-2 no-underline hover:underline"
                 >
                 {t(`articles.${enAvant.cle}.titre`)}
               </Link>
