@@ -16,9 +16,6 @@ const eslintConfig = defineConfig([
     // de design, pas du code de production. Elles se lisent dans un
     // navigateur, elles ne sont ni compilees ni livrees.
     "references/**",
-    // Les fonctions de peripherie Netlify tournent sur Deno, pas sur Node :
-    // ni les regles de Next ni le typage du projet ne s'y appliquent.
-    "netlify/**",
   ]),
 ]);
 

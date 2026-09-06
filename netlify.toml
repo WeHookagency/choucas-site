@@ -1,8 +1,8 @@
 # Déploiement Netlify — site vitrine Choucas.
 #
-# Le site n'est pas ouvert : il est verrouillé par mot de passe et retiré de
-# l'indexation. Les deux blocs marqués « avant ouverture » sont à supprimer le
-# jour de la mise en ligne, et rien d'autre.
+# Le mot de passe est posé dans l'interface Netlify, pas ici : la protection
+# intégrée du projet choucas-staging s'en charge. Le bloc marqué « avant
+# ouverture » est à supprimer le jour de la mise en ligne, et rien d'autre.
 
 [build]
   command = "npm run build"
@@ -17,20 +17,6 @@
   NODE_VERSION = "22"
   # Un build qui échoue doit échouer, pas se rattraper sur un cache.
   NPM_FLAGS = "--no-audit --no-fund"
-
-# ---------------------------------------------------------------------------
-# Avant ouverture — verrou par mot de passe
-#
-# Le mot de passe vit dans les variables d'environnement Netlify, jamais ici :
-#   SITE_MOT_DE_PASSE  (obligatoire, sinon le site répond 503)
-#   SITE_IDENTIFIANT   (facultatif, « choucas » par défaut)
-#
-# La fonction s'applique à tout : production, aperçus de déploiement et
-# branches.
-# ---------------------------------------------------------------------------
-[[edge_functions]]
-  function = "protection"
-  path = "/*"
 
 # ---------------------------------------------------------------------------
 # Avant ouverture — hors index
