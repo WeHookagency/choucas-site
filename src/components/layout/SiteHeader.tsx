@@ -3,7 +3,7 @@
 import { useEffect, useId, useState } from 'react';
 import { useTranslations } from 'next-intl';
 
-import { Link } from '@/i18n/navigation';
+import { Link, usePathname } from '@/i18n/navigation';
 
 
 import { ATTRS_DEMO, LIEN_DEMO } from '../anchors';
@@ -26,6 +26,9 @@ export function SiteHeader() {
   const actions = useTranslations('actions');
   const [ouvert, setOuvert] = useState(false);
   const idMenu = useId();
+  // `usePathname` de next-intl rend le chemin sans son prefixe de langue :
+  // l'accueil vaut « / » dans les deux langues.
+  const surAccueil = usePathname() === '/';
 
   // Echap referme le menu, et le focus doit pouvoir en sortir au clavier.
   useEffect(() => {
@@ -44,13 +47,16 @@ export function SiteHeader() {
    * titres et leurs chapeaux, sans corps d'article. Un lien de navigation vers
    * trois pages vides est un lien mort au sens du §12.
    *
-   * `desDesktop` : le lien n'apparait qu'a partir de 1000 px, faute de place
-   * dans la barre a 768 avec la marque et le CTA.
+   * Les trois liens paraissent des 700 px. « Tarifs » a longtemps ete reserve
+   * au desktop pour degager la barre a 768 ; il etait alors invisible de 700
+   * a 999 px, soit toute la tablette et le petit portable, et la page affiche
+   * desormais des prix. Une page qui vend et qu'on ne peut pas atteindre
+   * coute plus qu'une barre serree : mesure faite, les trois tiennent.
    */
   const liens = [
-    { href: '/produit', libelle: t('produit'), desDesktop: false },
-    { href: '/solutions', libelle: t('solutions'), desDesktop: false },
-    { href: '/tarifs', libelle: t('tarifs'), desDesktop: true },
+    { href: '/produit', libelle: t('produit') },
+    { href: '/solutions', libelle: t('solutions') },
+    { href: '/tarifs', libelle: t('tarifs') },
   ] as const;
 
   return (
@@ -60,10 +66,28 @@ export function SiteHeader() {
       <div className="mx-auto flex h-[60px] max-w-scene items-center justify-between px-marge desktop:h-[68px]">
         {/* La marque mene a l'accueil de la langue courante. Elle referme
             aussi le menu : sur la page d'accueil, la navigation ne change
-            rien a l'ecran et le menu resterait ouvert par-dessus. */}
+            rien a l'ecran et le menu resterait ouvert par-dessus.
+
+            Sur l'accueil justement, le lien ne recharge pas la page — il
+            remonte. C'est ce qu'un visiteur attend d'une marque en haut de
+            barre, et une navigation vers la page ou l'on est deja ne dit
+            rien. Le `href` reste : clic milieu, Cmd-clic et menu contextuel
+            continuent d'ouvrir l'accueil, et sans JavaScript le lien
+            fonctionne comme avant. */}
         <Link
           href="/"
-          onClick={() => setOuvert(false)}
+          onClick={(e) => {
+            setOuvert(false);
+            if (!surAccueil) return;
+            if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+            e.preventDefault();
+            window.scrollTo({
+              top: 0,
+              behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+                ? 'auto'
+                : 'smooth',
+            });
+          }}
           className="text-label inline-flex min-h-11 items-center font-bold uppercase tracking-[0.14em] text-encre no-underline"
         >
           {t('marque')}
@@ -74,7 +98,7 @@ export function SiteHeader() {
         <nav aria-label={t('aria')} className="hidden tablette:block">
           <ul className="flex items-center gap-6 desktop:gap-8">
             {liens.map((lien) => (
-              <li key={lien.href} className={lien.desDesktop ? 'hidden desktop:block' : undefined}>
+              <li key={lien.href}>
                 {/* Cible de 44 px, §9 des specs, comme la marque et le menu
                     mobile. La barre fait 60 px puis 68 : la boite y tient
                     sans deplacer quoi que ce soit, et `items-center` garde le
