@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# planches de vérification visuelle
+# Regenerees a la demande, jamais une source : elles perimen des qu'une page
+# bouge, et 24 PNG pleine page pesent plus que tout le reste du depot.
+references/qa/
