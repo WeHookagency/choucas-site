@@ -28,6 +28,11 @@ export async function generateMetadata(props: {
     // Le titre d'onglet vient de la table des pages, comme partout ailleurs.
     title: tPages('blog.titre'),
     description: t('intro'),
+    // Meme refus que les notes qu'elle liste : cet index ne mene qu'a des
+    // pages sans corps, toutes en `noindex`. `follow` reste vrai — les liens
+    // internes vers le reste du site gardent leur valeur. A lever avec le
+    // `noindex` des notes, et en remettant la route au plan du site.
+    robots: { index: false, follow: true },
     alternates: localeAlternates('/blog', locale),
   };
 }
