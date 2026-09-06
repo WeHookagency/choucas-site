@@ -6,8 +6,15 @@ import { Link } from '@/i18n/navigation';
 /**
  * Pied de page — specs §6.12.
  *
- * Fond Sapin. Marque inversee et ce qu'est Choucas en une ligne, deux
- * colonnes de liens, puis une bande basse : legal, editeur, contexte.
+ * Fond Sapin. Marque inversee, deux colonnes de liens, puis une bande basse :
+ * legal, editeur, contexte.
+ *
+ * Le haut est une grille plafonnee : la marque a sa largeur, puis les deux
+ * colonnes de liens. Repousses aux deux bords, ils ouvraient 706 px de vide au
+ * milieu a 1440 — un trou, pas une respiration. La marque ne prend plus une
+ * colonne entiere qu'elle laisserait vide aux quatre cinquiemes : elle prend
+ * sa taille, et la place qui reste tombe apres le contenu au lieu de le
+ * couper en deux.
  *
  * Les liens passent par le `Link` de next-intl : ils suivent les slugs
  * traduits, /fr/mentions-legales devenant /en/legal-notice. Le Blog n'y
@@ -58,27 +65,23 @@ export function SiteFooter() {
   return (
     <footer className="border-t border-encre-inverse/45 bg-cta text-encre-inverse">
       <div className="mx-auto max-w-scene px-marge py-12 desktop:py-16">
-        <div className="flex flex-col gap-10 desktop:flex-row desktop:justify-between desktop:gap-16">
-          <div>
-            {/* `unoptimized` : l'optimiseur de Next refuse le SVG sans
-                `dangerouslyAllowSVG`, et une marque de 500 octets n'a rien a
-                gagner a passer par lui. Le nom accessible porte la marque —
-                le pied ne repete pas « Choucas » en toutes lettres. */}
-            <Image
-              src="/choucas-mark-inverse.svg"
-              alt={t('marqueAlt')}
-              width={44}
-              height={44}
-              unoptimized
-            />
-            <p className="text-intro mt-5 max-w-[34ch]">{t('baseline')}</p>
-          </div>
+        <div className="grid gap-10 desktop:max-w-[720px] desktop:grid-cols-[auto_1fr_1fr] desktop:gap-x-20 desktop:gap-y-0">
+          {/* `unoptimized` : l'optimiseur de Next refuse le SVG sans
+              `dangerouslyAllowSVG`, et une marque de 500 octets n'a rien a
+              gagner a passer par lui. Le nom accessible porte la marque. */}
+          <Image
+            src="/choucas-mark-inverse.svg"
+            alt={t('marqueAlt')}
+            width={52}
+            height={52}
+            unoptimized
+          />
 
           {/* Un seul `nav` pour les deux colonnes : elles se separent a
               l'oeil, pas au sens, et deux reperes de navigation pour six
               liens encombreraient la liste des regions. */}
-          <nav aria-label={t('ariaPages')}>
-            <div className="grid grid-cols-2 gap-x-10 desktop:gap-x-20">
+          <nav aria-label={t('ariaPages')} className="desktop:col-span-2">
+            <div className="grid grid-cols-2 gap-x-8">
               {colonnes.map((colonne) => (
                 <ul key={colonne[0].href}>
                   {colonne.map((page) => (
@@ -87,7 +90,7 @@ export function SiteFooter() {
                           boite, le texte ne bouge pas. */}
                       <Link
                         href={page.href}
-                        className="text-nav inline-flex min-h-11 items-center text-encre-inverse no-underline hover:text-accent-inverse"
+                        className="text-intro inline-flex min-h-11 items-center text-encre-inverse no-underline hover:text-accent-inverse"
                       >
                         {page.libelle}
                       </Link>
