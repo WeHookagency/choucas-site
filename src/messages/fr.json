@@ -152,7 +152,7 @@
   "briefIntake": {
     "label": "Le brief de séjour",
     "titre": "Un brief n'arrive jamais <accent>en ordre.</accent>",
-    "intro": "Un appel la veille, un message à 21 h, un mail de l'assistant du client. Choucas les rassemble en un seul brief, le manager arbitre ce qui s'oppose, et le terrain reçoit une consigne.",
+    "intro": "Trois canaux, trois moments, une seule consigne. Choucas rassemble, le manager arbitre, le terrain exécute.",
     "sequenceAria": "Du brief reçu à la consigne transmise, en trois temps",
     "liaisons": {
       "rassemble": "rassemblés dans un seul brief, le texte d'origine conservé",

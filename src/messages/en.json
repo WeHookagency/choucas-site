@@ -152,7 +152,7 @@
   "briefIntake": {
     "label": "The stay brief",
     "titre": "A brief never arrives <accent>in order.</accent>",
-    "intro": "A call the night before, a message at 9 pm, an email from the client's assistant. Choucas gathers them into a single brief, the manager settles what conflicts, and the field receives one instruction.",
+    "intro": "Three channels, three moments, one instruction. Choucas gathers, the manager arbitrates, the field executes.",
     "sequenceAria": "From brief received to instruction sent, in three stages",
     "liaisons": {
       "rassemble": "gathered into a single brief, the original text kept",

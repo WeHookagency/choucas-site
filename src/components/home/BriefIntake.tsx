@@ -97,8 +97,13 @@ export function BriefIntake() {
             <div>
               {/* Meme hauteur que le chiffre : le libelle se cale sur son
                   milieu optique sans dependre d'une ligne de base partagee,
-                  que la grille ne peut pas donner. */}
-              <p className="text-label flex min-h-[2.125rem] items-center font-semibold uppercase text-encre-inverse desktop:min-h-[3.25rem]">
+                  que la grille ne peut pas donner.
+
+                  15 px et non 11 : a cote d'un chiffre de 52 px, un libelle de
+                  11 px ne nomme plus l'etape, il la legende. La lettre espacee
+                  vient du token `label` qu'il quitte — les capitales sans
+                  interlettrage se referment. */}
+              <p className="text-intro flex min-h-[2.125rem] items-center font-semibold uppercase tracking-[0.08em] text-encre-inverse desktop:min-h-[3.25rem]">
                 {t(`etapes.${cle}.temps`)}
               </p>
 
@@ -118,10 +123,11 @@ export function BriefIntake() {
 /**
  * Le fil qui relie les trois temps.
  *
- * Neige a 45 % : 3,33:1 sur le Sapin, au-dessus du seuil des objets
- * graphiques. Les 18 % du handoff n'y donnent que 1,66:1, et le vert Mousse
- * du parcours de la Home, qui tient sur le Schiste, tombe a 1,98:1 ici — le
- * fond change, la couleur du fil doit changer avec lui.
+ * Neige a 60 % : 4,68:1 sur le Sapin. Les 18 % du handoff n'y donnent que
+ * 1,66:1, et le vert Mousse du parcours de la Home, qui tient sur le Schiste,
+ * tombe a 1,98:1 ici — le fond change, la couleur du fil doit changer avec
+ * lui. Il etait a 45 % (3,33:1), au-dessus du seuil mais pas assez present :
+ * le fil est la liaison autant que la phrase qu'il traverse.
  *
  * Decoratif : l'ordre est deja porte par les chiffres et par la liste
  * ordonnee.
@@ -130,7 +136,7 @@ function Fil({ className }: { className?: string }) {
   return (
     <span
       aria-hidden
-      className={`w-px justify-self-center bg-encre-inverse/45 ${className ?? 'self-stretch'}`}
+      className={`w-px justify-self-center bg-encre-inverse/60 ${className ?? 'self-stretch'}`}
     />
   );
 }
@@ -138,12 +144,14 @@ function Fil({ className }: { className?: string }) {
 /**
  * Le lien entre deux etapes, ecrit.
  *
- * En encre pleine, 9,81:1 : ces deux phrases portent le mecanisme, elles ne
- * peuvent pas etre le texte le moins lisible du bloc.
+ * En encre pleine, 9,81:1, et a 14 px et non 12 : ces deux phrases portent le
+ * mecanisme — ce sont elles qui disent ce qui s'est passe entre deux etapes.
+ * Elles ne peuvent etre ni le texte le moins contraste du bloc ni le plus
+ * petit, ce qu'elles etaient.
  */
 function Liaison({ texte }: { texte: string }) {
   return (
-    <p className="text-micro flex max-w-[38ch] items-center py-6 text-encre-inverse">{texte}</p>
+    <p className="text-corps flex max-w-[38ch] items-center py-6 text-encre-inverse">{texte}</p>
   );
 }
 
