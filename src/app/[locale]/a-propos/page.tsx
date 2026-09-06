@@ -6,7 +6,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Accent } from '@/components/ui/Accent';
 import { Cta } from '@/components/ui/Cta';
 import { Eyebrow } from '@/components/ui/Eyebrow';
-import { Reserve } from '@/components/ui/Reserve';
+import { Photo } from '@/components/ui/Photo';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
 import { localeAlternates } from '@/i18n/metadata';
@@ -69,11 +69,12 @@ export default async function Page({ params }: PageProps<'/[locale]/a-propos'>) 
       </Section>
 
       <Section fond="fond" sansRythme>
-        {/* Pleine largeur, comme la maquette. La légende de la maquette dit
-            ce que la photographie devra montrer — un matin d'exploitation,
-            de la neige sale, du matériel au sol — pas du paysage. */}
+        {/* Portrait au rapport 4:5, recadré sur le visage et le haut des
+            épaules. Il remplace la réserve paysage du handoff : celle-ci
+            attendait un matin d'exploitation, cette page montre désormais
+            quelqu'un. */}
         <Reveal>
-          <Reserve className="aspect-[390/300] desktop:aspect-[1440/560]" />
+          <Photo src="/demo/mathieu.jpg" alt={t('portraitAlt')} className="max-w-[460px]" />
         </Reveal>
       </Section>
 
