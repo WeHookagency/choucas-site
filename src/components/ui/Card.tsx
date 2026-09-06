@@ -2,8 +2,10 @@ import type { CSSProperties, ReactNode } from 'react';
 
 type CardProps = {
   children: ReactNode;
-  /** `forte` = carte de transformation ou de profil : bordure 2 px, §7. */
-  accent?: 'standard' | 'forte' | 'sapin' | 'lichen';
+  /** `forte` = carte de transformation ou de profil : bordure 2 px, §7.
+   *  `aucun` = la carte ne pose ni fond ni bordure : c'est l'appelant qui les
+   *  porte, quand une section fait varier ses tuiles au lieu de les repeter. */
+  accent?: 'standard' | 'forte' | 'sapin' | 'lichen' | 'aucun';
   /** Rayon : `majeure` (24) pour les cartes de tete, `standard` (16) sinon. */
   rayon?: 'standard' | 'majeure';
   ombre?: boolean;
@@ -23,6 +25,7 @@ const accents: Record<NonNullable<CardProps['accent']>, string> = {
   // section, au-dessus du seuil des objets graphiques, la ou le filet du site
   // n'aurait donne que 1,93:1 sur le Lichen lui-meme.
   lichen: 'bg-respiration text-encre border border-encre/20',
+  aucun: '',
 };
 
 export function Card({

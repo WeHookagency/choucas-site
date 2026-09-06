@@ -405,7 +405,13 @@
     "label": "Choucas implementation",
     "titre": "Your operations. <accent>Configured with you, on site.</accent>",
     "intro": "Montrez-moi comment vous travaillez aujourd'hui. On adapte Choucas à votre terrain pour demain.",
-    "cloture": "One product. A configuration adapted to your operation.",
+    "moments": {
+      "matin": "Morning",
+      "midi": "Midday",
+      "apresMidi": "Afternoon",
+      "soir": "Evening"
+    },
+    "cloture": "By evening, your operation has its app configured.",
     "etapes": {
       "observer": {
         "titre": "Observe",
