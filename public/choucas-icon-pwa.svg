@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Choucas — icône PWA">
+  <title>Choucas — icône PWA</title>
+  <rect width="512" height="512" rx="114" fill="#263F30"></rect>
+  <g transform="translate(76,76) scale(3.0)">
+    <path d="M83 41 A30 30 0 1 0 83 79" fill="none" stroke="#F6F5EF" stroke-width="14" stroke-linecap="round"></path>
+    <path d="M51 59 L57 65 L68 52" fill="none" stroke="#B7683F" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path>
+  </g>
+</svg>
