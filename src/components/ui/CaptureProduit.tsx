@@ -23,6 +23,10 @@ const LIEN_PWA = 'https://choucasv2.netlify.app';
  * la capture est presentee comme un ecran dans son cadre. Sur la Home elle
  * est posee a plat, sans filet ni fond : c'est le traitement d'origine.
  *
+ * `rayon` a `haut` laisse le bas droit : la capture rejoint alors le bord de
+ * sa tuile sans s'y arrondir, et se lit comme un ecran qui continue plutot
+ * que comme une vignette posee.
+ *
  * `hauteurMax` plafonne l'ecran, comme la maquette de Solutions : au-dela, la
  * capture est coupee et un fondu vers le fond du cadre dit qu'elle continue.
  * Le fondu n'apparait que si la coupe a lieu — la hauteur affichee se deduit
@@ -39,6 +43,7 @@ export function CaptureProduit({
   hauteurMax,
   ombre = true,
   cadre = false,
+  rayon = 'tout',
   className,
 }: {
   src: StaticImageData;
@@ -47,6 +52,9 @@ export function CaptureProduit({
   largeurMax?: number;
   hauteurMax?: number;
   ombre?: boolean;
+  /** `haut` quand la capture se termine sur le bord de son contenant : le
+   *  bas reste droit, l'ecran se poursuit au lieu de se refermer. */
+  rayon?: 'tout' | 'haut';
   /** Filet et fond Mousse, comme la maquette de Solutions. */
   cadre?: boolean;
   className?: string;
@@ -59,7 +67,9 @@ export function CaptureProduit({
       target="_blank"
       rel="noopener"
       style={{ maxWidth: `${largeurMax}px`, maxHeight: hauteurMax ? `${hauteurMax}px` : undefined }}
-      className={`relative mx-auto block w-full overflow-hidden rounded-carte-majeure transition-transform duration-200 ease-choucas hover:-translate-y-0.5 ${
+      className={`relative mx-auto block w-full overflow-hidden ${
+        rayon === 'haut' ? 'rounded-t-carte-majeure' : 'rounded-carte-majeure'
+      } transition-transform duration-200 ease-choucas hover:-translate-y-0.5 ${
         cadre ? 'border border-encre/20 bg-ok' : ''
       } ${ombre ? 'shadow-carte' : ''} ${className ?? ''}`}
     >

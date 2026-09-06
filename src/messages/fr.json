@@ -262,7 +262,7 @@
     }
   },
   "manager": {
-    "label": "Démonstration · Choucas Manager",
+    "label": "La vue manager",
     "aria": "Démonstration de l'interface Choucas Manager",
     "navAria": "Navigation de la démonstration",
     "onglets": {
@@ -313,9 +313,9 @@
       "enMission": "En mission",
       "disponible": "Disponible"
     },
-    "captureAlt": "Bloc Exceptions de Choucas : le Chalet La Tournette en critique, avec le signalement de l'intervenante et deux actions possibles, puis deux chalets en attente de contrôle.",
+    "captureAlt": "Accueil manager de Choucas : le verdict du jour — 6 arrivées, 1 prêt, 4 en préparation, 1 bloqué — puis les trois exceptions qui demandent une attention, et le début de la journée avec ses horaires.",
     "lienDemo": "Ouvrir la démonstration Choucas dans un nouvel onglet",
-    "titre": "Tout va bien ? <accent>Choucas se tait.</accent>",
+    "titre": "Trois choses demandent votre attention. <accent>Le reste avance.</accent>",
     "intro": "Le manager suit ce qui change l'état d'un bien : une exception, un contrôle à faire ou une décision à prendre. Le reste continue d'avancer."
   },
   "terrain": {
