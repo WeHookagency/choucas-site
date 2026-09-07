@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl';
 
-import carteMaintenant from '../../../public/demo/carte-maintenant.png';
+import accueilEquipier from '../../../public/demo/accueil-equipier.png';
 import { Accent } from '../ui/Accent';
 import { CaptureProduit } from '../ui/CaptureProduit';
 import { Icon } from '../ui/Icon';
@@ -13,9 +13,11 @@ const POINTS = ['consigne', 'contexte', 'preuves'] as const;
  * Demonstration mobile terrain — specs §6.4.
  *
  * Texte a gauche, capture de l'application a droite sur desktop ; une
- * colonne en dessous. La carte « Maintenant » montre ce que l'equipier a
- * sous les yeux : la mission en cours, sa progression, le contexte a savoir
- * avant d'entrer.
+ * colonne en dessous. L'ecran d'accueil de l'equipier en entier, et non plus
+ * la seule carte « Maintenant » : on y lit la journee complete — le compte de
+ * missions, la mission en cours avec sa progression et ce qu'il faut savoir
+ * avant d'entrer, puis le check-in qui suit. Le recadrage precedent montrait
+ * la bonne carte, mais pas qu'elle appartenait a une journee.
  *
  * La mise en scene simulee a disparu au profit de l'ecran reel. Le composant
  * n'a donc plus d'etat et redevient un composant serveur.
@@ -29,7 +31,7 @@ export function FieldDemo() {
 
   return (
     <Section fond="fond" aria-labelledby="terrain-titre">
-      <Reveal group className="grid items-center gap-12 desktop:grid-cols-[1fr_430px]">
+      <Reveal group className="grid items-center gap-12 desktop:grid-cols-[1fr_500px]">
         <div style={{ ['--i' as string]: 0 }}>
           <p className="text-label font-semibold uppercase text-encre-douce">{t('label')}</p>
           <h2 id="terrain-titre" className="font-serif text-h2 mt-4 text-balance">
@@ -39,7 +41,7 @@ export function FieldDemo() {
           <ul className="mt-titre space-y-3">
             {POINTS.map((cle) => (
               <li key={cle} className="text-corps flex items-start gap-3">
-                <Icon name="coche" size={24} graisse="bold" className="mt-px shrink-0 text-ok" />
+                <Icon name="coche" size={28} graisse="bold" className="shrink-0 text-ok" />
                 {t(`points.${cle}`)}
               </li>
             ))}
@@ -48,9 +50,10 @@ export function FieldDemo() {
 
         <div style={{ ['--i' as string]: 3 }}>
           <CaptureProduit
-            src={carteMaintenant}
+            src={accueilEquipier}
             alt={t('captureAlt')}
             libelleLien={manager('lienDemo')}
+            largeurMax={480}
           />
         </div>
       </Reveal>

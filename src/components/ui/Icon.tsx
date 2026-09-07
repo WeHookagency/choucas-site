@@ -8,12 +8,16 @@ import { ArrowRightIcon } from '@phosphor-icons/react/dist/ssr/ArrowRight';
 import { CalendarBlankIcon } from '@phosphor-icons/react/dist/ssr/CalendarBlank';
 import { CheckIcon } from '@phosphor-icons/react/dist/ssr/Check';
 import { ClipboardTextIcon } from '@phosphor-icons/react/dist/ssr/ClipboardText';
+import { CloudSunIcon } from '@phosphor-icons/react/dist/ssr/CloudSun';
 import { ClockIcon } from '@phosphor-icons/react/dist/ssr/Clock';
 import { EnvelopeIcon } from '@phosphor-icons/react/dist/ssr/Envelope';
 import { HouseIcon } from '@phosphor-icons/react/dist/ssr/House';
 import { ListIcon } from '@phosphor-icons/react/dist/ssr/List';
+import { MoonStarsIcon } from '@phosphor-icons/react/dist/ssr/MoonStars';
 import { PhoneIcon } from '@phosphor-icons/react/dist/ssr/Phone';
 import { UsersIcon } from '@phosphor-icons/react/dist/ssr/Users';
+import { SunIcon } from '@phosphor-icons/react/dist/ssr/Sun';
+import { SunHorizonIcon } from '@phosphor-icons/react/dist/ssr/SunHorizon';
 import { WarningIcon } from '@phosphor-icons/react/dist/ssr/Warning';
 import { WhatsappLogoIcon } from '@phosphor-icons/react/dist/ssr/WhatsappLogo';
 import { XIcon } from '@phosphor-icons/react/dist/ssr/X';
@@ -50,6 +54,14 @@ const FAMILLE = {
   telephone: PhoneIcon,
   whatsapp: WhatsappLogoIcon,
   mail: EnvelopeIcon,
+
+  // Les quatre moments de la journee d'implantation. Le soleil se leve,
+  // culmine, se voile, puis cede a la nuit : la course est lisible sans
+  // legende, ce qui est la condition pour qu'une icone remplace un mot.
+  matin: SunHorizonIcon,
+  midi: SunIcon,
+  apresMidi: CloudSunIcon,
+  soir: MoonStarsIcon,
 } as const;
 
 export type IconName = keyof typeof FAMILLE;

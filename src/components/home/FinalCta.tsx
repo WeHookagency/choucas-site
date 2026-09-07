@@ -17,7 +17,6 @@ import { SectionHeader } from '../ui/SectionHeader';
  */
 export function FinalCta() {
   const t = useTranslations('ctaFinal');
-  const actions = useTranslations('actions');
 
   return (
     <Section id={ancres.demo} fond="sombre" aria-labelledby="cta-titre">
@@ -31,11 +30,15 @@ export function FinalCta() {
           intro={t('intro')}
         />
 
-        <div className="mt-titre flex flex-col items-center gap-4">
-          <Cta href={LIEN_DEMO} {...ATTRS_DEMO} fleche pleineLargeur>
-            {actions('demo')}
+        {/* Libelle propre a cette section : `actions.demo` sert la barre et
+            le hero, le changer ici aurait renomme les trois. La ligne
+            « 30 minutes · Avec vos cas operationnels » est retiree le
+            7 septembre 2026 ; `ctaFinal.micro` reste dans les deux fichiers de
+            traduction. */}
+        <div className="mt-titre flex justify-center">
+          <Cta href={LIEN_DEMO} {...ATTRS_DEMO} fleche>
+            {t('action')}
           </Cta>
-          <p className="text-micro text-encre-inverse/75">{t('micro')}</p>
         </div>
       </Reveal>
     </Section>

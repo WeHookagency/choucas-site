@@ -323,7 +323,7 @@
   "terrain": {
     "label": "Le brief devient terrain",
     "titre": "Le terrain sait quoi faire. <accent>Et pourquoi.</accent>",
-    "intro": "Chaque mission garde le contexte utile du brief. L'équipe ne reçoit pas seulement une tâche : elle comprend ce qui est attendu avant d'agir.",
+    "intro": "Chaque mission garde le contexte du brief. L'équipe ne reçoit pas qu'une tâche : elle comprend ce qui est attendu avant même d'arriver.",
     "points": {
       "consigne": "Une consigne issue du brief validé",
       "contexte": "Le contexte client reste accessible à l'équipe",
@@ -348,12 +348,13 @@
       "stocks": "Stocks",
       "equipe": "Équipe"
     },
-    "captureAlt": "Carte Maintenant de l'application terrain : ménage en cours depuis 13:15 au Chalet Balme, progression 11 sur 24, consignes à savoir avant d'entrer et bouton Reprendre la mission."
+    "captureAlt": "Accueil de l'application terrain : bonjour Marie, samedi 5 septembre, 2 missions, 3 chalets, 1 action urgente ; la mission en cours au Chalet Balme avec sa progression et ce qu'il faut savoir avant d'entrer ; puis le check-in de 17:05 au Chalet La Tournette."
   },
   "ctaFinal": {
     "label": "Montrez-nous une de vos rotations",
     "titre": "Le terrain change. <accent>Le niveau d'exigence, non.</accent>",
     "intro": "En 30 minutes, partons d'un de vos briefs, de votre façon de contrôler les biens et de vos check-ins. Nous vous montrons comment Choucas s'intègre à cette chaîne.",
+    "action": "Prendre rendez-vous",
     "micro": "30 minutes · Avec vos cas opérationnels"
   },
   "mentions": {

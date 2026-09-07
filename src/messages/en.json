@@ -320,7 +320,7 @@
   "terrain": {
     "label": "The brief reaches the field",
     "titre": "The field team knows what to do. <accent>And why.</accent>",
-    "intro": "Every mission keeps the useful context from the brief. The team receives more than a task: they understand what is expected before they act.",
+    "intro": "Every mission keeps the context of the brief. The team does not just receive a task: it understands what is expected before it even arrives.",
     "points": {
       "consigne": "A clear instruction from the validated brief",
       "contexte": "Guest context remains available to the team",
@@ -345,12 +345,13 @@
       "stocks": "Stocks",
       "equipe": "Équipe"
     },
-    "captureAlt": "Carte Maintenant de l'application terrain : ménage en cours depuis 13:15 au Chalet Balme, progression 11 sur 24, consignes à savoir avant d'entrer et bouton Reprendre la mission."
+    "captureAlt": "Field app home: hello Marie, Saturday 5 September, 2 missions, 3 chalets, 1 urgent action; the mission under way at Chalet Balme with its progress and what to know before entering; then the 17:05 check-in at Chalet La Tournette."
   },
   "ctaFinal": {
     "label": "Show us one of your turnovers",
     "titre": "The field changes. <accent>Your standard does not.</accent>",
     "intro": "In 30 minutes, we start from one of your briefs, the way you control properties and your check-ins, then show how Choucas fits into that chain.",
+    "action": "Book a meeting",
     "micro": "30 minutes · Built around your operation"
   },
   "mentions": {

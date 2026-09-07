@@ -2,6 +2,7 @@ import { useTranslations } from 'next-intl';
 
 import { ancres } from '../anchors';
 import { Accent } from '../ui/Accent';
+import { Icon } from '../ui/Icon';
 import { Card } from '../ui/Card';
 import { Reveal } from '../ui/Reveal';
 import { Section } from '../ui/Section';
@@ -19,24 +20,28 @@ const ETAPES = [
   {
     etape: 'observer',
     moment: 'matin',
+    icone: 'matin',
     tuile: 'bg-surface border border-encre/25 text-encre',
     encreMoment: 'text-encre/80',
   },
   {
     etape: 'structurer',
     moment: 'midi',
+    icone: 'midi',
     tuile: 'bg-respiration/45 border border-encre/25 text-encre',
     encreMoment: 'text-encre/80',
   },
   {
     etape: 'configurer',
     moment: 'apresMidi',
+    icone: 'apresMidi',
     tuile: 'bg-respiration border border-encre/25 text-encre',
     encreMoment: 'text-encre/80',
   },
   {
     etape: 'tester',
     moment: 'soir',
+    icone: 'soir',
     tuile: 'bg-cta border border-cta text-cta-encre',
     encreMoment: 'text-numero-inverse',
   },
@@ -104,16 +109,20 @@ export function Implementation() {
       </Reveal>
 
       <Reveal as="ol" group className="mt-titre grid gap-5 tablette:grid-cols-2 desktop:grid-cols-4">
-        {ETAPES.map(({ etape, moment, tuile, encreMoment }, i) => (
+        {ETAPES.map(({ etape, moment, icone, tuile, encreMoment }, i) => (
           <li key={moment} style={{ ['--i' as string]: i }}>
             <Card accent="aucun" rayon="majeure" className={`flex h-full flex-col ${tuile}`}>
-              {/* Le moment tient la place du numero : meme role d'ordre, mais
-                  il dit en plus ou l'on en est dans la journee. */}
-              <span
-                className={`text-label font-semibold uppercase tracking-[0.14em] ${encreMoment}`}
-              >
-                {t(`moments.${moment}`)}
-              </span>
+              {/* Le moment est un dessin, plus un mot : le soleil se leve,
+                  culmine, se voile, puis cede a la nuit. Le nom du moment
+                  reste le nom accessible de l'icone — remplacer un mot par une
+                  image ne doit pas retirer l'information a qui ne voit pas
+                  l'image. */}
+              <Icon
+                name={icone}
+                size={28}
+                title={t(`moments.${moment}`)}
+                className={encreMoment}
+              />
               <h3 className="font-serif text-h3 mt-3">{t(`etapes.${etape}.titre`)}</h3>
               <p className="text-corps mt-3">{t(`etapes.${etape}.texte`)}</p>
             </Card>
@@ -121,9 +130,11 @@ export function Implementation() {
         ))}
       </Reveal>
 
-      <Reveal className="mt-titre">
-        <p className="text-intro text-center font-semibold">{t('cloture')}</p>
-      </Reveal>
+      {/* La cloture « Le soir, votre conciergerie a son application
+          configuree. » est retiree le 7 septembre 2026.
+          ⚠️ C'etait l'argument qui levait l'objection du delai de demarrage,
+          et rien d'autre sur la Home ne le porte. `implantation.cloture` reste
+          dans les deux fichiers de traduction. */}
     </Section>
   );
 }

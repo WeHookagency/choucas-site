@@ -248,7 +248,11 @@ export function OwnerReport() {
             ))}
           </ul>
 
-          <p className="text-micro mt-8 text-encre-douce">{t('micro')}</p>
+          {/* « Le manager relit avant envoi. » retire le 7 septembre 2026.
+              ⚠️ C'etait la seule phrase de la Home qui disait qu'aucun rapport
+              ne part tout seul. La regle tient toujours dans la FAQ et sur
+              /a-propos ; `rapport.micro` reste dans les deux fichiers de
+              traduction. */}
         </div>
 
         <div style={{ ['--i' as string]: 2 }} className="desktop:col-span-7">
