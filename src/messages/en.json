@@ -150,7 +150,7 @@
     }
   },
   "briefIntake": {
-    "label": "The stay brief",
+    "label": "Client brief",
     "titre": "A brief never arrives <accent>in order.</accent>",
     "intro": "Three channels, three moments, one instruction. Choucas gathers, the manager arbitrates, the field executes.",
     "sequenceAria": "From brief received to instruction sent, in three stages",

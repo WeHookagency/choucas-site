@@ -150,7 +150,7 @@
     }
   },
   "briefIntake": {
-    "label": "Le brief de séjour",
+    "label": "Brief client",
     "titre": "Un brief n'arrive jamais <accent>en ordre.</accent>",
     "intro": "Trois canaux, trois moments, une seule consigne. Choucas rassemble, le manager arbitre, le terrain exécute.",
     "sequenceAria": "Du brief reçu à la consigne transmise, en trois temps",
