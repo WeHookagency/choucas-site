@@ -8,6 +8,7 @@ import blocExceptions from '../../../../public/demo/bloc-exceptions.png';
 import carteMaintenant from '../../../../public/demo/carte-maintenant.png';
 
 import { ATTRS_DEMO, LIEN_DEMO } from '@/components/anchors';
+import { MemoireEntreprise } from '@/components/solutions/MemoireEntreprise';
 import { PointJonction } from '@/components/solutions/PointJonction';
 import { TroisMetiers } from '@/components/solutions/TroisMetiers';
 import { VoletRole } from '@/components/solutions/VoletRole';
@@ -55,6 +56,26 @@ export async function generateMetadata(props: {
  * Les trois captures produit n'existent pas encore. Leur place est reservee
  * aux dimensions de la maquette, sans rien dessiner dedans.
  */
+/** Les trois blocs ajoutes au volet Exploitation, dans l'ordre du texte. */
+const BLOCS_EXPLOITATION = ['entraide', 'mission', 'verification'] as const;
+
+/**
+ * Un point developpe a l'interieur d'un volet : son intitule, puis ce qu'il
+ * change. Le titre du volet est un `h2`, ceux-ci sont donc des `h3` — la
+ * hierarchie se lit au clavier autant qu'a l'oeil.
+ *
+ * Le bloc herite de l'encre du volet : sur Lichen tout est en encre pleine,
+ * l'encre douce y tombe a 2,34:1.
+ */
+function BlocVolet({ titre, texte }: { titre: string; texte: string }) {
+  return (
+    <div className="mt-2">
+      <h3 className="font-serif text-intro font-semibold">{titre}</h3>
+      <p className="text-corps mt-2">{texte}</p>
+    </div>
+  );
+}
+
 export default async function Page({ params }: PageProps<'/[locale]/solutions'>) {
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) notFound();
@@ -98,6 +119,11 @@ export default async function Page({ params }: PageProps<'/[locale]/solutions'>)
         captureAlt={manager('captureAlt')}
         libelleLien={manager('lienDemo')}
       >
+        {/* En tete de volet : le comptage avant l'analyse. Registre du
+            benefice, comme l'exige la regle produit pour ce role — on dit ce
+            que le dirigeant obtient, jamais ce qu'il fait dans l'application. */}
+        <p className="font-serif text-intro">{t('dirigeants.leadTitre')}</p>
+        <p className="text-corps">{t('dirigeants.leadTexte')}</p>
         <p className="text-corps">{t('dirigeants.corps')}</p>
         <p className="text-corps">
           <strong className="font-bold">{t('dirigeants.eviteLabel')} : </strong>
@@ -118,6 +144,13 @@ export default async function Page({ params }: PageProps<'/[locale]/solutions'>)
       >
         <p className="text-corps text-encre-douce">{t('exploitation.lead')}</p>
         <p className="text-corps">{t('exploitation.liste')}</p>
+        {BLOCS_EXPLOITATION.map((cle) => (
+          <BlocVolet
+            key={cle}
+            titre={t(`exploitation.blocs.${cle}.titre`)}
+            texte={t(`exploitation.blocs.${cle}.texte`)}
+          />
+        ))}
       </VoletRole>
 
       <VoletRole
@@ -132,9 +165,15 @@ export default async function Page({ params }: PageProps<'/[locale]/solutions'>)
       >
         <p className="text-corps">{t('terrain.lead')}</p>
         <p className="text-corps">{t('terrain.suite')}</p>
+        <BlocVolet
+          titre={t('terrain.blocs.depart.titre')}
+          texte={t('terrain.blocs.depart.texte')}
+        />
       </VoletRole>
 
       <PointJonction />
+
+      <MemoireEntreprise />
 
       <Section fond="fond-alt" aria-labelledby="solutions-cloture">
         <Reveal>

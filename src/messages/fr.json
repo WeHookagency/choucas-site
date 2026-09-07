@@ -323,7 +323,7 @@
   "terrain": {
     "label": "Le brief devient terrain",
     "titre": "Le terrain sait quoi faire. <accent>Et pourquoi.</accent>",
-    "intro": "Chaque mission garde le contexte du brief. L'équipe ne reçoit pas qu'une tâche : elle comprend ce qui est attendu avant même d'arriver.",
+    "intro": "Chaque mission garde le contexte du brief. L'équipe ne reçoit pas qu'une tâche : elle comprend ce qui est attendu avant même d'arriver.",
     "points": {
       "consigne": "Une consigne issue du brief validé",
       "contexte": "Le contexte client reste accessible à l'équipe",
@@ -348,7 +348,7 @@
       "stocks": "Stocks",
       "equipe": "Équipe"
     },
-    "captureAlt": "Accueil de l'application terrain : bonjour Marie, samedi 5 septembre, 2 missions, 3 chalets, 1 action urgente ; la mission en cours au Chalet Balme avec sa progression et ce qu'il faut savoir avant d'entrer ; puis le check-in de 17:05 au Chalet La Tournette."
+    "captureAlt": "Accueil de l'application terrain : bonjour Marie, samedi 5 septembre, 2 missions, 3 chalets, 1 action urgente ; la mission en cours au Chalet Balme avec sa progression et ce qu'il faut savoir avant d'entrer ; puis le check-in de 17:05 au Chalet La Tournette."
   },
   "ctaFinal": {
     "label": "Montrez-nous une de vos rotations",
@@ -771,7 +771,9 @@
       "corps": "Les décisions se prennent là où elles se prennent. Le dirigeant n'est plus le point de passage obligé de chaque information.",
       "eviteLabel": "Vous évitez",
       "evite": "les relances permanentes, les informations reconstruites par téléphone et les tableaux de performance individuels.",
-      "legende": "Le bloc Exceptions, tel qu'il s'affiche. Trois lignes, trois décisions."
+      "legende": "Le bloc Exceptions, tel qu'il s'affiche. Trois lignes, trois décisions.",
+      "leadTitre": "Deux chalets prêts. Deux en rotation aujourd'hui.",
+      "leadTexte": "Le premier chiffre de votre journée n'est pas un tableau de bord, c'est un comptage. Combien de départs, combien d'arrivées, combien de biens réellement livrables. Le reste du volet vient après."
     },
     "exploitation": {
       "label": "Exploitation",
@@ -780,7 +782,21 @@
       "lead": "Le responsable d'exploitation n'a pas besoin de suivre chaque mouvement. Il doit savoir ce qui change la journée et où son intervention apporte de la valeur.",
       "liste": "Arrivées · missions à contrôler · retards · blocages · urgences · renfort · rapports à relire.",
       "legende": "Samedi 5 septembre. La journée tient sur un écran — l'en-tête, les exceptions, puis les heures.",
-      "captureAlt": "Écran d'accueil du responsable d'exploitation : samedi 5 septembre, 2 départs et 10 missions, un bandeau d'état du parc, trois exceptions en tête — un chalet critique et deux ménages à contrôler — puis les huit autres missions dans l'ordre des heures."
+      "captureAlt": "Écran d'accueil du responsable d'exploitation : samedi 5 septembre, 2 départs et 10 missions, un bandeau d'état du parc, trois exceptions en tête — un chalet critique et deux ménages à contrôler — puis les huit autres missions dans l'ordre des heures.",
+      "blocs": {
+        "entraide": {
+          "titre": "Chacun sait où sont les autres.",
+          "texte": "Sofia termine le Merle Blanc à 11 h. Karine est en difficulté deux chalets plus loin, stock de linge insuffisant. Aujourd'hui, personne ne le sait avant l'appel. Dans Choucas, la journée est partagée : qui est où, sur quoi, et depuis combien de temps. L'entraide devient possible sans passer par vous."
+        },
+        "mission": {
+          "titre": "On contrôle la mission, pas chaque geste.",
+          "texte": "Cocher quarante lignes ne prouve rien et fatigue tout le monde. Choucas contrôle la mission — ce qui devait être fait l'a été — puis un contrôle final avant la livraison. Deux points de vérité au lieu de quarante cases."
+        },
+        "verification": {
+          "titre": "Demander une vérification à quelqu'un d'autre.",
+          "texte": "Les piles de la télécommande n'ont pas été vérifiées. Vous le voyez, vous n'êtes pas sur place. Vous demandez le contrôle à la personne la plus proche, elle le fait, c'est tracé. Le point ne repart pas dans une conversation."
+        }
+      }
     },
     "terrain": {
       "label": "Terrain",
@@ -788,7 +804,13 @@
       "titre": "Savoir quoi faire. Et pourquoi.",
       "lead": "Le terrain retrouve sa journée, ses missions, les accès nécessaires, le contexte utile, les preuves attendues et les signalements au même endroit.",
       "suite": "L'interface privilégie l'action actuelle. Les détails restent accessibles lorsque la situation l'exige.",
-      "legende": "Deux missions, trois chalets, une action urgente. Rien d'autre."
+      "legende": "Deux missions, trois chalets, une action urgente. Rien d'autre.",
+      "blocs": {
+        "depart": {
+          "titre": "Le départ n'est pas une heure, c'est un constat.",
+          "texte": "Monsieur Louvain devait partir à 10 h. Il sort à 13 h. Quelqu'un doit acter que l'appartement est vide avant que le ménage commence — et cette validation compte autant que le ménage lui-même."
+        }
+      }
     },
     "jonction": {
       "titre": "Personne ne valide <accent>son propre travail.</accent>",
@@ -805,6 +827,28 @@
         "etat": "PRÊT",
         "meta": "Validé par Sophie M. · Responsable · 10:41",
         "fait": "Contrôle qualité effectué"
+      }
+    },
+    "memoire": {
+      "titre": "Ce que votre entreprise sait ne part plus avec une gouvernante.",
+      "intro": "Les préférences d'un client fidèle, l'année où internet ne passait pas dans les chambres, la référence du lave-vaisselle, les draps que le propriétaire apporte lui-même : tout cela existe déjà chez vous. Dans une tête, un carnet, un fil de messages. Le jour où cette personne part, l'entreprise réapprend son métier.",
+      "chapo": "Choucas garde trois mémoires.",
+      "fiches": {
+        "client": {
+          "titre": "Le client.",
+          "texte": "Ses habitudes, ses séjours passés, ce qui s'est mal passé la dernière fois et qu'il faut vérifier avant son retour. Il revient tous les ans, il ne devrait pas avoir à se répéter.",
+          "reserve": "Fiche client"
+        },
+        "bien": {
+          "titre": "Le bien.",
+          "texte": "L'historique des incidents, les interventions passées, les références de chaque appareil. On ne cherche plus le modèle du sèche-linge sous la machine, un samedi, avec une arrivée dans trois heures.",
+          "reserve": "Fiche bien"
+        },
+        "proprietaire": {
+          "titre": "Le propriétaire.",
+          "texte": "Ses draps, sa machine à café, ce qu'il faut mettre en place avant qu'il arrive chez lui. Il n'est pas un client comme les autres.",
+          "reserve": "Fiche propriétaire"
+        }
       }
     },
     "cloture": {
