@@ -528,6 +528,11 @@
       "p3": "Ici on aime accueillir. Le sens du détail, les petites attentions, le fait de faire vivre la région trois cent soixante-cinq jours par an — c'est un vrai savoir-faire, et il tient dans des têtes. Le jour où l'une de ces têtes s'en va, l'entreprise réapprend son métier, et le client le sent avant tout le monde.",
       "chute": "Choucas est né de là. Pas pour remplacer ce savoir-faire : pour qu'il reste dans l'entreprise."
     },
+    "coupDeFeu": {
+      "titre": "Ce qu'on apprend dans un coup de feu.",
+      "p1": "Restauration, puis moniteur de ski. Dans ces métiers-là, on apprend une chose : le retard ne se rattrape jamais, il se répercute. Une table qui décale décale la suivante. Un chalet qui prend une heure décale la journée entière.",
+      "chute": "C'est de là que vient le parti pris de Choucas : ne pas remonter tout, remonter ce qui va décaler la suite."
+    },
     "partisTitre": "Ce qu'on a choisi de ne pas faire",
     "partis": {
       "pms": {

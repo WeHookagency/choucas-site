@@ -147,6 +147,22 @@ export default async function Page({ params }: PageProps<'/[locale]/a-propos'>) 
         </Reveal>
       </Section>
 
+      {/* Second bloc d'origine, juste apres le recit. Fond Neige : le recit
+          au-dessus est en Sapin, les refus en dessous en Panneau. La suite de
+          la page devient Neige, Neige, Sapin, Neige, Panneau, Neige — aucun
+          fond repete d'une section a la suivante. */}
+      <Section fond="fond" aria-labelledby="coup-de-feu-titre">
+        <Reveal className="mx-auto max-w-[62ch]">
+          <h2 id="coup-de-feu-titre" className="font-serif text-h3 text-balance">
+            {t('coupDeFeu.titre')}
+          </h2>
+          <p className="text-corps mt-8 text-encre-douce">{t('coupDeFeu.p1')}</p>
+          {/* Meme traitement que la chute du recit : les deux blocs finissent
+              sur ce que Choucas en a tire, et se repondent a l'oeil. */}
+          <p className="text-intro mt-8 font-semibold">{t('coupDeFeu.chute')}</p>
+        </Reveal>
+      </Section>
+
       <Section fond="fond-alt" aria-labelledby="partis-titre">
         <Reveal>
           <h2 id="partis-titre" className="font-serif text-h3 max-w-[20ch] text-balance">
