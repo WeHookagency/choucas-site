@@ -13,13 +13,27 @@ import { SectionHeader } from '../ui/SectionHeader';
  * Le trace WhatsApp vient de Phosphor, la famille du site : meme graisse,
  * meme grille que le telephone et l'enveloppe. Ce n'est pas la marque
  * deposee, et il ne promet aucune integration — cette section montre par ou
- * une demande arrive chez la conciergerie, pas ce que l'application sait
- * lire. Le brief n'est toujours pas dans la PWA.
+ * une demande arrive chez la conciergerie.
+ *
+ * Chaque canal prend une couleur de la charte, sur son icone et le filet de
+ * sa pastille. Trois tons deja definis, aucun neuf : Crepuscule pour l'appel
+ * — le token de l'information — Mousse pour le message, Cuivre pour le mail.
+ *
+ * Mesures sur le Glacier des tuiles, seuil 3 pour un objet graphique :
+ *
+ *   Crepuscule  #466170   6,33:1
+ *   Mousse      #3D7358   5,35:1
+ *   Cuivre      #B56F46   3,81:1
+ *
+ * La couleur ne porte aucune information a elle seule : le canal est ecrit
+ * en toutes lettres a cote, en encre pleine a 17,27:1. C'est ce que demande
+ * le §9, et c'est aussi pourquoi le libelle ne prend pas la teinte — le
+ * Cuivre y tomberait sous le seuil du texte courant.
  */
 const SOURCES = [
-  { cle: 'appel', icone: 'telephone' },
-  { cle: 'message', icone: 'whatsapp' },
-  { cle: 'mail', icone: 'mail' },
+  { cle: 'appel', icone: 'telephone', ton: 'text-info border-info' },
+  { cle: 'message', icone: 'whatsapp', ton: 'text-ok border-ok' },
+  { cle: 'mail', icone: 'mail', ton: 'text-accent border-accent' },
 ] as const;
 
 /**
@@ -188,7 +202,7 @@ function Sources() {
 
   return (
     <div className="grid gap-4 tablette:grid-cols-3">
-      {SOURCES.map(({ cle, icone }) => (
+      {SOURCES.map(({ cle, icone, ton }) => (
         <div
           key={cle}
           className="flex flex-col rounded-carte border border-filet bg-surface p-6 text-encre desktop:p-7"
@@ -197,9 +211,11 @@ function Sources() {
             {/* Le canal passe devant : icone, encre pleine et corps de bouton,
                 la ou il etait en encre douce a 11 px. C'est lui qui dit d'ou
                 vient le fragment — l'heure, elle, reste en retrait. */}
-            <span className="text-bouton inline-flex items-center gap-2 rounded-capsule border border-encre/25 px-3 py-1.5 font-bold">
+            <span
+              className={`text-bouton inline-flex items-center gap-2 rounded-capsule border px-3 py-1.5 font-bold ${ton}`}
+            >
               <Icon name={icone} size={16} className="shrink-0" />
-              {t(`${cle}.canal`)}
+              <span className="text-encre">{t(`${cle}.canal`)}</span>
             </span>
             <span className="text-micro tabular-nums text-encre-douce">{t(`${cle}.quand`)}</span>
           </div>
