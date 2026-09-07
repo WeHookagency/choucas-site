@@ -773,7 +773,7 @@
       "evite": "les relances permanentes, les informations reconstruites par téléphone et les tableaux de performance individuels.",
       "legende": "Le bloc Exceptions, tel qu'il s'affiche. Trois lignes, trois décisions.",
       "leadTitre": "Deux chalets prêts. Deux en rotation aujourd'hui.",
-      "leadTexte": "Le premier chiffre de votre journée n'est pas un tableau de bord, c'est un comptage. Combien de départs, combien d'arrivées, combien de biens réellement livrables. Le reste du volet vient après."
+      "leadTexte": "Le premier chiffre de votre journée n'est pas un tableau de bord, c'est un comptage. Combien de départs, combien d'arrivées, combien de biens réellement livrables."
     },
     "exploitation": {
       "label": "Exploitation",
