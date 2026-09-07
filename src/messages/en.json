@@ -189,13 +189,13 @@
     "arbitrage": {
       "titre": "Two requests collide",
       "etat": "TO SETTLE",
-      "corps": "“Nobody before 9 am” and “pancakes every morning” cannot both hold. Choucas does not pass the two along blindly: it states the conflict and offers the options.",
+      "corps": "\"Gluten-free bread available for breakfast\" and \"the groceries must be there when we arrive\" do not hold together: bread bought with the groceries will be stale by morning. Choucas does not pass both on blindly — it states the conflict and offers the options.",
       "meta": "No line is left hanging: it is assigned, or set aside knowingly."
     },
     "consigne": {
       "bien": "Chalet L'Aiguille",
       "etat": "INSTRUCTION",
-      "texte": "Breakfast laid out the evening before, delivered at 8:45. Entry to the house from 9:00. Ground-floor bedroom for the parents, double bed.",
+      "texte": "Groceries dropped off before arrival. Gluten-free bread delivered the same morning, at 8:45. Ground-floor bedroom for the parents, double bed.",
       "meta": "Sent to Marie L. · Field team · not the brief's forty lines"
     }
   },
