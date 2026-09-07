@@ -780,7 +780,7 @@
       "label": "Dirigeants",
       "eyebrow": "Dirigeants",
       "titre": "Piloter sans devenir le centre de toutes les opérations.",
-      "corps": "Les décisions se prennent là où elles se prennent. Le dirigeant n'est plus le point de passage obligé de chaque information.",
+      "corps": "Un chalet bloqué à 9 h, un ménage en retard à 10 h, un propriétaire qui arrive vendredi. Aujourd'hui, ces trois informations passent par vous — vous les recevez, vous les redistribuez, vous relancez pour savoir où elles en sont. Dans Choucas, elles arrivent à la personne qui doit décider. Vous les voyez, vous n'êtes plus le passage obligé.",
       "eviteLabel": "Vous évitez",
       "evite": "les relances permanentes, les informations reconstruites par téléphone et les tableaux de performance individuels.",
       "legende": "Le bloc Exceptions, tel qu'il s'affiche. Trois lignes, trois décisions.",
@@ -791,7 +791,7 @@
       "label": "Exploitation",
       "eyebrow": "Responsables d'exploitation",
       "titre": "Voir moins. Savoir mieux.",
-      "lead": "Le responsable d'exploitation n'a pas besoin de suivre chaque mouvement. Il doit savoir ce qui change la journée et où son intervention apporte de la valeur.",
+      "lead": "Quatorze missions dans la journée. Onze se passeront bien et vous n'avez rien à en faire. Choucas ne vous montre que les trois autres : celle qui va décaler la suite, celle qui attend un contrôle, celle qui a besoin de vous. Le reste avance sans vous, et vous pouvez le vérifier quand vous le voulez.",
       "liste": "Arrivées · missions à contrôler · retards · blocages · urgences · renfort · rapports à relire.",
       "legende": "Samedi 5 septembre. La journée tient sur un écran — l'en-tête, les exceptions, puis les heures.",
       "captureAlt": "Écran d'accueil du responsable d'exploitation : samedi 5 septembre, 2 départs et 10 missions, un bandeau d'état du parc, trois exceptions en tête — un chalet critique et deux ménages à contrôler — puis les huit autres missions dans l'ordre des heures.",
@@ -815,7 +815,7 @@
       "eyebrow": "Terrain",
       "titre": "Savoir quoi faire. Et pourquoi.",
       "lead": "Le terrain retrouve sa journée, ses missions, les accès nécessaires, le contexte utile, les preuves attendues et les signalements au même endroit.",
-      "suite": "L'interface privilégie l'action actuelle. Les détails restent accessibles lorsque la situation l'exige.",
+      "suite": "Une mission à la fois, en grand. Ce qu'il faut faire, le code du coffre, ce que le client a demandé, les photos attendues à la fin. Le reste est là si on le cherche — mais on ne le cherche pas avec les mains pleines.",
       "legende": "Deux missions, trois chalets, une action urgente. Rien d'autre.",
       "blocs": {
         "depart": {
