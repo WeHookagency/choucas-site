@@ -9,10 +9,13 @@ import { CalendarBlankIcon } from '@phosphor-icons/react/dist/ssr/CalendarBlank'
 import { CheckIcon } from '@phosphor-icons/react/dist/ssr/Check';
 import { ClipboardTextIcon } from '@phosphor-icons/react/dist/ssr/ClipboardText';
 import { ClockIcon } from '@phosphor-icons/react/dist/ssr/Clock';
+import { EnvelopeIcon } from '@phosphor-icons/react/dist/ssr/Envelope';
 import { HouseIcon } from '@phosphor-icons/react/dist/ssr/House';
 import { ListIcon } from '@phosphor-icons/react/dist/ssr/List';
+import { PhoneIcon } from '@phosphor-icons/react/dist/ssr/Phone';
 import { UsersIcon } from '@phosphor-icons/react/dist/ssr/Users';
 import { WarningIcon } from '@phosphor-icons/react/dist/ssr/Warning';
+import { WhatsappLogoIcon } from '@phosphor-icons/react/dist/ssr/WhatsappLogo';
 import { XIcon } from '@phosphor-icons/react/dist/ssr/X';
 
 /**
@@ -40,6 +43,13 @@ const FAMILLE = {
   equipe: UsersIcon,
   alerte: WarningIcon,
   horloge: ClockIcon,
+
+  // Les trois canaux par lesquels un brief arrive. `whatsapp` est le trace
+  // Phosphor, pas la marque deposee : meme graisse et meme grille que le
+  // reste de la famille, donc il ne detonne pas et n'engage rien.
+  telephone: PhoneIcon,
+  whatsapp: WhatsappLogoIcon,
+  mail: EnvelopeIcon,
 } as const;
 
 export type IconName = keyof typeof FAMILLE;

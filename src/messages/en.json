@@ -178,12 +178,12 @@
       "message": {
         "canal": "Message",
         "quand": "9:12 pm",
-        "mot": "“Nobody in the house before 9 am.”"
+        "mot": "\"Gluten-free bread available for breakfast.\""
       },
       "mail": {
         "canal": "Email",
         "quand": "7:05 am",
-        "mot": "“Pancakes every morning, without fail.”"
+        "mot": "\"The groceries we asked for must be there when we arrive.\""
       }
     },
     "arbitrage": {

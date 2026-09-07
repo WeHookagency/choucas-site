@@ -1,12 +1,26 @@
 import { useTranslations } from 'next-intl';
 
 import { Accent } from '../ui/Accent';
+import { Icon } from '../ui/Icon';
 import { Reveal } from '../ui/Reveal';
 import { Section } from '../ui/Section';
 import { SectionHeader } from '../ui/SectionHeader';
 
-/** Les trois sources, dans le desordre ou elles arrivent vraiment. */
-const SOURCES = ['appel', 'message', 'mail'] as const;
+/**
+ * Les trois sources, dans le desordre ou elles arrivent vraiment, et l'icone
+ * de leur canal.
+ *
+ * Le trace WhatsApp vient de Phosphor, la famille du site : meme graisse,
+ * meme grille que le telephone et l'enveloppe. Ce n'est pas la marque
+ * deposee, et il ne promet aucune integration — cette section montre par ou
+ * une demande arrive chez la conciergerie, pas ce que l'application sait
+ * lire. Le brief n'est toujours pas dans la PWA.
+ */
+const SOURCES = [
+  { cle: 'appel', icone: 'telephone' },
+  { cle: 'message', icone: 'whatsapp' },
+  { cle: 'mail', icone: 'mail' },
+] as const;
 
 /**
  * Les trois temps de la sequence, et la phrase qui mene a chacun.
@@ -167,18 +181,22 @@ function Sources() {
 
   return (
     <div className="grid gap-4 tablette:grid-cols-3">
-      {SOURCES.map((cle) => (
+      {SOURCES.map(({ cle, icone }) => (
         <div
           key={cle}
-          className="flex flex-col rounded-carte border border-filet bg-surface p-5 text-encre"
+          className="flex flex-col rounded-carte border border-filet bg-surface p-6 text-encre desktop:p-7"
         >
-          <div className="flex items-baseline justify-between gap-2">
-            <span className="text-label rounded-capsule border border-filet px-2.5 py-1 font-bold text-encre-douce">
+          <div className="flex items-center justify-between gap-3">
+            {/* Le canal passe devant : icone, encre pleine et corps de bouton,
+                la ou il etait en encre douce a 11 px. C'est lui qui dit d'ou
+                vient le fragment — l'heure, elle, reste en retrait. */}
+            <span className="text-bouton inline-flex items-center gap-2 rounded-capsule border border-encre/25 px-3 py-1.5 font-bold">
+              <Icon name={icone} size={16} className="shrink-0" />
               {t(`${cle}.canal`)}
             </span>
             <span className="text-micro tabular-nums text-encre-douce">{t(`${cle}.quand`)}</span>
           </div>
-          <p className="text-corps mt-4 font-serif italic">{t(`${cle}.mot`)}</p>
+          <p className="text-intro mt-5 font-serif italic">{t(`${cle}.mot`)}</p>
         </div>
       ))}
     </div>

@@ -178,12 +178,12 @@
       "message": {
         "canal": "Message",
         "quand": "21:12",
-        "mot": "« Personne dans la maison avant 9 h. »"
+        "mot": "« Pain sans gluten disponible pour le petit déjeuner. »"
       },
       "mail": {
         "canal": "Mail",
         "quand": "07:05",
-        "mot": "« Des pancakes chaque matin, sans faute. »"
+        "mot": "« Les courses demandées doivent être là quand on arrive. »"
       }
     },
     "arbitrage": {
