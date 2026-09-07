@@ -156,7 +156,7 @@
     "sequenceAria": "From brief received to instruction sent, in three stages",
     "liaisons": {
       "rassemble": "gathered in the Choucas app",
-      "arbitre": "settled by Sophie M., operations manager"
+      "arbitre": "Settled by Sophie, operations manager."
     },
     "etapes": {
       "arrivee": {
@@ -189,7 +189,7 @@
     "arbitrage": {
       "titre": "Two requests collide",
       "etat": "TO SETTLE",
-      "corps": "\"Gluten-free bread available for breakfast\" and \"the groceries must be there when we arrive\" do not hold together: bread bought with the groceries will be stale by morning. Choucas does not pass both on blindly — it states the conflict and offers the options.",
+      "corps": "<fort>\"Gluten-free bread available for breakfast\"</fort> and <fort>\"the groceries must be there when we arrive\"</fort> do not hold together: bread bought with the groceries will be stale by morning. Choucas does not pass both on blindly — it states the conflict so the manager can settle it as well as possible.",
       "meta": "No line is left hanging: it is assigned, or set aside knowingly."
     },
     "consigne": {

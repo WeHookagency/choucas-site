@@ -156,7 +156,7 @@
     "sequenceAria": "Du brief reçu à la consigne transmise, en trois temps",
     "liaisons": {
       "rassemble": "rassemblés sur l'app Choucas",
-      "arbitre": "arbitré par Sophie M., responsable d'exploitation"
+      "arbitre": "Arbitré par Sophie, Manager d'exploitation."
     },
     "etapes": {
       "arrivee": {
@@ -189,7 +189,7 @@
     "arbitrage": {
       "titre": "Deux demandes s'opposent",
       "etat": "À ARBITRER",
-      "corps": "« Pain sans gluten disponible pour le petit déjeuner » et « les courses doivent être là quand on arrive » ne tiennent pas ensemble : le pain acheté avec les courses sera rassis au matin. Choucas ne transmet pas les deux aveuglément : il pose le conflit et propose les options.",
+      "corps": "<fort>« Pain sans gluten disponible pour le petit déjeuner »</fort> et <fort>« les courses doivent être là quand on arrive »</fort> ne tiennent pas ensemble : le pain acheté avec les courses sera rassis au matin. Choucas ne transmet pas les deux aveuglément, mais il pose le conflit pour que le manager arbitre cette situation du mieux possible.",
       "meta": "Aucune ligne ne reste en suspens : elle est attribuée, ou écartée en connaissance de cause."
     },
     "consigne": {

@@ -237,15 +237,19 @@ function Arbitrage() {
 
   return (
     <div className="max-w-[560px] rounded-carte border border-filet bg-surface p-6 text-encre">
-      <div className="flex items-baseline justify-between gap-3">
-        <span className="font-serif text-intro">{t('titre')}</span>
-        <span className="text-label shrink-0 rounded-capsule border border-filet px-2.5 py-1 font-bold text-encre-douce">
+      {/* La pastille d'etat reste seule sur sa ligne : le titre « Deux demandes
+          s'opposent » disait ce que le corps dit deja, en le disant moins bien.
+          `arbitrage.titre` et `arbitrage.meta` restent dans les fichiers de
+          traduction — les remettre ici suffit. */}
+      <div className="flex justify-end">
+        <span className="text-label rounded-capsule border border-filet px-2.5 py-1 font-bold text-encre-douce">
           {t('etat')}
         </span>
       </div>
-      <p className="text-corps mt-3">{t('corps')}</p>
-      <p className="text-micro mt-4 max-w-[62ch] border-t border-filet pt-3 text-encre-douce">
-        {t('meta')}
+      {/* Les deux demandes en gras : ce sont elles qui s'opposent, et c'est la
+          seule chose que le lecteur doit retenir de ce paragraphe. */}
+      <p className="text-corps mt-3">
+        {t.rich('corps', { fort: (chunks) => <strong className="font-bold">{chunks}</strong> })}
       </p>
     </div>
   );
