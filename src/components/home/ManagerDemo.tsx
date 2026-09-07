@@ -42,14 +42,27 @@ export function ManagerDemo() {
           style={{ ['--i' as string]: 0 }}
           className="rounded-t-[28px] bg-respiration px-marge pt-10"
         >
-          <div className="mx-auto max-w-[62ch] text-center">
+          {/* Les mesures sont posees sur les elements, pas sur l'enveloppe.
+              Un `max-w-[62ch]` pose ici enfermait le titre dans 529 px : `ch`
+              se resout sur la police du div — Manrope 16 px herite — et non
+              sur les 75 px du H2. La boite ne grandissait donc pas de 1024 a
+              1440 alors que le corps passait de 55 a 75 px, et le titre
+              tombait a quatre lignes. Chaque bloc porte desormais sa propre
+              mesure, dans sa propre police, comme `SectionHeader` le fait. */}
+          <div className="text-center">
             <p className="text-label font-semibold uppercase text-encre">{t('label')}</p>
-            <h2 id="manager-titre" className="font-serif text-h2 mt-4 text-balance">
+            {/* 24ch : le dernier palier qui tient deux lignes a 768, 1024 et
+                1440 — a 22ch il en faut trois, sans plafond le titre s'etire
+                sur 1 360 px et perd sa colonne. */}
+            <h2
+              id="manager-titre"
+              className="font-serif text-h2 mx-auto mt-4 max-w-[24ch] text-balance"
+            >
               {/* Panneau Lichen : le cuivre y mesure 1,45:1. L'accent tient par
                   l'italique seul, en encre pleine a 6,57:1. */}
               {t.rich('titre', { accent: (chunks) => <Accent ton="encre">{chunks}</Accent> })}
             </h2>
-            <p className="text-corps mt-4 text-encre">{t('intro')}</p>
+            <p className="text-corps mx-auto mt-4 max-w-[62ch] text-encre">{t('intro')}</p>
           </div>
 
           {/* Sans ombre : elle se posait sur la coupe et refermait l'ecran
