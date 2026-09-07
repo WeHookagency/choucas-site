@@ -64,7 +64,19 @@ function ApercuRapport() {
     <figure className="m-0">
       {/* Pas de `role="img"` : le texte de l'apercu doit rester lisible aux
           lecteurs d'ecran. C'est la legende qui dit ce qu'il est. */}
-      <div className="overflow-hidden rounded-carte border border-filet bg-surface">
+      {/* Plafonne a 70 % de la hauteur de fenetre, avec un fondu qui dit que
+          le courriel continue. Sans plafond, l'apercu faisait 1 200 px de haut
+          a 1440 et 1 479 a 390 — plus d'un ecran et demi. Un rapport EST plus
+          long qu'un ecran ; le montrer en entier ne le rend pas plus vrai, ca
+          le rend seulement impossible a embrasser du regard.
+
+          Le plafond est en `vh` et non en pixels : c'est la fenetre du lecteur
+          qui decide, pas une valeur choisie sur la mienne.
+
+          Rien de focalisable sous la coupe — les boutons de la maquette sont
+          des `span` inertes — donc rien ne peut recevoir le focus hors du
+          cadre. Le texte coupe reste dans le document et reste lu. */}
+      <div className="relative max-h-[70vh] overflow-hidden rounded-carte border border-filet bg-surface">
         {/* En-tete d'expediteur, sur le Sapin de la maquette. */}
         <div className="flex flex-wrap items-center justify-between gap-2 bg-cta px-5 py-4 text-cta-encre desktop:px-7">
           <span className="text-label font-bold uppercase tracking-[0.14em]">
@@ -203,6 +215,12 @@ function ApercuRapport() {
             <p className="text-micro text-encre-douce">{t('reponse')}</p>
           </div>
         </div>
+
+        <span
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-28"
+          style={{ background: 'linear-gradient(to bottom, transparent, var(--web-surface))' }}
+        />
       </div>
 
       <figcaption className="text-micro mt-3 text-encre-douce">{t('legende')}</figcaption>
