@@ -120,6 +120,33 @@ export default async function Page({ params }: PageProps<'/[locale]/a-propos'>) 
         </Reveal>
       </Section>
 
+      {/* Le recit d'origine, entre le bandeau et les refus.
+          Il arrive apres le lieu et avant les partis pris : le hero pose la
+          these, le bandeau montre l'endroit, ce recit dit d'ou vient le
+          produit, les refus disent ce qu'on a choisi de ne pas en faire, et
+          « Terrain d'origine » referme. Deplacer la section, c'est deplacer
+          ce bloc — il ne depend de rien autour de lui.
+
+          Fond Sapin : le bandeau au-dessus et les refus en dessous sont en
+          Neige et en Panneau. Une bande sombre evite trois fonds clairs a la
+          suite, et donne au recit le poids d'un morceau a part. */}
+      <Section fond="sapin" aria-labelledby="recit-titre">
+        <Reveal className="mx-auto max-w-[62ch]">
+          <h2 id="recit-titre" className="font-serif text-h3 text-balance">
+            {t('recit.titre')}
+          </h2>
+          {/* Encre a 85 % pour le recit, 9,81:1 en pleine encre pour la
+              chute : elle porte la raison d'etre du produit, elle ne peut pas
+              etre le texte le moins lisible du bloc. */}
+          <div className="text-corps mt-8 flex flex-col gap-5 text-encre-inverse/85">
+            <p>{t('recit.p1')}</p>
+            <p>{t('recit.p2')}</p>
+            <p>{t('recit.p3')}</p>
+          </div>
+          <p className="text-intro mt-8 font-semibold text-encre-inverse">{t('recit.chute')}</p>
+        </Reveal>
+      </Section>
+
       <Section fond="fond-alt" aria-labelledby="partis-titre">
         <Reveal>
           <h2 id="partis-titre" className="font-serif text-h3 max-w-[20ch] text-balance">

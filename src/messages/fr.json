@@ -521,6 +521,13 @@
     "suite": "Choucas est conçu à partir de cette réalité, sans être limité à la montagne.",
     "portraitAlt": "Mathieu Dupont-Vieux, dans un sous-bois de conifères, le regard levé.",
     "bandeauAlt": "Sapins chargés de neige au bord d'un plateau, traces de skis dans la poudreuse.",
+    "recit": {
+      "titre": "Une gouvernante est partie après trente-cinq ans.",
+      "p1": "Ce ne sont pas les propriétaires qui l'ont remarqué en premier. Ce sont les clients. Ceux qui revenaient depuis des années et qui, cette saison-là, ont trouvé que quelque chose n'était plus tout à fait pareil. Personne n'aurait su dire quoi.",
+      "p2": "Elle savait quel client arrivait toujours avec trois heures de retard, quel chalet avait un radiateur capricieux, quelle famille ne voulait pas de fleurs dans le salon. Rien de tout ça n'était écrit. Ça n'avait jamais eu besoin de l'être.",
+      "p3": "Ici on aime accueillir. Le sens du détail, les petites attentions, le fait de faire vivre la région trois cent soixante-cinq jours par an — c'est un vrai savoir-faire, et il tient dans des têtes. Le jour où l'une de ces têtes s'en va, l'entreprise réapprend son métier, et le client le sent avant tout le monde.",
+      "chute": "Choucas est né de là. Pas pour remplacer ce savoir-faire : pour qu'il reste dans l'entreprise."
+    },
     "partisTitre": "Ce qu'on a choisi de ne pas faire",
     "partis": {
       "pms": {
