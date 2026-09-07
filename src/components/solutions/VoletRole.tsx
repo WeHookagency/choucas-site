@@ -21,7 +21,8 @@ const ECRAN = { largeur: 340, hauteurMax: 640 };
  *
  * Les trois ecrans sont de vraies captures, plafonnees a 640 px comme la
  * maquette : au-dela, un fondu dit que l'ecran continue. Aucune ombre solide
- * ici — le §0.5 des correctifs n'en autorise qu'une par page, et elle revient
+ * ici — le §0.5 des correctifs n'en autorise qu'une par page sur cette page,
+ * la regle n'ayant ete levee que pour la Home, et elle revient
  * au point de jonction.
  */
 export function VoletRole({

@@ -16,8 +16,10 @@ const LIEN_PWA = 'https://choucasv2.netlify.app';
  * rejoindre l'autre. La page Solutions les reprend a 340 px, la largeur de sa
  * colonne d'ecran.
  *
- * L'ombre solide est facultative : le §0.5 des correctifs n'en autorise
- * qu'une par page, et sur Solutions elle revient au point de jonction.
+ * L'ombre solide est facultative. Le §0.5 des correctifs n'en autorisait
+ * qu'une par page ; la regle est levee pour la Home depuis le 7 septembre
+ * 2026, ou les cinq cartes du brief la portent. Elle tient toujours sur
+ * Solutions, ou l'ombre revient au point de jonction.
  *
  * `cadre` pose le filet et le fond Mousse de la maquette de Solutions, ou
  * la capture est presentee comme un ecran dans son cadre. Sur la Home elle

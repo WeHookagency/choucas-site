@@ -30,6 +30,20 @@ import { SectionHeader } from '../ui/SectionHeader';
  * le §9, et c'est aussi pourquoi le libelle ne prend pas la teinte — le
  * Cuivre y tomberait sous le seuil du texte courant.
  */
+/**
+ * L'ombre solide des cartes de la section.
+ *
+ * Decalage plein de 6 px en `--web-cta-presse` (#17271D), qui se lit comme du
+ * noir sur le Sapin. Elle etait reservee a la carte de sortie : le §0.5 des
+ * correctifs n'autorisait qu'une ombre solide par page. Cette regle est levee
+ * pour la Home le 7 septembre 2026 — arbitrage du fondateur, au nom de
+ * l'unite visuelle de la section. Les cinq cartes la portent donc.
+ *
+ * Consequence a connaitre : l'ombre ne distingue plus la sortie. C'est la
+ * pastille pleine `CONSIGNE` sur Sapin qui s'en charge seule desormais.
+ */
+const OMBRE = 'shadow-[6px_6px_0_0_var(--web-cta-presse)]';
+
 const SOURCES = [
   { cle: 'appel', icone: 'telephone', ton: 'text-info border-info' },
   { cle: 'message', icone: 'whatsapp', ton: 'text-ok border-ok' },
@@ -78,8 +92,8 @@ const ETAPES = [
  *
  * Rien n'y est porte par la seule couleur. L'ordre est un `ol` numerote et
  * ses trois temps sont nommes ; le canal de chaque source est ecrit ; la
- * sortie se distingue par sa pastille pleine et son ombre solide autant que
- * par son ton.
+ * sortie se distingue par sa pastille pleine autant que par son ton — les
+ * cinq cartes portent la meme ombre depuis la levee du §0.5.
  *
  * La progression se lit sur une colonne de gauche : le chiffre d'etape au
  * traitement de la charte — Newsreader 400, 34 px en mobile et 52 px en
@@ -205,7 +219,7 @@ function Sources() {
       {SOURCES.map(({ cle, icone, ton }) => (
         <div
           key={cle}
-          className="flex flex-col rounded-carte border border-filet bg-surface p-6 text-encre desktop:p-7"
+          className={`flex flex-col rounded-carte border border-filet bg-surface p-6 text-encre desktop:p-7 ${OMBRE}`}
         >
           <div className="flex items-center justify-between gap-3">
             {/* Le canal passe devant : icone, encre pleine et corps de bouton,
@@ -236,7 +250,9 @@ function Arbitrage() {
   const t = useTranslations('briefIntake.arbitrage');
 
   return (
-    <div className="max-w-[560px] rounded-carte border border-filet bg-surface p-6 text-encre">
+    <div
+      className={`max-w-[560px] rounded-carte border border-filet bg-surface p-6 text-encre ${OMBRE}`}
+    >
       {/* La pastille d'etat reste seule sur sa ligne : le titre « Deux demandes
           s'opposent » disait ce que le corps dit deja, en le disant moins bien.
           `arbitrage.titre` et `arbitrage.meta` restent dans les fichiers de
@@ -258,14 +274,16 @@ function Arbitrage() {
 /**
  * Ce qui en sort : une consigne, pas un resume du brief.
  *
- * Seule carte a porter l'ombre solide et la pastille pleine — le §0.5 n'en
- * autorise qu'une par page, et sur la Home elle revient a ce moment-la.
+ * Seule carte a porter la pastille pleine. L'ombre solide, elle, est
+ * desormais commune aux cinq cartes de la section : voir `OMBRE`.
  */
 function Consigne() {
   const t = useTranslations('briefIntake.consigne');
 
   return (
-    <div className="max-w-[560px] rounded-carte border border-filet bg-surface p-6 text-encre shadow-[6px_6px_0_0_var(--web-cta-presse)]">
+    <div
+      className={`max-w-[560px] rounded-carte border border-filet bg-surface p-6 text-encre ${OMBRE}`}
+    >
       <div className="flex items-baseline justify-between gap-3">
         <span className="font-serif text-intro">{t('bien')}</span>
         <span className="text-label shrink-0 rounded-capsule bg-cta px-2.5 py-1 font-bold text-cta-encre">
