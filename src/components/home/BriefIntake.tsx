@@ -46,10 +46,17 @@ const ETAPES = [
  * « une demande recue par message, appel, email ou note est structuree en
  * actions ». Il la montre au lieu de la dire.
  *
- * ⚠️ Le brief n'est pas dans l'application : aucune capture ici, et aucune
- * phrase qui promette une disponibilite. Les cartes sont des fragments de
- * conversation et une consigne ecrite — jamais du chrome d'interface, qui se
- * lirait comme un ecran qu'on peut aller ouvrir.
+ * ⚠️ Aucune capture ici : les cartes sont des fragments de conversation et
+ * une consigne ecrite, jamais du chrome d'interface, qui se lirait comme un
+ * ecran qu'on peut aller ouvrir.
+ *
+ * ⚠️ EN REVANCHE, la liaison dit desormais « rassemble sur l'app Choucas »,
+ * la ou elle disait « rassembles dans un seul brief ». Elle attribue donc le
+ * rassemblement a l'application. La consigne d'origine de cette section
+ * demandait l'inverse — « le brief n'est pas integre a la PWA : pas de
+ * capture, pas de promesse de disponibilite ». Changement demande le
+ * 7 septembre 2026 ; a rendre a l'ancienne formule si la fonction n'existe
+ * toujours pas au lancement.
  *
  * Le conflit montre est celui du corpus produit : « personne dans la maison
  * avant 9 h » contre « des pancakes chaque matin ». Choucas ne transmet pas
