@@ -159,13 +159,31 @@ pas qu'on touche, ses habitudes de communication.
 
 ---
 
+## Durée de conservation — tranchée
+
+**Trois ans après le dernier séjour, pour les trois fiches : client, bien,
+propriétaire.** Passé ce délai, la fiche est supprimée.
+
+Le raisonnement est la limitation à la finalité, et non une durée d'usage reprise
+d'ailleurs. Une fiche existe pour mieux servir quelqu'un qui revient ; un client
+qui n'est pas revenu en trois saisons n'a plus de fiche utile, et une donnée qui
+ne sert plus n'a pas à être conservée.
+
+Décision du 9 septembre 2026. Portée sur le site : bloc « Combien de temps les
+informations sont gardées » de la politique de confidentialité, et question
+« Combien de temps gardez-vous les fiches ? » du groupe Données de la FAQ.
+
+Reste ouvert de son côté : les données que le site collecte lui-même — le
+rendez-vous Calendly, le courriel de la page Contact — n'ont toujours aucune
+durée annoncée.
+
+---
+
 ## Points non tranchés
 
 1. **Qui valide une entrée de mémoire.** Le responsable d'exploitation seul, ou
    toute personne habilitée au contrôle ? La règle du double contrôle ne dit rien
    ici : valider une mémoire n'est pas valider une mission.
-2. **Durée de conservation.** Combien de temps une fiche client survit-elle au
-   dernier séjour ? Croise la question RGPD non arbitrée.
-3. **Portabilité.** Un propriétaire qui change de conciergerie emporte-t-il
+2. **Portabilité.** Un propriétaire qui change de conciergerie emporte-t-il
    l'historique de son bien ? Argument commercial fort dans les deux sens, à
    trancher volontairement plutôt que par défaut.
