@@ -143,7 +143,6 @@ export default async function Page({ params }: PageProps<'/[locale]/solutions'>)
         libelleLien={manager('lienDemo')}
       >
         <p className="text-corps text-encre-douce">{t('exploitation.lead')}</p>
-        <p className="text-corps">{t('exploitation.liste')}</p>
         {BLOCS_EXPLOITATION.map((cle) => (
           <BlocVolet
             key={cle}
