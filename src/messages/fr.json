@@ -978,6 +978,10 @@
         "q": "Que deviennent les photos de biens privés ?",
         "r": "Elles servent uniquement au contrôle qualité de la mission concernée et restent liées au bien. Elles ne sont pas partagées hors de votre équipe."
       },
+      "conservation": {
+        "q": "Combien de temps gardez-vous les fiches ?",
+        "r": "Trois ans après le dernier séjour, pour les trois fiches — client, bien, propriétaire — puis elles sont supprimées. La durée vient de la finalité : une fiche existe pour mieux servir quelqu'un qui revient. Un client qui n'est pas revenu en trois saisons n'a plus de fiche utile."
+      },
       "acces-proprietaire": {
         "q": "Un propriétaire peut-il exiger de voir ce qui a été enregistré ?",
         "r": "Oui, dans les limites du droit d’accès applicable. La demande passe par vous, en tant que responsable du traitement pour vos biens."

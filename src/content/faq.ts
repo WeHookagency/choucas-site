@@ -44,7 +44,7 @@ export const groupesFaq = [
   },
   {
     id: 'donnees',
-    questions: ['hebergement', 'photos', 'acces-proprietaire', 'sortie'],
+    questions: ['hebergement', 'photos', 'conservation', 'acces-proprietaire', 'sortie'],
   },
   {
     id: 'prix',
