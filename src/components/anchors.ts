@@ -32,9 +32,16 @@ export const HAUTEUR_BARRE_MOBILE = 60;
 /**
  * Destination des CTA « Demander une demo » — la prise de rendez-vous.
  *
- * Les quatre boutons de la page lisent cette seule constante.
+ * Tous les boutons du site lisent cette seule constante : quinze points
+ * d'usage dans huit fichiers, une seule adresse. Changer de prestataire est
+ * donc une ligne — mais elle ne se change jamais seule : la politique de
+ * confidentialite nomme le prestataire, et les deux doivent rester coherentes
+ * a tout instant. Voir `confidentialite.traitementTexte` et
+ * `confidentialite.sousTraitantTexte` dans les deux fichiers de traduction.
+ *
+ * Calendly remplace par Google Calendar le 9 septembre 2026.
  */
-export const LIEN_DEMO = 'https://calendly.com/mathieudv/rencontre-1o1';
+export const LIEN_DEMO = 'https://calendar.app.google/ffM5wc8tXhutVs477';
 
 /**
  * Attributs du lien de demonstration. Poses a cote de l'adresse pour qu'un
