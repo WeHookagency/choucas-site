@@ -10,13 +10,18 @@ import { routing } from '@/i18n/routing';
 /**
  * Les blocs de la page, dans l'ordre de lecture.
  *
- * `conservation` entre le 9 septembre 2026. Il parle des fiches de
- * l'application, pas du site : la duree de trois ans apres le dernier sejour
- * est une decision produit, arretee dans la specification des trois memoires.
+ * `conservation` entre le 9 septembre 2026 et couvre les deux traitements,
+ * chacun avec sa duree et sa raison :
  *
- * ⚠️ Les donnees que ce site collecte lui-meme — le rendez-vous Calendly, le
- * courriel de la page Contact — n'ont toujours aucune duree annoncee. Le RGPD
- * en demande une. Elle reste a arbitrer.
+ *   - ce que le site collecte — le rendez-vous, les messages de la page
+ *     Contact — trois ans a compter du dernier echange. C'est de la
+ *     prospection, et trois ans en est la duree retenue.
+ *   - les fiches de l'application — trois ans apres le dernier sejour. Meme
+ *     chiffre, autre raison : la finalite n'est pas de prospecter mais de
+ *     mieux servir quelqu'un qui revient.
+ *
+ * Le meme chiffre pour deux raisons differentes se defend ; le meme
+ * raisonnement pour deux finalites differentes, non. D'ou les deux phrases.
  */
 const BLOCS = ['traitement', 'sousTraitant', 'conservation', 'droits', 'absence'] as const;
 
