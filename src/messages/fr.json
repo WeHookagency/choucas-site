@@ -379,6 +379,8 @@
     "traitementTexte": "En cliquant sur « Demander une démo », vous êtes dirigé vers Calendly pour choisir un créneau. Y sont recueillis votre nom, votre adresse e-mail et l'horaire retenu. C'est le seul traitement de données personnelles lié à ce site.",
     "sousTraitantTitre": "Un prestataire établi hors de l'Union européenne",
     "sousTraitantTexte": "Calendly assure la prise de rendez-vous en qualité de sous-traitant. Il est établi hors de l'Union européenne, et les informations saisies sur son service y sont traitées.",
+    "conservationTitre": "Combien de temps les informations sont gardées",
+    "conservationTexte": "Dans Choucas, les fiches client, bien et propriétaire sont supprimées trois ans après le dernier séjour. La raison n'est pas une durée d'usage : c'est la finalité. Une fiche existe pour mieux servir quelqu'un qui revient ; un client qui n'est pas revenu en trois saisons n'a plus de fiche utile, et une donnée qui ne sert plus n'a pas à être conservée.",
     "droitsTitre": "Vos droits",
     "droitsTexte": "Vous disposez d'un droit d'accès, de rectification et de suppression des données qui vous concernent. Pour l'exercer, écrivez à l'adresse indiquée dans les mentions légales.",
     "absenceTitre": "Ce que ce site ne fait pas",

@@ -7,7 +7,18 @@ import { BlocLegal, PageLegale } from '@/components/legal/PageLegale';
 import { localeAlternates } from '@/i18n/metadata';
 import { routing } from '@/i18n/routing';
 
-const BLOCS = ['traitement', 'sousTraitant', 'droits', 'absence'] as const;
+/**
+ * Les blocs de la page, dans l'ordre de lecture.
+ *
+ * `conservation` entre le 9 septembre 2026. Il parle des fiches de
+ * l'application, pas du site : la duree de trois ans apres le dernier sejour
+ * est une decision produit, arretee dans la specification des trois memoires.
+ *
+ * ⚠️ Les donnees que ce site collecte lui-meme — le rendez-vous Calendly, le
+ * courriel de la page Contact — n'ont toujours aucune duree annoncee. Le RGPD
+ * en demande une. Elle reste a arbitrer.
+ */
+const BLOCS = ['traitement', 'sousTraitant', 'conservation', 'droits', 'absence'] as const;
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
