@@ -35,6 +35,11 @@ export function MemoireEntreprise() {
         </h2>
         <p className="text-intro mt-6 max-w-[62ch] text-encre-douce">{t('intro')}</p>
         <p className="text-intro mt-6 max-w-[62ch] font-semibold">{t('chapo')}</p>
+        {/* La regle d'entree, avant les trois fiches : elle dit comment elles
+            se remplissent, pas ce qu'elles contiennent. Sans elle, les trois
+            fiches se lisent comme des depots ou l'on verse ; c'est pourtant ce
+            geste de validation qui distingue Choucas d'un carnet partage. */}
+        <p className="text-corps mt-4 max-w-[62ch] text-encre-douce">{t('regle')}</p>
       </Reveal>
 
       <Reveal as="ul" group className="mt-titre grid gap-10 desktop:grid-cols-3 desktop:gap-12">
