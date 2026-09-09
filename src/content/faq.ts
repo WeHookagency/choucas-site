@@ -44,7 +44,7 @@ export const groupesFaq = [
   },
   {
     id: 'donnees',
-    questions: ['hebergement', 'photos', 'conservation', 'acces-proprietaire', 'sortie'],
+    questions: ['hebergement', 'photos', 'conservation', 'sante', 'acces-proprietaire', 'sortie'],
   },
   {
     id: 'prix',
@@ -53,20 +53,21 @@ export const groupesFaq = [
 ] as const satisfies readonly GroupeFaq[];
 
 /**
- * Deux questions de la maquette ne sont pas publiees : leur reponse n'est pas
+ * Une question de la maquette n'est pas publiee : sa reponse n'est pas
  * arbitree, et une FAQ qui repond « nous ne savons pas encore » sur une page
  * dont le travail est de lever des objections en cree une.
  *
- *  - donnees / sante — traitement des informations de sante ou d'allergie
- *    d'un voyageur ;
  *  - prix / support-samedi — le support repond-il le samedi apres-midi.
  *
- * Elles n'ont volontairement ni identifiant dans les groupes ci-dessus ni cle
- * de traduction : rien a desactiver, donc rien a publier par accident. Les
+ * Elle n'a volontairement ni identifiant dans les groupes ci-dessus ni cle de
+ * traduction : rien a desactiver, donc rien a publier par accident. La
  * remettre demande une reponse arbitree, puis une entree dans le groupe et
  * dans `faq.questions`.
+ *
+ * `donnees/sante` en est sortie le 9 septembre 2026 : la reponse est arbitree
+ * — Choucas ne stocke aucune donnee de sante — et la question est publiee.
  */
-export const questionsNonArbitrees = ['donnees/sante', 'prix/support-samedi'] as const;
+export const questionsNonArbitrees = ['prix/support-samedi'] as const;
 
 /**
  * Les questions de prix reprises sur la page Tarifs, depuis la meme source

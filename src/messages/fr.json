@@ -980,7 +980,11 @@
       },
       "conservation": {
         "q": "Combien de temps gardez-vous les fiches ?",
-        "r": "Trois ans après le dernier séjour, pour les trois fiches — client, bien, propriétaire — puis elles sont supprimées. La durée vient de la finalité : une fiche existe pour mieux servir quelqu'un qui revient. Un client qui n'est pas revenu en trois saisons n'a plus de fiche utile."
+        "r": "Trois ans après le dernier séjour, pour les trois fiches — client, bien, propriétaire — puis elles sont supprimées. La durée vient de la finalité : une fiche existe pour mieux servir quelqu'un qui revient. Un client qui n'est pas revenu en trois saisons n'a plus de fiche utile."
+      },
+      "sante": {
+        "q": "Stockez-vous les allergies ou les données de santé d'un voyageur ?",
+        "r": "Choucas ne stocke aucune donnée de santé d'un voyageur — ni allergie, ni intolérance, ni traitement, dans aucun champ, y compris les champs libres que vous configurez vous-même. C'est une décision, pas un oubli : ces données relèvent d'un régime particulier que nous avons choisi de ne pas manipuler. Une mention à la saisie le rappelle aux équipes."
       },
       "acces-proprietaire": {
         "q": "Un propriétaire peut-il exiger de voir ce qui a été enregistré ?",
