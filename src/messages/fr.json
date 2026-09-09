@@ -543,6 +543,10 @@
         "titre": "On ne mesure pas les personnes.",
         "texte": "On mesure les biens et les missions."
       },
+      "sante": {
+        "titre": "On ne stocke pas de données de santé.",
+        "texte": "Ni allergie, ni intolérance, ni traitement. Ce n'est pas un oubli, c'est une décision."
+      },
       "envoi": {
         "titre": "On n'envoie rien automatiquement.",
         "texte": "Un rapport part quand un humain décide qu'il part."

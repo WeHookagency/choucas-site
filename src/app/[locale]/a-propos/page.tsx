@@ -15,8 +15,15 @@ import { localeAlternates } from '@/i18n/metadata';
 import { getPathname } from '@/i18n/navigation';
 import { routing } from '@/i18n/routing';
 
-/** Les quatre refus, dans l'ordre de la maquette. */
-const PARTIS = ['pms', 'personnes', 'envoi', 'reseau'] as const;
+/**
+ * Les cinq refus. Les quatre premiers viennent de la maquette ; « sante »
+ * entre le 9 septembre 2026, depuis la specification des trois memoires ou
+ * c'est une decision arretee et non une omission.
+ *
+ * Il se place juste apres « on ne mesure pas les personnes » : les deux
+ * refusent d'enregistrer quelque chose sur quelqu'un, et se lisent en paire.
+ */
+const PARTIS = ['pms', 'personnes', 'sante', 'envoi', 'reseau'] as const;
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
