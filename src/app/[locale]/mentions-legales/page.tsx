@@ -43,13 +43,23 @@ export default async function MentionsLegales({
         <p>{t('editeurNom')}</p>
         <p>{t('editeurAdresse')}</p>
         <p>{t('editeurSiret')}</p>
+        {/* Le telephone et le courriel sont les deux seules cibles cliquables
+            de la page, et ce sont celles qu'on touche sur un telephone. Elles
+            mesuraient 19 px de haut. Le remplissage vertical d'un element en
+            ligne agrandit la boite sensible sans toucher a l'interligne :
+            c'est le remede employe partout ailleurs sur le site. */}
         <p>
-          <a href={`tel:${t('editeurTelephone').replace(/\s/g, '')}`}>
+          <a
+            href={`tel:${t('editeurTelephone').replace(/\s/g, '')}`}
+            className="inline-flex min-h-11 items-center"
+          >
             {t('editeurTelephone')}
           </a>
         </p>
         <p>
-          <a href={`mailto:${t('editeurEmail')}`}>{t('editeurEmail')}</a>
+          <a href={`mailto:${t('editeurEmail')}`} className="inline-flex min-h-11 items-center">
+            {t('editeurEmail')}
+          </a>
         </p>
         <p className="pt-2">
           {t('directeurLabel')} : {t('directeurNom')}
