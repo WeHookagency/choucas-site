@@ -10,6 +10,13 @@ import { routing } from '@/i18n/routing';
 /**
  * Les blocs de la page, dans l'ordre de lecture.
  *
+ * `rendezVous` et `traitement` sont separes le 9 septembre 2026. Un seul bloc
+ * portait les deux, et sa premiere phrase disait desormais « le site ne
+ * recueille aucune donnee par lui-meme » alors que son titre annoncait « la
+ * seule donnee que ce site collecte ». Deux traitements distincts, deux blocs :
+ * la prise de rendez-vous passe par Google Calendar et y recueille quelque
+ * chose ; le formulaire, lui, n'envoie rien depuis ce site.
+ *
  * `conservation` entre le 9 septembre 2026 et couvre les deux traitements,
  * chacun avec sa duree et sa raison :
  *
@@ -23,7 +30,7 @@ import { routing } from '@/i18n/routing';
  * Le meme chiffre pour deux raisons differentes se defend ; le meme
  * raisonnement pour deux finalites differentes, non. D'ou les deux phrases.
  */
-const BLOCS = ['traitement', 'sousTraitant', 'conservation', 'droits', 'absence'] as const;
+const BLOCS = ['rendezVous', 'traitement', 'sousTraitant', 'conservation', 'droits', 'absence'] as const;
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));

@@ -6,7 +6,7 @@ import { composerMailto } from './mailto.ts';
 
 test('la destination provisoire est bien celle demandée', () => {
   // Elle sera remplacée par contact@choucas.app : ce test le signalera.
-  assert.equal(DESTINATION_FORMULAIRE, 'mathieudv@wehookagency.com');
+  assert.equal(DESTINATION_FORMULAIRE, 'mathieudv@choucas.app');
   assert.ok(composerMailto(DESTINATION_FORMULAIRE, 'Sujet', []).startsWith(`mailto:${DESTINATION_FORMULAIRE}?`));
 });
 
