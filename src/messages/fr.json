@@ -467,6 +467,10 @@
       "apresMidi": "Après-midi",
       "soir": "Soir"
     },
+    "exemple": {
+      "legende": "Chaque vallée est différente et vous obtiendrez votre propre Choucas configuré",
+      "captureAlt": "La journée d'une conciergerie configurée dans Choucas : huit missions avec leurs heures, leurs chalets et leur état — faite, en retard, en cours, prévue — puis l'accès à la gestion et une alerte urgente."
+    },
     "cloture": "Le soir, votre conciergerie a son application configurée.",
     "etapes": {
       "observer": {
