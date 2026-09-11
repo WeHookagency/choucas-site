@@ -598,29 +598,53 @@
     "retour": "Toutes les notes"
   },
   "produit": {
-    "eyebrow": "Résoudre",
-    "titre": "L'imprévu reste <accent>dans le flux.</accent>",
-    "intro": "Un manque, un problème ou une urgence ne devrait pas obliger le manager à reconstruire la situation depuis plusieurs conversations.",
-    "metaDescription": "Centralisez les briefs, missions, contrôles, incidents et rapports propriétaires dans une même logique opérationnelle jusqu'au PRÊT.",
-    "etapes": {
-      "signaler": {
-        "titre": "Signaler depuis la mission",
-        "texte": "Le terrain renseigne le bien, le niveau de gravité, la situation et, si utile, une photo."
-      },
-      "remonter": {
-        "titre": "Faire remonter ce qui mérite vraiment l'attention",
-        "texte": "Les incidents importants sont remontés au manager avec leur contexte."
-      },
-      "transmettre": {
-        "titre": "Transmettre à un prestataire avec relecture",
-        "texte": "Choucas peut préparer la transmission. Le message externe est relu et envoyé par un humain."
-      },
-      "controle": {
-        "titre": "Revenir au contrôle",
-        "texte": "Une intervention réalisée ne suffit pas à qualifier automatiquement le logement PRÊT. Le flux retourne au contrôle."
-      }
+    "eyebrow": "Le produit",
+    "titre": "Une journée de conciergerie, du brief au PRÊT.",
+    "intro": "Quatre choses tiennent une exploitation : ce qu'on vous a demandé, ce qui a été fait, qui l'a vérifié, et ce qu'on en montre au propriétaire. Choucas ne fait que ça.",
+    "metaDescription": "Le brief, la mission terrain, le double contrôle et l'état PRÊT — une journée de conciergerie de bout en bout, et ce que Choucas fait quand l'imprévu arrive.",
+    "brief": {
+      "titre": "Le brief",
+      "lead": "Un brief n'arrive jamais en ordre.",
+      "p1": "Un message vocal du propriétaire, un mail de l'agence, un texto du client la veille. Trois sources, trois formats, et une gouvernante qui reconstitue tout à 7h du matin.",
+      "p2": "Choucas les rassemble en une consigne unique par bien : ce qu'il faut faire, ce qui a été demandé, ce qui s'oppose. Quand deux demandes ne tiennent pas ensemble, il pose le conflit au lieu de transmettre les deux.",
+      "p3": "Le brief ne repart pas de zéro chaque saison. Un client fidélisé l'an dernier arrive avec ce qu'on sait déjà de lui — ses habitudes, ce qui s'était mal passé, ce qu'il faut vérifier avant son retour. Le propriétaire aussi : ses draps, sa machine à café, ce qu'il faut mettre en place avant qu'il arrive chez lui.",
+      "reserve": "Le brief consolidé"
     },
-    "ailleursAria": "Le reste du produit, ailleurs sur le site"
+    "mission": {
+      "titre": "La mission terrain",
+      "lead": "Une mission à la fois, en grand.",
+      "p1": "Ce qu'il faut faire, le code du coffre, ce que le client a demandé, les photos attendues à la fin. Le reste est là si on le cherche — mais on ne le cherche pas avec les mains pleines.",
+      "p2": "Le réseau n'est pas supposé : un chalet en fond de vallée ne coupe pas la journée.",
+      "reserve": "L'écran équipier"
+    },
+    "controle": {
+      "titre": "Le double contrôle",
+      "lead": "Personne ne valide son propre travail.",
+      "p1": "C'est une contrainte, pas une option. La personne qui a exécuté la mission ne peut pas être celle qui la valide. Choucas refuse le geste.",
+      "p2": "Ce que ça produit : une preuve à deux signatures, horodatée, avec les deux noms. Le jour où un voyageur conteste l'état du bien, vous n'avez pas à retrouver un fil de messages.",
+      "reserve": "L'écran de contrôle"
+    },
+    "pret": {
+      "titre": "Terminé ne veut pas dire PRÊT",
+      "lead": "PRÊT est un état validé, pas une case cochée.",
+      "p1": "Un ménage terminé à 11h50 n'est pas un chalet livrable. Entre les deux il y a un contrôle, et parfois une reprise. Choucas distingue les deux états, et le tableau du matin ne compte comme prêts que les biens qui le sont.",
+      "reserve": "Le verdict du jour"
+    },
+    "imprevu": {
+      "titre": "Quand l'imprévu arrive",
+      "lead": "Les WC du rez-de-chaussée sont bouchés. L'arrivée est dans trois heures.",
+      "p1": "Le terrain signale depuis la mission — le bien, la gravité, la situation, une photo.",
+      "p2": "Avant d'appeler un artisan, on regarde ce qu'on sait du bien — la marque et le modèle de l'appareil, ce qui a déjà été réparé dessus, la procédure que vous avez fixée pour ce type de panne. Un déplacement évité vaut mieux qu'un déplacement bien organisé.",
+      "p3": "Seul ce qui change l'état d'un bien remonte — le manager reçoit l'exception avec son contexte, pas la liste de tout ce qui s'est dit.",
+      "p4": "La transmission à l'artisan est préparée, jamais envoyée seule — un humain relit et envoie.",
+      "p5": "L'intervention ne referme rien — un plombier passé ne rend pas le chalet PRÊT. Le flux retourne au contrôle.",
+      "reserve": "La fiche du bien"
+    },
+    "refus": {
+      "titre": "Ce que Choucas ne fait pas",
+      "texte": "Il ne remplace pas votre PMS, ne mesure pas les personnes, n'envoie rien automatiquement, ne suppose pas le réseau, et ne stocke aucune donnée de santé."
+    },
+    "cta": "Organiser une journée sur site"
   },
   "tarifs": {
     "titre": "Tarifs",
