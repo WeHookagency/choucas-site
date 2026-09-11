@@ -61,6 +61,12 @@ def corriger(s):
     # leurs deux-points.
     s = re.sub(r'(https?|mailto|tel)' + NB + r':', r'\1:', s)
     s = re.sub(r'(\d)' + NB + r':(\d)', r'\1:\2', s)
+
+    # Un nombre ne se separe ni de son groupe de mille ni de son unite.
+    # « 2 000 € » coupe en fin de ligne donne « 2 » puis « 000 € », et
+    # « 20 € » donne « 20 » puis « € ». Les deux se sont produits.
+    s = re.sub(r'(\d)[ ](\d{3})(?!\d)', r'\1' + NB + r'\2', s)
+    s = re.sub(r'(\d)[ ](€|%|h\b|min\b)', r'\1' + NB + r'\2', s)
     return s, s != avant
 
 

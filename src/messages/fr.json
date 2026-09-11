@@ -623,66 +623,33 @@
     "ailleursAria": "Le reste du produit, ailleurs sur le site"
   },
   "tarifs": {
-    "eyebrow": "Une tarification liée à votre parc, pas à votre équipe",
-    "titre": "Des utilisateurs terrain illimités. <accent>Un prix basé sur les biens actifs.</accent>",
-    "intro": "Choucas ne facture pas chaque personne supplémentaire sur le terrain. La tarification évolue avec le nombre de biens actifs suivis dans Choucas.",
-    "factureTitre": "Ce qui est facturé",
-    "facture": {
-      "implantation": "Une implantation, une fois.",
-      "abonnement": "Puis un abonnement, selon le nombre de biens actifs.",
-      "utilisateurs": "Utilisateurs terrain illimités."
-    },
-    "grilleTitre": "La grille",
-    "htMention": "Tous les montants sont hors taxes.",
-    "implantation": {
-      "titre": "Implantation",
-      "montant": "2 490 €",
-      "unite": "HT, une fois",
-      "texte": "L'implantation comprend la cartographie opérationnelle, la configuration, une journée avec l'équipe, les tests et les ajustements convenus."
-    },
-    "abonnementTitre": "Abonnement mensuel",
-    "colonneBiens": "Biens actifs",
-    "colonneMontant": "Abonnement mensuel HT",
-    "paliers": {
-      "p1": {
-        "biens": "1–15",
-        "montant": "249 €"
-      },
-      "p2": {
-        "biens": "16–30",
-        "montant": "349 €"
-      },
-      "p3": {
-        "biens": "31–60",
-        "montant": "499 €"
-      },
-      "p4": {
-        "biens": "61–100",
-        "montant": "699 €"
-      },
-      "p5": {
-        "biens": "100+",
-        "montant": "Sur devis"
-      }
-    },
-    "positionTitre": "Ce que Choucas couvre",
-    "position": {
-      "intervalle": {
-        "titre": "L'intervalle entre deux séjours",
-        "texte": "Choucas couvre ce qui se passe entre le départ d'un voyageur et l'arrivée du suivant."
-      },
-      "controle": {
-        "titre": "Le double contrôle",
-        "texte": "Le double contrôle avant de déclarer un bien prêt."
-      },
-      "contexte": {
-        "titre": "Le contexte du terrain",
-        "texte": "Le contexte qui reste attaché à la mission."
-      }
-    },
-    "faqTitre": "Les questions de prix",
-    "faqLien": "Toutes les questions",
-    "cloture": "Un produit commun. Une configuration adaptée à votre exploitation."
+    "titre": "Tarifs",
+    "chapeau": "Un démarrage, puis un abonnement.",
+    "intro": "Choucas ne se vend pas en libre-service. Il se configure sur votre exploitation, avec vous, puis il tourne.",
+    "demarrageTitre": "Le démarrage — 2 000 € HT",
+    "demarrageP1": "Une journée sur site. Nous posons vos biens, vos rôles, vos workflows, vos checklists. À la fin de la journée, votre équipe travaille dans Choucas.",
+    "demarrageP2": "Ce n'est pas une formation : c'est la configuration de votre outil, faite devant vous, à partir de votre organisation réelle.",
+    "abonnementTitre": "L'abonnement — 20 € HT par bien et par mois",
+    "abonnementMinimum": "Minimum 300 € HT par mois.",
+    "abonnementExemples": "Une conciergerie de dix biens paie le minimum. À vingt biens, 400 € par mois. À quarante, 800 €.",
+    "abonnementSocle": "Le socle comprend le brief, les missions terrain, le double contrôle et l'état PRÊT. Ce sont les quatre choses sans lesquelles Choucas n'est pas Choucas, et elles ne se vendent pas séparément.",
+    "testTitre": "Pouvez-vous tester avant ?",
+    "testP1": "La semaine qui suit la journée est le test.",
+    "testP2": "Vous engagez le démarrage, pas l'année. Nous configurons sur place, puis vous faites tourner votre exploitation avec Choucas pendant une semaine que vous choisissez — vos vraies missions, vos vraies équipes, vos vrais samedis. Nous restons joignables pendant cette semaine.",
+    "testP3": "À l'issue, vous décidez. L'abonnement ne démarre que si vous nous le dites : rien ne se déclenche tout seul.",
+    "optionsTitre": "Les options",
+    "optionsIntro": "Elles s'ajoutent au socle, selon votre terrain. Aucune n'est nécessaire pour commencer.",
+    "optionsRapportNom": "Le rapport de saison propriétaire — 120 € HT par bien et par saison.",
+    "optionsRapportTexte": "Un document à votre marque, remis à chaque propriétaire : les rotations, les incidents traités, les preuves de contrôle, l'historique d'entretien, et les travaux à prévoir pour la saison suivante. Un point d'étape en cours de saison précède le rapport final.",
+    "arriveTitre": "Ce qui arrive",
+    "arriveIntro": "Ces deux briques sont en construction. Elles s'ajouteront au socle, sur devis, quand elles seront prêtes.",
+    "arriveMemoireNom": "La mémoire de l'entreprise — les fiches client, bien et propriétaire.",
+    "arriveMemoireTexte": "Ce que votre entreprise sait cesse de vivre dans des têtes.",
+    "arriveLitigeNom": "Le dossier de litige.",
+    "arriveLitigeTexte": "L'export daté d'un départ et de l'arrivée qui suit, avec les deux personnes qui sont intervenues, leurs rôles et les photos horodatées.",
+    "paiementTitre": "Le paiement",
+    "paiementTexte": "Mensuel, à la saison ou à l'année : vous choisissez au démarrage. Le montant ne change pas, seule la fréquence.",
+    "htMention": "Tous les prix sont hors taxes."
   },
   "contact": {
     "titre": "Parlons d'une vraie journée <accent>d'exploitation.</accent>",

@@ -3,24 +3,12 @@ import { notFound } from 'next/navigation';
 import { hasLocale } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
-import { ATTRS_DEMO, LIEN_DEMO } from '@/components/anchors';
-import { ListeFaq, type EntreeFaq } from '@/components/faq/ListeFaq';
-import { Accent } from '@/components/ui/Accent';
 import { Cta } from '@/components/ui/Cta';
-import { Eyebrow } from '@/components/ui/Eyebrow';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
-import { questionsTarifs } from '@/content/faq';
 import { localeAlternates } from '@/i18n/metadata';
-import { Link } from '@/i18n/navigation';
+import { getPathname } from '@/i18n/navigation';
 import { routing } from '@/i18n/routing';
-
-/** Les cinq paliers d'abonnement, seuils du §16 des contenus. */
-const PALIERS = ['p1', 'p2', 'p3', 'p4', 'p5'] as const;
-
-/** Les trois lignes de ce qui est facture, et les trois du positionnement. */
-const FACTURE = ['implantation', 'abonnement', 'utilisateurs'] as const;
-const POSITION = ['intervalle', 'controle', 'contexte'] as const;
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -43,22 +31,27 @@ export async function generateMetadata(props: {
 }
 
 /**
- * Tarifs — les montants du §16, et ce qu'ils couvrent.
+ * Tarifs — modele du 11 septembre 2026 : un demarrage, puis un abonnement.
  *
- * Une implantation payee une fois, puis un abonnement lie au parc. Les seuils
- * de biens sont ceux du fichier de contenus, au caractere pres : les inventer
- * reviendrait a inventer un prix.
+ * La page precedente vendait une implantation a 2 490 € puis un abonnement en
+ * cinq paliers de biens actifs. Ce modele n'existe plus : le demarrage passe a
+ * 2 000 €, l'abonnement devient lineaire — 20 € par bien et par mois, minimum
+ * 300 € — et deux etages s'ajoutent, les options et ce qui est en
+ * construction.
  *
- * Ni duree d'engagement ni delai de support n'est annonce : rien n'est
- * tranche, et une page de prix est le pire endroit ou creer une attente.
+ * Sept sections, un H1, un H2 chacune, aucun H3 : c'est la contrainte posee.
+ * Les options et les briques a venir sont donc des paragraphes a intitule en
+ * gras, pas des titres — un niveau de titre pour une ligne de prix
+ * encombrerait la navigation au clavier sans rien structurer.
  *
- * La section de positionnement dit ce que Choucas couvre. Elle ne nomme ni
- * n'evoque aucun autre produit, ne compare rien et n'oppose rien : un site
- * qui se definit par ce qu'il n'est pas laisse le lecteur avec le nom de
- * l'autre en tete.
+ * Les fonds alternent, avec une seule bande sombre : « Pouvez-vous tester
+ * avant ? » est la section qui leve l'objection la plus chere, elle prend le
+ * poids que le Sapin lui donne. Suite des fonds : Neige, Panneau, Neige,
+ * Sapin, Neige, Panneau, Neige.
  *
- * Les questions de prix viennent de la meme source que `/faq`, pas d'une
- * copie. Le balisage `FAQPage` reste sur `/faq` seule.
+ * ⚠️ Trois reponses de la FAQ decrivent encore l'ancien modele et le
+ * contredisent — voir le message du commit. Elles ne sont pas sur cette page,
+ * mais elles parlent d'elle.
  */
 export default async function Page({ params }: PageProps<'/[locale]/tarifs'>) {
   const { locale } = await params;
@@ -66,134 +59,103 @@ export default async function Page({ params }: PageProps<'/[locale]/tarifs'>) {
   setRequestLocale(locale);
 
   const t = await getTranslations('tarifs');
-  const faq = await getTranslations('faq');
-  const actions = await getTranslations('actions');
-
-  const questions: EntreeFaq[] = questionsTarifs.map((cle) => ({
-    id: cle,
-    q: faq(`questions.${cle}.q`),
-    r: faq(`questions.${cle}.r`),
-  }));
+  const contact = await getTranslations('contact');
 
   return (
     <main>
       <Section fond="fond" aria-labelledby="tarifs-titre">
-        <Eyebrow>{t('eyebrow')}</Eyebrow>
-        <h1 id="tarifs-titre" className="font-serif text-h2 mt-4 max-w-[18ch] text-balance">
-          {t.rich('titre', { accent: (chunks) => <Accent>{chunks}</Accent> })}
+        <h1 id="tarifs-titre" className="font-serif text-h2">
+          {t('titre')}
         </h1>
-        <p className="text-intro mt-8 max-w-[62ch] text-encre-douce">{t('intro')}</p>
+        <p className="text-intro mt-8 max-w-[62ch] font-semibold">{t('chapeau')}</p>
+        <p className="text-intro mt-4 max-w-[62ch] text-encre-douce">{t('intro')}</p>
       </Section>
 
-      <Section fond="fond" aria-labelledby="facture-titre" sansRythme className="pb-section">
-        <h2 id="facture-titre" className="font-serif text-h3">
-          {t('factureTitre')}
-        </h2>
-        <Reveal as="ul" group className="mt-titre max-w-[720px]">
-          {FACTURE.map((cle) => (
-            <li key={cle} className="text-intro flex gap-4 border-t border-filet py-5">
-              <span aria-hidden className="mt-2 size-2 shrink-0 rounded-full bg-accent" />
-              {t(`facture.${cle}`)}
-            </li>
-          ))}
-        </Reveal>
-      </Section>
-
-      <Section fond="fond-alt" aria-labelledby="grille-titre">
-        <h2 id="grille-titre" className="font-serif text-h3">
-          {t('grilleTitre')}
-        </h2>
-
-        {/* L'implantation d'abord, et seule : elle se paie une fois, elle ne
-            se compare pas aux paliers mensuels. */}
-        <Reveal className="mt-titre max-w-[720px] rounded-carte-majeure border border-filet bg-surface p-6 desktop:p-8">
-          <h3 className="font-serif text-h3">{t('implantation.titre')}</h3>
-          <p className="mt-4 flex flex-wrap items-baseline gap-2">
-            <span className="font-serif text-[2.125rem] leading-none tabular-nums desktop:text-[3.25rem]">
-              {t('implantation.montant')}
-            </span>
-            <span className="text-corps text-encre-douce">{t('implantation.unite')}</span>
-          </p>
-          <p className="text-corps mt-6 max-w-[62ch] text-encre-douce">{t('implantation.texte')}</p>
-        </Reveal>
-
-        <h3 className="font-serif text-h3 mt-titre">{t('abonnementTitre')}</h3>
-        <Reveal className="mt-6 max-w-[720px] overflow-x-auto">
-          <table className="w-full border-collapse text-left">
-            <caption className="sr-only">{t('abonnementTitre')}</caption>
-            <thead>
-              <tr className="border-b border-filet">
-                <th scope="col" className="text-label py-3 font-semibold uppercase text-encre-douce">
-                  {t('colonneBiens')}
-                </th>
-                <th
-                  scope="col"
-                  className="text-label py-3 text-right font-semibold uppercase text-encre-douce"
-                >
-                  {t('colonneMontant')}
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {PALIERS.map((cle) => (
-                <tr key={cle} className="border-b border-filet">
-                  <th scope="row" className="text-intro py-4 font-normal">
-                    {t(`paliers.${cle}.biens`)}
-                  </th>
-                  <td className="text-intro py-4 text-right font-semibold tabular-nums">
-                    {t(`paliers.${cle}.montant`)}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </Reveal>
-
-        <p className="text-corps mt-6 text-encre-douce">{t('htMention')}</p>
-      </Section>
-
-      <Section fond="fond" aria-labelledby="position-titre">
-        <h2 id="position-titre" className="font-serif text-h3 max-w-[20ch] text-balance">
-          {t('positionTitre')}
-        </h2>
-        <Reveal as="ul" group className="mt-titre grid gap-8 desktop:grid-cols-3">
-          {POSITION.map((cle) => (
-            <li key={cle} className="border-t border-filet pt-6">
-              <h3 className="font-serif text-h3 text-balance">{t(`position.${cle}.titre`)}</h3>
-              <p className="text-corps mt-3 text-encre-douce">{t(`position.${cle}.texte`)}</p>
-            </li>
-          ))}
-        </Reveal>
-      </Section>
-
-      <Section fond="fond-alt" aria-labelledby="tarifs-faq">
-        <Reveal className="max-w-[720px]">
-          <h2 id="tarifs-faq" className="font-serif text-h3">
-            {t('faqTitre')}
+      <Section fond="fond-alt" aria-labelledby="demarrage-titre">
+        <Reveal className="max-w-[62ch]">
+          <h2 id="demarrage-titre" className="font-serif text-h3 text-balance">
+            {t('demarrageTitre')}
           </h2>
-          <ListeFaq entrees={questions} idBase="tarifs-faq" className="mt-titre" />
-          <p className="mt-8">
-            {/* La cible vient d'un rembourrage vertical, pas d'un changement de
-                boite : sur un element en ligne, le rembourrage agrandit la
-                zone cliquable sans toucher a la hauteur de ligne. Rien ne se
-                deplace. */}
-            <Link
-              href="/faq"
-              className="text-intro py-3 font-semibold text-lien underline underline-offset-4"
-            >
-              {t('faqLien')}
-            </Link>
+          <p className="text-corps mt-6">{t('demarrageP1')}</p>
+          <p className="text-corps mt-4 text-encre-douce">{t('demarrageP2')}</p>
+        </Reveal>
+      </Section>
+
+      <Section fond="fond" aria-labelledby="abonnement-titre">
+        <Reveal className="max-w-[62ch]">
+          <h2 id="abonnement-titre" className="font-serif text-h3 text-balance">
+            {t('abonnementTitre')}
+          </h2>
+          {/* Le plancher se detache du reste : c'est le chiffre qu'une petite
+              conciergerie cherche en premier, et le seul que la formule au
+              bien ne donne pas. */}
+          <p className="text-intro mt-6 font-semibold">{t('abonnementMinimum')}</p>
+          <p className="text-corps mt-4">{t('abonnementExemples')}</p>
+          <p className="text-corps mt-4 text-encre-douce">{t('abonnementSocle')}</p>
+        </Reveal>
+      </Section>
+
+      {/* Fond Sapin : c'est la section qui leve l'objection la plus chere — on
+          ne s'engage pas a l'aveugle. Elle merite d'etre vue en defilant. */}
+      <Section fond="sapin" aria-labelledby="test-titre">
+        <Reveal className="max-w-[62ch]">
+          <h2 id="test-titre" className="font-serif text-h3 text-balance">
+            {t('testTitre')}
+          </h2>
+          <p className="text-intro mt-6 font-semibold">{t('testP1')}</p>
+          <p className="text-corps mt-4 text-encre-inverse/85">{t('testP2')}</p>
+          <p className="text-corps mt-4 text-encre-inverse/85">{t('testP3')}</p>
+        </Reveal>
+      </Section>
+
+      <Section fond="fond" aria-labelledby="options-titre">
+        <Reveal className="max-w-[62ch]">
+          <h2 id="options-titre" className="font-serif text-h3 text-balance">
+            {t('optionsTitre')}
+          </h2>
+          <p className="text-corps mt-6 text-encre-douce">{t('optionsIntro')}</p>
+          {/* Intitule en gras et non en h3 : la contrainte de la page est un
+              seul niveau de titre par section. */}
+          <p className="text-corps mt-titre">
+            <strong className="font-bold">{t('optionsRapportNom')}</strong>{' '}
+            {t('optionsRapportTexte')}
           </p>
         </Reveal>
       </Section>
 
-      <Section fond="fond" aria-labelledby="tarifs-cloture">
-        <h2 id="tarifs-cloture" className="font-serif text-h3 max-w-[24ch] text-balance">
-          {t('cloture')}
-        </h2>
-        <Cta href={LIEN_DEMO} {...ATTRS_DEMO} fleche className="mt-8">
-          {actions('demo')}
-        </Cta>
+      <Section fond="fond-alt" aria-labelledby="arrive-titre">
+        <Reveal className="max-w-[62ch]">
+          <h2 id="arrive-titre" className="font-serif text-h3 text-balance">
+            {t('arriveTitre')}
+          </h2>
+          <p className="text-corps mt-6 text-encre-douce">{t('arriveIntro')}</p>
+          <p className="text-corps mt-titre">
+            <strong className="font-bold">{t('arriveMemoireNom')}</strong>{' '}
+            {t('arriveMemoireTexte')}
+          </p>
+          <p className="text-corps mt-5">
+            <strong className="font-bold">{t('arriveLitigeNom')}</strong>{' '}
+            {t('arriveLitigeTexte')}
+          </p>
+        </Reveal>
+      </Section>
+
+      <Section fond="fond" aria-labelledby="paiement-titre">
+        <Reveal className="max-w-[62ch]">
+          <h2 id="paiement-titre" className="font-serif text-h3 text-balance">
+            {t('paiementTitre')}
+          </h2>
+          <p className="text-corps mt-6">{t('paiementTexte')}</p>
+
+          {/* Le lexique des CTA est fige : « Organiser une journée sur site »
+              est le libelle de la voie principale de la page Contact, et c'est
+              vers elle que ce bouton mene. */}
+          <Cta href={getPathname({ href: '/contact', locale })} fleche className="mt-titre">
+            {contact('voies.impl.action')}
+          </Cta>
+
+          <p className="text-micro mt-titre text-encre-douce">{t('htMention')}</p>
+        </Reveal>
       </Section>
     </main>
   );
