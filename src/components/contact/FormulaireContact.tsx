@@ -150,6 +150,23 @@ function ChampSaisi({
   const libelle = t(`champs.${champ.cle}.label`);
   const classeLibelle = 'text-label font-semibold uppercase text-encre-douce';
 
+  /**
+   * La mention « facultatif » est dans le libelle, pas a cote.
+   *
+   * Posee ailleurs — une legende sous le champ, une couleur, un asterisque —
+   * elle n'entre pas dans le nom accessible : un lecteur d'ecran annoncerait
+   * « Station ou vallee, zone de texte » sans jamais dire qu'on peut la
+   * laisser vide. Ici elle est lue avec le libelle, et vue avec lui.
+   *
+   * C'est le facultatif qui est marque, pas l'obligatoire : sur huit champs
+   * dont quatre le sont, marquer les quatre autres ferait moins de bruit —
+   * mais le lecteur doit savoir ce qu'il peut sauter, pas ce qu'il doit
+   * remplir.
+   */
+  const mention = champ.requis ? null : (
+    <span className="font-normal normal-case text-encre-douce"> — {t('facultatif')}</span>
+  );
+
   return (
     <div className={champ.large ? 'tablette:col-span-2' : undefined}>
       {/* Un groupe de boutons radio n'est pas un controle etiquetable :
@@ -157,10 +174,12 @@ function ChampSaisi({
       {champ.type === 'choix' ? (
         <span id={idLibelle} className={classeLibelle}>
           {libelle}
+          {mention}
         </span>
       ) : (
         <label htmlFor={id} className={classeLibelle}>
           {libelle}
+          {mention}
         </label>
       )}
 

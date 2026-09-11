@@ -28,6 +28,12 @@ export type Champ =
   | ({ cle: 'message'; type: 'zone' } & Commun);
 
 export const JEUX: Record<Voie, readonly Champ[]> = {
+  // Quatre champs seulement sont obligatoires : le nom, la conciergerie,
+  // l'email et le telephone. La station, les deux volumes et la periode se
+  // demandent pendant l'appel de vingt minutes — huit champs obligatoires
+  // font abandonner avant l'envoi. Ils restent dans le formulaire, et un
+  // libelle « facultatif » le dit a l'oeil autant qu'au lecteur d'ecran.
+  //
   // L'ordre est celui de la grille a deux colonnes, par paires qui vont
   // ensemble : qui vous etes, comment vous joindre, puis les deux volumes.
   // Sept demi-champs laissaient le dernier seul sur sa rangee, avec la moitie
@@ -38,10 +44,10 @@ export const JEUX: Record<Voie, readonly Champ[]> = {
     { cle: 'conciergerie', type: 'texte', requis: true },
     { cle: 'email', type: 'email', requis: true },
     { cle: 'tel', type: 'tel', requis: true },
-    { cle: 'station', type: 'texte', requis: true, large: true },
-    { cle: 'biens', type: 'nombre', requis: true },
-    { cle: 'terrain', type: 'nombre', requis: true },
-    { cle: 'dispo', type: 'choix', requis: true, large: true },
+    { cle: 'station', type: 'texte', requis: false, large: true },
+    { cle: 'biens', type: 'nombre', requis: false },
+    { cle: 'terrain', type: 'nombre', requis: false },
+    { cle: 'dispo', type: 'choix', requis: false, large: true },
   ],
   question: [
     { cle: 'nom', type: 'texte', requis: true },

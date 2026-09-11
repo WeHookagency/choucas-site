@@ -713,6 +713,7 @@
     },
     "formTitreImpl": "Journée d'implantation — une journée sur site",
     "formTitreQuestion": "Poser une question",
+    "facultatif": "facultatif",
     "champs": {
       "nom": {
         "label": "Nom",
@@ -771,7 +772,7 @@
     "apres": {
       "titre": "Ce qui se passe après l'envoi",
       "etapes": {
-        "reponse": "On vous répond sous 48 h ouvrées.",
+        "reponse": "On vous répond sous 48 h.",
         "appel": "Un appel de 20 minutes pour comprendre votre exploitation.",
         "date": "On fixe une date de journée d'implantation, ou on vous dit que ce n'est pas le moment."
       }
