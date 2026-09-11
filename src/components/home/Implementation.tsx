@@ -1,9 +1,7 @@
 import { useTranslations } from 'next-intl';
 
 import { ancres } from '../anchors';
-import journeeConfiguree from '../../../public/demo/journee-configuree.png';
 import { Accent } from '../ui/Accent';
-import { CaptureProduit } from '../ui/CaptureProduit';
 import { Icon } from '../ui/Icon';
 import { Card } from '../ui/Card';
 import { Reveal } from '../ui/Reveal';
@@ -97,8 +95,6 @@ const ETAPES = [
  */
 export function Implementation() {
   const t = useTranslations('implantation');
-  // Le libelle du lien vers la demonstration est ecrit une fois, dans `manager`.
-  const lienDemo = useTranslations('manager');
 
   return (
     <Section id={ancres.implantation} fond="fond-alt" aria-labelledby="implantation-titre">
@@ -134,34 +130,26 @@ export function Implementation() {
         ))}
       </Reveal>
 
-      {/* Le resultat de la journee, en image.
-          La section finissait sur « Tester », qui est une activite : quatre
-          moments qui s'achevent sans rien livrer laissent le lecteur sur une
-          methode au lieu d'une promesse. C'est la legende qui porte le
-          resultat — votre configuration, pas celle-ci.
+      {/* La capture retiree le 12 septembre 2026. Elle montrait la partie
+          basse de accueil-responsable.png : sur ses huit lignes, quatre
+          missions « En retard » et un bouton « 1 alerte urgente ». Choisie
+          pour montrer une exploitation qui tourne, elle montrait une journee
+          qui va mal — le contraire d'un resultat. Elle commencait en outre en
+          plein milieu d'un ecran dont ManagerDemo montre deja le haut, quatre
+          sections plus haut sur la meme page.
 
-          La capture est la partie basse de accueil-responsable.png, que rien
-          n'utilisait : la source fait 3000 px et ManagerDemo n'en montre que
-          les 1720 premiers. On y voit la journee qui tourne, pas un ecran
-          d'accueil — huit missions, leurs heures, leurs etats. Trois lignes se
-          recoupent avec ManagerDemo, ce qui se lit comme la suite de la meme
-          journee, parce que c'en est une.
+          La phrase reste : c'est elle qui porte le resultat, pas l'image. Elle
+          clot la section comme la cloture precedente le faisait.
 
-          Posee a plat, sans cadre ni ombre : c'est le traitement des captures
-          de la Home. `implantation.cloture`, la phrase retiree le 7 septembre,
-          reste dans les deux fichiers de traduction. */}
+          `implantation.exemple.captureAlt` reste dans le fichier de
+          traduction, avec la recette du recadrage dans le message de commit,
+          si une capture doit revenir ici. */}
       <Reveal className="mt-titre">
-        <figure className="m-0 mx-auto flex max-w-[420px] flex-col gap-4">
-          <CaptureProduit
-            src={journeeConfiguree}
-            alt={t('exemple.captureAlt')}
-            libelleLien={lienDemo('lienDemo')}
-          />
-          <figcaption className="text-corps text-center text-encre-douce">
-            {t('exemple.legende')}
-          </figcaption>
-        </figure>
+        <p className="text-intro mx-auto max-w-[62ch] text-center font-semibold">
+          {t('exemple.legende')}
+        </p>
       </Reveal>
+
     </Section>
   );
 }
