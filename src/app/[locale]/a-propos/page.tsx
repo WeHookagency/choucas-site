@@ -107,26 +107,6 @@ export default async function Page({ params }: PageProps<'/[locale]/a-propos'>) 
         </div>
       </Section>
 
-      <Section fond="fond" sansRythme>
-        {/* Pleine largeur, sans legende — il n'en existe pas et on n'en
-            invente pas. La source fait 1026 px de large : dans la colonne a
-            1440 elle est agrandie d'un tiers, ramollissement accepte plutot
-            que de plafonner un bandeau qui doit traverser la colonne. */}
-        <Reveal className="relative aspect-[390/300] overflow-hidden rounded-carte desktop:aspect-[1440/560]">
-          {/* `sizes` annonce les largeurs reellement rendues : 1280 au
-              plafond de la colonne, sinon la fenetre moins ses marges.
-              « 100vw » faisait demander une variante de 1920 px pour une
-              source de 1026 — Next l'agrandissait avant de la servir. */}
-          <Image
-            src="/demo/hiver-sapins.jpg"
-            alt={t('bandeauAlt')}
-            fill
-            sizes="(min-width: 1440px) 1280px, (min-width: 1000px) calc(100vw - 96px), calc(100vw - 36px)"
-            className="object-cover"
-          />
-        </Reveal>
-      </Section>
-
       {/* Le recit d'origine, entre le bandeau et les refus.
           Il arrive apres le lieu et avant les partis pris : le hero pose la
           these, le bandeau montre l'endroit, ce recit dit d'ou vient le
@@ -170,6 +150,46 @@ export default async function Page({ params }: PageProps<'/[locale]/a-propos'>) 
         </Reveal>
       </Section>
 
+      {/* Trois blocs ajoutes le 11 septembre 2026, entre les deux recits
+          d'origine et les refus. Ils disent qui tient le produit, ou il en
+          est, et ce sur quoi on peut compter — les trois questions qu'un
+          prospect pose a un editeur qu'il ne connait pas. */}
+      <Section fond="fond-alt" aria-labelledby="qui-titre">
+        <Reveal className="mx-auto max-w-[62ch]">
+          <h2 id="qui-titre" className="font-serif text-h3 text-balance">
+            {t('qui.titre')}
+          </h2>
+          <p className="text-intro mt-6 font-semibold">{t('qui.lead')}</p>
+          <p className="text-corps mt-5 text-encre-douce">{t('qui.p1')}</p>
+          <p className="text-corps mt-4 text-encre-douce">{t('qui.p2')}</p>
+        </Reveal>
+      </Section>
+
+      <Section fond="fond" aria-labelledby="etat-titre">
+        <Reveal className="mx-auto max-w-[62ch]">
+          <h2 id="etat-titre" className="font-serif text-h3 text-balance">
+            {t('etat.titre')}
+          </h2>
+          <p className="text-intro mt-6 font-semibold">{t('etat.lead')}</p>
+          <p className="text-corps mt-5 text-encre-douce">{t('etat.p1')}</p>
+          <p className="text-corps mt-4 text-encre-douce">{t('etat.p2')}</p>
+          <p className="text-corps mt-4">{t('etat.p3')}</p>
+        </Reveal>
+      </Section>
+
+      {/* Fond Sapin, comme le recit : c'est un engagement, pas une
+          description. Le samedi est la journee ou un outil qui lache ne se
+          rattrape pas — la section doit se voir en defilant. */}
+      <Section fond="sapin" aria-labelledby="samedi-titre">
+        <Reveal className="mx-auto max-w-[62ch]">
+          <h2 id="samedi-titre" className="font-serif text-h3 text-balance">
+            {t('samedi.titre')}
+          </h2>
+          <p className="text-intro mt-6 font-semibold">{t('samedi.lead')}</p>
+          <p className="text-corps mt-5 text-encre-inverse/85">{t('samedi.p1')}</p>
+        </Reveal>
+      </Section>
+
       <Section fond="fond-alt" aria-labelledby="partis-titre">
         <Reveal>
           <h2 id="partis-titre" className="font-serif text-h3 max-w-[20ch] text-balance">
@@ -187,6 +207,31 @@ export default async function Page({ params }: PageProps<'/[locale]/a-propos'>) 
               </div>
             </li>
           ))}
+        </Reveal>
+      </Section>
+
+      <Section fond="fond" sansRythme>
+        {/* Pleine largeur, sans legende — il n'en existe pas et on n'en
+            invente pas. La source fait 1026 px de large : dans la colonne a
+            1440 elle est agrandie d'un tiers, ramollissement accepte plutot
+            que de plafonner un bandeau qui doit traverser la colonne.
+
+            Descendu ici le 11 septembre 2026. Entre le hero et le recit, il
+            coupait la page avant son seul contenu. Il partage volontairement
+            le fond Neige de « Terrain d'origine » qui le suit : l'image et la
+            cloture se lisent comme un seul mouvement de fin. */}
+        <Reveal className="relative aspect-[390/300] overflow-hidden rounded-carte desktop:aspect-[1440/560]">
+          {/* `sizes` annonce les largeurs reellement rendues : 1280 au
+              plafond de la colonne, sinon la fenetre moins ses marges.
+              « 100vw » faisait demander une variante de 1920 px pour une
+              source de 1026 — Next l'agrandissait avant de la servir. */}
+          <Image
+            src="/demo/hiver-sapins.jpg"
+            alt={t('bandeauAlt')}
+            fill
+            sizes="(min-width: 1440px) 1280px, (min-width: 1000px) calc(100vw - 96px), calc(100vw - 36px)"
+            className="object-cover"
+          />
         </Reveal>
       </Section>
 

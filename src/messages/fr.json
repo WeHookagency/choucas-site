@@ -541,6 +541,24 @@
       "p1": "Restauration, puis moniteur de ski. Dans ces métiers-là, on apprend une chose : le retard ne se rattrape jamais, il se répercute. Une table qui décale décale la suivante. Un chalet qui prend une heure décale la journée entière.",
       "chute": "C'est de là que vient le parti pris de Choucas : ne pas remonter tout, remonter ce qui va décaler la suite."
     },
+    "qui": {
+      "titre": "Qui est derrière",
+      "lead": "Moi, seul.",
+      "p1": "Mathieu Dupont-Vieux. J'ai grandi à La Clusaz, je suis parti douze ans au Québec, je suis revenu. Je développe des outils métier depuis plusieurs années, et j'enseigne le ski l'hiver.",
+      "p2": "Choucas n'est pas un projet mené depuis une capitale par des gens qui ont lu une étude sur le tourisme de montagne. Je vis dans la vallée où sont mes clients. Quand je viens configurer votre exploitation, je ne prends pas l'avion."
+    },
+    "etat": {
+      "titre": "Où en est Choucas",
+      "lead": "Au début, et je préfère le dire.",
+      "p1": "Choucas se construit avec ses premières conciergeries. Ce que vous voyez sur ce site vient de conversations avec des gens qui font ce métier — des dirigeants, des responsables d'exploitation, des gouvernantes qui ont tenu des chalets à Courchevel et ailleurs.",
+      "p2": "Ce que ça veut dire pour vous : vous aurez une écoute que vous n'aurez pas chez un éditeur installé, et vos remarques changeront le produit. Ce que ça veut dire aussi : nous ne sommes pas cent, et il y a des choses que Choucas ne fait pas encore. Elles sont dites sur la page Tarifs, pas cachées.",
+      "p3": "Et si je disparais demain, votre configuration ne disparaît pas avec moi : elle est à vous, et vos données aussi."
+    },
+    "samedi": {
+      "titre": "Un samedi à 14 h",
+      "lead": "Le samedi est votre journée la plus dure. C'est celle où un outil qui lâche ne se rattrape pas.",
+      "p1": "Je suis joignable le samedi en saison, de 9 h à 18 h. Pas un formulaire, pas un ticket : mon numéro."
+    },
     "partisTitre": "Ce qu'on a choisi de ne pas faire",
     "partis": {
       "pms": {
@@ -605,7 +623,7 @@
     "brief": {
       "titre": "Le brief",
       "lead": "Un brief n'arrive jamais en ordre.",
-      "p1": "Un message vocal du propriétaire, un mail de l'agence, un texto du client la veille. Trois sources, trois formats, et une gouvernante qui reconstitue tout à 7h du matin.",
+      "p1": "Un message vocal du propriétaire, un mail de l'agence, un texto du client la veille. Trois sources, trois formats, et une gouvernante qui reconstitue tout à 7 h du matin.",
       "p2": "Choucas les rassemble en une consigne unique par bien : ce qu'il faut faire, ce qui a été demandé, ce qui s'oppose. Quand deux demandes ne tiennent pas ensemble, il pose le conflit au lieu de transmettre les deux.",
       "p3": "Le brief ne repart pas de zéro chaque saison. Un client fidélisé l'an dernier arrive avec ce qu'on sait déjà de lui — ses habitudes, ce qui s'était mal passé, ce qu'il faut vérifier avant son retour. Le propriétaire aussi : ses draps, sa machine à café, ce qu'il faut mettre en place avant qu'il arrive chez lui.",
       "reserve": "Le brief consolidé"
@@ -627,7 +645,7 @@
     "pret": {
       "titre": "Terminé ne veut pas dire PRÊT",
       "lead": "PRÊT est un état validé, pas une case cochée.",
-      "p1": "Un ménage terminé à 11h50 n'est pas un chalet livrable. Entre les deux il y a un contrôle, et parfois une reprise. Choucas distingue les deux états, et le tableau du matin ne compte comme prêts que les biens qui le sont.",
+      "p1": "Un ménage terminé à 11 h 50 n'est pas un chalet livrable. Entre les deux il y a un contrôle, et parfois une reprise. Choucas distingue les deux états, et le tableau du matin ne compte comme prêts que les biens qui le sont.",
       "reserve": "Le verdict du jour"
     },
     "imprevu": {
