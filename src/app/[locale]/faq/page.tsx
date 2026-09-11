@@ -10,6 +10,7 @@ import { Reveal } from '@/components/ui/Reveal';
 import { Section, surplombs } from '@/components/ui/Section';
 import { groupesFaq } from '@/content/faq';
 import { localeAlternates } from '@/i18n/metadata';
+import { versVoie } from '@/components/anchors';
 import { getPathname } from '@/i18n/navigation';
 import { routing } from '@/i18n/routing';
 
@@ -135,7 +136,7 @@ export default async function Page({ params }: PageProps<'/[locale]/faq'>) {
           <p className="text-intro mt-4 max-w-[60ch] text-encre-douce">{t('clotureTexte')}</p>
         {/* Le chemin est resolu ici : le CTA rend une ancre nue, il ne connait
             pas la langue courante. */}
-          <Cta href={getPathname({ href: '/contact', locale })} variante="secondaire" className="mt-8">
+          <Cta href={versVoie(getPathname({ href: '/contact', locale }), 'question')} variante="secondaire" className="mt-8">
             {t('clotureCta')}
           </Cta>
         </Reveal>

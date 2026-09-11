@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { hasLocale } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
+import { versVoie } from '@/components/anchors';
 import { Cta } from '@/components/ui/Cta';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
@@ -111,7 +112,7 @@ export default async function Page({ params }: PageProps<'/[locale]/blog'>) {
         </Reveal>
 
         <Cta
-          href={getPathname({ href: '/contact', locale })}
+          href={versVoie(getPathname({ href: '/contact', locale }), 'question')}
           variante="secondaire"
           className="mt-titre"
         >

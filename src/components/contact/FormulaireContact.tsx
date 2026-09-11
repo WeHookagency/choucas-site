@@ -1,5 +1,6 @@
 'use client';
 
+import { useSearchParams } from 'next/navigation';
 import { useId, useRef, useState } from 'react';
 import { useTranslations } from 'next-intl';
 
@@ -8,9 +9,29 @@ import { JEUX, PERIODES, verifier, type Champ, type Voie } from './champs';
 import { DESTINATION_FORMULAIRE } from './destination';
 import { composerMailto } from './mailto';
 
+/**
+ * Lit la voie demandee dans l'URL. `/contact?voie=question` ouvre le
+ * formulaire court.
+ *
+ * Cinq pages menaient vers `/contact` et trois promettaient « Poser une
+ * question » : elles livraient le formulaire d'implantation a huit champs,
+ * et il fallait cliquer une seconde fois sur la voie. Un lien qui ment sur sa
+ * destination n'est pas un defaut de mise en page.
+ *
+ * Toute autre valeur retombe sur la voie principale : une URL bricolee ne doit
+ * pas casser la page.
+ */
+function voieDemandee(valeur: string | null): Voie {
+  return valeur === 'question' ? 'question' : 'impl';
+}
+
 export function FormulaireContact() {
   const t = useTranslations('contact');
-  const [voie, setVoie] = useState<Voie>('impl');
+  // `useSearchParams` fait basculer l'arbre client jusqu'a la Suspense la plus
+  // proche en rendu client ; la page monte donc ce composant dans une
+  // `Suspense`, et le reste de `/contact` continue d'etre prerendu.
+  const voieUrl = voieDemandee(useSearchParams().get('voie'));
+  const [voie, setVoie] = useState<Voie>(voieUrl);
   const [valeurs, setValeurs] = useState<Record<string, string>>({});
   const [erreurs, setErreurs] = useState<Record<string, string>>({});
   const premierEnErreur = useRef<string | null>(null);

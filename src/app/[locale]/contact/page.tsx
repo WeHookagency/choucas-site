@@ -5,6 +5,8 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 import { CourbesNiveau } from '@/components/contact/CourbesNiveau';
 import { DESTINATION_FORMULAIRE } from '@/components/contact/destination';
+import { Suspense } from 'react';
+
 import { FormulaireContact } from '@/components/contact/FormulaireContact';
 import { Accent } from '@/components/ui/Accent';
 import { Eyebrow } from '@/components/ui/Eyebrow';
@@ -74,7 +76,14 @@ export default async function Page({ params }: PageProps<'/[locale]/contact'>) {
 
       <Section fond="fond-alt">
         <Reveal className="max-w-[720px]">
-          <FormulaireContact />
+          {/* Le formulaire lit la voie dans l'URL, donc il rend cote client.
+              La `Suspense` limite cette bascule a lui seul : le reste de la
+              page reste prerendu et part dans le HTML initial. Le repli est
+              vide — un squelette de formulaire clignoterait pour rien, il
+              s'affiche en quelques millisecondes. */}
+          <Suspense fallback={null}>
+            <FormulaireContact />
+          </Suspense>
         </Reveal>
       </Section>
 

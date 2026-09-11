@@ -12,6 +12,7 @@ import { Photo } from '@/components/ui/Photo';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
 import { localeAlternates } from '@/i18n/metadata';
+import { versVoie } from '@/components/anchors';
 import { getPathname } from '@/i18n/navigation';
 import { routing } from '@/i18n/routing';
 
@@ -242,7 +243,7 @@ export default async function Page({ params }: PageProps<'/[locale]/a-propos'>) 
           </h2>
           <p className="font-serif text-intro mt-6">{t('stations')}</p>
           <p className="font-serif text-h3 mt-titre max-w-[24ch] text-balance">{t('cloture')}</p>
-          <Cta href={getPathname({ href: '/contact', locale })} variante="secondaire" className="mt-8">
+          <Cta href={versVoie(getPathname({ href: '/contact', locale }), 'question')} variante="secondaire" className="mt-8">
             {actions('voies.question.titre')}
           </Cta>
         </Reveal>

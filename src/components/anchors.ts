@@ -49,3 +49,17 @@ export const LIEN_DEMO = 'https://calendar.app.google/ffM5wc8tXhutVs477';
  * un nouvel onglet et n'accorde rien a la page appelee.
  */
 export const ATTRS_DEMO = { target: '_blank', rel: 'noopener' } as const;
+
+/**
+ * Le chemin vers une voie precise du formulaire de contact.
+ *
+ * `FormulaireContact` ouvre sur la voie principale par defaut. Un lien qui
+ * promet « Poser une question » doit donc le dire dans son adresse, sinon il
+ * livre le formulaire d'implantation a huit champs et demande un second clic.
+ *
+ * Le chemin traduit se resout chez l'appelant — `getPathname` a besoin de la
+ * langue courante, que cette table ne connait pas.
+ */
+export function versVoie(chemin: string, voie: 'impl' | 'question'): string {
+  return voie === 'impl' ? chemin : `${chemin}?voie=${voie}`;
+}
