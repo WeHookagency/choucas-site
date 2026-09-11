@@ -47,3 +47,7 @@ references/qa/
 
 # actif depose mais non branche : ne pas alourdir le depot
 public/demo/hiver-piste.jpg
+
+# bytecode Python des outils de scripts/
+__pycache__/
+*.pyc
