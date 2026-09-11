@@ -16,6 +16,11 @@ const eslintConfig = defineConfig([
     // de design, pas du code de production. Elles se lisent dans un
     // navigateur, elles ne sont ni compilees ni livrees.
     "references/**",
+    // Outils de verification : ils tournent dans un navigateur ou dans
+    // Python, jamais dans le build. `audit.js` et `mise-en-page.js` sont des
+    // expressions evaluees dans la page, pas des modules — les linter avec
+    // les regles de Next n'aurait pas de sens.
+    "scripts/**",
   ]),
 ]);
 
