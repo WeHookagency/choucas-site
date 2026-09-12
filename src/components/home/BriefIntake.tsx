@@ -229,6 +229,7 @@ function Liaison({ texte }: { texte: string }) {
  */
 function Sources() {
   const t = useTranslations('briefIntake.sources');
+  const bien = useTranslations('briefIntake')('bien');
 
   return (
     <div className="grid gap-4 tablette:grid-cols-3">
@@ -237,19 +238,30 @@ function Sources() {
           key={cle}
           className={`flex flex-col rounded-carte border border-filet bg-surface p-6 text-encre desktop:p-7 ${OMBRE}`}
         >
-          <div className="flex items-center justify-between gap-3">
+          {/* Les quatre tuiles de la section nomment le meme chalet : on voit
+              que les trois fragments et la consigne parlent d'un seul sejour.
+
+              Empile, pas en ligne. La colonne fait 290 px a 1440 : « Mail »
+              laissait la place au nom sur sa ligne, « Message » et « Appel »
+              le renvoyaient dessous, et les trois cartes ne s'alignaient plus.
+              La carte de sortie, elle, fait 560 px et garde la ligne unique. */}
+          <div className="flex flex-col items-start gap-2">
             {/* Le canal passe devant : icone, encre pleine et corps de bouton,
                 la ou il etait en encre douce a 11 px. C'est lui qui dit d'ou
-                vient le fragment — l'heure, elle, reste en retrait. */}
+                vient le fragment. */}
             <span
               className={`text-bouton inline-flex items-center gap-2 rounded-capsule border px-3 py-1.5 font-bold ${ton}`}
             >
               <Icon name={icone} size={16} className="shrink-0" />
               <span className="text-encre">{t(`${cle}.canal`)}</span>
             </span>
-            <span className="text-micro tabular-nums text-encre-douce">{t(`${cle}.quand`)}</span>
+            <span className="font-serif text-intro">{bien}</span>
           </div>
-          <p className="text-intro mt-5 font-serif italic">{t(`${cle}.mot`)}</p>
+          {/* Le moment prend sa propre ligne. Ancre desormais sur le check-in —
+              « la veille », seul, ne disait pas la veille de quoi. Il ne tient
+              plus au bout de la premiere ligne a cote du bien. */}
+          <p className="text-micro mt-2 tabular-nums text-encre-douce">{t(`${cle}.quand`)}</p>
+          <p className="text-intro mt-4 font-serif italic">{t(`${cle}.mot`)}</p>
         </div>
       ))}
     </div>
@@ -273,7 +285,9 @@ function Arbitrage() {
           s'opposent » disait ce que le corps dit deja, en le disant moins bien.
           `arbitrage.titre` et `arbitrage.meta` restent dans les fichiers de
           traduction — les remettre ici suffit. */}
-      <div className="flex justify-end">
+      {/* A gauche comme la pastille CONSIGNE : les deux etats de la sequence
+          se lisent au meme endroit de leur carte. Elle etait calee a droite. */}
+      <div className="flex">
         <span className="text-label rounded-capsule border border-filet px-2.5 py-1 font-bold text-encre-douce">
           {t('etat')}
         </span>
@@ -295,6 +309,7 @@ function Arbitrage() {
  */
 function Consigne() {
   const t = useTranslations('briefIntake.consigne');
+  const bien = useTranslations('briefIntake')('bien');
 
   return (
     <div
@@ -307,7 +322,7 @@ function Consigne() {
         <span className="text-label shrink-0 rounded-capsule bg-cta px-2.5 py-1 font-bold text-cta-encre">
           {t('etat')}
         </span>
-        <span className="font-serif text-intro">{t('bien')}</span>
+        <span className="font-serif text-intro">{bien}</span>
       </div>
       <p className="text-corps mt-3">{t('texte')}</p>
       <p className="text-micro mt-4 border-t border-filet pt-3 text-encre-douce">{t('meta')}</p>

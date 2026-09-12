@@ -154,9 +154,10 @@
     "titre": "A brief never arrives <accent>in order.</accent>",
     "intro": "Three channels, three moments, one instruction. Choucas gathers, the manager arbitrates, the field executes.",
     "sequenceAria": "From brief received to instruction sent, in three stages",
+    "bien": "Chalet Cortibot",
     "liaisons": {
       "rassemble": "gathered in the Choucas app",
-      "arbitre": "Settled by Sophie, operations manager."
+      "arbitre": "Settled by Sophie in the Choucas app."
     },
     "etapes": {
       "arrivee": {
@@ -172,17 +173,17 @@
     "sources": {
       "appel": {
         "canal": "Call",
-        "quand": "night before · 6:40 pm",
+        "quand": "day before check-in · 6:40 pm",
         "mot": "“The parents sleep on the ground floor.”"
       },
       "message": {
         "canal": "Message",
-        "quand": "9:12 pm",
+        "quand": "day before check-in · 9:12 pm",
         "mot": "\"Fresh sheets every day.\""
       },
       "mail": {
         "canal": "Email",
-        "quand": "7:05 am",
+        "quand": "check-in day · 7:05 am",
         "mot": "\"No one goes into the parents' bedroom.\""
       }
     },
@@ -193,7 +194,6 @@
       "meta": "No line is left hanging: it is assigned, or set aside knowingly."
     },
     "consigne": {
-      "bien": "Chalet L'Aiguille",
       "etat": "INSTRUCTION",
       "texte": "Fresh sheets every day in every bedroom. Except the ground-floor one, where the parents sleep: a clean set folded outside the door each morning before 9 am, no one goes in.",
       "meta": "Sent to Marie L., field team member handling the clean."

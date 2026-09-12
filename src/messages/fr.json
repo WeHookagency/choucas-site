@@ -154,9 +154,10 @@
     "titre": "Un brief n'arrive jamais <accent>en ordre.</accent>",
     "intro": "Trois canaux, trois moments, une seule consigne. Choucas rassemble, le manager arbitre, le terrain exécute.",
     "sequenceAria": "Du brief reçu à la consigne transmise, en trois temps",
+    "bien": "Chalet Cortibot",
     "liaisons": {
       "rassemble": "rassemblés sur l'app Choucas",
-      "arbitre": "Arbitré par Sophie, Manager d'exploitation."
+      "arbitre": "Arbitré par Sophie dans l'application Choucas."
     },
     "etapes": {
       "arrivee": {
@@ -172,17 +173,17 @@
     "sources": {
       "appel": {
         "canal": "Appel",
-        "quand": "la veille · 18:40",
+        "quand": "la veille du check-in · 18:40",
         "mot": "« Les parents dorment au rez-de-chaussée. »"
       },
       "message": {
         "canal": "Message",
-        "quand": "21:12",
+        "quand": "la veille du check-in · 21:12",
         "mot": "« Draps changés tous les jours. »"
       },
       "mail": {
         "canal": "Mail",
-        "quand": "07:05",
+        "quand": "le jour du check-in · 07:05",
         "mot": "« Personne n'entre dans la chambre parentale. »"
       }
     },
@@ -193,7 +194,6 @@
       "meta": "Aucune ligne ne reste en suspens : elle est attribuée, ou écartée en connaissance de cause."
     },
     "consigne": {
-      "bien": "Chalet L'Aiguille",
       "etat": "CONSIGNE",
       "texte": "Draps changés tous les jours dans toutes les chambres. Sauf celle du rez-de-chaussée, où dorment les parents : jeu propre plié devant la porte chaque matin avant 9 h, personne n'entre.",
       "meta": "Transmis à Marie L., équipière en charge du ménage."
