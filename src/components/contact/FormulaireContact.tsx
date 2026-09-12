@@ -21,6 +21,21 @@ import { composerMailto } from './mailto';
  * Toute autre valeur retombe sur la voie principale : une URL bricolee ne doit
  * pas casser la page.
  */
+/** Ou en est la soumission. */
+type Envoi = 'repos' | 'encours' | 'succes' | 'echec';
+
+/**
+ * Ou part le formulaire.
+ *
+ * Netlify n'accepte un envoi que sur une adresse ou il a detecte un
+ * formulaire au build. C'est `public/__forms.html` qui porte cette
+ * declaration : le composant poste donc vers elle, et non vers la page
+ * courante. Les noms de champs doivent correspondre a ceux qui y sont
+ * declares, sinon leur valeur est ignoree en silence.
+ */
+const POINT_ENVOI = '/__forms.html';
+const NOM_FORMULAIRE = 'contact';
+
 function voieDemandee(valeur: string | null): Voie {
   return valeur === 'question' ? 'question' : 'impl';
 }
@@ -34,6 +49,10 @@ export function FormulaireContact() {
   const [voie, setVoie] = useState<Voie>(voieUrl);
   const [valeurs, setValeurs] = useState<Record<string, string>>({});
   const [erreurs, setErreurs] = useState<Record<string, string>>({});
+  const [envoi, setEnvoi] = useState<Envoi>('repos');
+  // Le leurre. Un humain ne le voit pas et ne le remplit donc jamais ; un
+  // robot qui remplit tout le remplit aussi.
+  const [leurre, setLeurre] = useState('');
   const premierEnErreur = useRef<string | null>(null);
   const idBase = useId();
 
@@ -79,13 +98,53 @@ export function FormulaireContact() {
       return;
     }
 
-    const sujet = voie === 'impl' ? t('formTitreImpl') : t('formTitreQuestion');
-    const lignes = jeu.map((c) => `${t(`champs.${c.cle}.label`)} : ${valeurs[c.cle] ?? ''}`);
-    window.location.href = composerMailto(DESTINATION_FORMULAIRE, sujet, lignes);
+    void envoyer();
+  }
+
+  async function envoyer() {
+    setEnvoi('encours');
+    // `URLSearchParams` produit exactement le corps qu'attend Netlify :
+    // `application/x-www-form-urlencoded`, et non du JSON.
+    const corps = new URLSearchParams({ 'form-name': NOM_FORMULAIRE, voie });
+    for (const champ of jeu) corps.set(champ.cle, valeurs[champ.cle] ?? '');
+    // Le leurre part toujours, vide. Rempli, c'est un robot : Netlify ecarte.
+    corps.set('bot-field', leurre);
+
+    try {
+      const reponse = await fetch(POINT_ENVOI, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: corps.toString(),
+      });
+      setEnvoi(reponse.ok ? 'succes' : 'echec');
+    } catch {
+      // Reseau coupe, requete bloquee, hors ligne : meme repli.
+      setEnvoi('echec');
+    }
   }
 
   const nombreErreurs = Object.keys(erreurs).length;
   const solo = voie === 'impl' && (valeurs.terrain ?? '').trim() === '1';
+
+  if (envoi === 'succes') {
+    return (
+      // `status` et non `alert` : l'annonce est polie, elle n'interrompt pas.
+      // Le focus n'est pas force non plus — le lecteur arrive ici de lui-meme
+      // en quittant le bouton qui vient de disparaitre.
+      <div role="status" className="rounded-carte border border-filet bg-surface p-6">
+        <p className="font-serif text-h3">{t('succes.titre')}</p>
+        <p className="text-corps mt-4 max-w-[62ch] text-encre-douce">{t('succes.texte')}</p>
+        <p className="mt-4">
+          <a
+            href={`mailto:${DESTINATION_FORMULAIRE}`}
+            className="text-corps py-3.5 text-lien underline underline-offset-4"
+          >
+            {DESTINATION_FORMULAIRE}
+          </a>
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div>
@@ -143,8 +202,56 @@ export function FormulaireContact() {
           </p>
         ) : null}
 
-        <Cta type="submit" fleche className="mt-8">
-          {voie === 'impl' ? t('envoyerImpl') : t('envoyerQuestion')}
+        {/* Le leurre. `sr-only` ne suffirait pas : un lecteur d'ecran le
+            lirait et son utilisateur le remplirait. `aria-hidden` le retire de
+            l'arbre, `tabIndex={-1}` du parcours clavier, et `autoComplete` de
+            la memoire du navigateur — trois portes, fermees ensemble. */}
+        <p aria-hidden className="hidden">
+          <label>
+            {t('leurre')}
+            <input
+              type="text"
+              name="bot-field"
+              tabIndex={-1}
+              autoComplete="off"
+              value={leurre}
+              onChange={(e) => setLeurre(e.target.value)}
+            />
+          </label>
+        </p>
+
+        {envoi === 'echec' ? (
+          <div
+            role="alert"
+            className="mt-8 rounded-carte border border-erreur bg-fond-alt p-5 text-encre"
+          >
+            <p className="text-intro font-semibold">{t('echec.titre')}</p>
+            <p className="text-corps mt-3 max-w-[62ch]">{t('echec.texte')}</p>
+            <p className="mt-4">
+              {/* L'adresse en clair, et un lien qui ouvre la messagerie avec
+                  la saisie deja dedans : un repli qui oblige a tout retaper
+                  n'est pas un repli. */}
+              <a
+                href={composerMailto(
+                  DESTINATION_FORMULAIRE,
+                  voie === 'impl' ? t('formTitreImpl') : t('formTitreQuestion'),
+                  jeu.map((c) => `${t(`champs.${c.cle}.label`)} : ${valeurs[c.cle] ?? ''}`),
+                )}
+                className="text-corps py-3.5 font-semibold text-lien underline underline-offset-4"
+              >
+                {t('echec.lien')}
+              </a>{' '}
+              <span className="text-corps text-encre-douce">— {DESTINATION_FORMULAIRE}</span>
+            </p>
+          </div>
+        ) : null}
+
+        <Cta type="submit" fleche className="mt-8" disabled={envoi === 'encours'}>
+          {envoi === 'encours'
+            ? t('envoiEnCours')
+            : voie === 'impl'
+              ? t('envoyerImpl')
+              : t('envoyerQuestion')}
         </Cta>
       </form>
     </div>

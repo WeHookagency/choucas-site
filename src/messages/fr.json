@@ -769,6 +769,17 @@
     "resumeErreurs": "{nombre} champs sont à compléter avant l'envoi.",
     "envoyerImpl": "Envoyer la demande",
     "envoyerQuestion": "Envoyer le message",
+    "envoiEnCours": "Envoi…",
+    "succes": {
+      "titre": "C'est envoyé.",
+      "texte": "On vous répond sous 48 h. Si la réponse tarde, écrivez directement à cette adresse."
+    },
+    "echec": {
+      "titre": "L'envoi n'est pas passé.",
+      "texte": "Le formulaire n'a pas pu être transmis. Écrivez-nous directement — le message ci-dessous est déjà rempli avec ce que vous avez saisi.",
+      "lien": "Ouvrir dans ma messagerie"
+    },
+    "leurre": "Ne remplissez pas ce champ",
     "apres": {
       "titre": "Ce qui se passe après l'envoi",
       "etapes": {

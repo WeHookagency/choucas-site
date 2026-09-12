@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Déclaration de formulaire — Choucas</title>
+    <meta name="robots" content="noindex, nofollow" />
+  </head>
+  <body>
+    <!--
+      Ce fichier n'est pas une page. Il existe pour que Netlify voie le
+      formulaire.
+
+      Netlify detecte les formulaires en analysant le HTML deploye, au moment
+      du build. Un formulaire rendu par React n'y figure pas : il n'existe
+      qu'apres l'hydratation, dans le navigateur du visiteur. Sans cette
+      declaration statique, Netlify ne connaitrait aucun formulaire et
+      repondrait 404 a chaque envoi.
+
+      C'est donc ici que vit la definition, et le composant React poste vers
+      cette adresse. Les deux doivent rester d'accord :
+
+        - le `name` du formulaire correspond au champ `form-name` du corps
+          poste ;
+        - chaque champ poste doit exister ici, sinon sa valeur est ignoree
+          en silence — c'est le piege le plus courant de Netlify Forms ;
+        - `bot-field` est le leurre. Il est declare par
+          `data-netlify-honeypot` : un robot qui remplit tout le remplit
+          aussi, et Netlify ecarte l'envoi. Pas de reCAPTCHA — il ajouterait
+          Google comme tiers sur un site qui n'en charge aucun.
+
+      Les champs sont l'union des deux voies. La voie implantation en envoie
+      huit, la voie question trois ; les autres partent vides, ce qui ne gene
+      pas Netlify.
+
+      Ajouter un champ dans `champs.ts` sans l'ajouter ici perd sa valeur.
+    -->
+    <form name="contact" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="contact" />
+      <input type="text" name="bot-field" />
+
+      <input type="text" name="voie" />
+      <input type="text" name="nom" />
+      <input type="text" name="conciergerie" />
+      <input type="email" name="email" />
+      <input type="tel" name="tel" />
+      <input type="text" name="station" />
+      <input type="text" name="biens" />
+      <input type="text" name="terrain" />
+      <input type="text" name="dispo" />
+      <textarea name="message"></textarea>
+    </form>
+  </body>
+</html>
