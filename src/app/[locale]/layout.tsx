@@ -40,6 +40,27 @@ export async function generateMetadata(props: {
       template: t('titleTemplate', { page: '%s' }),
     },
     description: t('description'),
+
+    // Open Graph et Twitter, poses une fois pour tout le site.
+    //
+    // Sans eux, un lien colle dans Slack, LinkedIn ou iMessage n'affiche que
+    // l'URL nue. Les pages n'ont rien a declarer : chacune definit son `title`
+    // et sa `description`, Next les reprend ici, et l'image de partage est
+    // trouvee par convention de fichier — `src/app/opengraph-image.png`, avec
+    // son texte alternatif a cote.
+    //
+    // `metadataBase` plus haut rend l'URL de l'image absolue, ce que les
+    // reseaux exigent : une URL relative y est ignoree en silence.
+    openGraph: {
+      type: 'website',
+      siteName: t('title'),
+      locale: locale === 'fr' ? 'fr_FR' : 'en_US',
+    },
+    twitter: {
+      // `summary_large_image` et non `summary` : la vignette carree coupe le
+      // titre de l'image au centre.
+      card: 'summary_large_image',
+    },
   };
 }
 

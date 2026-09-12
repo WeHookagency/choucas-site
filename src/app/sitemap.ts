@@ -15,6 +15,12 @@ import { getPathname } from '@/i18n/navigation';
  * Ajouter une route a cette liste au moment ou son contenu arrive, et retirer
  * alors la directive `noindex` de la page.
  *
+ * Les deux pages legales en sont absentes elles aussi, et pour la meme raison
+ * que le blog : elles sont en `noindex`. Les inscrire ici revenait a demander
+ * leur indexation tout en la refusant dans l'en-tete. Elles restent atteignables
+ * — le pied de page y mene depuis chaque page, et `follow` laisse un moteur
+ * suivre leurs liens.
+ *
  * Le blog entier en est absent — l'index comme les notes. Les quatre notes
  * ne portent qu'un titre, un chapeau et une date, donc elles sont en
  * `noindex` ; un index indexable qui ne mene qu'a elles envoie un moteur
@@ -29,8 +35,6 @@ const AVEC_CONTENU = [
   '/a-propos',
   '/tarifs',
   '/produit',
-  '/mentions-legales',
-  '/confidentialite',
 ] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
