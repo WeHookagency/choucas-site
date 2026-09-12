@@ -244,8 +244,12 @@ function Sources() {
               21:12, 07:05 ne se suivent pas, et c'est ainsi qu'un brief
               arrive. Elle etait pourtant le texte le plus petit et le plus
               pale de la carte, noyee au bout d'une ligne de 12 px avec son
-              jour. Elle passe en serif a 28 px, encre pleine — deuxieme
+              jour. Elle passe en serif a 22 px, encre pleine — deuxieme
               element de la carte apres le canal.
+
+              22 et non 28 : a 28 elle pesait deux fois la pastille du canal
+              et ecrasait le nom du bien, qui est a 15. A 22 elle domine
+              encore la carte sans la desequilibrer.
 
               Le jour reste en retrait sous le bien : il situe, il ne compte
               pas. « La veille » seul ne disait pas la veille de quoi, d'ou
@@ -260,7 +264,7 @@ function Sources() {
               <Icon name={icone} size={16} className="shrink-0" />
               <span className="text-encre">{t(`${cle}.canal`)}</span>
             </span>
-            <span className="font-serif shrink-0 text-[1.75rem] leading-none tabular-nums">
+            <span className="font-serif shrink-0 text-[1.375rem] leading-none tabular-nums">
               {t(`${cle}.heure`)}
             </span>
           </div>
@@ -291,9 +295,20 @@ function Arbitrage() {
           `arbitrage.titre` et `arbitrage.meta` restent dans les fichiers de
           traduction — les remettre ici suffit. */}
       {/* A gauche comme la pastille CONSIGNE : les deux etats de la sequence
-          se lisent au meme endroit de leur carte. Elle etait calee a droite. */}
+          se lisent au meme endroit de leur carte.
+
+          Cuivre plein, avec du Schiste ecrit dessus. Le cuivre EN TEXTE etait
+          impossible ici : il mesure 3,81:1 sur le Glacier de la carte, et la
+          regle de tokens.css le reserve aux titres de 24 px et plus ou au
+          gras de 19 et plus — la pastille fait 11 px, son seuil est 4,5.
+          Rempli, le rapport s'inverse : Schiste sur Cuivre mesure 4,54:1, au
+          dessus du seuil, et c'est la couleur exacte de la charte, sans
+          valeur nouvelle.
+
+          Elle est donc pleine comme CONSIGNE. Les deux ne se confondent pas :
+          l'une est cuivre, l'autre Sapin, et chacune porte son mot. */}
       <div className="flex">
-        <span className="text-label rounded-capsule border border-filet px-2.5 py-1 font-bold text-encre-douce">
+        <span className="text-label rounded-capsule bg-accent px-2.5 py-1 font-bold text-encre">
           {t('etat')}
         </span>
       </div>
