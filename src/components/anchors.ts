@@ -25,6 +25,20 @@ export const ancres = {
 
 export type Ancre = (typeof ancres)[keyof typeof ancres];
 
+/**
+ * Page LinkedIn de l'entreprise.
+ *
+ * L'adresse fournie etait celle de l'apercu d'administrateur —
+ * `/company/choucas-app/about/?viewAsMember=true`. `/about/` est un onglet de
+ * la page, et `viewAsMember` un parametre que LinkedIn ajoute quand un admin
+ * regarde sa propre page en visiteur : il n'appartient pas a l'adresse
+ * publique. C'est la racine de la page qui est posee ici.
+ *
+ * Non verifiable par requete : LinkedIn repond 999 a tout ce qui n'est pas un
+ * navigateur. A ouvrir a la main apres deploiement.
+ */
+export const LIEN_LINKEDIN = 'https://www.linkedin.com/company/choucas-app/';
+
 /** Hauteur de la barre collante, a decouvert sous une ancre. */
 export const HAUTEUR_BARRE_DESKTOP = 68;
 export const HAUTEUR_BARRE_MOBILE = 60;

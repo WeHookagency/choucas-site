@@ -12,6 +12,7 @@ import { CloudSunIcon } from '@phosphor-icons/react/dist/ssr/CloudSun';
 import { ClockIcon } from '@phosphor-icons/react/dist/ssr/Clock';
 import { EnvelopeIcon } from '@phosphor-icons/react/dist/ssr/Envelope';
 import { HouseIcon } from '@phosphor-icons/react/dist/ssr/House';
+import { LinkedinLogoIcon } from '@phosphor-icons/react/dist/ssr/LinkedinLogo';
 import { ListIcon } from '@phosphor-icons/react/dist/ssr/List';
 import { MoonStarsIcon } from '@phosphor-icons/react/dist/ssr/MoonStars';
 import { PhoneIcon } from '@phosphor-icons/react/dist/ssr/Phone';
@@ -54,6 +55,11 @@ const FAMILLE = {
   telephone: PhoneIcon,
   whatsapp: WhatsappLogoIcon,
   mail: EnvelopeIcon,
+
+  // Meme remarque que pour `whatsapp` : c'est le trace Phosphor, pas la
+  // marque deposee. Meme graisse, meme grille, aucune dependance nouvelle —
+  // la famille est deja au paquet.
+  linkedin: LinkedinLogoIcon,
 
   // Les quatre moments de la journee d'implantation. Le soleil se leve,
   // culmine, se voile, puis cede a la nuit : la course est lisible sans

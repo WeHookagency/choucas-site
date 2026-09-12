@@ -7,7 +7,7 @@ import { useTranslations } from 'next-intl';
 import { Link, usePathname } from '@/i18n/navigation';
 
 
-import { ATTRS_DEMO, LIEN_DEMO } from '../anchors';
+import { ATTRS_DEMO, LIEN_DEMO, LIEN_LINKEDIN } from '../anchors';
 import { Cta } from '../ui/Cta';
 import { Icon } from '../ui/Icon';
 
@@ -25,6 +25,7 @@ import { Icon } from '../ui/Icon';
 export function SiteHeader() {
   const t = useTranslations('nav');
   const actions = useTranslations('actions');
+  const mentions = useTranslations('mentions');
   const [ouvert, setOuvert] = useState(false);
   const idMenu = useId();
   // `usePathname` de next-intl rend le chemin sans son prefixe de langue :
@@ -146,7 +147,21 @@ export function SiteHeader() {
         {/* Selecteur de langue retire le 3 septembre 2026, avec la version
             anglaise. Le composant existe toujours : le remettre ici et dans
             le menu suffira. Voir la marche a suivre dans i18n/locales.ts. */}
-        <div className="hidden items-center gap-4 tablette:flex">
+        <div className="hidden items-center gap-2 tablette:flex desktop:gap-4">
+          {/* Icone seule : elle porte donc un nom accessible, et non un
+              pictogramme muet. Cible de 44 px comme tout le reste de la
+              barre. `size-11` et non un padding : la boite reste carree quel
+              que soit le trace. */}
+          <a
+            href={LIEN_LINKEDIN}
+            target="_blank"
+            rel="noopener"
+            aria-label={t('linkedin')}
+            className="inline-flex size-11 items-center justify-center rounded-carte text-encre hover:text-accent"
+          >
+            <Icon name="linkedin" size={24} />
+          </a>
+
           {/* La visibilite est portee par l'enveloppe, pas par le CTA : sa
               classe `inline-flex` de base l'emporterait sur un `hidden` passe
               en className, les deux reglant la meme propriete. */}
@@ -192,6 +207,33 @@ export function SiteHeader() {
           >
             {actions('demo')}
           </Cta>
+
+          {/* Sous le bouton : par ou joindre quelqu'un, pour de vrai. Le
+              telephone et l'adresse viennent de `mentions` — une seule source
+              dans le depot, donc ils ne peuvent pas diverger d'avec les
+              mentions legales. Ici le libelle est ecrit a cote de l'icone :
+              une icone seule dans une liste ne se devine pas. */}
+          <ul className="mt-6 flex flex-col gap-1 border-t border-filet pt-4">
+            {[
+              { cle: 'linkedin', href: LIEN_LINKEDIN, icone: 'linkedin', texte: t('linkedin'), externe: true },
+              { cle: 'tel', href: `tel:${mentions('editeurTelephone').replace(/\s/g, '')}`,
+                icone: 'telephone', texte: mentions('editeurTelephone'), externe: false },
+              { cle: 'mail', href: `mailto:${mentions('editeurEmail')}`,
+                icone: 'mail', texte: mentions('editeurEmail'), externe: false },
+            ].map((ligne) => (
+              <li key={ligne.cle}>
+                <a
+                  href={ligne.href}
+                  {...(ligne.externe ? { target: '_blank', rel: 'noopener' } : {})}
+                  onClick={() => setOuvert(false)}
+                  className="text-corps flex min-h-11 items-center gap-3 text-encre-douce no-underline"
+                >
+                  <Icon name={ligne.icone as 'linkedin' | 'telephone' | 'mail'} size={20} className="shrink-0" />
+                  {ligne.texte}
+                </a>
+              </li>
+            ))}
+          </ul>
         </nav>
       </div>
     </header>
