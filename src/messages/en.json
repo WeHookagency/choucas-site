@@ -45,20 +45,20 @@
     "intro": "What is said on the phone reaches the field. What is done is checked. What is ready, you know."
   },
   "tension": {
-    "label": "Le problème n'est pas le service. C'est tout ce qui se perd entre deux personnes.",
+    "label": "Le problème n’est pas le service. C’est tout ce qui se perd entre deux personnes.",
     "titre": "Messages dispersés. Rotations sous tension. Équipes sans contexte. <accent>Choucas remet tout le monde sur la même ligne.</accent>",
     "photoAlt": "Une employée de conciergerie replace un oreiller sur un lit préparé, dans une chambre en lumière naturelle."
   },
   "hospitalite": {
-    "label": "L'hospitalité en action",
-    "titre": "Le luxe n'est pas une apparence. <accent>C'est l'absence de friction.</accent>",
+    "label": "L’hospitalité en action",
+    "titre": "Le luxe n’est pas une apparence. <accent>C’est l’absence de friction.</accent>",
     "principes": {
       "responsable": "Une information possède toujours un responsable.",
       "contexte": "Une mission conserve le contexte du client.",
       "anomalie": "Une anomalie devient une action, pas un message perdu.",
       "rotation": "Une rotation relie planning, ressources et preuves."
     },
-    "photoAlt": "Chambre d'un chalet en bois : lit fait et linge de maison roulé au pied du lit."
+    "photoAlt": "Chambre d’un chalet en bois : lit fait et linge de maison roulé au pied du lit."
   },
   "pourquoi": {
     "label": "Pourquoi Choucas ?",
@@ -92,7 +92,7 @@
   },
   "profils": {
     "label": "Un outil pour toute la conciergerie",
-    "titre": "Une même information. <accent>Trois façons d'agir.</accent>",
+    "titre": "Une même information. <accent>Trois façons d’agir.</accent>",
     "dirigeant": {
       "verbe": "Piloter",
       "role": "Concierge company owner",
@@ -101,7 +101,7 @@
     },
     "exploitation": {
       "verbe": "Coordonner",
-      "role": "Responsable d'exploitation",
+      "role": "Responsable d’exploitation",
       "phrase": "From brief to control, they see what actually requires attention.",
       "benefice": "Know which properties are truly READY"
     },
@@ -184,13 +184,13 @@
       "mail": {
         "canal": "Email",
         "quand": "check-in day · 7:05 am",
-        "mot": "\"No one goes into the parents' bedroom.\""
+        "mot": "\"No one goes into the parents’ bedroom.\""
       }
     },
     "arbitrage": {
       "titre": "Two requests collide",
       "etat": "TO SETTLE",
-      "corps": "<fort>\"Fresh sheets every day\"</fort> and <fort>\"no one goes into the parents' bedroom\"</fort> do not hold together: changing the sheets means going in. Choucas does not pass both on blindly — it states the conflict, and the manager decides.",
+      "corps": "<fort>\"Fresh sheets every day\"</fort> and <fort>\"no one goes into the parents’ bedroom\"</fort> do not hold together: changing the sheets means going in. Choucas does not pass both on blindly — it states the conflict, and the manager decides.",
       "meta": "No line is left hanging: it is assigned, or set aside knowingly."
     },
     "consigne": {
@@ -245,15 +245,15 @@
         "carteEtat": "2 exceptions traitées"
       },
       "controler": {
-        "titre": "Terminé n'est pas prêt",
-        "texte": "La mission est faite, la photo est là. Une autre personne que celle qui a exécuté ouvre le contrôle et valide. C'est cette règle qui fait passer le bien en PRÊT.",
+        "titre": "Terminé n’est pas prêt",
+        "texte": "La mission est faite, la photo est là. Une autre personne que celle qui a exécuté ouvre le contrôle et valide. C’est cette règle qui fait passer le bien en PRÊT.",
         "carteTitre": "Choucas · Contrôle de mission",
         "carteLigne": "",
         "carteEtat": "Validé par un second regard"
       },
       "accueillir": {
         "titre": "La consigne du matin est tenue",
-        "texte": "Le lit bébé demandé à 8h est en place, contrôlé, prouvé. Le bien est PRÊT avant que les clients ne sonnent, et le manager n'a rien eu à vérifier lui-même.",
+        "texte": "Le lit bébé demandé à 8h est en place, contrôlé, prouvé. Le bien est PRÊT avant que les clients ne sonnent, et le manager n’a rien eu à vérifier lui-même.",
         "carteTitre": "Choucas · Fiche du bien",
         "carteLigne": "",
         "carteEtat": "PRÊT · 17:12"
@@ -262,10 +262,10 @@
   },
   "manager": {
     "label": "The manager view",
-    "aria": "Démonstration de l'interface Choucas Manager",
+    "aria": "Démonstration de l’interface Choucas Manager",
     "navAria": "Navigation de la démonstration",
     "onglets": {
-      "aujourdhui": "Aujourd'hui",
+      "aujourdhui": "Aujourd’hui",
       "missions": "Missions",
       "biens": "Biens",
       "equipe": "Équipe"
@@ -312,7 +312,7 @@
       "enMission": "En mission",
       "disponible": "Disponible"
     },
-    "captureAlt": "Choucas manager home: the day's verdict — 6 arrivals, 1 ready, 4 in preparation, 1 blocked — then the three exceptions that need attention, and the start of the day with its times.",
+    "captureAlt": "Choucas manager home: the day’s verdict — 6 arrivals, 1 ready, 4 in preparation, 1 blocked — then the three exceptions that need attention, and the start of the day with its times.",
     "lienDemo": "Ouvrir la démonstration Choucas dans un nouvel onglet",
     "titre": "Three things need your attention. <accent>The rest moves on.</accent>",
     "intro": "An exception, a check to run, a decision to make: Choucas surfaces only what changes the state of a property."
@@ -327,7 +327,7 @@
       "preuves": "Photos and issues feed back into control"
     },
     "ecran": {
-      "aria": "Démonstration de l'application terrain Choucas",
+      "aria": "Démonstration de l’application terrain Choucas",
       "mission": "Ménage",
       "heure": "13:00",
       "alerteTitre": "Alerte linge",
@@ -339,7 +339,7 @@
       "bains": "Salles de bain",
       "cuisine": "Cuisine — plan de travail",
       "signaler": "Signaler un problème",
-      "navAria": "Navigation de l'application terrain",
+      "navAria": "Navigation de l’application terrain",
       "planning": "Planning",
       "missions": "Missions",
       "stocks": "Stocks",
@@ -371,17 +371,17 @@
   },
   "confidentialite": {
     "titre": "Politique de confidentialité",
-    "metaDescription": "La seule donnée collectée par ce site l'est lors d'une prise de rendez-vous.",
+    "metaDescription": "La seule donnée collectée par ce site l’est lors d’une prise de rendez-vous.",
     "rendezVousTitre": "La prise de rendez-vous",
-    "rendezVousTexte": "En cliquant sur « Demander une démo », vous êtes dirigé vers Google Calendar pour choisir un créneau. Y sont recueillis votre nom, votre adresse e-mail et l'horaire retenu.",
+    "rendezVousTexte": "En cliquant sur « Demander une démo », vous êtes dirigé vers Google Calendar pour choisir un créneau. Y sont recueillis votre nom, votre adresse e-mail et l’horaire retenu.",
     "traitementTitre": "Le formulaire de contact",
-    "traitementTexte": "Le site ne recueille aucune donnée par lui-même. Le formulaire de contact ouvre votre logiciel de messagerie avec un message pré-rempli : vous l'envoyez depuis votre propre adresse, comme n'importe quel courriel. Nous recevons ce message dans notre messagerie professionnelle, hébergée par Google, et le conservons trois ans à compter du dernier contact.",
+    "traitementTexte": "Le site ne recueille aucune donnée par lui-même. Le formulaire de contact ouvre votre logiciel de messagerie avec un message pré-rempli : vous l’envoyez depuis votre propre adresse, comme n’importe quel courriel. Nous recevons ce message dans notre messagerie professionnelle, hébergée par Google, et le conservons trois ans à compter du dernier contact.",
     "sousTraitantTitre": "Les prestataires qui interviennent",
-    "sousTraitantTexte": "Google (Workspace) assure la messagerie professionnelle et la prise de rendez-vous. Netlify héberge le site. Tous deux sont établis hors de l'Union européenne, et les informations qui leur sont confiées peuvent y être traitées.",
+    "sousTraitantTexte": "Google (Workspace) assure la messagerie professionnelle et la prise de rendez-vous. Netlify héberge le site. Tous deux sont établis hors de l’Union européenne, et les informations qui leur sont confiées peuvent y être traitées.",
     "droitsTitre": "Vos droits",
-    "droitsTexte": "Vous disposez d'un droit d'accès, de rectification et de suppression des données qui vous concernent. Pour l'exercer, écrivez à l'adresse indiquée dans les mentions légales.",
+    "droitsTexte": "Vous disposez d’un droit d’accès, de rectification et de suppression des données qui vous concernent. Pour l’exercer, écrivez à l’adresse indiquée dans les mentions légales.",
     "absenceTitre": "Ce que ce site ne fait pas",
-    "absenceTexte": "Il ne comporte aucun autre formulaire. Il ne dépose, à ce stade, aucun cookie de mesure d'audience."
+    "absenceTexte": "Il ne comporte aucun autre formulaire. Il ne dépose, à ce stade, aucun cookie de mesure d’audience."
   },
   "rapport": {
     "label": "Owner report",

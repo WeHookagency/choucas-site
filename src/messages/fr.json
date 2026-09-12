@@ -2,12 +2,12 @@
   "metadata": {
     "title": "Choucas — Le logiciel opérationnel des conciergeries",
     "titleTemplate": "{page} — Choucas",
-    "description": "Choucas transforme les briefs clients en actions terrain, organise le double contrôle jusqu'à l'état PRÊT et prépare les rapports propriétaires."
+    "description": "Choucas transforme les briefs clients en actions terrain, organise le double contrôle jusqu’à l’état PRÊT et prépare les rapports propriétaires."
   },
   "notFound": {
     "title": "Page introuvable",
     "description": "Cette adresse ne correspond à aucune page du site.",
-    "backHome": "Retour à l'accueil"
+    "backHome": "Retour à l’accueil"
   },
   "languageSwitcher": {
     "label": "Choisir une langue"
@@ -23,7 +23,7 @@
     "tarifs": "Tarifs",
     "faq": "Questions fréquentes",
     "contact": "Contact",
-    "blog": "Notes d'expérience"
+    "blog": "Notes d’expérience"
   },
   "footer": {
     "marqueAlt": "Choucas",
@@ -45,20 +45,20 @@
     "intro": "Ce qui se dit au téléphone arrive au terrain. Ce qui est fait est contrôlé. Ce qui est prêt, vous le savez."
   },
   "tension": {
-    "label": "Le problème n'est pas le service. C'est tout ce qui se perd entre deux personnes.",
+    "label": "Le problème n’est pas le service. C’est tout ce qui se perd entre deux personnes.",
     "titre": "Messages dispersés. Rotations sous tension. Équipes sans contexte. <accent>Choucas remet tout le monde sur la même ligne.</accent>",
     "photoAlt": "Une employée de conciergerie replace un oreiller sur un lit préparé, dans une chambre en lumière naturelle."
   },
   "hospitalite": {
-    "label": "L'hospitalité en action",
-    "titre": "Le luxe n'est pas une apparence. <accent>C'est l'absence de friction.</accent>",
+    "label": "L’hospitalité en action",
+    "titre": "Le luxe n’est pas une apparence. <accent>C’est l’absence de friction.</accent>",
     "principes": {
       "responsable": "Une information possède toujours un responsable.",
       "contexte": "Une mission conserve le contexte du client.",
       "anomalie": "Une anomalie devient une action, pas un message perdu.",
       "rotation": "Une rotation relie planning, ressources et preuves."
     },
-    "photoAlt": "Chambre d'un chalet en bois : lit fait et linge de maison roulé au pied du lit."
+    "photoAlt": "Chambre d’un chalet en bois : lit fait et linge de maison roulé au pied du lit."
   },
   "pourquoi": {
     "label": "Pourquoi Choucas ?",
@@ -92,7 +92,7 @@
   },
   "profils": {
     "label": "Un outil pour toute la conciergerie",
-    "titre": "Une même information. <accent>Trois façons d'agir.</accent>",
+    "titre": "Une même information. <accent>Trois façons d’agir.</accent>",
     "dirigeant": {
       "verbe": "Piloter",
       "role": "Dirigeant de conciergerie",
@@ -101,7 +101,7 @@
     },
     "exploitation": {
       "verbe": "Coordonner",
-      "role": "Responsable d'exploitation",
+      "role": "Responsable d’exploitation",
       "phrase": "Du brief au contrôle, il voit ce qui demande réellement son attention.",
       "benefice": "Savoir quels biens sont réellement PRÊTS"
     },
@@ -125,25 +125,25 @@
     "panneaux": {
       "brief": {
         "titre": "Le brief devient opérationnel.",
-        "texte": "Une demande reçue par message, appel, email ou note est structurée en actions. Le terrain reçoit ce qu'il doit faire, quand le faire et le contexte utile pour comprendre pourquoi.",
+        "texte": "Une demande reçue par message, appel, email ou note est structurée en actions. Le terrain reçoit ce qu’il doit faire, quand le faire et le contexte utile pour comprendre pourquoi.",
         "resultat": "Ce qui est demandé devient ce qui doit être fait.",
         "captureAlt": ""
       },
       "controle": {
         "titre": "Terminé ne veut pas dire contrôlé.",
-        "texte": "Une mission terminée passe à une autre personne pour validation. La personne qui contrôle n'est jamais celle qui a exécuté la mission.",
+        "texte": "Une mission terminée passe à une autre personne pour validation. La personne qui contrôle n’est jamais celle qui a exécuté la mission.",
         "resultat": "Un second regard avant de déclarer le bien prêt.",
         "captureAlt": ""
       },
       "pret": {
         "titre": "Le check-in repose sur un état clair.",
         "texte": "Une fois les missions nécessaires terminées et contrôlées, le bien peut passer en PRÊT. Le manager sait quels logements peuvent réellement accueillir leurs clients.",
-        "resultat": "PRÊT est un état validé, pas un pourcentage d'avancement.",
+        "resultat": "PRÊT est un état validé, pas un pourcentage d’avancement.",
         "captureAlt": ""
       },
       "rapport": {
         "titre": "Le travail accompli devient visible.",
-        "texte": "Photos, actions, contrôles et points d'attention peuvent alimenter un rapport propriétaire préparé dans Choucas puis relu avant envoi.",
+        "texte": "Photos, actions, contrôles et points d’attention peuvent alimenter un rapport propriétaire préparé dans Choucas puis relu avant envoi.",
         "resultat": "Une preuve claire du travail réalisé sur le bien.",
         "captureAlt": ""
       }
@@ -151,13 +151,13 @@
   },
   "briefIntake": {
     "label": "Brief client",
-    "titre": "Un brief n'arrive jamais <accent>en ordre.</accent>",
+    "titre": "Un brief n’arrive jamais <accent>en ordre.</accent>",
     "intro": "Trois canaux, trois moments, une seule consigne. Choucas rassemble, le manager arbitre, le terrain exécute.",
     "sequenceAria": "Du brief reçu à la consigne transmise, en trois temps",
     "bien": "Chalet Cortibot",
     "liaisons": {
-      "rassemble": "rassemblés sur l'app Choucas",
-      "arbitre": "Arbitré par Sophie dans l'application Choucas."
+      "rassemble": "rassemblés sur l’app Choucas",
+      "arbitre": "Arbitré par Sophie dans l’application Choucas."
     },
     "etapes": {
       "arrivee": {
@@ -184,32 +184,32 @@
       "mail": {
         "canal": "Mail",
         "quand": "le jour du check-in · 07:05",
-        "mot": "« Personne n'entre dans la chambre parentale. »"
+        "mot": "« Personne n’entre dans la chambre parentale. »"
       }
     },
     "arbitrage": {
-      "titre": "Deux demandes s'opposent",
+      "titre": "Deux demandes s’opposent",
       "etat": "À ARBITRER",
-      "corps": "<fort>« Draps changés tous les jours »</fort> et <fort>« personne n'entre dans la chambre parentale »</fort> ne tiennent pas ensemble : changer les draps suppose d'entrer. Choucas ne transmet pas les deux aveuglément — il pose le conflit, et le manager décide.",
+      "corps": "<fort>« Draps changés tous les jours »</fort> et <fort>« personne n’entre dans la chambre parentale »</fort> ne tiennent pas ensemble : changer les draps suppose d’entrer. Choucas ne transmet pas les deux aveuglément — il pose le conflit, et le manager décide.",
       "meta": "Aucune ligne ne reste en suspens : elle est attribuée, ou écartée en connaissance de cause."
     },
     "consigne": {
       "etat": "CONSIGNE",
-      "texte": "Draps changés tous les jours dans toutes les chambres. Sauf celle du rez-de-chaussée, où dorment les parents : jeu propre plié devant la porte chaque matin avant 9 h, personne n'entre.",
+      "texte": "Draps changés tous les jours dans toutes les chambres. Sauf celle du rez-de-chaussée, où dorment les parents : jeu propre plié devant la porte chaque matin avant 9 h, personne n’entre.",
       "meta": "Transmis à Marie L., équipière en charge du ménage."
     }
   },
   "pret": {
     "label": "Double contrôle · PRÊT",
     "titre": "Terminé ne veut pas dire <accent>PRÊT.</accent>",
-    "corps": "La personne qui contrôle n'est pas celle qui a exécuté la mission. Le bien passe en PRÊT seulement après validation — avant le check-in.",
-    "etapesAria": "Les trois états d'une mission, dans l'ordre",
+    "corps": "La personne qui contrôle n’est pas celle qui a exécuté la mission. Le bien passe en PRÊT seulement après validation — avant le check-in.",
+    "etapesAria": "Les trois états d’une mission, dans l’ordre",
     "etape1": "Mission terminée",
     "etape2": "À contrôler",
     "etape3": "PRÊT"
   },
   "ctaIntermediaire": {
-    "phrase": "Chez vous, qui valide qu'un bien est prêt ?"
+    "phrase": "Chez vous, qui valide qu’un bien est prêt ?"
   },
   "journee": {
     "label": "Une journée dans Choucas",
@@ -248,15 +248,15 @@
         "carteEtat": "2 exceptions traitées"
       },
       "controler": {
-        "titre": "Terminé n'est pas prêt",
-        "texte": "La mission est faite, la photo est là. Une autre personne que celle qui a exécuté ouvre le contrôle et valide. C'est cette règle qui fait passer le bien en PRÊT.",
+        "titre": "Terminé n’est pas prêt",
+        "texte": "La mission est faite, la photo est là. Une autre personne que celle qui a exécuté ouvre le contrôle et valide. C’est cette règle qui fait passer le bien en PRÊT.",
         "carteTitre": "Choucas · Contrôle de mission",
         "carteLigne": "",
         "carteEtat": "Validé par un second regard"
       },
       "accueillir": {
         "titre": "La consigne du matin est tenue",
-        "texte": "Le lit bébé demandé à 8h est en place, contrôlé, prouvé. Le bien est PRÊT avant que les clients ne sonnent, et le manager n'a rien eu à vérifier lui-même.",
+        "texte": "Le lit bébé demandé à 8h est en place, contrôlé, prouvé. Le bien est PRÊT avant que les clients ne sonnent, et le manager n’a rien eu à vérifier lui-même.",
         "carteTitre": "Choucas · Fiche du bien",
         "carteLigne": "",
         "carteEtat": "PRÊT · 17:12"
@@ -265,10 +265,10 @@
   },
   "manager": {
     "label": "La vue manager",
-    "aria": "Démonstration de l'interface Choucas Manager",
+    "aria": "Démonstration de l’interface Choucas Manager",
     "navAria": "Navigation de la démonstration",
     "onglets": {
-      "aujourdhui": "Aujourd'hui",
+      "aujourdhui": "Aujourd’hui",
       "missions": "Missions",
       "biens": "Biens",
       "equipe": "Équipe"
@@ -318,19 +318,19 @@
     "captureAlt": "Accueil manager de Choucas : le verdict du jour — 6 arrivées, 1 prêt, 4 en préparation, 1 bloqué — puis les trois exceptions qui demandent une attention, et le début de la journée avec ses horaires.",
     "lienDemo": "Ouvrir la démonstration Choucas dans un nouvel onglet",
     "titre": "Trois choses demandent votre attention. <accent>Le reste avance.</accent>",
-    "intro": "Une exception, un contrôle à faire, une décision à prendre : Choucas ne remonte que ce qui change l'état d'un bien."
+    "intro": "Une exception, un contrôle à faire, une décision à prendre : Choucas ne remonte que ce qui change l’état d’un bien."
   },
   "terrain": {
     "label": "Le brief devient terrain",
     "titre": "Le terrain sait quoi faire. <accent>Et pourquoi.</accent>",
-    "intro": "Chaque mission garde le contexte du brief. L'équipe ne reçoit pas qu'une tâche : elle comprend ce qui est attendu avant même d'arriver.",
+    "intro": "Chaque mission garde le contexte du brief. L’équipe ne reçoit pas qu’une tâche : elle comprend ce qui est attendu avant même d’arriver.",
     "points": {
       "consigne": "Une consigne issue du brief validé",
-      "contexte": "Le contexte client reste accessible à l'équipe",
+      "contexte": "Le contexte client reste accessible à l’équipe",
       "preuves": "Photos et signalements remontent vers le contrôle"
     },
     "ecran": {
-      "aria": "Démonstration de l'application terrain Choucas",
+      "aria": "Démonstration de l’application terrain Choucas",
       "mission": "Ménage",
       "heure": "13:00",
       "alerteTitre": "Alerte linge",
@@ -342,18 +342,18 @@
       "bains": "Salles de bain",
       "cuisine": "Cuisine — plan de travail",
       "signaler": "Signaler un problème",
-      "navAria": "Navigation de l'application terrain",
+      "navAria": "Navigation de l’application terrain",
       "planning": "Planning",
       "missions": "Missions",
       "stocks": "Stocks",
       "equipe": "Équipe"
     },
-    "captureAlt": "Accueil de l'application terrain : bonjour Marie, samedi 5 septembre, 2 missions, 3 chalets, 1 action urgente ; la mission en cours au Chalet Balme avec sa progression et ce qu'il faut savoir avant d'entrer ; puis le check-in de 17:05 au Chalet La Tournette."
+    "captureAlt": "Accueil de l’application terrain : bonjour Marie, samedi 5 septembre, 2 missions, 3 chalets, 1 action urgente ; la mission en cours au Chalet Balme avec sa progression et ce qu’il faut savoir avant d’entrer ; puis le check-in de 17:05 au Chalet La Tournette."
   },
   "ctaFinal": {
     "label": "Montrez-nous une de vos rotations",
-    "titre": "Le terrain change. <accent>Le niveau d'exigence, non.</accent>",
-    "intro": "En 30 minutes, partons d'un de vos briefs, de votre façon de contrôler les biens et de vos check-ins. Nous vous montrons comment Choucas s'intègre à cette chaîne.",
+    "titre": "Le terrain change. <accent>Le niveau d’exigence, non.</accent>",
+    "intro": "En 30 minutes, partons d’un de vos briefs, de votre façon de contrôler les biens et de vos check-ins. Nous vous montrons comment Choucas s’intègre à cette chaîne.",
     "action": "Prendre rendez-vous",
     "micro": "30 minutes · Avec vos cas opérationnels"
   },
@@ -374,19 +374,19 @@
   },
   "confidentialite": {
     "titre": "Politique de confidentialité",
-    "metaDescription": "La seule donnée collectée par ce site l'est lors d'une prise de rendez-vous.",
+    "metaDescription": "La seule donnée collectée par ce site l’est lors d’une prise de rendez-vous.",
     "rendezVousTitre": "La prise de rendez-vous",
-    "rendezVousTexte": "En cliquant sur « Demander une démo », vous êtes dirigé vers Google Calendar pour choisir un créneau. Y sont recueillis votre nom, votre adresse e-mail et l'horaire retenu.",
+    "rendezVousTexte": "En cliquant sur « Demander une démo », vous êtes dirigé vers Google Calendar pour choisir un créneau. Y sont recueillis votre nom, votre adresse e-mail et l’horaire retenu.",
     "traitementTitre": "Le formulaire de contact",
-    "traitementTexte": "Le site ne recueille aucune donnée par lui-même. Le formulaire de contact ouvre votre logiciel de messagerie avec un message pré-rempli : vous l'envoyez depuis votre propre adresse, comme n'importe quel courriel. Nous recevons ce message dans notre messagerie professionnelle, hébergée par Google, et le conservons trois ans à compter du dernier contact.",
+    "traitementTexte": "Le site ne recueille aucune donnée par lui-même. Le formulaire de contact ouvre votre logiciel de messagerie avec un message pré-rempli : vous l’envoyez depuis votre propre adresse, comme n’importe quel courriel. Nous recevons ce message dans notre messagerie professionnelle, hébergée par Google, et le conservons trois ans à compter du dernier contact.",
     "sousTraitantTitre": "Les prestataires qui interviennent",
-    "sousTraitantTexte": "Google (Workspace) assure la messagerie professionnelle et la prise de rendez-vous. Netlify héberge le site. Tous deux sont établis hors de l'Union européenne, et les informations qui leur sont confiées peuvent y être traitées.",
+    "sousTraitantTexte": "Google (Workspace) assure la messagerie professionnelle et la prise de rendez-vous. Netlify héberge le site. Tous deux sont établis hors de l’Union européenne, et les informations qui leur sont confiées peuvent y être traitées.",
     "conservationTitre": "Combien de temps les informations sont gardées",
-    "conservationTexte": "Deux durées, parce qu'il y a deux finalités. Le rendez-vous pris sur ce site et les messages envoyés depuis la page Contact sont conservés trois ans à compter du dernier échange : c'est de la prospection, et trois ans est la durée retenue pour elle. Dans Choucas, les fiches client, bien et propriétaire sont supprimées trois ans après le dernier séjour ; leur finalité n'est pas de prospecter mais de mieux servir quelqu'un qui revient, et un client qui n'est pas revenu en trois saisons n'a plus de fiche utile.",
+    "conservationTexte": "Deux durées, parce qu’il y a deux finalités. Le rendez-vous pris sur ce site et les messages envoyés depuis la page Contact sont conservés trois ans à compter du dernier échange : c’est de la prospection, et trois ans est la durée retenue pour elle. Dans Choucas, les fiches client, bien et propriétaire sont supprimées trois ans après le dernier séjour ; leur finalité n’est pas de prospecter mais de mieux servir quelqu’un qui revient, et un client qui n’est pas revenu en trois saisons n’a plus de fiche utile.",
     "droitsTitre": "Vos droits",
-    "droitsTexte": "Vous disposez d'un droit d'accès, de rectification et de suppression des données qui vous concernent. Pour l'exercer, écrivez à l'adresse indiquée dans les mentions légales.",
+    "droitsTexte": "Vous disposez d’un droit d’accès, de rectification et de suppression des données qui vous concernent. Pour l’exercer, écrivez à l’adresse indiquée dans les mentions légales.",
     "absenceTitre": "Ce que ce site ne fait pas",
-    "absenceTexte": "Il ne comporte aucun autre formulaire. Il ne dépose, à ce stade, aucun cookie de mesure d'audience."
+    "absenceTexte": "Il ne comporte aucun autre formulaire. Il ne dépose, à ce stade, aucun cookie de mesure d’audience."
   },
   "rapport": {
     "label": "Rapport propriétaire",
@@ -395,15 +395,15 @@
     "micro": "Le manager relit avant envoi.",
     "points": {
       "fait": "Ce qui a été fait",
-      "attention": "Points d'attention",
+      "attention": "Points d’attention",
       "photos": "Photos",
       "passage": "Prochain passage"
     },
     "apercu": {
       "pastille": "Aperçu",
-      "legende": "Représentation d'un rapport en préparation. Ce module n'est pas encore disponible.",
+      "legende": "Représentation d’un rapport en préparation. Ce module n’est pas encore disponible.",
       "expediteur": "Votre conciergerie",
-      "enTete": "Rapport d'intervention · 17 janvier",
+      "enTete": "Rapport d’intervention · 17 janvier",
       "salutation": "Bonjour M. Arnaud,",
       "titre": "Votre chalet Les Troncs a été entretenu ce jour",
       "chapeau": "Intervention de maintenance réalisée le samedi 17 janvier.",
@@ -422,25 +422,25 @@
       "fait": {
         "chaufferie": "Contrôle complet de la chaufferie — pression conforme (1,5 bar)",
         "evacuations": "Évacuations cuisine et buanderie vérifiées et dégagées",
-        "robinet": "Robinet d'arrêt général repéré, accès dégagé",
+        "robinet": "Robinet d’arrêt général repéré, accès dégagé",
         "zone": "Zone technique sécurisée après intervention"
       },
-      "attentionLabel": "Point d'attention",
+      "attentionLabel": "Point d’attention",
       "attentionTitre": "Store de la terrasse : moteur en fin de vie",
       "attentionTexte": ", descente bloquée par intermittence. Nous recommandons un remplacement du moteur avant la haute saison. Sur votre accord, nous vous transmettons un devis sous 48 h.",
       "attentionDevis": "Demander le devis",
       "attentionPhoto": "Voir la photo",
-      "photosLabel": "Photos de l'intervention · 4",
+      "photosLabel": "Photos de l’intervention · 4",
       "photos": {
         "chaufferie": "Chaufferie",
         "evacuations": "Évacuations",
-        "robinet": "Robinet d'arrêt",
+        "robinet": "Robinet d’arrêt",
         "zone": "Zone technique"
       },
       "rapportComplet": "Voir le rapport complet",
       "prochainLabel": "Prochain client",
       "prochainTexte": "Votre chalet accueille la famille V.",
-      "prochainJusqu": "Jusqu'au",
+      "prochainJusqu": "Jusqu’au",
       "prochainJour": "sam",
       "prochainDate": "24",
       "signature": "Rapport établi par Mathieu B. · Votre conciergerie",
@@ -450,17 +450,17 @@
   "philosophie": {
     "label": "Une autre façon de piloter",
     "titre": "On mesure les biens et les missions. <accent>Jamais les personnes.</accent>",
-    "intro": "Choucas suit l'état opérationnel et fait remonter ce qui demande une décision, un contrôle ou une intervention. Il n'a pas vocation à transformer le terrain en tableau de productivité.",
+    "intro": "Choucas suit l’état opérationnel et fait remonter ce qui demande une décision, un contrôle ou une intervention. Il n’a pas vocation à transformer le terrain en tableau de productivité.",
     "lignes": {
       "terrain": "Le terrain exécute.",
-      "choucas": "Choucas suit l'opération.",
+      "choucas": "Choucas suit l’opération.",
       "manager": "Le manager intervient quand il apporte quelque chose."
     }
   },
   "implantation": {
-    "label": "L'implantation Choucas",
+    "label": "L’implantation Choucas",
     "titre": "Vos opérations. <accent>Configurées avec vous, sur le terrain.</accent>",
-    "intro": "Une journée sur site, du matin au soir. Montrez-moi comment vous travaillez aujourd'hui. On adapte Choucas à votre terrain pour demain.",
+    "intro": "Une journée sur site, du matin au soir. Montrez-moi comment vous travaillez aujourd’hui. On adapte Choucas à votre terrain pour demain.",
     "moments": {
       "matin": "Matin",
       "midi": "Midi",
@@ -469,7 +469,7 @@
     },
     "exemple": {
       "legende": "Chaque vallée est différente et vous obtiendrez votre propre Choucas configuré. La journée pose le socle, le reste se complète en fonctionnant.",
-      "captureAlt": "La journée d'une conciergerie configurée dans Choucas : huit missions avec leurs heures, leurs chalets et leur état — faite, en retard, en cours, prévue — puis l'accès à la gestion et une alerte urgente."
+      "captureAlt": "La journée d’une conciergerie configurée dans Choucas : huit missions avec leurs heures, leurs chalets et leur état — faite, en retard, en cours, prévue — puis l’accès à la gestion et une alerte urgente."
     },
     "cloture": "Le soir, votre conciergerie a son application configurée.",
     "etapes": {
@@ -487,7 +487,7 @@
       },
       "tester": {
         "titre": "Tester",
-        "texte": "Faire tourner Choucas sur vos cas réels et ajuster avec l'équipe."
+        "texte": "Faire tourner Choucas sur vos cas réels et ajuster avec l’équipe."
       }
     }
   },
@@ -507,7 +507,7 @@
       "titre": "Tarifs"
     },
     "blog": {
-      "titre": "Notes d'expérience"
+      "titre": "Notes d’expérience"
     },
     "article": {
       "titre": "Article"
@@ -524,46 +524,46 @@
   },
   "aPropos": {
     "eyebrow": "Conçu dans les Alpes",
-    "titre": "Né là où les opérations ne peuvent pas <accent>se permettre d'être fragiles.</accent>",
+    "titre": "Né là où les opérations ne peuvent pas <accent>se permettre d’être fragiles.</accent>",
     "intro": "Réseau irrégulier, chalets dispersés, arrivées concentrées, prestataires externes, accès multiples et demandes de dernière minute : les Alpes imposent une exigence opérationnelle particulière.",
     "suite": "Choucas est conçu à partir de cette réalité, sans être limité à la montagne.",
     "portraitAlt": "Mathieu Dupont-Vieux, dans un sous-bois de conifères, le regard levé.",
-    "bandeauAlt": "Sapins chargés de neige au bord d'un plateau, traces de skis dans la poudreuse.",
+    "bandeauAlt": "Sapins chargés de neige au bord d’un plateau, traces de skis dans la poudreuse.",
     "recit": {
       "titre": "Une gouvernante est partie après trente-cinq ans.",
-      "p1": "Ce ne sont pas les propriétaires qui l'ont remarqué en premier. Ce sont les clients. Ceux qui revenaient depuis des années et qui, cette saison-là, ont trouvé que quelque chose n'était plus tout à fait pareil. Personne n'aurait su dire quoi.",
-      "p2": "Elle savait quel client arrivait toujours avec trois heures de retard, quel chalet avait un radiateur capricieux, quelle famille ne voulait pas de fleurs dans le salon. Rien de tout ça n'était écrit. Ça n'avait jamais eu besoin de l'être.",
-      "p3": "Ici on aime accueillir. Le sens du détail, les petites attentions, le fait de faire vivre la région trois cent soixante-cinq jours par an — c'est un vrai savoir-faire, et il tient dans des têtes. Le jour où l'une de ces têtes s'en va, l'entreprise réapprend son métier, et le client le sent avant tout le monde.",
-      "chute": "Choucas est né de là. Pas pour remplacer ce savoir-faire : pour qu'il reste dans l'entreprise."
+      "p1": "Ce ne sont pas les propriétaires qui l’ont remarqué en premier. Ce sont les clients. Ceux qui revenaient depuis des années et qui, cette saison-là, ont trouvé que quelque chose n’était plus tout à fait pareil. Personne n’aurait su dire quoi.",
+      "p2": "Elle savait quel client arrivait toujours avec trois heures de retard, quel chalet avait un radiateur capricieux, quelle famille ne voulait pas de fleurs dans le salon. Rien de tout ça n’était écrit. Ça n’avait jamais eu besoin de l’être.",
+      "p3": "Ici on aime accueillir. Le sens du détail, les petites attentions, le fait de faire vivre la région trois cent soixante-cinq jours par an — c’est un vrai savoir-faire, et il tient dans des têtes. Le jour où l’une de ces têtes s’en va, l’entreprise réapprend son métier, et le client le sent avant tout le monde.",
+      "chute": "Choucas est né de là. Pas pour remplacer ce savoir-faire : pour qu’il reste dans l’entreprise."
     },
     "coupDeFeu": {
-      "titre": "Ce qu'on apprend dans un coup de feu.",
+      "titre": "Ce qu’on apprend dans un coup de feu.",
       "p1": "Restauration, puis moniteur de ski. Dans ces métiers-là, on apprend une chose : le retard ne se rattrape jamais, il se répercute. Une table qui décale décale la suivante. Un chalet qui prend une heure décale la journée entière.",
-      "chute": "C'est de là que vient le parti pris de Choucas : ne pas remonter tout, remonter ce qui va décaler la suite."
+      "chute": "C’est de là que vient le parti pris de Choucas : ne pas remonter tout, remonter ce qui va décaler la suite."
     },
     "qui": {
       "titre": "Qui est derrière",
       "lead": "Moi, seul.",
-      "p1": "Mathieu Dupont-Vieux. J'ai grandi à La Clusaz, je suis parti douze ans au Québec, je suis revenu. Je développe des outils métier depuis plusieurs années, et j'enseigne le ski l'hiver.",
-      "p2": "Choucas n'est pas un projet mené depuis une capitale par des gens qui ont lu une étude sur le tourisme de montagne. Je vis dans la vallée où sont mes clients. Quand je viens configurer votre exploitation, je ne prends pas l'avion."
+      "p1": "Mathieu Dupont-Vieux. J’ai grandi à La Clusaz, je suis parti douze ans au Québec, je suis revenu. Je développe des outils métier depuis plusieurs années, et j’enseigne le ski l’hiver.",
+      "p2": "Choucas n’est pas un projet mené depuis une capitale par des gens qui ont lu une étude sur le tourisme de montagne. Je vis dans la vallée où sont mes clients. Quand je viens configurer votre exploitation, je ne prends pas l’avion."
     },
     "etat": {
       "titre": "Où en est Choucas",
       "lead": "Au début, et je préfère le dire.",
-      "p1": "Choucas se construit avec ses premières conciergeries. Ce que vous voyez sur ce site vient de conversations avec des gens qui font ce métier — des dirigeants, des responsables d'exploitation, des gouvernantes qui ont tenu des chalets à Courchevel et ailleurs.",
-      "p2": "Ce que ça veut dire pour vous : vous aurez une écoute que vous n'aurez pas chez un éditeur installé, et vos remarques changeront le produit. Ce que ça veut dire aussi : nous ne sommes pas cent, et il y a des choses que Choucas ne fait pas encore. Elles sont dites sur la page Tarifs, pas cachées.",
+      "p1": "Choucas se construit avec ses premières conciergeries. Ce que vous voyez sur ce site vient de conversations avec des gens qui font ce métier — des dirigeants, des responsables d’exploitation, des gouvernantes qui ont tenu des chalets à Courchevel et ailleurs.",
+      "p2": "Ce que ça veut dire pour vous : vous aurez une écoute que vous n’aurez pas chez un éditeur installé, et vos remarques changeront le produit. Ce que ça veut dire aussi : nous ne sommes pas cent, et il y a des choses que Choucas ne fait pas encore. Elles sont dites sur la page Tarifs, pas cachées.",
       "p3": "Et si je disparais demain, votre configuration ne disparaît pas avec moi : elle est à vous, et vos données aussi."
     },
     "samedi": {
       "titre": "Un samedi à 14 h",
-      "lead": "Le samedi est votre journée la plus dure. C'est celle où un outil qui lâche ne se rattrape pas.",
+      "lead": "Le samedi est votre journée la plus dure. C’est celle où un outil qui lâche ne se rattrape pas.",
       "p1": "Je suis joignable le samedi en saison, de 9 h à 18 h. Pas un formulaire, pas un ticket : mon numéro."
     },
-    "partisTitre": "Ce qu'on a choisi de ne pas faire",
+    "partisTitre": "Ce qu’on a choisi de ne pas faire",
     "partis": {
       "pms": {
         "titre": "On ne remplace pas votre PMS.",
-        "texte": "Choucas s'occupe de ce qui se passe entre deux réservations, pas des réservations."
+        "texte": "Choucas s’occupe de ce qui se passe entre deux réservations, pas des réservations."
       },
       "personnes": {
         "titre": "On ne mesure pas les personnes.",
@@ -571,24 +571,24 @@
       },
       "sante": {
         "titre": "On ne stocke pas de données de santé.",
-        "texte": "Ni allergie, ni intolérance, ni traitement. Ce n'est pas un oubli, c'est une décision."
+        "texte": "Ni allergie, ni intolérance, ni traitement. Ce n’est pas un oubli, c’est une décision."
       },
       "envoi": {
-        "titre": "On n'envoie rien automatiquement.",
-        "texte": "Un rapport part quand un humain décide qu'il part."
+        "titre": "On n’envoie rien automatiquement.",
+        "texte": "Un rapport part quand un humain décide qu’il part."
       },
       "reseau": {
         "titre": "On ne suppose pas le réseau.",
-        "texte": "L'application fonctionne hors ligne, parce que les caves et les sous-sols ne captent pas."
+        "texte": "L’application fonctionne hors ligne, parce que les caves et les sous-sols ne captent pas."
       }
     },
-    "terrainTitre": "Terrain d'origine",
-    "stations": "Aravis · Megève · Chamonix · Courchevel · Val d'Isère",
+    "terrainTitre": "Terrain d’origine",
+    "stations": "Aravis · Megève · Chamonix · Courchevel · Val d’Isère",
     "cloture": "Né dans les Alpes. Pensé pour aller plus loin."
   },
   "blog": {
-    "titre": "Notes d'expérience",
-    "intro": "Ce qu'on apprend en regardant des conciergeries travailler. Pas de conseils génériques.",
+    "titre": "Notes d’expérience",
+    "intro": "Ce qu’on apprend en regardant des conciergeries travailler. Pas de conseils génériques.",
     "dureeEnAvant": "7 min de lecture",
     "listeAria": "Toutes les notes",
     "articles": {
@@ -599,11 +599,11 @@
       },
       "termine": {
         "titre": "Pourquoi « terminé » ne veut rien dire",
-        "chapeau": "Terminé est déclaré par celui qui exécute. Prêt est validé par un tiers. La différence n'est pas du vocabulaire.",
+        "chapeau": "Terminé est déclaré par celui qui exécute. Prêt est validé par un tiers. La différence n’est pas du vocabulaire.",
         "dateLisible": "2 février 2026"
       },
       "canaux": {
-        "titre": "Le brief de séjour arrive par quatre canaux différents. C'est le vrai problème.",
+        "titre": "Le brief de séjour arrive par quatre canaux différents. C’est le vrai problème.",
         "chapeau": "SMS, email, appel, post-it sur le comptoir : la même information circule quatre fois, et se perd une fois sur quatre.",
         "dateLisible": "12 janvier 2026"
       },
@@ -618,49 +618,49 @@
   "produit": {
     "eyebrow": "Le produit",
     "titre": "Une journée de conciergerie, du brief au PRÊT.",
-    "intro": "Quatre choses tiennent une exploitation : ce qu'on vous a demandé, ce qui a été fait, qui l'a vérifié, et ce qu'on en montre au propriétaire. Choucas ne fait que ça.",
-    "metaDescription": "Le brief, la mission terrain, le double contrôle et l'état PRÊT — une journée de conciergerie de bout en bout, et ce que Choucas fait quand l'imprévu arrive.",
+    "intro": "Quatre choses tiennent une exploitation : ce qu’on vous a demandé, ce qui a été fait, qui l’a vérifié, et ce qu’on en montre au propriétaire. Choucas ne fait que ça.",
+    "metaDescription": "Le brief, la mission terrain, le double contrôle et l’état PRÊT — une journée de conciergerie de bout en bout, et ce que Choucas fait quand l’imprévu arrive.",
     "brief": {
       "titre": "Le brief",
-      "lead": "Un brief n'arrive jamais en ordre.",
-      "p1": "Un message vocal du propriétaire, un mail de l'agence, un texto du client la veille. Trois sources, trois formats, et une gouvernante qui reconstitue tout à 7 h du matin.",
-      "p2": "Choucas les rassemble en une consigne unique par bien : ce qu'il faut faire, ce qui a été demandé, ce qui s'oppose. Quand deux demandes ne tiennent pas ensemble, il pose le conflit au lieu de transmettre les deux.",
-      "p3": "Le brief ne repart pas de zéro chaque saison. Un client fidélisé l'an dernier arrive avec ce qu'on sait déjà de lui — ses habitudes, ce qui s'était mal passé, ce qu'il faut vérifier avant son retour. Le propriétaire aussi : ses draps, sa machine à café, ce qu'il faut mettre en place avant qu'il arrive chez lui.",
+      "lead": "Un brief n’arrive jamais en ordre.",
+      "p1": "Un message vocal du propriétaire, un mail de l’agence, un texto du client la veille. Trois sources, trois formats, et une gouvernante qui reconstitue tout à 7 h du matin.",
+      "p2": "Choucas les rassemble en une consigne unique par bien : ce qu’il faut faire, ce qui a été demandé, ce qui s’oppose. Quand deux demandes ne tiennent pas ensemble, il pose le conflit au lieu de transmettre les deux.",
+      "p3": "Le brief ne repart pas de zéro chaque saison. Un client fidélisé l’an dernier arrive avec ce qu’on sait déjà de lui — ses habitudes, ce qui s’était mal passé, ce qu’il faut vérifier avant son retour. Le propriétaire aussi : ses draps, sa machine à café, ce qu’il faut mettre en place avant qu’il arrive chez lui.",
       "reserve": "Le brief consolidé"
     },
     "mission": {
       "titre": "La mission terrain",
       "lead": "Une mission à la fois, en grand.",
-      "p1": "Ce qu'il faut faire, le code du coffre, ce que le client a demandé, les photos attendues à la fin. Le reste est là si on le cherche — mais on ne le cherche pas avec les mains pleines.",
-      "p2": "Le réseau n'est pas supposé : un chalet en fond de vallée ne coupe pas la journée.",
-      "reserve": "L'écran équipier"
+      "p1": "Ce qu’il faut faire, le code du coffre, ce que le client a demandé, les photos attendues à la fin. Le reste est là si on le cherche — mais on ne le cherche pas avec les mains pleines.",
+      "p2": "Le réseau n’est pas supposé : un chalet en fond de vallée ne coupe pas la journée.",
+      "reserve": "L’écran équipier"
     },
     "controle": {
       "titre": "Le double contrôle",
       "lead": "Personne ne valide son propre travail.",
-      "p1": "C'est une contrainte, pas une option. La personne qui a exécuté la mission ne peut pas être celle qui la valide. Choucas refuse le geste.",
-      "p2": "Ce que ça produit : une preuve à deux signatures, horodatée, avec les deux noms. Le jour où un voyageur conteste l'état du bien, vous n'avez pas à retrouver un fil de messages.",
-      "reserve": "L'écran de contrôle"
+      "p1": "C’est une contrainte, pas une option. La personne qui a exécuté la mission ne peut pas être celle qui la valide. Choucas refuse le geste.",
+      "p2": "Ce que ça produit : une preuve à deux signatures, horodatée, avec les deux noms. Le jour où un voyageur conteste l’état du bien, vous n’avez pas à retrouver un fil de messages.",
+      "reserve": "L’écran de contrôle"
     },
     "pret": {
       "titre": "Terminé ne veut pas dire PRÊT",
       "lead": "PRÊT est un état validé, pas une case cochée.",
-      "p1": "Un ménage terminé à 11 h 50 n'est pas un chalet livrable. Entre les deux il y a un contrôle, et parfois une reprise. Choucas distingue les deux états, et le tableau du matin ne compte comme prêts que les biens qui le sont.",
+      "p1": "Un ménage terminé à 11 h 50 n’est pas un chalet livrable. Entre les deux il y a un contrôle, et parfois une reprise. Choucas distingue les deux états, et le tableau du matin ne compte comme prêts que les biens qui le sont.",
       "reserve": "Le verdict du jour"
     },
     "imprevu": {
-      "titre": "Quand l'imprévu arrive",
-      "lead": "Les WC du rez-de-chaussée sont bouchés. L'arrivée est dans trois heures.",
+      "titre": "Quand l’imprévu arrive",
+      "lead": "Les WC du rez-de-chaussée sont bouchés. L’arrivée est dans trois heures.",
       "p1": "Le terrain signale depuis la mission — le bien, la gravité, la situation, une photo.",
-      "p2": "Avant d'appeler un artisan, on regarde ce qu'on sait du bien — la marque et le modèle de l'appareil, ce qui a déjà été réparé dessus, la procédure que vous avez fixée pour ce type de panne. Un déplacement évité vaut mieux qu'un déplacement bien organisé.",
-      "p3": "Seul ce qui change l'état d'un bien remonte — le manager reçoit l'exception avec son contexte, pas la liste de tout ce qui s'est dit.",
-      "p4": "La transmission à l'artisan est préparée, jamais envoyée seule — un humain relit et envoie.",
-      "p5": "L'intervention ne referme rien — un plombier passé ne rend pas le chalet PRÊT. Le flux retourne au contrôle.",
+      "p2": "Avant d’appeler un artisan, on regarde ce qu’on sait du bien — la marque et le modèle de l’appareil, ce qui a déjà été réparé dessus, la procédure que vous avez fixée pour ce type de panne. Un déplacement évité vaut mieux qu’un déplacement bien organisé.",
+      "p3": "Seul ce qui change l’état d’un bien remonte — le manager reçoit l’exception avec son contexte, pas la liste de tout ce qui s’est dit.",
+      "p4": "La transmission à l’artisan est préparée, jamais envoyée seule — un humain relit et envoie.",
+      "p5": "L’intervention ne referme rien — un plombier passé ne rend pas le chalet PRÊT. Le flux retourne au contrôle.",
       "reserve": "La fiche du bien"
     },
     "refus": {
       "titre": "Ce que Choucas ne fait pas",
-      "texte": "Il ne remplace pas votre PMS, ne mesure pas les personnes, n'envoie rien automatiquement, ne suppose pas le réseau, et ne stocke aucune donnée de santé."
+      "texte": "Il ne remplace pas votre PMS, ne mesure pas les personnes, n’envoie rien automatiquement, ne suppose pas le réseau, et ne stocke aucune donnée de santé."
     },
     "cta": "Organiser une journée sur site"
   },
@@ -670,31 +670,31 @@
     "intro": "Choucas ne se vend pas en libre-service. Il se configure sur votre exploitation, avec vous, puis il tourne.",
     "demarrageTitre": "Le démarrage — 2 000 € HT",
     "demarrageP1": "Une journée sur site. Nous posons vos biens, vos rôles, vos workflows, vos checklists. À la fin de la journée, votre équipe travaille dans Choucas.",
-    "demarrageP2": "Ce n'est pas une formation : c'est la configuration de votre outil, faite devant vous, à partir de votre organisation réelle.",
-    "abonnementTitre": "L'abonnement — 20 € HT par bien et par mois",
+    "demarrageP2": "Ce n’est pas une formation : c’est la configuration de votre outil, faite devant vous, à partir de votre organisation réelle.",
+    "abonnementTitre": "L’abonnement — 20 € HT par bien et par mois",
     "abonnementMinimum": "Minimum 300 € HT par mois.",
     "abonnementExemples": "Une conciergerie de dix biens paie le minimum. À vingt biens, 400 € par mois. À quarante, 800 €.",
-    "abonnementSocle": "Le socle comprend le brief, les missions terrain, le double contrôle et l'état PRÊT. Ce sont les quatre choses sans lesquelles Choucas n'est pas Choucas, et elles ne se vendent pas séparément.",
+    "abonnementSocle": "Le socle comprend le brief, les missions terrain, le double contrôle et l’état PRÊT. Ce sont les quatre choses sans lesquelles Choucas n’est pas Choucas, et elles ne se vendent pas séparément.",
     "testTitre": "Pouvez-vous tester avant ?",
     "testP1": "La semaine qui suit la journée est le test.",
-    "testP2": "Vous engagez le démarrage, pas l'année. Nous configurons sur place, puis vous faites tourner votre exploitation avec Choucas pendant une semaine que vous choisissez — vos vraies missions, vos vraies équipes, vos vrais samedis. Nous restons joignables pendant cette semaine.",
-    "testP3": "À l'issue, vous décidez. L'abonnement ne démarre que si vous nous le dites : rien ne se déclenche tout seul.",
+    "testP2": "Vous engagez le démarrage, pas l’année. Nous configurons sur place, puis vous faites tourner votre exploitation avec Choucas pendant une semaine que vous choisissez — vos vraies missions, vos vraies équipes, vos vrais samedis. Nous restons joignables pendant cette semaine.",
+    "testP3": "À l’issue, vous décidez. L’abonnement ne démarre que si vous nous le dites : rien ne se déclenche tout seul.",
     "optionsTitre": "Les options",
-    "optionsIntro": "Elles s'ajoutent au socle, selon votre terrain. Aucune n'est nécessaire pour commencer.",
+    "optionsIntro": "Elles s’ajoutent au socle, selon votre terrain. Aucune n’est nécessaire pour commencer.",
     "optionsRapportNom": "Le rapport de saison propriétaire — 120 € HT par bien et par saison.",
-    "optionsRapportTexte": "Un document à votre marque, remis à chaque propriétaire : les rotations, les incidents traités, les preuves de contrôle, l'historique d'entretien, et les travaux à prévoir pour la saison suivante. Un point d'étape en cours de saison précède le rapport final.",
+    "optionsRapportTexte": "Un document à votre marque, remis à chaque propriétaire : les rotations, les incidents traités, les preuves de contrôle, l’historique d’entretien, et les travaux à prévoir pour la saison suivante. Un point d’étape en cours de saison précède le rapport final.",
     "arriveTitre": "Ce qui arrive",
-    "arriveIntro": "Ces deux briques sont en construction. Elles s'ajouteront au socle, sur devis, quand elles seront prêtes.",
-    "arriveMemoireNom": "La mémoire de l'entreprise — les fiches client, bien et propriétaire.",
+    "arriveIntro": "Ces deux briques sont en construction. Elles s’ajouteront au socle, sur devis, quand elles seront prêtes.",
+    "arriveMemoireNom": "La mémoire de l’entreprise — les fiches client, bien et propriétaire.",
     "arriveMemoireTexte": "Ce que votre entreprise sait cesse de vivre dans des têtes.",
     "arriveLitigeNom": "Le dossier de litige.",
-    "arriveLitigeTexte": "L'export daté d'un départ et de l'arrivée qui suit, avec les deux personnes qui sont intervenues, leurs rôles et les photos horodatées.",
+    "arriveLitigeTexte": "L’export daté d’un départ et de l’arrivée qui suit, avec les deux personnes qui sont intervenues, leurs rôles et les photos horodatées.",
     "paiementTitre": "Le paiement",
-    "paiementTexte": "Mensuel, à la saison ou à l'année : vous choisissez au démarrage. Le montant ne change pas, seule la fréquence.",
+    "paiementTexte": "Mensuel, à la saison ou à l’année : vous choisissez au démarrage. Le montant ne change pas, seule la fréquence.",
     "htMention": "Tous les prix sont hors taxes."
   },
   "contact": {
-    "titre": "Parlons d'une vraie journée <accent>d'exploitation.</accent>",
+    "titre": "Parlons d’une vraie journée <accent>d’exploitation.</accent>",
     "intro": "Pas de démo générique. On regarde vos rotations, vos biens, vos équipes.",
     "voies": {
       "aria": "Choisir une voie de contact",
@@ -711,14 +711,14 @@
         "action": "Écrire un message"
       }
     },
-    "formTitreImpl": "Journée d'implantation — une journée sur site",
+    "formTitreImpl": "Journée d’implantation — une journée sur site",
     "formTitreQuestion": "Poser une question",
     "facultatif": "facultatif",
     "champs": {
       "nom": {
         "label": "Nom",
         "exemple": "Mathieu Bertrand",
-        "erreur": "Indiquez le nom qu'on doit utiliser pour vous répondre."
+        "erreur": "Indiquez le nom qu’on doit utiliser pour vous répondre."
       },
       "conciergerie": {
         "label": "Conciergerie",
@@ -743,7 +743,7 @@
       "email": {
         "label": "Email",
         "exemple": "mathieu@conciergerie.fr",
-        "erreur": "Indiquez l'adresse email où vous joindre.",
+        "erreur": "Indiquez l’adresse email où vous joindre.",
         "erreurDomaine": "Il manque le domaine après le @, par exemple mathieu@conciergerie.fr"
       },
       "tel": {
@@ -765,34 +765,34 @@
       "intersaison": "Intersaison",
       "aDiscuter": "À discuter"
     },
-    "alerteSolo": "Le double contrôle demande qu'une personne différente de l'exécutant valide chaque mission. À une seule personne sur le terrain, ce n'est pas possible — et il n'existe pas d'offre solo. Écrivez-nous quand même si votre organisation évolue.",
-    "resumeErreurs": "{nombre} champs sont à compléter avant l'envoi.",
+    "alerteSolo": "Le double contrôle demande qu’une personne différente de l’exécutant valide chaque mission. À une seule personne sur le terrain, ce n’est pas possible — et il n’existe pas d’offre solo. Écrivez-nous quand même si votre organisation évolue.",
+    "resumeErreurs": "{nombre} champs sont à compléter avant l’envoi.",
     "envoyerImpl": "Envoyer la demande",
     "envoyerQuestion": "Envoyer le message",
     "envoiEnCours": "Envoi…",
     "succes": {
-      "titre": "C'est envoyé.",
+      "titre": "C’est envoyé.",
       "texte": "On vous répond sous 48 h. Si la réponse tarde, écrivez directement à cette adresse."
     },
     "echec": {
-      "titre": "L'envoi n'est pas passé.",
-      "texte": "Le formulaire n'a pas pu être transmis. Écrivez-nous directement — le message ci-dessous est déjà rempli avec ce que vous avez saisi.",
+      "titre": "L’envoi n’est pas passé.",
+      "texte": "Le formulaire n’a pas pu être transmis. Écrivez-nous directement — le message ci-dessous est déjà rempli avec ce que vous avez saisi.",
       "lien": "Ouvrir dans ma messagerie"
     },
     "leurre": "Ne remplissez pas ce champ",
     "apres": {
-      "titre": "Ce qui se passe après l'envoi",
+      "titre": "Ce qui se passe après l’envoi",
       "etapes": {
         "reponse": "On vous répond sous 48 h.",
         "appel": "Un appel de 20 minutes pour comprendre votre exploitation.",
-        "date": "On fixe une date de journée d'implantation, ou on vous dit que ce n'est pas le moment."
+        "date": "On fixe une date de journée d’implantation, ou on vous dit que ce n’est pas le moment."
       }
     },
-    "zone": "Zone d'intervention : Aravis · Megève · Chamonix · Courchevel · Val d'Isère"
+    "zone": "Zone d’intervention : Aravis · Megève · Chamonix · Courchevel · Val d’Isère"
   },
   "solutions": {
     "titre": "Trois rôles. <accent>Une seule version des faits.</accent>",
-    "intro": "Le même bien vu depuis la direction, l'exploitation et le terrain. Choucas relie les trois sans multiplier les outils.",
+    "intro": "Le même bien vu depuis la direction, l’exploitation et le terrain. Choucas relie les trois sans multiplier les outils.",
     "barreAria": "Navigation par rôle",
     "metiers": {
       "titre": "Trois métiers, une même journée.",
@@ -801,7 +801,7 @@
         "phrase": "Le service devient visible et prouvable."
       },
       "exploitation": {
-        "role": "Responsable d'exploitation",
+        "role": "Responsable d’exploitation",
         "phrase": "Arbitre la journée. Contrôle ce que le terrain a déclaré terminé."
       },
       "terrain": {
@@ -813,32 +813,32 @@
       "label": "Dirigeants",
       "eyebrow": "Dirigeants",
       "titre": "Piloter sans devenir le centre de toutes les opérations.",
-      "corps": "Un chalet bloqué à 9 h, un ménage en retard à 10 h, un propriétaire qui arrive vendredi. Aujourd'hui, ces trois informations passent par vous — vous les recevez, vous les redistribuez, vous relancez pour savoir où elles en sont. Dans Choucas, elles arrivent à la personne qui doit décider. Vous n'êtes plus le passage obligé.",
+      "corps": "Un chalet bloqué à 9 h, un ménage en retard à 10 h, un propriétaire qui arrive vendredi. Aujourd’hui, ces trois informations passent par vous — vous les recevez, vous les redistribuez, vous relancez pour savoir où elles en sont. Dans Choucas, elles arrivent à la personne qui doit décider. Vous n’êtes plus le passage obligé.",
       "eviteLabel": "Vous évitez",
       "evite": "les relances permanentes, les informations reconstruites par téléphone et les tableaux de performance individuels.",
-      "legende": "Le bloc Exceptions, tel qu'il s'affiche. Trois lignes, trois décisions.",
-      "leadTitre": "Deux chalets prêts. Deux en rotation aujourd'hui.",
-      "leadTexte": "Le premier chiffre de votre journée n'est pas un tableau de bord, c'est un comptage. Combien de départs, combien d'arrivées, combien de biens réellement livrables."
+      "legende": "Le bloc Exceptions, tel qu’il s’affiche. Trois lignes, trois décisions.",
+      "leadTitre": "Deux chalets prêts. Deux en rotation aujourd’hui.",
+      "leadTexte": "Le premier chiffre de votre journée n’est pas un tableau de bord, c’est un comptage. Combien de départs, combien d’arrivées, combien de biens réellement livrables."
     },
     "exploitation": {
       "label": "Exploitation",
-      "eyebrow": "Responsables d'exploitation",
+      "eyebrow": "Responsables d’exploitation",
       "titre": "Voir moins. Savoir mieux.",
-      "lead": "Quatorze missions dans la journée. Onze se passeront bien et vous n'avez rien à en faire. Choucas ne vous montre que les trois autres : celle qui va décaler la suite, celle qui attend un contrôle, celle qui a besoin de vous. Le reste avance sans vous, et vous pouvez le vérifier quand vous le voulez.",
-      "legende": "Samedi 5 septembre. La journée tient sur un écran — l'en-tête, les exceptions, puis les heures.",
-      "captureAlt": "Écran d'accueil du responsable d'exploitation : samedi 5 septembre, 2 départs et 10 missions, un bandeau d'état du parc, trois exceptions en tête — un chalet critique et deux ménages à contrôler — puis les huit autres missions dans l'ordre des heures.",
+      "lead": "Quatorze missions dans la journée. Onze se passeront bien et vous n’avez rien à en faire. Choucas ne vous montre que les trois autres : celle qui va décaler la suite, celle qui attend un contrôle, celle qui a besoin de vous. Le reste avance sans vous, et vous pouvez le vérifier quand vous le voulez.",
+      "legende": "Samedi 5 septembre. La journée tient sur un écran — l’en-tête, les exceptions, puis les heures.",
+      "captureAlt": "Écran d’accueil du responsable d’exploitation : samedi 5 septembre, 2 départs et 10 missions, un bandeau d’état du parc, trois exceptions en tête — un chalet critique et deux ménages à contrôler — puis les huit autres missions dans l’ordre des heures.",
       "blocs": {
         "entraide": {
           "titre": "Chacun sait où sont les autres.",
-          "texte": "Sofia termine le Merle Blanc à 11 h. Karine est en difficulté deux chalets plus loin, stock de linge insuffisant. Aujourd'hui, personne ne le sait avant l'appel. Dans Choucas, la journée est partagée : qui est où, sur quoi, et depuis combien de temps. L'entraide devient possible sans passer par vous."
+          "texte": "Sofia termine le Merle Blanc à 11 h. Karine est en difficulté deux chalets plus loin, stock de linge insuffisant. Aujourd’hui, personne ne le sait avant l’appel. Dans Choucas, la journée est partagée : qui est où, sur quoi, et depuis combien de temps. L’entraide devient possible sans passer par vous."
         },
         "mission": {
           "titre": "On contrôle la mission, pas chaque geste.",
-          "texte": "Cocher quarante lignes ne prouve rien et fatigue tout le monde. Choucas contrôle la mission — ce qui devait être fait l'a été — puis un contrôle final avant la livraison. Deux points de vérité au lieu de quarante cases."
+          "texte": "Cocher quarante lignes ne prouve rien et fatigue tout le monde. Choucas contrôle la mission — ce qui devait être fait l’a été — puis un contrôle final avant la livraison. Deux points de vérité au lieu de quarante cases."
         },
         "verification": {
-          "titre": "Demander une vérification à quelqu'un d'autre.",
-          "texte": "Les piles de la télécommande n'ont pas été vérifiées. Vous le voyez, vous n'êtes pas sur place. Vous demandez le contrôle à la personne la plus proche, elle le fait, c'est tracé. Le point ne repart pas dans une conversation."
+          "titre": "Demander une vérification à quelqu’un d’autre.",
+          "texte": "Les piles de la télécommande n’ont pas été vérifiées. Vous le voyez, vous n’êtes pas sur place. Vous demandez le contrôle à la personne la plus proche, elle le fait, c’est tracé. Le point ne repart pas dans une conversation."
         }
       }
     },
@@ -847,27 +847,27 @@
       "eyebrow": "Terrain",
       "titre": "Savoir quoi faire. Et pourquoi.",
       "lead": "Le terrain retrouve sa journée, ses missions, les accès nécessaires, le contexte utile, les preuves attendues et les signalements au même endroit.",
-      "suite": "Une mission à la fois, en grand. Ce qu'il faut faire, le code du coffre, ce que le client a demandé, les photos attendues à la fin. Le reste est là si on le cherche — mais on ne le cherche pas avec les mains pleines.",
-      "legende": "Deux missions, trois chalets, une action urgente. Rien d'autre.",
+      "suite": "Une mission à la fois, en grand. Ce qu’il faut faire, le code du coffre, ce que le client a demandé, les photos attendues à la fin. Le reste est là si on le cherche — mais on ne le cherche pas avec les mains pleines.",
+      "legende": "Deux missions, trois chalets, une action urgente. Rien d’autre.",
       "blocs": {
         "depart": {
-          "titre": "Le départ n'est pas une heure, c'est un constat.",
-          "texte": "Monsieur Louvain devait partir à 10 h. Il sort à 13 h. Quelqu'un doit acter que l'appartement est vide avant que le ménage commence — et cette validation compte autant que le ménage lui-même."
+          "titre": "Le départ n’est pas une heure, c’est un constat.",
+          "texte": "Monsieur Louvain devait partir à 10 h. Il sort à 13 h. Quelqu’un doit acter que l’appartement est vide avant que le ménage commence — et cette validation compte autant que le ménage lui-même."
         }
       }
     },
     "jonction": {
       "titre": "Personne ne valide <accent>son propre travail.</accent>",
-      "intro": "L'exécutant déclare terminé. Un tiers contrôle. Le bien passe PRÊT.",
+      "intro": "L’exécutant déclare terminé. Un tiers contrôle. Le bien passe PRÊT.",
       "termine": {
-        "bien": "Chalet L'Aiguille",
+        "bien": "Chalet L’Aiguille",
         "etat": "TERMINÉ",
         "meta": "Déclaré par Marie L. · Équipière · 10:25",
         "fait": "Ménage départ · 24 tâches"
       },
-      "liaison": "contrôlé par Sophie M., responsable d'exploitation",
+      "liaison": "contrôlé par Sophie M., responsable d’exploitation",
       "pret": {
-        "bien": "Chalet L'Aiguille",
+        "bien": "Chalet L’Aiguille",
         "etat": "PRÊT",
         "meta": "Validé par Sophie M. · Responsable · 10:41",
         "fait": "Contrôle qualité effectué"
@@ -875,23 +875,23 @@
     },
     "memoire": {
       "titre": "Ce que votre entreprise sait ne part plus avec une gouvernante.",
-      "intro": "Les préférences d'un client fidèle, l'année où internet ne passait pas dans les chambres, la référence du lave-vaisselle, les draps que le propriétaire apporte lui-même : tout cela existe déjà chez vous. Dans une tête, un carnet, un fil de messages. Le jour où cette personne part, l'entreprise réapprend son métier.",
+      "intro": "Les préférences d’un client fidèle, l’année où internet ne passait pas dans les chambres, la référence du lave-vaisselle, les draps que le propriétaire apporte lui-même : tout cela existe déjà chez vous. Dans une tête, un carnet, un fil de messages. Le jour où cette personne part, l’entreprise réapprend son métier.",
       "chapo": "Choucas garde trois mémoires.",
-      "regle": "Rien n'y entre tout seul. Ce qui remonte du terrain est proposé, quelqu'un valide, et la ligne porte le nom de celui qui l'a acceptée. La mémoire de l'entreprise suit la même règle que ses missions.",
+      "regle": "Rien n’y entre tout seul. Ce qui remonte du terrain est proposé, quelqu’un valide, et la ligne porte le nom de celui qui l’a acceptée. La mémoire de l’entreprise suit la même règle que ses missions.",
       "fiches": {
         "client": {
           "titre": "Le client.",
-          "texte": "Ses habitudes, ses séjours passés, ce qui s'est mal passé la dernière fois et qu'il faut vérifier avant son retour. Il revient tous les ans, il ne devrait pas avoir à se répéter.",
+          "texte": "Ses habitudes, ses séjours passés, ce qui s’est mal passé la dernière fois et qu’il faut vérifier avant son retour. Il revient tous les ans, il ne devrait pas avoir à se répéter.",
           "reserve": "Fiche client"
         },
         "bien": {
           "titre": "Le bien.",
-          "texte": "L'historique des incidents, les interventions passées, les références de chaque appareil. On ne cherche plus le modèle du sèche-linge sous la machine, un samedi, avec une arrivée dans trois heures.",
+          "texte": "L’historique des incidents, les interventions passées, les références de chaque appareil. On ne cherche plus le modèle du sèche-linge sous la machine, un samedi, avec une arrivée dans trois heures.",
           "reserve": "Fiche bien"
         },
         "proprietaire": {
           "titre": "Le propriétaire.",
-          "texte": "Ses draps, sa machine à café, ce qu'il faut mettre en place avant qu'il arrive chez lui. Il n'est pas un client comme les autres.",
+          "texte": "Ses draps, sa machine à café, ce qu’il faut mettre en place avant qu’il arrive chez lui. Il n’est pas un client comme les autres.",
           "reserve": "Fiche propriétaire"
         }
       }

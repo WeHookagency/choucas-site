@@ -62,6 +62,20 @@ def corriger(s):
     s = re.sub(r'(https?|mailto|tel)' + NB + r':', r'\1:', s)
     s = re.sub(r'(\d)' + NB + r':(\d)', r'\1:\2', s)
 
+    # L'apostrophe francaise est courbe, U+2019. La droite est un heritage
+    # de la machine a ecrire : elle se lit comme un guillemet simple, coupe
+    # les ligatures et n'est pas la meme lettre pour un correcteur.
+    #
+    # Le catalogue en portait les deux — 154 chaines en droite, 35 en courbe,
+    # les courbes presque toutes dans la FAQ. Sur une meme page on lisait
+    # donc « Un brief n'arrive jamais » puis « Ce qu'on nous demande ».
+    #
+    # Sans garde : en francais l'apostrophe est toujours entre deux lettres,
+    # verifie sur les 154 occurrences. Ce n'est pas vrai en anglais, ou le
+    # possessif pluriel la pose apres un s — raison de plus pour que ce
+    # script ne touche jamais en.json.
+    s = s.replace("'", '\u2019')
+
     # Un nombre ne se separe ni de son groupe de mille ni de son unite.
     # « 2 000 € » coupe en fin de ligne donne « 2 » puis « 000 € », et
     # « 20 € » donne « 20 » puis « € ». Les deux se sont produits.

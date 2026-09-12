@@ -21,15 +21,18 @@ export function Hero() {
   const t = useTranslations('hero');
   const actions = useTranslations('actions');
 
+  // La section est nommee par son H1, comme les huit autres de la page. Elle
+  // etait la seule sans nom accessible : un lecteur d'ecran qui parcourt les
+  // reperes de la page tombait sur une region muette, et c'etait la premiere.
   return (
-    <section className="bg-fond text-encre">
+    <section className="bg-fond text-encre" aria-labelledby="hero-titre">
       <div className="mx-auto max-w-scene px-marge py-12 tablette:py-16 desktop:py-20">
         <div className="tablette:text-center">
           <p className="text-label font-semibold uppercase text-encre-douce">
             {t('label')}
           </p>
 
-          <h1 className="font-serif text-hero mt-5 text-balance">
+          <h1 id="hero-titre" className="font-serif text-hero mt-5 text-balance">
             {t.rich('titre', {
               accent: (chunks) => <Accent className="block">{chunks}</Accent>,
             })}
