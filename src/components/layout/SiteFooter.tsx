@@ -57,7 +57,6 @@ export function SiteFooter() {
     ],
     [
       { href: '/faq', libelle: nav('faq') },
-      { href: '/a-propos', libelle: nav('aPropos') },
       { href: '/contact', libelle: nav('contact') },
     ],
   ] as const;
