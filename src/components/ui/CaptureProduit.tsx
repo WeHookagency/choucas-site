@@ -1,7 +1,21 @@
 import Image, { type StaticImageData } from 'next/image';
 
-/** Demonstration publique du produit, ouverte dans un nouvel onglet. */
-const LIEN_PWA = 'https://choucasv2.netlify.app';
+/**
+ * Demonstration publique du produit, ouverte dans un nouvel onglet.
+ *
+ * `?demo=1` n'est pas decoratif. Sans lui, l'URL nue ouvre l'ecran d'accueil
+ * de l'application — « Commencer » — et non la demonstration : le lien
+ * promettait « Ouvrir la démonstration Choucas » et livrait un seuil.
+ * Verifie dans le navigateur le 12 septembre 2026 sur les deux adresses.
+ *
+ * Le parametre ouvre le jeu de donnees fictif sans toucher a la connexion
+ * enregistree sur l'appareil, et la demonstration s'annonce elle-meme :
+ * « Démonstration · données fictives ».
+ *
+ * ⚠️ A reprendre au deploiement, quand l'adresse definitive remplacera le
+ * sous-domaine Netlify. Le parametre, lui, reste.
+ */
+const LIEN_PWA = 'https://choucasv2.netlify.app/?demo=1';
 
 /**
  * Capture d'un ecran de l'application, cliquable vers la demonstration.
