@@ -174,8 +174,11 @@ export default async function Page({ params }: PageProps<'/[locale]/solutions'>)
 
       <MemoireEntreprise />
 
+      {/* Centree, comme la bande de cloture de la Home et celle de Produit.
+          Elle etait calee a gauche : trois pages fermaient sur le meme geste
+          et l'une des trois le posait ailleurs. */}
       <Section fond="fond-alt" aria-labelledby="solutions-cloture">
-        <Reveal>
+        <Reveal className="flex flex-col items-center text-center">
           <h2 id="solutions-cloture" className="font-serif text-h3 text-balance">
             {t('cloture.titre')}
           </h2>

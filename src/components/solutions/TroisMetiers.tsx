@@ -21,8 +21,12 @@ const METIERS = ['dirigeant', 'exploitation', 'terrain'] as const;
 export function TroisMetiers() {
   const t = useTranslations('solutions.metiers');
 
+  // Panneau et non Neige : le hero qui precede est deja en Neige, et la regle
+  // de la page veut qu'aucun fond ne se repete d'une section a la suivante.
+  // Les deux se lisaient comme un seul bloc, separes par un filet. Suite des
+  // fonds : Neige, Panneau, Lichen, Neige, Lichen, Sapin, Neige, Panneau.
   return (
-    <Section fond="fond" aria-labelledby="metiers-titre">
+    <Section fond="fond-alt" aria-labelledby="metiers-titre">
       <Reveal>
         <FiletAccent />
         <h2 id="metiers-titre" className="font-serif text-h3 mt-6 max-w-[20ch] text-balance">
