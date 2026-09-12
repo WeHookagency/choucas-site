@@ -4,7 +4,6 @@ import { hasLocale } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 import { CourbesNiveau } from '@/components/contact/CourbesNiveau';
-import { DESTINATION_FORMULAIRE } from '@/components/contact/destination';
 import { Suspense } from 'react';
 
 import { FormulaireContact } from '@/components/contact/FormulaireContact';
@@ -95,12 +94,21 @@ export default async function Page({ params }: PageProps<'/[locale]/contact'>) {
             {t('apres.titre')}
           </h2>
 
+          {/* Le chiffre a cote du texte, sur sa ligne de base — pas au-dessus.
+              Empiles, les trois etapes se lisaient comme trois piles lachees
+              dans des colonnes de 405 px pour une a deux lignes de texte : le
+              chiffre et sa phrase ne formaient pas une unite. C'est le
+              traitement que Produit et BriefIntake emploient deja pour un
+              chiffre suivi de son libelle. */}
           <ol className="mt-titre grid gap-8 desktop:grid-cols-3">
             {ETAPES.map((cle, i) => (
-              <li key={cle} className="flex flex-col gap-4 border-t border-encre-inverse/20 pt-6">
+              <li
+                key={cle}
+                className="flex items-baseline gap-4 border-t border-encre-inverse/20 pt-6"
+              >
                 <span
                   aria-hidden
-                  className="font-serif text-[2.125rem] leading-none tabular-nums text-numero-inverse desktop:text-[3.25rem]"
+                  className="font-serif shrink-0 text-[2.125rem] leading-none tabular-nums text-numero-inverse desktop:text-[3.25rem]"
                 >
                   {String(i + 1).padStart(2, '0')}
                 </span>
@@ -111,22 +119,13 @@ export default async function Page({ params }: PageProps<'/[locale]/contact'>) {
         </Reveal>
       </Section>
 
-      <Section fond="fond">
-        <Reveal className="flex flex-col gap-3 border-t border-filet pt-8 tablette:flex-row tablette:items-baseline tablette:justify-between">
-          {/* Le lien est enveloppe pour rester en ligne : element de flex, il
-              serait blocifie, et son rembourrage deplacerait ses voisins.
-              En ligne, le rembourrage agrandit la seule zone cliquable. */}
-          <p>
-            <a
-              href={`mailto:${DESTINATION_FORMULAIRE}`}
-              className="text-corps py-3.5 text-lien underline underline-offset-4"
-            >
-              {DESTINATION_FORMULAIRE}
-            </a>
-          </p>
-          <p className="text-corps text-encre-douce">{t('zone')}</p>
-        </Reveal>
-      </Section>
+      {/* Bande adresse + zone d'intervention retiree le 13 septembre 2026, a
+          la demande du fondateur. La page finit desormais sur « Ce qui se
+          passe apres l'envoi », qui est sa derniere promesse.
+
+          Rien n'est perdu : l'adresse reste servie par le formulaire lui-meme,
+          en clair dans l'etat d'echec, et la chaine `contact.zone` reste au
+          catalogue. */}
     </main>
   );
 }
