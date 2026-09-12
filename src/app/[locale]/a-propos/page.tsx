@@ -191,14 +191,20 @@ export default async function Page({ params }: PageProps<'/[locale]/a-propos'>) 
         </Reveal>
       </Section>
 
+      {/* Centres, comme les cinq sections de recit au-dessus. Elles posent une
+          colonne de 529 px sur un axe a 720 ; ce bloc et la cloture repartaient
+          du bord gauche a 88 px, et le regard changeait deux fois de ligne de
+          lecture dans le dernier tiers de la page. La liste garde ses 820 px —
+          elle est plus large que la mesure de lecture, mais elle partage
+          desormais le meme axe. */}
       <Section fond="fond-alt" aria-labelledby="partis-titre">
-        <Reveal>
+        <Reveal className="mx-auto max-w-[820px]">
           <h2 id="partis-titre" className="font-serif text-h3 max-w-[20ch] text-balance">
             {t('partisTitre')}
           </h2>
         </Reveal>
 
-        <Reveal as="ul" group className="mt-titre max-w-[820px]">
+        <Reveal as="ul" group className="mt-titre mx-auto max-w-[820px]">
           {PARTIS.map((cle) => (
             <li key={cle} className="flex gap-4 border-t border-filet py-7">
               <span aria-hidden className="mt-2 size-2 shrink-0 rounded-full bg-accent" />
@@ -236,8 +242,13 @@ export default async function Page({ params }: PageProps<'/[locale]/a-propos'>) 
         </Reveal>
       </Section>
 
+      {/* Sur la colonne du recit, 62ch : la page s'ouvre en pleine largeur,
+          raconte dans une colonne centree, montre le bandeau en pleine largeur,
+          et se referme sur la meme colonne. Le texte reste cale a gauche dans
+          le bloc, comme dans les cinq sections de recit — c'est le bloc qui est
+          centre, pas la ligne. */}
       <Section fond="fond" aria-labelledby="terrain-origine">
-        <Reveal>
+        <Reveal className="mx-auto max-w-[62ch]">
           <h2 id="terrain-origine" className="font-serif text-h3">
             {t('terrainTitre')}
           </h2>
