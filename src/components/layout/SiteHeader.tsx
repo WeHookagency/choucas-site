@@ -42,22 +42,24 @@ export function SiteHeader() {
   }, [ouvert]);
 
   /**
-   * Trois entrees, decision du backlog. « A propos » descend au pied.
+   * Quatre entrees. « Contact » remplace « A propos », supprimee le
+   * 12 septembre 2026 ; elle occupait le pied, ou Contact figurait deja.
    *
    * Le Blog en est absent volontairement : le handoff ne fournit que trois
    * titres et leurs chapeaux, sans corps d'article. Un lien de navigation vers
    * trois pages vides est un lien mort au sens du §12.
    *
-   * Les trois liens paraissent des 700 px. « Tarifs » a longtemps ete reserve
-   * au desktop pour degager la barre a 768 ; il etait alors invisible de 700
-   * a 999 px, soit toute la tablette et le petit portable, et la page affiche
+   * Les liens paraissent des 700 px. « Tarifs » a longtemps ete reserve au
+   * desktop pour degager la barre a 768 ; il etait alors invisible de 700 a
+   * 999 px, soit toute la tablette et le petit portable, et la page affiche
    * desormais des prix. Une page qui vend et qu'on ne peut pas atteindre
-   * coute plus qu'une barre serree : mesure faite, les trois tiennent.
+   * coute plus qu'une barre serree.
    */
   const liens = [
     { href: '/produit', libelle: t('produit') },
     { href: '/solutions', libelle: t('solutions') },
     { href: '/tarifs', libelle: t('tarifs') },
+    { href: '/contact', libelle: t('contact') },
   ] as const;
 
   return (
