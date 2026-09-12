@@ -174,17 +174,20 @@
     "sources": {
       "appel": {
         "canal": "Call",
-        "quand": "day before check-in · 6:40 pm",
+        "jour": "day before check-in",
+        "heure": "6:40 pm",
         "mot": "“The parents sleep on the ground floor.”"
       },
       "message": {
         "canal": "Message",
-        "quand": "day before check-in · 9:12 pm",
+        "jour": "day before check-in",
+        "heure": "9:12 pm",
         "mot": "\"Fresh sheets every day.\""
       },
       "mail": {
         "canal": "Email",
-        "quand": "check-in day · 7:05 am",
+        "jour": "check-in day",
+        "heure": "7:05 am",
         "mot": "\"No one goes into the parents’ bedroom.\""
       }
     },

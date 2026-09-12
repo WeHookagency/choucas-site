@@ -174,17 +174,20 @@
     "sources": {
       "appel": {
         "canal": "Appel",
-        "quand": "la veille du check-in · 18:40",
+        "jour": "la veille du check-in",
+        "heure": "18:40",
         "mot": "« Les parents dorment au rez-de-chaussée. »"
       },
       "message": {
         "canal": "Message",
-        "quand": "la veille du check-in · 21:12",
+        "jour": "la veille du check-in",
+        "heure": "21:12",
         "mot": "« Draps changés tous les jours. »"
       },
       "mail": {
         "canal": "Mail",
-        "quand": "le jour du check-in · 07:05",
+        "jour": "le jour du check-in",
+        "heure": "07:05",
         "mot": "« Personne n’entre dans la chambre parentale. »"
       }
     },

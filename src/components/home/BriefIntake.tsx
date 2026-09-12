@@ -238,14 +238,19 @@ function Sources() {
           key={cle}
           className={`flex flex-col rounded-carte border border-filet bg-surface p-6 text-encre desktop:p-7 ${OMBRE}`}
         >
-          {/* Les quatre tuiles de la section nomment le meme chalet : on voit
-              que les trois fragments et la consigne parlent d'un seul sejour.
+          {/* Le canal a gauche, l'heure a droite.
 
-              Empile, pas en ligne. La colonne fait 290 px a 1440 : « Mail »
-              laissait la place au nom sur sa ligne, « Message » et « Appel »
-              le renvoyaient dessous, et les trois cartes ne s'alignaient plus.
-              La carte de sortie, elle, fait 560 px et garde la ligne unique. */}
-          <div className="flex flex-col items-start gap-2">
+              L'heure est la donnee qui porte le propos de l'etape : 18:40,
+              21:12, 07:05 ne se suivent pas, et c'est ainsi qu'un brief
+              arrive. Elle etait pourtant le texte le plus petit et le plus
+              pale de la carte, noyee au bout d'une ligne de 12 px avec son
+              jour. Elle passe en serif a 28 px, encre pleine — deuxieme
+              element de la carte apres le canal.
+
+              Le jour reste en retrait sous le bien : il situe, il ne compte
+              pas. « La veille » seul ne disait pas la veille de quoi, d'ou
+              l'ancrage sur le check-in. */}
+          <div className="flex items-center justify-between gap-3">
             {/* Le canal passe devant : icone, encre pleine et corps de bouton,
                 la ou il etait en encre douce a 11 px. C'est lui qui dit d'ou
                 vient le fragment. */}
@@ -255,12 +260,12 @@ function Sources() {
               <Icon name={icone} size={16} className="shrink-0" />
               <span className="text-encre">{t(`${cle}.canal`)}</span>
             </span>
-            <span className="font-serif text-intro">{bien}</span>
+            <span className="font-serif shrink-0 text-[1.75rem] leading-none tabular-nums">
+              {t(`${cle}.heure`)}
+            </span>
           </div>
-          {/* Le moment prend sa propre ligne. Ancre desormais sur le check-in —
-              « la veille », seul, ne disait pas la veille de quoi. Il ne tient
-              plus au bout de la premiere ligne a cote du bien. */}
-          <p className="text-micro mt-2 tabular-nums text-encre-douce">{t(`${cle}.quand`)}</p>
+          <p className="font-serif text-intro mt-4">{bien}</p>
+          <p className="text-micro mt-1 text-encre-douce">{t(`${cle}.jour`)}</p>
           <p className="text-intro mt-4 font-serif italic">{t(`${cle}.mot`)}</p>
         </div>
       ))}
