@@ -34,10 +34,33 @@ export function TroisMetiers() {
         </h2>
       </Reveal>
 
-      <Reveal as="ul" group className="mt-titre grid gap-8 tablette:grid-cols-3">
+      {/* Deux rangees declarees sur la grille, et chaque colonne les reprend
+          en sous-grille : les trois noms de metier partagent une rangee, les
+          trois phrases une autre. Sans cela « Terrain » tient sur une ligne
+          quand les deux autres en prennent deux, et son texte demarrait
+          41 px plus haut que ses voisins — visible, puisque les colonnes sont
+          cote a cote et alignees en haut par un filet.
+
+          Si la sous-grille n'est pas comprise, la mise en page retombe sur le
+          comportement actuel : le decalage revient, rien ne casse. */}
+      <Reveal
+        as="ul"
+        group
+        className="mt-titre grid gap-8 tablette:grid-cols-3 tablette:grid-rows-[auto_auto]"
+      >
         {METIERS.map((cle) => (
-          <li key={cle} className="border-t border-filet pt-6">
-            <h3 className="font-serif text-h3 text-balance">{t(`${cle}.role`)}</h3>
+          <li
+            key={cle}
+            className="border-t border-filet pt-6 tablette:row-span-2 tablette:grid tablette:grid-rows-subgrid"
+          >
+            {/* 24 px, pas 40. Le nom de metier etait a `text-h3`, exactement
+                la taille du titre de la section juste au-dessus : quatre
+                titres de meme rang se disputaient la page et aucun ne menait.
+                Il descend d'un cran et redevient ce qu'il est, l'intitule
+                d'une colonne. */}
+            <h3 className="font-serif text-[1.5rem] leading-[1.15] text-balance">
+              {t(`${cle}.role`)}
+            </h3>
             <p className="text-corps mt-3 text-encre-douce">{t(`${cle}.phrase`)}</p>
           </li>
         ))}
