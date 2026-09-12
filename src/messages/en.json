@@ -163,7 +163,7 @@
         "temps": "What comes in"
       },
       "arbitrage": {
-        "temps": "What gets settled"
+        "temps": "What needs a decision"
       },
       "consigne": {
         "temps": "What comes out"
@@ -178,24 +178,24 @@
       "message": {
         "canal": "Message",
         "quand": "9:12 pm",
-        "mot": "\"Gluten-free bread available for breakfast.\""
+        "mot": "\"Fresh sheets every day.\""
       },
       "mail": {
         "canal": "Email",
         "quand": "7:05 am",
-        "mot": "\"The groceries we asked for must be there when we arrive.\""
+        "mot": "\"No one goes into the parents' bedroom.\""
       }
     },
     "arbitrage": {
       "titre": "Two requests collide",
       "etat": "TO SETTLE",
-      "corps": "<fort>\"Gluten-free bread available for breakfast\"</fort> and <fort>\"the groceries must be there when we arrive\"</fort> do not hold together: bread bought with the groceries will be stale by morning. Choucas does not pass both on blindly — it states the conflict so the manager can settle it as well as possible.",
+      "corps": "<fort>\"Fresh sheets every day\"</fort> and <fort>\"no one goes into the parents' bedroom\"</fort> do not hold together: changing the sheets means going in. Choucas does not pass both on blindly — it states the conflict, and the manager decides.",
       "meta": "No line is left hanging: it is assigned, or set aside knowingly."
     },
     "consigne": {
       "bien": "Chalet L'Aiguille",
       "etat": "INSTRUCTION",
-      "texte": "Groceries dropped off before arrival. Gluten-free bread delivered the same morning, at 8:45. Ground-floor bedroom for the parents, double bed.",
+      "texte": "Fresh sheets every day in every bedroom. Except the ground-floor one, where the parents sleep: a clean set folded outside the door each morning before 9 am, no one goes in.",
       "meta": "Sent to Marie L., field team member handling the clean."
     }
   },

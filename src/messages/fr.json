@@ -163,7 +163,7 @@
         "temps": "Ce qui arrive"
       },
       "arbitrage": {
-        "temps": "Ce qui se tranche"
+        "temps": "Ce qui demande une décision"
       },
       "consigne": {
         "temps": "Ce qui en sort"
@@ -178,24 +178,24 @@
       "message": {
         "canal": "Message",
         "quand": "21:12",
-        "mot": "« Pain sans gluten disponible pour le petit déjeuner. »"
+        "mot": "« Draps changés tous les jours. »"
       },
       "mail": {
         "canal": "Mail",
         "quand": "07:05",
-        "mot": "« Les courses demandées doivent être là quand on arrive. »"
+        "mot": "« Personne n'entre dans la chambre parentale. »"
       }
     },
     "arbitrage": {
       "titre": "Deux demandes s'opposent",
       "etat": "À ARBITRER",
-      "corps": "<fort>« Pain sans gluten disponible pour le petit déjeuner »</fort> et <fort>« les courses doivent être là quand on arrive »</fort> ne tiennent pas ensemble : le pain acheté avec les courses sera rassis au matin. Choucas ne transmet pas les deux aveuglément, mais il pose le conflit pour que le manager arbitre cette situation du mieux possible.",
+      "corps": "<fort>« Draps changés tous les jours »</fort> et <fort>« personne n'entre dans la chambre parentale »</fort> ne tiennent pas ensemble : changer les draps suppose d'entrer. Choucas ne transmet pas les deux aveuglément — il pose le conflit, et le manager décide.",
       "meta": "Aucune ligne ne reste en suspens : elle est attribuée, ou écartée en connaissance de cause."
     },
     "consigne": {
       "bien": "Chalet L'Aiguille",
       "etat": "CONSIGNE",
-      "texte": "Courses déposées avant l'arrivée. Pain sans gluten livré le matin même, à 8:45. Chambre du rez-de-chaussée pour les parents, lit double.",
+      "texte": "Draps changés tous les jours dans toutes les chambres. Sauf celle du rez-de-chaussée, où dorment les parents : jeu propre plié devant la porte chaque matin avant 9 h, personne n'entre.",
       "meta": "Transmis à Marie L., équipière en charge du ménage."
     }
   },

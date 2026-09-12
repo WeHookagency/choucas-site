@@ -86,9 +86,25 @@ const ETAPES = [
  * 7 septembre 2026 ; a rendre a l'ancienne formule si la fonction n'existe
  * toujours pas au lancement.
  *
- * Le conflit montre est celui du corpus produit : « personne dans la maison
- * avant 9 h » contre « des pancakes chaque matin ». Choucas ne transmet pas
- * les deux aveuglement.
+ * Le conflit montre est celui du linge : « draps changes tous les jours »
+ * contre « personne n'entre dans la chambre parentale ». Changer les draps
+ * suppose d'entrer — aucune logistique ne les reconcilie, il faut quelqu'un
+ * qui connaisse le bien et le client pour trancher.
+ *
+ * Il a remplace le pain sans gluten le 12 septembre 2026, pour deux raisons.
+ * Le §4.2 des specs pose que « le manager n'arbitre que ce que la machine ne
+ * peut pas trancher » et que la carte ne montre que de « vrais conflits » :
+ * un pain achete le matin meme resolvait celui-la tout seul, et la consigne
+ * de l'etape 03 le resolvait ainsi — la carte demontrait le contraire de sa
+ * regle. Et un besoin sans gluten est une intolerance, quand Produit et
+ * A propos ecrivent tous deux que Choucas ne stocke ni allergie ni
+ * intolerance : la Home mettait en vitrine la donnee que le reste du site
+ * jure ne pas collecter.
+ *
+ * Les trois sources portent donc les deux lignes qui s'opposent, et la
+ * consigne de sortie porte la decision du manager : les draps partout sauf
+ * au rez-de-chaussee, un jeu propre devant la porte. Les trois fragments
+ * arrivent dans la consigne, aucun ne se perd.
  *
  * Rien n'y est porte par la seule couleur. L'ordre est un `ol` numerote et
  * ses trois temps sont nommes ; le canal de chaque source est ecrit ; la
@@ -284,11 +300,14 @@ function Consigne() {
     <div
       className={`max-w-[560px] rounded-carte border border-filet bg-surface p-6 text-encre ${OMBRE}`}
     >
-      <div className="flex items-baseline justify-between gap-3">
-        <span className="font-serif text-intro">{t('bien')}</span>
+      {/* L'etat passe devant le bien : c'est lui qui dit ce qu'est cette
+          carte, et la sortie de la sequence se lit des la premiere ligne.
+          Il etait cale a droite, ou il se lisait apres le nom du chalet. */}
+      <div className="flex items-baseline gap-3">
         <span className="text-label shrink-0 rounded-capsule bg-cta px-2.5 py-1 font-bold text-cta-encre">
           {t('etat')}
         </span>
+        <span className="font-serif text-intro">{t('bien')}</span>
       </div>
       <p className="text-corps mt-3">{t('texte')}</p>
       <p className="text-micro mt-4 border-t border-filet pt-3 text-encre-douce">{t('meta')}</p>
