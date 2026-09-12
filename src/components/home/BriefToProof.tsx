@@ -7,6 +7,7 @@ import { useTranslations } from 'next-intl';
 import { ancres } from '../anchors';
 import { Accent } from '../ui/Accent';
 import { Accordeon, type ElementAccordeon } from '../ui/Accordeon';
+import { Reserve } from '../ui/Reserve';
 import { Reveal } from '../ui/Reveal';
 import { Section } from '../ui/Section';
 import { SectionHeader } from '../ui/SectionHeader';
@@ -29,13 +30,21 @@ type EtapeCle = (typeof ETAPES)[number];
  */
 const CAPTURES: Partial<Record<EtapeCle, StaticImageData>> = {};
 
-/**
- * Reserve grise au format 1340 x 1000 a la place des captures manquantes.
+/*
+ * La reserve pointillee « RESERVE_PROVISOIRE » a disparu le 12 septembre 2026.
  *
- * Sert a juger une mise en page, jamais a partir en production : une reserve
- * pointillee sur un site public se lit comme une image qui n'a pas charge.
+ * Elle etait a `false` parce qu'un cadre en pointilles sur un site public se
+ * lit comme une image qui n'a pas charge — le backlog l'interdisait en
+ * production, et il avait raison. Mais l'eteindre supprimait aussi la colonne
+ * de droite : le panneau ouvert occupait la moitie gauche et l'autre moitie
+ * restait vide.
+ *
+ * La colonne est donc rendue en permanence, avec le traitement de reserve
+ * employe sur Produit et Solutions : un aplat plein, pas des pointilles, et
+ * une legende qui nomme l'ecran attendu. Une reserve qui se donne pour ce
+ * qu'elle est ne se lit pas comme un defaut, et une reserve muette ne se
+ * remplit jamais.
  */
-const RESERVE_PROVISOIRE = false;
 
 /** Etat d'un maillon vis-a-vis de l'etape ouverte. */
 type Position = 'passe' | 'courant' | 'avenir';
@@ -99,16 +108,14 @@ function Apercu({ etape, className }: { etape: EtapeCle; className?: string }) {
     );
   }
 
-  if (!RESERVE_PROVISOIRE) return null;
-
-  /* ⚠️ PROVISOIRE — voir RESERVE_PROVISOIRE en tete de fichier. */
+  // Pas de capture : la place est tenue, et ce qu'elle attend est nomme.
   return (
-    <div
-      aria-hidden
-      className={`text-micro grid aspect-[1340/1000] w-full place-items-center rounded-carte border border-dashed border-encre-inverse/30 bg-encre-inverse/5 text-encre-inverse/50 ${className ?? ''}`}
-    >
-      Réserve provisoire · 1340 × 1000
-    </div>
+    <figure className={`m-0 flex flex-col gap-3 ${className ?? ''}`}>
+      <Reserve ratio="1340 / 1000" teinte="mousse" />
+      <figcaption className="text-micro text-encre-inverse/75">
+        {t(`onglets.${etape}`)}
+      </figcaption>
+    </figure>
   );
 }
 
@@ -135,7 +142,6 @@ export function BriefToProof() {
   const rangOuvert = ETAPES.indexOf(ouverte);
 
   /** Y a-t-il seulement quelque chose a montrer a droite ? */
-  const avecApercu = RESERVE_PROVISOIRE || ETAPES.some((cle) => CAPTURES[cle]);
 
   const elements: ElementAccordeon[] = ETAPES.map((cle, i) => {
     const estOuverte = cle === ouverte;
@@ -189,7 +195,7 @@ export function BriefToProof() {
         {/* Sous 1000 px, la capture appartient a l'etape ouverte et se lit avec
             elle. Au-dessus, elle vit dans la colonne de droite : l'exemplaire
             masque n'est jamais charge. */}
-        {avecApercu ? <Apercu etape={cle} className="mt-5 desktop:hidden" /> : null}
+        <Apercu etape={cle} className="mt-5 desktop:hidden" />
       </>
     ),
     };
@@ -208,9 +214,7 @@ export function BriefToProof() {
       </Reveal>
 
       <Reveal
-        className={`mt-titre grid items-start gap-6 desktop:gap-10 ${
-          avecApercu ? 'desktop:grid-cols-2' : ''
-        }`}
+        className="mt-titre grid items-start gap-6 desktop:grid-cols-2 desktop:gap-10"
       >
         <Accordeon
           idBase="brief"
@@ -239,14 +243,12 @@ export function BriefToProof() {
           classeZone={() => 'px-4 pb-4 pt-3'}
         />
 
-        {/* Hauteur constante d'une etape a l'autre : la colonne ne saute pas.
-            Tant qu'aucune capture n'existe, la colonne n'est pas rendue du
-            tout — une moitie de section vide vaut moins que rien. */}
-        {avecApercu ? (
-          <div className="hidden desktop:block desktop:sticky desktop:top-24">
-            <Apercu etape={ouverte} />
-          </div>
-        ) : null}
+        {/* Hauteur constante d'une etape a l'autre : la colonne ne saute pas
+            quand on change d'etape. Collante, elle reste en vis-a-vis du
+            panneau ouvert pendant qu'on descend dans l'accordeon. */}
+        <div className="hidden desktop:block desktop:sticky desktop:top-24">
+          <Apercu etape={ouverte} />
+        </div>
       </Reveal>
     </Section>
   );
