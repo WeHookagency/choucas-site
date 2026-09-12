@@ -908,7 +908,7 @@
     "sommaireTitre": "Sur cette page",
     "sommaireAria": "Sommaire de la page",
     "clotureTitre": "Une question qui n’est pas là ?",
-    "clotureTexte": "Écrivez-nous. On répond sous 48 h ouvrées.",
+    "clotureTexte": "Écrivez-nous. On répond sous 48 h.",
     "clotureCta": "Poser une question",
     "groupes": {
       "produit": {
@@ -1023,19 +1023,19 @@
       },
       "cout": {
         "q": "Combien ça coûte pour 12 biens ?",
-        "r": "Le prix se calcule aux biens actifs, avec un nombre illimité d’utilisateurs terrain. Douze biens, c’est le palier 1–15 : 249 € HT par mois."
+        "r": "Le démarrage coûte 2 000 € HT, une fois. L’abonnement se calcule ensuite à 20 € HT par bien et par mois, avec un minimum de 300 € HT. Douze biens sont sous ce minimum : vous payez donc 300 € HT par mois."
       },
       "hors-saison": {
         "q": "Que se passe-t-il hors saison, quand mes biens ne tournent pas ?",
-        "r": "Le prix suit vos biens actifs : un bien fermé hors saison ne compte pas."
+        "r": "Le prix suit vos biens actifs : un bien fermé hors saison ne compte pas. Le minimum de 300 € HT par mois s’applique quand même — en dessous de quinze biens actifs, c’est lui qui fixe le montant."
       },
       "engagement": {
         "q": "Engagement, durée, résiliation ?",
-        "r": "Engagement annuel avec résiliation à l’échéance, sans clause de reconduction cachée. Le détail exact est précisé au contrat, à voir ensemble lors de la journée d’implantation."
+        "r": "Vous engagez le démarrage, pas l’année. La semaine qui suit la journée sur site est le test : vous faites tourner votre exploitation avec Choucas, puis vous décidez. L’abonnement ne démarre que si vous nous le dites. Vous choisissez ensuite la fréquence de paiement — mensuelle, à la saison ou à l’année — sans que le montant change."
       },
       "implantation-facturee": {
         "q": "La journée d’implantation est-elle facturée en plus ?",
-        "r": "Non, elle est comprise dans le tarif d’implantation initial, pas facturée en supplément."
+        "r": "Non. La journée sur site est le démarrage : 2 000 € HT, une fois, et rien d’autre au titre de la mise en place."
       }
     }
   }
