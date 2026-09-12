@@ -1,0 +1,166 @@
+/* ==================================================================
+   CHOUCAS — Charte de la PWA, mode clair et mode sombre
+
+   Les quatorze valeurs de la charte ne changent pas d'un theme a
+   l'autre. Ce qui change, c'est lequel des quatorze on emploie, et sur
+   quel fond : une couleur juste sur Neige peut etre illisible sur
+   Schiste, et l'inverse.
+
+   Derive de `src/styles/tokens.css` du site vitrine, qui reprend
+   lui-meme le §3 des specifications produit. La source de verite reste
+   le §3 : corriger la-bas d'abord, puis reporter ici.
+
+   Les encres du theme sombre ne sont pas choisies a l'oeil. Chaque
+   couleur est convertie en OKLCH, la teinte de la charte est gardee, et
+   seule la clarte monte — jusqu'a ce que le texte atteigne 4,5:1 SUR SA
+   PROPRE SURFACE TEINTEE, pas sur le fond nu. Viser le fond nu donnait
+   des encres trop sombres une fois posees sur leur carte : 3,7:1 mesure.
+
+   Tous les rapports en commentaire sont calcules en luminance relative
+   WCAG 2.1. Seuils : 4,5:1 pour le texte courant, 3:1 au-dela de 24 px
+   ou en gras de 19 px et plus.
+   ================================================================== */
+
+:root {
+  /* --- La charte ---------------------------------------------------
+     Ne pas modifier. Le commentaire donne le contraste sur les deux
+     fonds de l'application : Neige, puis Schiste.                    */
+
+  --choucas-neige: #F4F2EC;          /* fond principal            1,00 · 15,98 */
+  --choucas-glacier: #FCFBF7;        /* cartes et surfaces        1,08 · 17,27 */
+  --choucas-panneau: #E8E9E0;        /* sections secondaires      1,09 · 14,62 */
+  --choucas-schiste: #151816;        /* texte, fond sombre       15,98 ·  1,00 */
+  --choucas-graphite: #222622;       /* surfaces sombres         13,71 ·  1,17 */
+  --choucas-sapin: #244238;          /* marque, CTA clair         9,81 ·  1,63 */
+  --choucas-lichen: #95A184;         /* respiration, CTA sombre   2,43 ·  6,57 */
+  --choucas-cuivre: #B56F46;         /* accent editorial          3,52 ·  4,54 */
+  --choucas-cuivre-clair: #DB9A72;   /* accent sur fond sombre    2,11 ·  7,56 */
+  --choucas-cuivre-chiffre: #E4A177; /* chiffres sur fond sombre  1,94 ·  8,23 */
+  --choucas-crepuscule: #466170;     /* information               5,85 ·  2,73 */
+  --choucas-mousse: #3D7358;         /* preuve positive           4,95 ·  3,23 */
+  --choucas-ambre: #C18B38;          /* attention                 2,67 ·  5,98 */
+  --choucas-grenat: #A64B3F;         /* erreur, alerte            5,07 ·  3,15 */
+
+  /* --- Alias fonctionnels, theme clair -----------------------------
+     Le code appelle ces noms-la, jamais les couleurs. Changer un
+     usage = changer un alias, pas cent declarations.                 */
+
+  --pwa-fond: var(--choucas-neige);
+  --pwa-surface: var(--choucas-glacier);
+  --pwa-surface-alt: var(--choucas-panneau);
+  --pwa-filet: #DDD9CE; /* separateurs et contours neutres */
+  --pwa-encre: var(--choucas-schiste);
+  --pwa-encre-douce: #5A615B; /* texte secondaire, 6,15 sur Glacier */
+  --pwa-cta-fond: var(--choucas-sapin);
+  --pwa-cta-encre: var(--choucas-glacier);
+  --pwa-accent: var(--choucas-cuivre);
+  --pwa-accent-chiffre: var(--choucas-cuivre);
+
+  --pwa-ok-encre: #3C7257; /* 4,54 sur sa surface, 5,43 sur Glacier */
+  --pwa-ok-surface: #E5E8E0;
+  --pwa-ok-filet: #B6C7BA;   /* renfort, jamais le signal — voir la regle 3 */
+  --pwa-info-encre: #466170; /* 5,24 sur sa surface, 6,33 sur Glacier */
+  --pwa-info-surface: #E6E6E2;
+  --pwa-info-filet: #B9C1C2;      /* renfort, jamais le signal — voir la regle 3 */
+  --pwa-attention-encre: #8A5E20; /* 4,73 sur sa surface, 5,48 sur Glacier */
+  --pwa-attention-surface: #F0EADE;
+  --pwa-attention-filet: #E3CFAF; /* renfort, jamais le signal — voir la regle 3 */
+  --pwa-erreur-encre: #A64B3F;    /* 4,57 sur sa surface, 5,48 sur Glacier */
+  --pwa-erreur-surface: #EEE5DE;
+  --pwa-erreur-filet: #D9B9B1; /* renfort, jamais le signal — voir la regle 3 */
+}
+
+/* ==================================================================
+   THEME SOMBRE
+
+   Seuls les alias sont redefinis. La charte, elle, ne bouge pas : une
+   couleur qui n'existe que sous `prefers-color-scheme` n'existe pas
+   pour un lecteur qui a force le theme clair.
+
+   `:root:not([data-theme="light"])` pour qu'un choix explicite de
+   theme clair l'emporte sur le reglage du systeme.
+   ================================================================== */
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --pwa-fond: var(--choucas-schiste);
+    --pwa-surface: var(--choucas-graphite);
+    --pwa-surface-alt: #2A2D2B;
+    --pwa-filet: #3A3D3B;
+    --pwa-encre: var(--choucas-neige);
+    --pwa-encre-douce: #8F9690;              /* 4,60 sur surface-alt, le pire des trois fonds */
+    --pwa-cta-fond: var(--choucas-lichen);   /* le Sapin tombe a 1,63 sur Schiste — voir la regle 1 */
+    --pwa-cta-encre: var(--choucas-schiste); /* 6,57 sur le Lichen */
+    --pwa-accent: var(--choucas-cuivre-clair);
+    --pwa-accent-chiffre: var(--choucas-cuivre-chiffre);
+
+    --pwa-ok-encre: #6A9B81; /* 4,59 sur sa surface, 4,84 sur Graphite */
+    --pwa-ok-surface: #1E2C25;
+    --pwa-ok-filet: #294637;
+    --pwa-info-encre: #78919F; /* 4,54 sur sa surface, 4,64 sur Graphite */
+    --pwa-info-surface: #20282A;
+    --pwa-info-filet: #2E3C43;
+    --pwa-attention-encre: #C69040; /* 4,54 sur sa surface, 5,46 sur Graphite */
+    --pwa-attention-surface: #3B311D;
+    --pwa-attention-filet: #6B5227;
+    --pwa-erreur-encre: #CD7669; /* 4,53 sur sa surface, 4,67 sur Graphite */
+    --pwa-erreur-surface: #35231F;
+    --pwa-erreur-filet: #5E322B;
+  }
+}
+
+/* Le meme jeu sous un choix explicite, pour que la bascule l'emporte
+   dans les deux sens. A garder synchronise avec le bloc ci-dessus. */
+:root[data-theme="dark"] {
+  --pwa-fond: var(--choucas-schiste);
+  --pwa-surface: var(--choucas-graphite);
+  --pwa-surface-alt: #2A2D2B;
+  --pwa-filet: #3A3D3B;
+  --pwa-encre: var(--choucas-neige);
+  --pwa-encre-douce: #8F9690;
+  --pwa-cta-fond: var(--choucas-lichen);
+  --pwa-cta-encre: var(--choucas-schiste);
+  --pwa-accent: var(--choucas-cuivre-clair);
+  --pwa-accent-chiffre: var(--choucas-cuivre-chiffre);
+
+  --pwa-ok-encre: #6A9B81;
+  --pwa-ok-surface: #1E2C25;
+  --pwa-ok-filet: #294637;
+  --pwa-info-encre: #78919F;
+  --pwa-info-surface: #20282A;
+  --pwa-info-filet: #2E3C43;
+  --pwa-attention-encre: #C69040;
+  --pwa-attention-surface: #3B311D;
+  --pwa-attention-filet: #6B5227;
+  --pwa-erreur-encre: #CD7669;
+  --pwa-erreur-surface: #35231F;
+  --pwa-erreur-filet: #5E322B;
+}
+
+/* ==================================================================
+   QUATRE LIMITES QUI NE SE LISENT PAS DANS LES VALEURS
+
+   1. LE SAPIN NE SURVIT PAS AU MODE SOMBRE. Sur Schiste il mesure
+      1,63:1. Le bouton principal passe donc au Lichen, avec du Schiste
+      ecrit dessus — 6,57:1. C'est la seule inversion complete de la
+      palette, et il ne faut pas la rattraper en eclaircissant le Sapin :
+      il cesserait d'etre la couleur de la marque.
+
+   2. LES DEUX CUIVRES SONT DISJOINTS. Cuivre sur fond clair, Cuivre
+      clair sur fond sombre, jamais l'inverse — le Cuivre clair tombe a
+      2,11:1 sur Neige. Et le Cuivre garde sa limite de taille dans les
+      deux themes : 24 px et plus, ou gras de 19 px et plus. Jamais un
+      paragraphe, une legende ou un libelle de bouton.
+
+   3. AUCUN CONTOUR D'ETAT N'ATTEINT 3:1, ni en clair ni en sombre, sans
+      quitter la teinte de la charte. Mesures sur la carte : Mousse
+      2,74, Crepuscule 2,31, Grenat 2,67, Ambre 2,85. Le contour reste
+      donc un renfort, jamais le signal. L'etat est toujours ecrit en
+      toutes lettres — « Critique », « Bloque », « Reassort bloquant » —
+      et c'est ce texte qui porte le contraste.
+
+   4. L'AMBRE PLEIN N'EST PAS UNE ENCRE EN MODE CLAIR : 2,67:1 sur
+      Neige. Le texte d'attention prend l'Ambre assombri #8A5E20. En
+      mode sombre l'Ambre repasse encre, a #C69040. C'est la seule
+      couleur de la charte qui gagne au changement de fond.
+   ================================================================== */
