@@ -111,7 +111,7 @@ function Apercu({ etape, className }: { etape: EtapeCle; className?: string }) {
   // Pas de capture : la place est tenue, et ce qu'elle attend est nomme.
   return (
     <figure className={`m-0 flex flex-col gap-3 ${className ?? ''}`}>
-      <Reserve ratio="1340 / 1000" teinte="mousse" />
+      <Reserve ratio="1340 / 1000" teinte="mousse" sombre />
       <figcaption className="text-micro text-encre-inverse/75">
         {t(`onglets.${etape}`)}
       </figcaption>

@@ -205,7 +205,7 @@ export default async function Page({ params }: PageProps<'/[locale]/produit'>) {
                   ecranAGauche ? 'desktop:col-start-1' : 'desktop:col-start-2'
                 }`}
               >
-                <Reserve ratio="340 / 480" largeurMax={340} teinte="mousse" />
+                <Reserve ratio="340 / 480" largeurMax={340} teinte="mousse" sombre={sombre} />
                 <figcaption
                   style={{ maxWidth: '340px' }}
                   className={`text-micro text-center ${sombre ? 'text-encre-inverse/85' : 'text-encre-douce'}`}
