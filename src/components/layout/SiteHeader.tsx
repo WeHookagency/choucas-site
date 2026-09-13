@@ -154,21 +154,11 @@ export function SiteHeader() {
         {/* Selecteur de langue retire le 3 septembre 2026, avec la version
             anglaise. Le composant existe toujours : le remettre ici et dans
             le menu suffira. Voir la marche a suivre dans i18n/locales.ts. */}
-        <div className="hidden items-center gap-2 tablette:flex desktop:gap-4">
-          {/* Icone seule : elle porte donc un nom accessible, et non un
-              pictogramme muet. Cible de 44 px comme tout le reste de la
-              barre. `size-11` et non un padding : la boite reste carree quel
-              que soit le trace. */}
-          <a
-            href={LIEN_LINKEDIN}
-            target="_blank"
-            rel="noopener"
-            aria-label={t('linkedin')}
-            className="inline-flex size-11 items-center justify-center rounded-carte text-encre hover:text-accent"
-          >
-            <Icon name="linkedin" size={24} />
-          </a>
-
+        {/* LinkedIn est sorti de la barre desktop le 13 septembre 2026 : il
+            reste dans le menu mobile, et le pied de page le porte a toutes
+            les largeurs. Une barre n'a pas besoin de trois destinations quand
+            le pied en offre une permanente. */}
+        <div className="hidden items-center gap-4 tablette:flex">
           {/* La visibilite est portee par l'enveloppe, pas par le CTA : sa
               classe `inline-flex` de base l'emporterait sur un `hidden` passe
               en className, les deux reglant la meme propriete. */}

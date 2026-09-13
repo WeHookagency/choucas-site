@@ -3,6 +3,9 @@ import { useTranslations } from 'next-intl';
 
 import { Link } from '@/i18n/navigation';
 
+import { LIEN_LINKEDIN } from '../anchors';
+import { Icon } from '../ui/Icon';
+
 /**
  * Pied de page — specs §6.12.
  *
@@ -69,13 +72,46 @@ export function SiteFooter() {
           {/* `unoptimized` : l'optimiseur de Next refuse le SVG sans
               `dangerouslyAllowSVG`, et une marque de 500 octets n'a rien a
               gagner a passer par lui. Le nom accessible porte la marque. */}
-          <Image
-            src="/choucas-mark-inverse.svg"
-            alt={t('marqueAlt')}
-            width={52}
-            height={52}
-            unoptimized
-          />
+          <div className="flex flex-col gap-6">
+            <Image
+              src="/choucas-mark-inverse.svg"
+              alt={t('marqueAlt')}
+              width={52}
+              height={52}
+              unoptimized
+            />
+
+            {/* Joindre quelqu'un, a toutes les largeurs. Le menu mobile les
+                porte aussi, mais il faut l'ouvrir ; ici les deux sont
+                toujours la. Icones seules, donc chacune porte un nom
+                accessible : un lecteur d'ecran annonce le numero et
+                « Choucas sur LinkedIn », pas « lien ».
+
+                Le numero vient de `mentions` — une seule source dans le
+                depot, il ne peut pas diverger d'avec les mentions legales. */}
+            <ul className="-ml-2.5 flex items-center gap-1">
+              <li>
+                <a
+                  href={`tel:${mentions('editeurTelephone').replace(/\s/g, '')}`}
+                  aria-label={mentions('editeurTelephone')}
+                  className="inline-flex size-11 items-center justify-center rounded-carte text-encre-inverse hover:text-accent-inverse"
+                >
+                  <Icon name="telephone" size={20} />
+                </a>
+              </li>
+              <li>
+                <a
+                  href={LIEN_LINKEDIN}
+                  target="_blank"
+                  rel="noopener"
+                  aria-label={nav('linkedin')}
+                  className="inline-flex size-11 items-center justify-center rounded-carte text-encre-inverse hover:text-accent-inverse"
+                >
+                  <Icon name="linkedin" size={20} />
+                </a>
+              </li>
+            </ul>
+          </div>
 
           {/* Un seul `nav` pour les deux colonnes : elles se separent a
               l'oeil, pas au sens, et deux reperes de navigation pour six
