@@ -5,7 +5,6 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 import accueilResponsable from '../../../../public/demo/accueil-responsable.png';
 import blocExceptions from '../../../../public/demo/bloc-exceptions.png';
-import carteMaintenant from '../../../../public/demo/carte-maintenant.png';
 
 import { ATTRS_DEMO, LIEN_DEMO } from '@/components/anchors';
 import { MemoireEntreprise } from '@/components/solutions/MemoireEntreprise';
@@ -80,10 +79,10 @@ export default async function Page({ params }: PageProps<'/[locale]/solutions'>)
 
   const t = await getTranslations('solutions');
   const actions = await getTranslations('actions');
-  // Les deux captures existent deja sur la Home ; leur description aussi. On
-  // la relit plutot que de la recopier.
+  // La capture du responsable existe deja sur la Home ; sa description aussi.
+  // On la relit plutot que de la recopier. `terrain` partait avec le volet du
+  // meme nom, retire le 13 septembre 2026.
   const manager = await getTranslations('manager');
-  const terrain = await getTranslations('terrain');
 
   return (
     <main>
@@ -150,24 +149,21 @@ export default async function Page({ params }: PageProps<'/[locale]/solutions'>)
         ))}
       </VoletRole>
 
-      <VoletRole
-        id="terrain"
-        fond="respiration"
-        eyebrow={t('terrain.eyebrow')}
-        titre={t('terrain.titre')}
-        legende={t('terrain.legende')}
-        capture={carteMaintenant}
-        captureAlt={terrain('captureAlt')}
-        libelleLien={manager('lienDemo')}
-      >
-        <p className="text-corps">{t('terrain.lead')}</p>
-        <p className="text-corps">{t('terrain.suite')}</p>
-        <BlocVolet
-          titre={t('terrain.blocs.depart.titre')}
-          texte={t('terrain.blocs.depart.texte')}
-        />
-      </VoletRole>
+      {/* Volet Terrain retire le 13 septembre 2026. Il redisait ce que Produit
+          decrit mieux, dans l'ordre : sa deuxieme phrase — « Une mission a la
+          fois, en grand. » — etait mot pour mot `produit.mission.lead`.
 
+          La repartition qui en decoule : Produit dit ce que le produit fait,
+          etape par etape ; Solutions dit pour qui, quelle garantie, quel prix.
+
+          Rien n'est supprime. `VoletRole` sert encore aux deux autres volets,
+          `carte-maintenant.png` reste dans public/, et les chaines
+          `solutions.terrain.*` restent au catalogue — les remettre ici suffit.
+
+          ⚠️ « Trois metiers, une meme journee » nomme toujours trois roles et
+          n'en detaille plus que deux. C'est assume : la colonne Terrain de
+          cette section dit l'essentiel en une ligne, et le detail vit sur
+          Produit. */}
       <PointJonction />
 
       <MemoireEntreprise />
