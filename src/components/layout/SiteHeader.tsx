@@ -57,10 +57,12 @@ export function SiteHeader() {
    * coute plus qu'une barre serree.
    */
   const liens = [
-    { href: '/produit', libelle: t('produit') },
-    { href: '/solutions', libelle: t('solutions') },
-    { href: '/tarifs', libelle: t('tarifs') },
-    { href: '/contact', libelle: t('contact') },
+    { cle: 'produit', href: '/produit', libelle: t('produit') },
+    { cle: 'solutions', href: '/solutions', libelle: t('solutions') },
+    // Les tarifs ont rejoint Solutions le 13 septembre 2026. L'entree reste :
+    // c'est le mot qu'on cherche dans une barre, et elle mene a l'ancre.
+    { cle: 'tarifs', href: { pathname: '/solutions', hash: 'tarifs' }, libelle: t('tarifs') },
+    { cle: 'contact', href: '/contact', libelle: t('contact') },
   ] as const;
 
   return (
@@ -128,17 +130,22 @@ export function SiteHeader() {
         <nav aria-label={t('aria')} className="hidden tablette:block">
           <ul className="flex items-center gap-6 desktop:gap-8">
             {liens.map((lien) => (
-              <li key={lien.href}>
+              <li key={lien.cle}>
                 {/* Cible de 44 px, §9 des specs, comme la marque et le menu
                     mobile. La barre fait 60 px puis 68 : la boite y tient
                     sans deplacer quoi que ce soit, et `items-center` garde le
-                    texte sur la meme ligne. */}
-                <a
+                    texte sur la meme ligne.
+
+                    `Link` et non `a` : l'ancre nue rendait `/produit` sans le
+                    prefixe de langue, quand le menu mobile rendait
+                    `/fr/produit`. Chaque clic de la barre payait donc une
+                    redirection 307 avant d'arriver a destination. */}
+                <Link
                   href={lien.href}
                   className="text-nav inline-flex min-h-11 items-center text-encre no-underline hover:text-accent"
                 >
                   {lien.libelle}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -187,7 +194,7 @@ export function SiteHeader() {
         <nav aria-label={t('aria')} className="mx-auto max-w-scene px-marge py-6">
           <ul className="flex flex-col gap-1">
             {liens.map((lien) => (
-              <li key={lien.href}>
+              <li key={lien.cle}>
                 <Link
                   href={lien.href}
                   onClick={() => setOuvert(false)}

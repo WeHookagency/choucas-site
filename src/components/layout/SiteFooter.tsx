@@ -53,7 +53,8 @@ export function SiteFooter() {
     [
       { href: '/produit', libelle: nav('produit') },
       { href: '/solutions', libelle: nav('solutions') },
-      { href: '/tarifs', libelle: nav('tarifs') },
+      // Voir la note de l'entete : les tarifs sont une ancre de Solutions.
+      { href: { pathname: '/solutions', hash: 'tarifs' }, libelle: nav('tarifs') },
     ],
     [
       { href: '/faq', libelle: nav('faq') },
@@ -82,9 +83,9 @@ export function SiteFooter() {
           <nav aria-label={t('ariaPages')} className="desktop:col-span-2">
             <div className="grid grid-cols-2 gap-x-8">
               {colonnes.map((colonne) => (
-                <ul key={colonne[0].href}>
+                <ul key={colonne[0].libelle}>
                   {colonne.map((page) => (
-                    <li key={page.href}>
+                    <li key={page.libelle}>
                       {/* Cible de 44 px, §9 des specs : la hauteur vient de la
                           boite, le texte ne bouge pas. */}
                       <Link
