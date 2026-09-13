@@ -549,5 +549,15 @@
         "r": "No. The product doctrine is to measure properties and missions, never people. Choucas is not built around individual rankings or employee performance counters."
       }
     }
+  },
+  "tarifsHome": {
+    "aria": "Pricing",
+    "demarrageNom": "Setup",
+    "demarragePrix": "€2,000 excl. VAT",
+    "demarrageQuoi": "one day on site",
+    "abonnementNom": "Subscription",
+    "abonnementPrix": "€20 excl. VAT",
+    "abonnementQuoi": "per property per month, €300 minimum",
+    "lien": "See the detail"
   }
 }

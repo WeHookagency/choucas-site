@@ -500,6 +500,16 @@
     "aria": "Questions fréquentes",
     "lien": "Voir toutes les questions"
   },
+  "tarifsHome": {
+    "aria": "Tarifs",
+    "demarrageNom": "Le démarrage",
+    "demarragePrix": "2 000 € HT",
+    "demarrageQuoi": "une journée sur site",
+    "abonnementNom": "L’abonnement",
+    "abonnementPrix": "20 € HT",
+    "abonnementQuoi": "par bien et par mois, minimum 300 €",
+    "lien": "Voir le détail"
+  },
   "pages": {
     "produit": {
       "titre": "Choucas — Logiciel opérationnel pour conciergeries"

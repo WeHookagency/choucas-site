@@ -8,6 +8,7 @@ import { Implementation } from '@/components/home/Implementation';
 import { BriefIntake } from '@/components/home/BriefIntake';
 import { BriefToProof } from '@/components/home/BriefToProof';
 import { FaqHome } from '@/components/home/FaqHome';
+import { TarifsHome } from '@/components/home/TarifsHome';
 import { FieldDemo } from '@/components/home/FieldDemo';
 import { FinalCta } from '@/components/home/FinalCta';
 import { ManagerDemo } from '@/components/home/ManagerDemo';
@@ -65,9 +66,18 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
       {/* Philosophy — « Une autre façon de piloter » — retirée le 6 septembre
           2026. Le fichier et ses clés de traduction restent en place : la
           remonter ici suffit. Elle portait l'ancre `a-propos`, que rien ne
-          visait. Attention à la couture : sans elle, OwnerReport, Implantation
-          et FaqHome s'enchaînent sur trois fonds Neige identiques. */}
+          visait.
+
+          ⚠️ La note sur « trois fonds Neige » qui vivait ici était périmée :
+          l'implantation est passée en Panneau depuis. Suite mesurée le
+          13 septembre 2026 — Neige, Neige, Sapin, Neige, Schiste, Neige,
+          Panneau, Panneau, Neige, Schiste. */}
       <Implementation />
+      {/* Les deux montants, apres la journee d'implantation qui vient d'etre
+          racontee : le demarrage est le prix de cette journee-la, la question
+          se pose ici. Elle partage volontairement le fond Panneau de
+          l'implantation : voir la note du composant. */}
+      <TarifsHome />
       <FaqHome />
       <FinalCta />
     </main>
