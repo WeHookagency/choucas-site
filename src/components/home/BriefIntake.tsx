@@ -221,6 +221,45 @@ function Liaison({ texte }: { texte: string }) {
 }
 
 /**
+ * L'en-tete des deux cartes de sortie — celle qu'on arbitre, celle qui part.
+ *
+ * Meme grammaire que les trois cartes de l'etape 01 : un etat ou un canal,
+ * le bien, l'heure a droite, le moment en dessous. Les cinq tuiles de la
+ * section se lisent donc pareil, et on suit un seul sejour d'un bout a
+ * l'autre — meme chalet, heures qui avancent.
+ *
+ * Ces deux cartes font 560 px quand celles de l'etape 01 en font 290 : la
+ * pastille et le bien tiennent ici sur la meme ligne, ce qui n'etait pas
+ * possible la-haut.
+ */
+function EnTeteCarte({
+  pastille,
+  bien,
+  heure,
+  jour,
+}: {
+  pastille: React.ReactNode;
+  bien: string;
+  heure: string;
+  jour: string;
+}) {
+  return (
+    <>
+      <div className="flex items-center justify-between gap-3">
+        <span className="flex min-w-0 items-center gap-3">
+          {pastille}
+          <span className="font-serif text-intro truncate">{bien}</span>
+        </span>
+        <span className="font-serif shrink-0 text-[1.375rem] leading-none tabular-nums">
+          {heure}
+        </span>
+      </div>
+      <p className="text-micro mt-2 text-encre-douce">{jour}</p>
+    </>
+  );
+}
+
+/**
  * Ce qui arrive : trois canaux, trois moments, aucun ordre.
  *
  * Les heures ne se suivent pas — 18:40, 21:12, 07:05 — parce que c'est ainsi
@@ -285,6 +324,7 @@ function Sources() {
  */
 function Arbitrage() {
   const t = useTranslations('briefIntake.arbitrage');
+  const bien = useTranslations('briefIntake')('bien');
 
   return (
     <div
@@ -307,14 +347,19 @@ function Arbitrage() {
 
           Elle est donc pleine comme CONSIGNE. Les deux ne se confondent pas :
           l'une est cuivre, l'autre Sapin, et chacune porte son mot. */}
-      <div className="flex">
-        <span className="text-label rounded-capsule bg-accent px-2.5 py-1 font-bold text-encre">
-          {t('etat')}
-        </span>
-      </div>
+      <EnTeteCarte
+        pastille={
+          <span className="text-label shrink-0 rounded-capsule bg-accent px-2.5 py-1 font-bold text-encre">
+            {t('etat')}
+          </span>
+        }
+        bien={bien}
+        heure={t('heure')}
+        jour={t('jour')}
+      />
       {/* Les deux demandes en gras : ce sont elles qui s'opposent, et c'est la
           seule chose que le lecteur doit retenir de ce paragraphe. */}
-      <p className="text-corps mt-3">
+      <p className="text-corps mt-4">
         {t.rich('corps', { fort: (chunks) => <strong className="font-bold">{chunks}</strong> })}
       </p>
     </div>
@@ -338,13 +383,17 @@ function Consigne() {
       {/* L'etat passe devant le bien : c'est lui qui dit ce qu'est cette
           carte, et la sortie de la sequence se lit des la premiere ligne.
           Il etait cale a droite, ou il se lisait apres le nom du chalet. */}
-      <div className="flex items-baseline gap-3">
-        <span className="text-label shrink-0 rounded-capsule bg-cta px-2.5 py-1 font-bold text-cta-encre">
-          {t('etat')}
-        </span>
-        <span className="font-serif text-intro">{bien}</span>
-      </div>
-      <p className="text-corps mt-3">{t('texte')}</p>
+      <EnTeteCarte
+        pastille={
+          <span className="text-label shrink-0 rounded-capsule bg-cta px-2.5 py-1 font-bold text-cta-encre">
+            {t('etat')}
+          </span>
+        }
+        bien={bien}
+        heure={t('heure')}
+        jour={t('jour')}
+      />
+      <p className="text-corps mt-4">{t('texte')}</p>
       <p className="text-micro mt-4 border-t border-filet pt-3 text-encre-douce">{t('meta')}</p>
     </div>
   );

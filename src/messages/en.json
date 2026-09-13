@@ -194,11 +194,15 @@
     "arbitrage": {
       "titre": "Two requests collide",
       "etat": "TO SETTLE",
+      "jour": "check-in day",
+      "heure": "7:12 am",
       "corps": "<fort>\"Fresh sheets every day\"</fort> and <fort>\"no one goes into the parents’ bedroom\"</fort> do not hold together: changing the sheets means going in. Choucas does not pass both on blindly — it states the conflict, and the manager decides.",
       "meta": "No line is left hanging: it is assigned, or set aside knowingly."
     },
     "consigne": {
       "etat": "INSTRUCTION",
+      "jour": "check-in day",
+      "heure": "8:04 am",
       "texte": "Fresh sheets every day in every bedroom. Except the ground-floor one, where the parents sleep: a clean set folded outside the door each morning before 9 am, no one goes in.",
       "meta": "Sent to Marie L., field team member handling the clean."
     }
@@ -558,6 +562,7 @@
     "abonnementNom": "Subscription",
     "abonnementPrix": "€20 excl. VAT",
     "abonnementQuoi": "per property per month, €300 minimum",
-    "lien": "See the detail"
+    "lien": "See the detail",
+    "reserve": "The day on site"
   }
 }

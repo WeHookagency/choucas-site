@@ -194,11 +194,15 @@
     "arbitrage": {
       "titre": "Deux demandes s’opposent",
       "etat": "À ARBITRER",
+      "jour": "le jour du check-in",
+      "heure": "07:12",
       "corps": "<fort>« Draps changés tous les jours »</fort> et <fort>« personne n’entre dans la chambre parentale »</fort> ne tiennent pas ensemble : changer les draps suppose d’entrer. Choucas ne transmet pas les deux aveuglément — il pose le conflit, et le manager décide.",
       "meta": "Aucune ligne ne reste en suspens : elle est attribuée, ou écartée en connaissance de cause."
     },
     "consigne": {
       "etat": "CONSIGNE",
+      "jour": "le jour du check-in",
+      "heure": "08:04",
       "texte": "Draps changés tous les jours dans toutes les chambres. Sauf celle du rez-de-chaussée, où dorment les parents : jeu propre plié devant la porte chaque matin avant 9 h, personne n’entre.",
       "meta": "Transmis à Marie L., équipière en charge du ménage."
     }
@@ -508,7 +512,8 @@
     "abonnementNom": "L’abonnement",
     "abonnementPrix": "20 € HT",
     "abonnementQuoi": "par bien et par mois, minimum 300 €",
-    "lien": "Voir le détail"
+    "lien": "Voir le détail",
+    "reserve": "La journée sur site"
   },
   "pages": {
     "produit": {
