@@ -38,7 +38,9 @@ export function VoletRole({
   children,
 }: {
   id: string;
-  fond: 'fond' | 'respiration';
+  /** `fond-alt` ouvert le 13 septembre 2026 : la fusion dans Produit a mis
+   *  deux Neige a la suite, et le Panneau porte le meme texte que le Neige. */
+  fond: 'fond' | 'fond-alt' | 'respiration';
   eyebrow: string;
   titre: string;
   legende: string;
@@ -57,7 +59,7 @@ export function VoletRole({
       fond={fond}
       surplomb="entete-barre"
       aria-labelledby={`${id}-titre`}
-      className={fond === 'fond' ? 'border-t border-filet' : undefined}
+      className={fond === 'respiration' ? undefined : 'border-t border-filet'}
     >
       <Reveal className="grid gap-10 desktop:grid-cols-[1fr_340px] desktop:gap-24">
         <div className={ecranAGauche ? 'desktop:order-2' : undefined}>

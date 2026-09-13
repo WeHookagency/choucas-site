@@ -58,7 +58,6 @@ export function SiteHeader() {
    */
   const liens = [
     { cle: 'produit', href: '/produit', libelle: t('produit') },
-    { cle: 'solutions', href: '/solutions', libelle: t('solutions') },
     { cle: 'tarifs', href: '/tarifs', libelle: t('tarifs') },
     { cle: 'contact', href: '/contact', libelle: t('contact') },
   ] as const;

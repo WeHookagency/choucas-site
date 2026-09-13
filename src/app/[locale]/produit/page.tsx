@@ -3,6 +3,13 @@ import { notFound } from 'next/navigation';
 import { hasLocale } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
+import accueilResponsable from '../../../../public/demo/accueil-responsable.png';
+import blocExceptions from '../../../../public/demo/bloc-exceptions.png';
+
+import { MemoireEntreprise } from '@/components/produit/MemoireEntreprise';
+import { PointJonction } from '@/components/produit/PointJonction';
+import { TroisMetiers } from '@/components/produit/TroisMetiers';
+import { VoletRole } from '@/components/produit/VoletRole';
 import { Cta } from '@/components/ui/Cta';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { Reserve } from '@/components/ui/Reserve';
@@ -86,6 +93,26 @@ const SECTIONS = [
   },
 ] as const;
 
+/** Les trois blocs ajoutes au volet Exploitation, dans l'ordre du texte. */
+const BLOCS_EXPLOITATION = ['entraide', 'mission', 'verification'] as const;
+
+/**
+ * Un point developpe a l'interieur d'un volet : son intitule, puis ce qu'il
+ * change. Le titre du volet est un `h2`, ceux-ci sont donc des `h3` — la
+ * hierarchie se lit au clavier autant qu'a l'oeil.
+ *
+ * Le bloc herite de l'encre du volet : sur Lichen tout est en encre pleine,
+ * l'encre douce y tombe a 2,34:1.
+ */
+function BlocVolet({ titre, texte }: { titre: string; texte: string }) {
+  return (
+    <div className="mt-2">
+      <h3 className="font-serif text-intro font-semibold">{titre}</h3>
+      <p className="text-corps mt-2">{texte}</p>
+    </div>
+  );
+}
+
 /** Les cinq refus, dans l'ordre de la page A propos, seule source des libelles. */
 const REFUS = ['pms', 'personnes', 'sante', 'envoi', 'reseau'] as const;
 
@@ -124,6 +151,10 @@ export default async function Page({ params }: PageProps<'/[locale]/produit'>) {
   const t = await getTranslations('produit');
   const tApropos = await getTranslations('aPropos');
   const contact = await getTranslations('contact');
+  // Le bloc venu de Solutions lit ses propres chaines : elles restent la ou
+  // elles sont, la page a change, pas la copie.
+  const sol = await getTranslations('solutions');
+  const manager = await getTranslations('manager');
 
   return (
     <main>
@@ -217,6 +248,65 @@ export default async function Page({ params }: PageProps<'/[locale]/produit'>) {
           </Section>
         );
       })}
+
+      {/* La demonstration de la regle que la section 03 vient d'enoncer.
+          Elle la prouve au lieu de la redire : deux cartes, une liaison, un
+          nom de controleur. */}
+      <PointJonction />
+
+      {/* Qui fait quoi, apres avoir dit ce qui se fait. */}
+      <TroisMetiers />
+
+      {/* Fond Lichen. Le titre y reste en encre pleine : le cuivre mesure
+          1,45:1 sur ce fond, la moitie du titre y disparaitrait. */}
+      <VoletRole
+        id="dirigeants"
+        fond="respiration"
+        eyebrow={sol('dirigeants.eyebrow')}
+        titre={sol('dirigeants.titre')}
+        legende={sol('dirigeants.legende')}
+        capture={blocExceptions}
+        captureAlt={manager('captureAlt')}
+        libelleLien={manager('lienDemo')}
+      >
+        {/* En tete de volet : le comptage avant l'analyse. Registre du
+            benefice, comme l'exige la regle produit pour ce role — on dit ce
+            que le dirigeant obtient, jamais ce qu'il fait dans l'application. */}
+        <p className="font-serif text-intro">{sol('dirigeants.leadTitre')}</p>
+        <p className="text-corps">{sol('dirigeants.leadTexte')}</p>
+        <p className="text-corps">{sol('dirigeants.corps')}</p>
+        <p className="text-corps">
+          <strong className="font-bold">{sol('dirigeants.eviteLabel')} : </strong>
+          {sol('dirigeants.evite')}
+        </p>
+      </VoletRole>
+
+      {/* Panneau et non Neige : la memoire d'entreprise qui suit est en Neige,
+          et les deux se lisaient comme un seul bloc. Suite des treize fonds
+          apres correction : Neige, Panneau, Neige, Panneau, Sapin, Neige,
+          Sapin, Panneau, Lichen, Panneau, Neige, Panneau, Neige. */}
+      <VoletRole
+        id="exploitation"
+        fond="fond-alt"
+        ecranAGauche
+        eyebrow={sol('exploitation.eyebrow')}
+        titre={sol('exploitation.titre')}
+        legende={sol('exploitation.legende')}
+        capture={accueilResponsable}
+        captureAlt={sol('exploitation.captureAlt')}
+        libelleLien={manager('lienDemo')}
+      >
+        <p className="text-corps text-encre-douce">{sol('exploitation.lead')}</p>
+        {BLOCS_EXPLOITATION.map((cle) => (
+          <BlocVolet
+            key={cle}
+            titre={sol(`exploitation.blocs.${cle}.titre`)}
+            texte={sol(`exploitation.blocs.${cle}.texte`)}
+          />
+        ))}
+      </VoletRole>
+
+      <MemoireEntreprise />
 
       {/* Les cinq refus etaient enfiles dans une seule phrase, ou aucun ne
           pesait. A propos rend les memes cinq en liste a filets, et c'est le

@@ -21,7 +21,6 @@ export const pathnames = {
 
   // Pages du site, dans l'ordre de la navigation puis du pied.
   '/produit': { fr: '/produit', en: '/product' },
-  '/solutions': { fr: '/solutions', en: '/solutions' },
   '/blog': { fr: '/blog', en: '/blog' },
   '/blog/[slug]': { fr: '/blog/[slug]', en: '/blog/[slug]' },
   '/faq': { fr: '/faq', en: '/faq' },

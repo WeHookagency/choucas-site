@@ -24,6 +24,18 @@ const nextConfig: NextConfig = {
    */
   async redirects() {
     return [
+      /**
+       * Solutions a fusionne dans Produit le 13 septembre 2026 : « Produit »
+       * et « Solutions » designaient la meme chose pour qui lit une barre de
+       * navigation, et aucune repartition entre ces deux mots ne pouvait
+       * sonner juste.
+       *
+       * Temporaire, jamais permanente : un 308 mis en cache par les
+       * navigateurs survivrait a une reouverture.
+       */
+      { source: '/fr/solutions', destination: '/fr/produit', permanent: false },
+      { source: '/solutions', destination: '/fr/produit', permanent: false },
+
       { source: '/en', destination: '/fr', permanent: false },
       { source: '/en/legal-notice', destination: '/fr/mentions-legales', permanent: false },
       { source: '/en/privacy-policy', destination: '/fr/confidentialite', permanent: false },

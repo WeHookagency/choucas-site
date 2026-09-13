@@ -55,7 +55,6 @@ export function SiteFooter() {
   const colonnes = [
     [
       { href: '/produit', libelle: nav('produit') },
-      { href: '/solutions', libelle: nav('solutions') },
       { href: '/tarifs', libelle: nav('tarifs') },
     ],
     [

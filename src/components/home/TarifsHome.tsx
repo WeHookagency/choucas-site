@@ -25,8 +25,9 @@ import { getPathname } from '@/i18n/navigation';
  * teintes disponibles ici sont sombres, et une quatrieme bande sombre sur dix
  * sections alourdirait la fin de page.
  *
- * Le detail vit dans le bloc `Tarifs` de la page Solutions, ou les tarifs ont
- * ete fusionnes le 13 septembre 2026. Le lien mene a son ancre.
+ * Le detail vit sur `/tarifs`. Les tarifs ont ete fusionnes dans Solutions le
+ * 13 septembre 2026 puis ressortis le meme jour, quand Solutions a fusionne
+ * dans Produit : le lien mene de nouveau a une page.
  *
  * Deux chaines seulement viennent de `tarifs` — le chapeau qui titre la
  * section et le resume du demarrage. Le reste est dans `tarifsHome`, et rien
@@ -92,7 +93,7 @@ export function TarifsHome() {
           <Reveal className="mt-titre flex flex-col gap-6">
             <p className="text-micro text-encre-douce">{t('htMention')}</p>
             <Cta
-              href={`${getPathname({ href: '/solutions', locale })}#tarifs`}
+              href={getPathname({ href: '/tarifs', locale })}
               variante="secondaire"
               fleche
               className="self-start"
