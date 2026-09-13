@@ -369,6 +369,7 @@
     "editeurNom": "Mathieu Dupont-Vieux, entreprise individuelle",
     "editeurAdresse": "98 Impasse de la Planchette, 74450 Saint-Jean-de-Sixt, France",
     "editeurSiret": "SIRET 80922027000023",
+    "editeurTva": "VAT not applicable, article 293 B of the French General Tax Code.",
     "editeurTelephone": "+33 6 75 12 34 79",
     "editeurEmail": "mathieudv@choucas.app",
     "directeurLabel": "Directeur de la publication",
@@ -557,10 +558,10 @@
   "tarifsHome": {
     "aria": "Pricing",
     "demarrageNom": "Setup",
-    "demarragePrix": "€2,000 excl. VAT",
+    "demarragePrix": "€2,000",
     "demarrageQuoi": "one day on site",
     "abonnementNom": "Subscription",
-    "abonnementPrix": "€20 excl. VAT",
+    "abonnementPrix": "€20",
     "abonnementQuoi": "per property per month, €300 minimum",
     "lien": "See the detail",
     "reserve": "The day on site"

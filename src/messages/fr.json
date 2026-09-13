@@ -372,6 +372,7 @@
     "editeurNom": "Mathieu Dupont-Vieux, entreprise individuelle",
     "editeurAdresse": "98 Impasse de la Planchette, 74450 Saint-Jean-de-Sixt, France",
     "editeurSiret": "SIRET 80922027000023",
+    "editeurTva": "TVA non applicable, article 293 B du CGI.",
     "editeurTelephone": "+33 6 75 12 34 79",
     "editeurEmail": "mathieudv@choucas.app",
     "directeurLabel": "Directeur de la publication",
@@ -507,10 +508,10 @@
   "tarifsHome": {
     "aria": "Tarifs",
     "demarrageNom": "Le démarrage",
-    "demarragePrix": "2 000 € HT",
+    "demarragePrix": "2 000 €",
     "demarrageQuoi": "une journée sur site",
     "abonnementNom": "L’abonnement",
-    "abonnementPrix": "20 € HT",
+    "abonnementPrix": "20 €",
     "abonnementQuoi": "par bien et par mois, minimum 300 €",
     "lien": "Voir le détail",
     "reserve": "La journée sur site"
@@ -687,11 +688,11 @@
     "titre": "Tarifs",
     "chapeau": "Un démarrage, puis un abonnement.",
     "intro": "Choucas ne se vend pas en libre-service. Il se configure sur votre exploitation, avec vous, puis il tourne.",
-    "demarrageTitre": "Le démarrage — 2 000 € HT",
+    "demarrageTitre": "Le démarrage — 2 000 €",
     "demarrageP1": "Une journée sur site. Nous posons vos biens, vos rôles, vos workflows, vos checklists. À la fin de la journée, votre équipe travaille dans Choucas.",
     "demarrageP2": "Ce n’est pas une formation : c’est la configuration de votre outil, faite devant vous, à partir de votre organisation réelle.",
-    "abonnementTitre": "L’abonnement — 20 € HT par bien et par mois",
-    "abonnementMinimum": "Minimum 300 € HT par mois.",
+    "abonnementTitre": "L’abonnement — 20 € par bien et par mois",
+    "abonnementMinimum": "Minimum 300 € par mois.",
     "abonnementExemples": "Une conciergerie de dix biens paie le minimum. À vingt biens, 400 € par mois. À quarante, 800 €.",
     "abonnementSocle": "Le socle comprend le brief, les missions terrain, le double contrôle et l’état PRÊT. Ce sont les quatre choses sans lesquelles Choucas n’est pas Choucas, et elles ne se vendent pas séparément.",
     "testTitre": "Pouvez-vous tester avant ?",
@@ -700,7 +701,7 @@
     "testP3": "À l’issue, vous décidez. L’abonnement ne démarre que si vous nous le dites : rien ne se déclenche tout seul.",
     "optionsTitre": "Les options",
     "optionsIntro": "Elles s’ajoutent au socle, selon votre terrain. Aucune n’est nécessaire pour commencer.",
-    "optionsRapportNom": "Le rapport de saison propriétaire — 120 € HT par bien et par saison.",
+    "optionsRapportNom": "Le rapport de saison propriétaire — 120 € par bien et par saison.",
     "optionsRapportTexte": "Un document à votre marque, remis à chaque propriétaire : les rotations, les incidents traités, les preuves de contrôle, l’historique d’entretien, et les travaux à prévoir pour la saison suivante. Un point d’étape en cours de saison précède le rapport final.",
     "arriveTitre": "Ce qui arrive",
     "arriveIntro": "Ces deux briques sont en construction. Elles s’ajouteront au socle, sur devis, quand elles seront prêtes.",
@@ -710,7 +711,7 @@
     "arriveLitigeTexte": "L’export daté d’un départ et de l’arrivée qui suit, avec les deux personnes qui sont intervenues, leurs rôles et les photos horodatées.",
     "paiementTitre": "Le paiement",
     "paiementTexte": "Mensuel, à la saison ou à l’année : vous choisissez au démarrage. Le montant ne change pas, seule la fréquence.",
-    "htMention": "Tous les prix sont hors taxes."
+    "htMention": "TVA non applicable, article 293 B du CGI."
   },
   "contact": {
     "titre": "Parlons d’une vraie journée <accent>d’exploitation.</accent>",
@@ -1042,11 +1043,11 @@
       },
       "cout": {
         "q": "Combien ça coûte pour 12 biens ?",
-        "r": "Le démarrage coûte 2 000 € HT, une fois. L’abonnement se calcule ensuite à 20 € HT par bien et par mois, avec un minimum de 300 € HT. Douze biens sont sous ce minimum : vous payez donc 300 € HT par mois."
+        "r": "Le démarrage coûte 2 000 €, une fois. L’abonnement se calcule ensuite à 20 € par bien et par mois, avec un minimum de 300 €. Douze biens sont sous ce minimum : vous payez donc 300 € par mois."
       },
       "hors-saison": {
         "q": "Que se passe-t-il hors saison, quand mes biens ne tournent pas ?",
-        "r": "Le prix suit vos biens actifs : un bien fermé hors saison ne compte pas. Le minimum de 300 € HT par mois s’applique quand même — en dessous de quinze biens actifs, c’est lui qui fixe le montant."
+        "r": "Le prix suit vos biens actifs : un bien fermé hors saison ne compte pas. Le minimum de 300 € par mois s’applique quand même — en dessous de quinze biens actifs, c’est lui qui fixe le montant."
       },
       "engagement": {
         "q": "Engagement, durée, résiliation ?",
@@ -1054,7 +1055,7 @@
       },
       "implantation-facturee": {
         "q": "La journée d’implantation est-elle facturée en plus ?",
-        "r": "Non. La journée sur site est le démarrage : 2 000 € HT, une fois, et rien d’autre au titre de la mise en place."
+        "r": "Non. La journée sur site est le démarrage : 2 000 €, une fois, et rien d’autre au titre de la mise en place."
       }
     }
   }

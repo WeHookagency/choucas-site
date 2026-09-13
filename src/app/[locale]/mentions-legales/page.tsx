@@ -43,6 +43,9 @@ export default async function MentionsLegales({
         <p>{t('editeurNom')}</p>
         <p>{t('editeurAdresse')}</p>
         <p>{t('editeurSiret')}</p>
+        {/* Mention obligatoire en franchise en base : l'editeur ne facture pas
+            de TVA. Elle est aussi affichee sous les prix, dans `tarifs`. */}
+        <p>{t('editeurTva')}</p>
         {/* Le telephone et le courriel sont les deux seules cibles cliquables
             de la page, et ce sont celles qu'on touche sur un telephone. Elles
             mesuraient 19 px de haut. Le remplissage vertical d'un element en
