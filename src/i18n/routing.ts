@@ -25,6 +25,7 @@ export const pathnames = {
   '/blog': { fr: '/blog', en: '/blog' },
   '/blog/[slug]': { fr: '/blog/[slug]', en: '/blog/[slug]' },
   '/faq': { fr: '/faq', en: '/faq' },
+  '/tarifs': { fr: '/tarifs', en: '/pricing' },
   '/contact': { fr: '/contact', en: '/contact' },
 
   '/mentions-legales': { fr: '/mentions-legales', en: '/legal-notice' },

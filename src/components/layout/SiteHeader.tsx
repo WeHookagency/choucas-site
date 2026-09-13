@@ -59,9 +59,7 @@ export function SiteHeader() {
   const liens = [
     { cle: 'produit', href: '/produit', libelle: t('produit') },
     { cle: 'solutions', href: '/solutions', libelle: t('solutions') },
-    // Les tarifs ont rejoint Solutions le 13 septembre 2026. L'entree reste :
-    // c'est le mot qu'on cherche dans une barre, et elle mene a l'ancre.
-    { cle: 'tarifs', href: { pathname: '/solutions', hash: 'tarifs' }, libelle: t('tarifs') },
+    { cle: 'tarifs', href: '/tarifs', libelle: t('tarifs') },
     { cle: 'contact', href: '/contact', libelle: t('contact') },
   ] as const;
 

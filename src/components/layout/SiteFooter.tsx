@@ -56,8 +56,7 @@ export function SiteFooter() {
     [
       { href: '/produit', libelle: nav('produit') },
       { href: '/solutions', libelle: nav('solutions') },
-      // Voir la note de l'entete : les tarifs sont une ancre de Solutions.
-      { href: { pathname: '/solutions', hash: 'tarifs' }, libelle: nav('tarifs') },
+      { href: '/tarifs', libelle: nav('tarifs') },
     ],
     [
       { href: '/faq', libelle: nav('faq') },

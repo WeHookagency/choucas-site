@@ -24,17 +24,6 @@ const nextConfig: NextConfig = {
    */
   async redirects() {
     return [
-      /**
-       * Les tarifs ont rejoint la page Solutions le 13 septembre 2026. Leur
-       * adresse survit : c'est le mot qu'on tape et celui qu'on partage, et
-       * une page de prix se cherche par son nom.
-       *
-       * Temporaire, jamais permanente : un 308 mis en cache par les
-       * navigateurs survivrait a une reouverture de la page.
-       */
-      { source: '/fr/tarifs', destination: '/fr/solutions#tarifs', permanent: false },
-      { source: '/tarifs', destination: '/fr/solutions#tarifs', permanent: false },
-
       { source: '/en', destination: '/fr', permanent: false },
       { source: '/en/legal-notice', destination: '/fr/mentions-legales', permanent: false },
       { source: '/en/privacy-policy', destination: '/fr/confidentialite', permanent: false },

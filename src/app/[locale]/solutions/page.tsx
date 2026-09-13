@@ -9,7 +9,6 @@ import blocExceptions from '../../../../public/demo/bloc-exceptions.png';
 import { ATTRS_DEMO, LIEN_DEMO } from '@/components/anchors';
 import { MemoireEntreprise } from '@/components/solutions/MemoireEntreprise';
 import { PointJonction } from '@/components/solutions/PointJonction';
-import { Tarifs } from '@/components/solutions/Tarifs';
 import { TroisMetiers } from '@/components/solutions/TroisMetiers';
 import { VoletRole } from '@/components/solutions/VoletRole';
 import { Cta } from '@/components/ui/Cta';
@@ -168,10 +167,6 @@ export default async function Page({ params }: PageProps<'/[locale]/solutions'>)
 
       <MemoireEntreprise />
 
-      {/* Les tarifs, fusionnes ici le 13 septembre 2026. Ils arrivent apres ce
-          que le produit fait et avant la cloture : c'est l'ordre dans lequel
-          la question se pose. `/tarifs` survit et redirige vers `#tarifs`. */}
-      <Tarifs />
 
       {/* Centree, comme la bande de cloture de la Home et celle de Produit.
           Elle etait calee a gauche : trois pages fermaient sur le meme geste

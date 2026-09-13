@@ -32,6 +32,7 @@ const AVEC_CONTENU = [
   '/solutions',
   '/faq',
   '/contact',
+  '/tarifs',
   '/produit',
 ] as const;
 
@@ -41,7 +42,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: new URL(getPathname({ href, locale }), siteUrl).toString(),
       lastModified: new Date(),
       priority:
-        href === '/' ? 1 : ['/faq', '/solutions', '/contact', '/produit'].includes(
+        href === '/' ? 1 : ['/faq', '/solutions', '/contact', '/tarifs', '/produit'].includes(
             href,
           ) ? 0.7 : 0.3,
       alternates:
