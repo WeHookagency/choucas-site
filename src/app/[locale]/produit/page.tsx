@@ -51,11 +51,17 @@ export async function generateMetadata(props: {
  * sans echanger les pistes, et les deux sections inversees se retrouvaient
  * avec leur texte dans les 340 px et l'ecran dans le 1fr.
  *
- * Le texte est plafonne a 62ch, soit 529 px — moins que sa piste des que la
- * fenetre depasse 1024. Quand l'ecran passe a gauche, il faut donc le caler
- * sur le bord droit : sinon la mesure flotte au milieu et laisse 411 px de
- * vide contre le bord. Les deux colonnes touchent alors chacune son bord, et
- * la respiration se lit entre elles, ce qui est le cas non inverse.
+ * LA GRILLE EST PLAFONNEE A 940 PX ET CENTREE — 529 de texte, 64 d'ecart,
+ * 340 d'ecran. Sans ce plafond, la piste de texte prend tout le reste de la
+ * colonne et le texte, cale a 62ch, n'en occupe qu'une part : il restait
+ * 411 px de couloir vide entre la mesure et l'ecran, mesure a 1440, sur les
+ * cinq sections. Les marges deviennent egales, et une respiration se lit
+ * autrement qu'un trou.
+ *
+ * `items-center` et non `items-start`. L'ecran fait 505 px de haut quand le
+ * texte des sections les plus courtes en fait 221 : cale en haut, il debordait
+ * de 284 px sous le texte et donnait seul la hauteur de la section. Centre, le
+ * debordement se repartit des deux cotes et devient une composition.
  */
 const SECTIONS = [
   {
@@ -140,16 +146,14 @@ export default async function Page({ params }: PageProps<'/[locale]/produit'>) {
                 droite. */}
             <Reveal
               group
-              className={`grid items-start gap-10 desktop:gap-16 ${
+              className={`mx-auto grid max-w-[940px] items-center gap-10 desktop:gap-16 ${
                 ecranAGauche ? 'desktop:grid-cols-[340px_1fr]' : 'desktop:grid-cols-[1fr_340px]'
               }`}
             >
               <div
                 style={{ ['--i' as string]: 0 }}
                 className={`max-w-[62ch] desktop:row-start-1 ${
-                  ecranAGauche
-                    ? 'desktop:col-start-2 desktop:justify-self-end'
-                    : 'desktop:col-start-1'
+                  ecranAGauche ? 'desktop:col-start-2' : 'desktop:col-start-1'
                 }`}
               >
                 <div className="flex items-baseline gap-4">
