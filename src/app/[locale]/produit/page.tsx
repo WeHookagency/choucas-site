@@ -1,15 +1,11 @@
 import type { Metadata } from 'next';
+import { Fragment } from 'react';
 import { notFound } from 'next/navigation';
 import { hasLocale } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
-import accueilResponsable from '../../../../public/demo/accueil-responsable.png';
-import blocExceptions from '../../../../public/demo/bloc-exceptions.png';
 
-import { MemoireEntreprise } from '@/components/produit/MemoireEntreprise';
 import { PointJonction } from '@/components/produit/PointJonction';
-import { TroisMetiers } from '@/components/produit/TroisMetiers';
-import { VoletRole } from '@/components/produit/VoletRole';
 import { Cta } from '@/components/ui/Cta';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { Reserve } from '@/components/ui/Reserve';
@@ -41,14 +37,14 @@ export async function generateMetadata(props: {
 
 /**
  * Les cinq sections illustrees, dans l'ordre d'une journee, puis le parcours
- * de l'imprevu. Le fond alterne et la bande sombre revient a l'etat PRET :
- * c'est la regle produit la plus dure a faire entendre, elle prend le poids
- * que le Sapin lui donne.
+ * de l'imprevu. Le fond alterne, et la seule bande sombre de la page est le
+ * point de jonction : c'est la demonstration de la regle la plus dure a faire
+ * entendre, et c'est la preuve qui merite le poids, pas l'enonce.
  *
- * Suite des fonds : Neige, Panneau, Neige, Panneau, Sapin, Neige, Panneau,
- * Neige — aucun repete d'une section a la suivante.
+ * Suite des neuf fonds : Neige, Panneau, Neige, Panneau, Neige, Sapin, Neige,
+ * Panneau, Neige — aucun repete d'une section a la suivante.
  *
- * `ecranAGauche` alterne le cote de l'ecran, comme `VoletRole` sur Solutions.
+ * `ecranAGauche` alterne le cote de l'ecran, comme `VoletRole`.
  * Cinq reserves au meme endroit formaient une colonnade qui ecrasait le texte,
  * et le defaut serait reste une fois les captures posees : c'etait un probleme
  * de composition, pas de reserve.
@@ -84,7 +80,10 @@ const SECTIONS = [
     ecranAGauche: false,
     paras: ['controle.p1', 'controle.p2'],
   },
-  { cle: 'pret', fond: 'sapin', ecranAGauche: true, paras: ['pret.p1'] },
+  // PRET perd son Sapin : la bande sombre passe au point de jonction, qui suit
+  // immediatement et qui demontre la regle que ces deux sections enoncent.
+  // Une seule bande sombre pour une seule regle, et elle est sur la preuve.
+  { cle: 'pret', fond: 'fond', ecranAGauche: true, paras: ['pret.p1'] },
   {
     cle: 'imprevu',
     fond: 'fond',
@@ -92,26 +91,6 @@ const SECTIONS = [
     paras: ['imprevu.p1', 'imprevu.p2', 'imprevu.p3', 'imprevu.p4', 'imprevu.p5'],
   },
 ] as const;
-
-/** Les trois blocs ajoutes au volet Exploitation, dans l'ordre du texte. */
-const BLOCS_EXPLOITATION = ['entraide', 'mission', 'verification'] as const;
-
-/**
- * Un point developpe a l'interieur d'un volet : son intitule, puis ce qu'il
- * change. Le titre du volet est un `h2`, ceux-ci sont donc des `h3` — la
- * hierarchie se lit au clavier autant qu'a l'oeil.
- *
- * Le bloc herite de l'encre du volet : sur Lichen tout est en encre pleine,
- * l'encre douce y tombe a 2,34:1.
- */
-function BlocVolet({ titre, texte }: { titre: string; texte: string }) {
-  return (
-    <div className="mt-2">
-      <h3 className="font-serif text-intro font-semibold">{titre}</h3>
-      <p className="text-corps mt-2">{texte}</p>
-    </div>
-  );
-}
 
 /** Les cinq refus, dans l'ordre de la page A propos, seule source des libelles. */
 const REFUS = ['pms', 'personnes', 'sante', 'envoi', 'reseau'] as const;
@@ -139,9 +118,9 @@ const REFUS = ['pms', 'personnes', 'sante', 'envoi', 'reseau'] as const;
  * legende ce qu'elle montrera : une reserve muette ne se remplit jamais.
  *
  * Traitement visuel volontairement sobre : la passe UI viendra page par page.
- * La grille texte/ecran est celle que `VoletRole` emploie deja sur Solutions —
- * ce n'est pas un dessin neuf, c'est l'idiome du site, et il evite qu'une
- * reserve de 340 px reste seule sur une ligne de 1360.
+ * La grille texte/ecran est celle que `VoletRole` emploie — ce n'est pas un
+ * dessin neuf, c'est l'idiome du site, et il evite qu'une reserve de 340 px
+ * reste seule sur une ligne de 1360.
  */
 export default async function Page({ params }: PageProps<'/[locale]/produit'>) {
   const { locale } = await params;
@@ -151,10 +130,6 @@ export default async function Page({ params }: PageProps<'/[locale]/produit'>) {
   const t = await getTranslations('produit');
   const tApropos = await getTranslations('aPropos');
   const contact = await getTranslations('contact');
-  // Le bloc venu de Solutions lit ses propres chaines : elles restent la ou
-  // elles sont, la page a change, pas la copie.
-  const sol = await getTranslations('solutions');
-  const manager = await getTranslations('manager');
 
   return (
     <main>
@@ -167,9 +142,9 @@ export default async function Page({ params }: PageProps<'/[locale]/produit'>) {
       </Section>
 
       {SECTIONS.map(({ cle, fond, ecranAGauche, paras }, i) => {
-        const sombre = fond === 'sapin';
         return (
-          <Section key={cle} fond={fond} aria-labelledby={`${cle}-titre`}>
+          <Fragment key={cle}>
+          <Section fond={fond} aria-labelledby={`${cle}-titre`}>
             {/* `group` decale l'ecran de 90 ms apres le texte : deux temps, ce
                 que la regle d'apparition autorise au plus par section. La
                 cascade suit l'ordre du DOM, pas l'ordre visuel — le texte
@@ -201,7 +176,7 @@ export default async function Page({ params }: PageProps<'/[locale]/produit'>) {
                   <span
                     aria-hidden
                     className={`font-serif text-[2.125rem] leading-none tabular-nums desktop:text-[3.25rem] ${
-                      sombre ? 'text-numero-inverse' : 'text-accent'
+                      'text-accent'
                     }`}
                   >
                     {String(i + 1).padStart(2, '0')}
@@ -223,7 +198,7 @@ export default async function Page({ params }: PageProps<'/[locale]/produit'>) {
                 {paras.map((para) => (
                   <p
                     key={para}
-                    className={`text-corps mt-4 ${sombre ? 'text-encre-inverse/85' : 'text-encre-douce'}`}
+                    className={'text-corps mt-4 text-encre-douce'}
                   >
                     {t(para)}
                   </p>
@@ -236,78 +211,43 @@ export default async function Page({ params }: PageProps<'/[locale]/produit'>) {
                   ecranAGauche ? 'desktop:col-start-1' : 'desktop:col-start-2'
                 }`}
               >
-                <Reserve ratio="340 / 480" largeurMax={340} teinte="mousse" sombre={sombre} />
+                <Reserve ratio="340 / 480" largeurMax={340} teinte="mousse" />
                 <figcaption
                   style={{ maxWidth: '340px' }}
-                  className={`text-micro text-center ${sombre ? 'text-encre-inverse/85' : 'text-encre-douce'}`}
+                  className={'text-micro text-center text-encre-douce'}
                 >
                   {t(`${cle}.reserve`)}
                 </figcaption>
               </figure>
             </Reveal>
           </Section>
+
+          {/* La demonstration, juste apres les deux sections qui l'enoncent :
+              « personne ne valide son propre travail » et « PRET est un etat
+              valide ». Elle les prouve — deux cartes, une liaison, un nom de
+              controleur — au lieu de les redire trois ecrans plus loin, ce
+              qu'elle faisait au sortir de la fusion. */}
+          {cle === 'pret' ? <PointJonction /> : null}
+          </Fragment>
         );
       })}
 
       {/* La demonstration de la regle que la section 03 vient d'enoncer.
           Elle la prouve au lieu de la redire : deux cartes, une liaison, un
           nom de controleur. */}
-      <PointJonction />
+      {/* Bloc venu de Solutions — trois metiers, deux volets de role, memoire
+          d'entreprise — retire le 13 septembre 2026, quelques heures apres y
+          avoir ete fusionne. La page racontait la mecanique puis repartait sur
+          les roles, sans que rien ne dise au lecteur qu'il changeait de sujet.
 
-      {/* Qui fait quoi, apres avoir dit ce qui se fait. */}
-      <TroisMetiers />
+          Rien n'est supprime : `TroisMetiers`, `VoletRole` et
+          `MemoireEntreprise` vivent dans `components/produit/`, et toutes les
+          chaines `solutions.*` restent au catalogue. Les remettre ici suffit.
 
-      {/* Fond Lichen. Le titre y reste en encre pleine : le cuivre mesure
-          1,45:1 sur ce fond, la moitie du titre y disparaitrait. */}
-      <VoletRole
-        id="dirigeants"
-        fond="respiration"
-        eyebrow={sol('dirigeants.eyebrow')}
-        titre={sol('dirigeants.titre')}
-        legende={sol('dirigeants.legende')}
-        capture={blocExceptions}
-        captureAlt={manager('captureAlt')}
-        libelleLien={manager('lienDemo')}
-      >
-        {/* En tete de volet : le comptage avant l'analyse. Registre du
-            benefice, comme l'exige la regle produit pour ce role — on dit ce
-            que le dirigeant obtient, jamais ce qu'il fait dans l'application. */}
-        <p className="font-serif text-intro">{sol('dirigeants.leadTitre')}</p>
-        <p className="text-corps">{sol('dirigeants.leadTexte')}</p>
-        <p className="text-corps">{sol('dirigeants.corps')}</p>
-        <p className="text-corps">
-          <strong className="font-bold">{sol('dirigeants.eviteLabel')} : </strong>
-          {sol('dirigeants.evite')}
-        </p>
-      </VoletRole>
-
-      {/* Panneau et non Neige : la memoire d'entreprise qui suit est en Neige,
-          et les deux se lisaient comme un seul bloc. Suite des treize fonds
-          apres correction : Neige, Panneau, Neige, Panneau, Sapin, Neige,
-          Sapin, Panneau, Lichen, Panneau, Neige, Panneau, Neige. */}
-      <VoletRole
-        id="exploitation"
-        fond="fond-alt"
-        ecranAGauche
-        eyebrow={sol('exploitation.eyebrow')}
-        titre={sol('exploitation.titre')}
-        legende={sol('exploitation.legende')}
-        capture={accueilResponsable}
-        captureAlt={sol('exploitation.captureAlt')}
-        libelleLien={manager('lienDemo')}
-      >
-        <p className="text-corps text-encre-douce">{sol('exploitation.lead')}</p>
-        {BLOCS_EXPLOITATION.map((cle) => (
-          <BlocVolet
-            key={cle}
-            titre={sol(`exploitation.blocs.${cle}.titre`)}
-            texte={sol(`exploitation.blocs.${cle}.texte`)}
-          />
-        ))}
-      </VoletRole>
-
-      <MemoireEntreprise />
-
+          ⚠️ Ce qui part avec eux : la memoire d'entreprise, le meilleur
+          argument du produit, et les deux seuls textes du site qui parlent au
+          dirigeant et au responsable au registre du benefice. Ils ne sont
+          plus nulle part. */}
       {/* Les cinq refus etaient enfiles dans une seule phrase, ou aucun ne
           pesait. A propos rend les memes cinq en liste a filets, et c'est le
           bloc le plus credible de cette page-la. Meme traitement ici, et une
