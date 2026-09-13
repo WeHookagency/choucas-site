@@ -13,15 +13,11 @@ import { PointJonction } from '@/components/solutions/PointJonction';
 import { Tarifs } from '@/components/solutions/Tarifs';
 import { TroisMetiers } from '@/components/solutions/TroisMetiers';
 import { VoletRole } from '@/components/solutions/VoletRole';
-import { BarreSection } from '@/components/ui/BarreSection';
 import { Cta } from '@/components/ui/Cta';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
 import { localeAlternates } from '@/i18n/metadata';
 import { routing } from '@/i18n/routing';
-
-/** L'ordre des volets, et celui des pastilles de la barre. */
-const ROLES = ['dirigeants', 'exploitation', 'terrain'] as const;
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -101,11 +97,12 @@ export default async function Page({ params }: PageProps<'/[locale]/solutions'>)
         <p className="text-intro mt-6 max-w-[62ch] text-encre-douce">{t('intro')}</p>
       </Section>
 
-      <BarreSection
-        entrees={ROLES.map((role) => ({ id: role, libelle: t(`${role}.label`) }))}
-        aria-label={t('barreAria')}
-      />
-
+      {/* Barre de section retiree le 13 septembre 2026. Elle listait les trois
+          volets de role, et depuis la fusion des tarifs elle restait collee en
+          haut sur huit sections qui ne la concernaient pas : le lecteur arrive
+          au prix avec un sommaire qui designe trois blocs situes 4 000 px plus
+          haut. Le composant `BarreSection` vit toujours dans le depot, ainsi
+          que `solutions.barreAria` et les trois `label` au catalogue. */}
       <TroisMetiers />
 
       {/* Fond Lichen. Le titre y reste en encre pleine : le cuivre mesure
