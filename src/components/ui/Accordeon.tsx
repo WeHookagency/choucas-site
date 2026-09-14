@@ -2,6 +2,8 @@
 
 import { useRef, type ReactNode } from 'react';
 
+import { HAUTEUR_BARRE_DESKTOP, HAUTEUR_BARRE_MOBILE } from '../anchors';
+
 export type ElementAccordeon = {
   id: string;
   /** Contenu de l'en-tete cliquable. */
@@ -31,6 +33,8 @@ type AccordeonProps = {
    * toujours avoir une etape a montrer.
    */
   toujoursUn?: boolean;
+  /** Ramene l'en-tete sous la barre collante apres l'ouverture. */
+  ramenerDansLaVue?: boolean;
   /** Niveau du titre qui porte le bouton. La page decide de sa hierarchie. */
   niveau?: 'h2' | 'h3' | 'h4';
   className?: string;
@@ -64,6 +68,7 @@ export function Accordeon({
   onChange,
   multiple = false,
   toujoursUn = false,
+  ramenerDansLaVue = false,
   niveau = 'h3',
   className,
   avant,
@@ -73,6 +78,33 @@ export function Accordeon({
 }: AccordeonProps) {
   const Titre = niveau;
   const enTetes = useRef<Record<string, HTMLButtonElement | null>>({});
+
+  /**
+   * Ramene l'en-tete sous la barre collante apres l'ouverture.
+   *
+   * Sans cela, ouvrir la quatrieme etape d'une liste deroule un panneau dont
+   * le titre est deja sorti par le haut : on lit un contenu sans savoir de
+   * quoi il parle. La mesure se fait apres le rendu, sinon la boite lue est
+   * celle d'avant l'ouverture.
+   *
+   * Ne bouge que si l'en-tete est reellement mal place — sous la barre ou trop
+   * bas dans la fenetre. Un defilement qui se declenche a chaque clic, meme
+   * quand tout est deja visible, se lit comme un bug.
+   */
+  function ramener(id: string) {
+    requestAnimationFrame(() => {
+      const el = enTetes.current[id];
+      if (!el) return;
+      const barre = window.innerWidth >= 1000 ? HAUTEUR_BARRE_DESKTOP : HAUTEUR_BARRE_MOBILE;
+      const r = el.getBoundingClientRect();
+      if (r.top >= barre + 8 && r.top <= window.innerHeight * 0.45) return;
+      const doux = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({
+        top: window.scrollY + r.top - barre - 16,
+        behavior: doux ? 'smooth' : 'auto',
+      });
+    });
+  }
 
   function basculer(id: string) {
     const estOuvert = ouverts.includes(id);
@@ -86,6 +118,7 @@ export function Accordeon({
       return;
     }
     onChange([id]);
+    if (ramenerDansLaVue) ramener(id);
   }
 
   function surTouche(e: React.KeyboardEvent, index: number) {

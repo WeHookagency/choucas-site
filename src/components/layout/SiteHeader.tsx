@@ -164,12 +164,16 @@ export function SiteHeader() {
           </Cta>
         </div>
 
+        {/* Un contour, pour qu'il se lise comme un bouton. Il etait une icone
+            nue de 44 px sans rien autour : la cible existait, l'affordance
+            non. Le trait est de l'encre a 25 %, soit 3,03:1 sur Neige — au
+            dessus du seuil des objets graphiques. */}
         <button
           type="button"
           onClick={() => setOuvert((v) => !v)}
           aria-expanded={ouvert}
           aria-controls={idMenu}
-          className="-mr-2 inline-flex size-11 items-center justify-center rounded-carte text-encre tablette:hidden"
+          className="inline-flex size-11 items-center justify-center rounded-capsule border border-encre/25 text-encre tablette:hidden"
         >
           <Icon name={ouvert ? 'fermer' : 'menu'} size={24} title={ouvert ? t('fermerMenu') : t('ouvrirMenu')} />
         </button>

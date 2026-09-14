@@ -11,11 +11,16 @@ import { Cta } from '../ui/Cta';
 import { Reveal } from '../ui/Reveal';
 import { Section } from '../ui/Section';
 
-/** Mesures interieures du cadre : un telephone, a l'echelle reelle. */
+/**
+ * Le rapport d'un telephone. La largeur, elle, suit la fenetre : 240 px en
+ * mobile, 300 a la tablette, 410 au desktop — coque comprise.
+ *
+ * A 390 px de large, un cadre de 410 remplissait l'ecran d'un telephone avec
+ * l'image d'un telephone. La mise en abyme n'apprend rien et prend toute la
+ * hauteur.
+ */
 const LARGEUR = 390;
 const HAUTEUR = 844;
-/** Epaisseur de la coque, de chaque cote. */
-const COQUE = 10;
 
 /**
  * La demonstration publique, dans la page, dans un cadre de telephone.
@@ -85,8 +90,7 @@ export function DemoLive() {
         {/* Le cadre porte les dimensions, donc la place est reservee avant le
             clic : rien ne bouge quand l'iframe remplace le poster. */}
         <div
-          style={{ width: LARGEUR + COQUE * 2, maxWidth: '100%' }}
-          className="overflow-hidden rounded-[2.5rem] border-[10px] border-cta-presse bg-cta-presse shadow-[6px_6px_0_0_var(--web-cta-presse)]"
+          className="w-[240px] overflow-hidden rounded-[2.5rem] border-[10px] border-cta-presse bg-cta-presse shadow-[6px_6px_0_0_var(--web-cta-presse)] tablette:w-[300px] desktop:w-[410px]"
           /* La largeur porte la coque en plus : l'interieur fait donc 390 px
              pile, et non 370. */
         >
@@ -128,8 +132,10 @@ export function DemoLive() {
             classe `inline-flex` de base l'emporterait sur un `hidden` passe en
             className, les deux reglant la meme propriete. Le piege est
             documente dans l'en-tete du site, il vient de se reproduire ici. */}
+        {/* Vert et non secondaire : c'est le seul appel a l'action de la
+            section sous 1 000 px, il ne peut pas etre le plus discret. */}
         <div className="desktop:hidden">
-          <Cta href={LIEN_DEMO_APP} target="_blank" rel="noopener" variante="secondaire">
+          <Cta href={LIEN_DEMO_APP} target="_blank" rel="noopener">
             {manager('lienDemo')}
           </Cta>
         </div>

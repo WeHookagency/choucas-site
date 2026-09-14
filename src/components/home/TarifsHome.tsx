@@ -70,7 +70,7 @@ export function TarifsHome() {
               {tSection('demarrageNom')}
             </p>
             <p className="mt-3 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-              <span className="font-serif text-h3 tabular-nums">{tSection('demarragePrix')}</span>
+              <span className="font-serif text-h3 tabular-nums text-accent">{tSection('demarragePrix')}</span>
               <span className="text-intro text-encre-douce">{tSection('demarrageQuoi')}</span>
             </p>
             <p className="text-corps mt-5">{t('demarrageP1')}</p>
@@ -85,7 +85,7 @@ export function TarifsHome() {
               {tSection('abonnementNom')}
             </p>
             <p className="mt-3 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-              <span className="font-serif text-h3 tabular-nums">{tSection('abonnementPrix')}</span>
+              <span className="font-serif text-h3 tabular-nums text-accent">{tSection('abonnementPrix')}</span>
               <span className="text-intro text-encre-douce">{tSection('abonnementQuoi')}</span>
             </p>
           </Reveal>

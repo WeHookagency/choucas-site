@@ -92,11 +92,17 @@ function Colonnes({ children }: { children: React.ReactNode }) {
  *
  * Il ne peut plus se couper puisqu'il n'est plus dans une phrase. `text-hero`
  * serait trop : ce n'est pas un titre de page, c'est une donnee.
+ *
+ * En cuivre, l'accent de la charte. Il mesure 3,52:1 sur Neige et 3,22 sur
+ * Panneau : sous le seuil du texte courant, au-dessus de celui des titres de
+ * 24 px et plus. Le montant fait 75 px a 1440 et 43 au plus etroit — il est
+ * donc dans le seul emploi que `tokens.css` autorise pour cette couleur, et
+ * c'est exactement celui-la : un chiffre qu'on veut voir avant le reste.
  */
 function Prix({ montant, unite }: { montant: string; unite: string }) {
   return (
     <p className="mt-5">
-      <span className="font-serif text-h2 block leading-none tabular-nums">{montant}</span>
+      <span className="font-serif text-h2 block leading-none tabular-nums text-accent">{montant}</span>
       <span className="text-corps mt-3 block text-encre-douce">{unite}</span>
     </p>
   );

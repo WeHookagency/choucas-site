@@ -221,6 +221,10 @@ export function BriefToProof() {
           elements={elements}
           ouverts={[ouverte]}
           onChange={([id]) => id && setOuverte(id as EtapeCle)}
+          // Ouvrir la quatrieme etape deroulait un panneau dont le titre etait
+          // deja sorti par le haut : on lisait un contenu sans savoir de quoi
+          // il parlait.
+          ramenerDansLaVue
           toujoursUn
           className="flex flex-col"
           classeElement={() => 'flex items-stretch gap-4'}
