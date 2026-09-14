@@ -162,11 +162,11 @@ export default async function Page({ params }: PageProps<'/[locale]/tarifs'>) {
             <Prix montant={prix('abonnementPrix')} unite={prix('abonnementQuoi')} />
           </div>
           <div className="max-w-[62ch]">
-            {/* Le plancher se detache du reste : c'est le chiffre qu'une petite
-                conciergerie cherche en premier, et le seul que la formule au
-                bien ne donne pas. */}
-            <p className="text-intro font-semibold">{t('abonnementMinimum')}</p>
-            <p className="text-corps mt-4">{t('abonnementExemples')}</p>
+            {/* `abonnementMinimum` n'est plus rendu : depuis que le prix est
+                sorti de son titre, l'unite sous le montant porte deja
+                « minimum 300 € », et le paragraphe le repetait vingt pixels
+                plus bas. La chaine reste au catalogue. */}
+            <p className="text-corps">{t('abonnementExemples')}</p>
             <p className="text-corps mt-4 text-encre-douce">{t('abonnementSocle')}</p>
           </div>
         </Colonnes>

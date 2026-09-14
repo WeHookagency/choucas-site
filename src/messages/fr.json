@@ -729,7 +729,7 @@
     "arriveLitigeNom": "Le dossier de litige.",
     "arriveLitigeTexte": "L’export daté d’un départ et de l’arrivée qui suit, avec les deux personnes qui sont intervenues, leurs rôles et les photos horodatées.",
     "paiementTitre": "Le paiement",
-    "paiementTexte": "Mensuel : vous êtes facturé chaque mois, sur vos biens actifs. Pas de paiement d’avance, pas d’engagement de durée.",
+    "paiementTexte": "Mensuel : vous êtes facturé chaque mois, sur vos biens actifs. Pas d’engagement de durée.",
     "htMention": "TVA non applicable, article 293 B du CGI."
   },
   "contact": {
@@ -1078,7 +1078,7 @@
       },
       "implantation-facturee": {
         "q": "La journée d’implantation est-elle facturée en plus ?",
-        "r": "Non. La journée sur site est le démarrage : 2 000 €, une fois, et rien d’autre au titre de la mise en place. 500 € sont versés à la réservation et déduits du solde, qui n’est facturé qu’après la semaine de test, si vous continuez."
+        "r": "Non. La journée sur site est le démarrage : 2 000 €, une fois, et rien d’autre au titre de la mise en place. 500 € sont versés à la réservation et viennent en déduction ; le solde n’est facturé qu’après la semaine de test, si vous continuez."
       }
     }
   }
