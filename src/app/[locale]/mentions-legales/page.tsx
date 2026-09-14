@@ -72,6 +72,10 @@ export default async function MentionsLegales({
       <BlocLegal titre={t('hebergeurTitre')}>
         <p>{t('hebergeurNom')}</p>
         <p>{t('hebergeurAdresse')}</p>
+        {/* La LCEN demande le telephone de l'hebergeur. Netlify n'en publie
+            aucun — verifie sur ses pages /contact, /legal et /dpa — on donne
+            donc le moyen de le joindre qui existe, et on dit pourquoi. */}
+        <p className="pt-2">{t('hebergeurContact')}</p>
       </BlocLegal>
     </PageLegale>
   );

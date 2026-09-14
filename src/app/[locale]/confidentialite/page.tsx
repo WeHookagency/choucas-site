@@ -30,7 +30,27 @@ import { routing } from '@/i18n/routing';
  * Le meme chiffre pour deux raisons differentes se defend ; le meme
  * raisonnement pour deux finalites differentes, non. D'ou les deux phrases.
  */
-const BLOCS = ['rendezVous', 'traitement', 'sousTraitant', 'conservation', 'droits', 'absence'] as const;
+/**
+ * L'ordre des sections, et il n'est pas decoratif : qui traite, sur quelle
+ * base, par quels moyens, avec quels prestataires, combien de temps, quels
+ * droits, et ce que le site ne fait pas.
+ *
+ * `responsable`, `base` et `cookies` ont ete ajoutees le 15 septembre 2026.
+ * Les deux premieres sont exigees par l'article 13 du RGPD et manquaient ; la
+ * troisieme repond a la question que tout le monde cherche sur cette page, et
+ * la reponse est qu'il n'y a rien a chercher.
+ */
+const BLOCS = [
+  'responsable',
+  'base',
+  'rendezVous',
+  'traitement',
+  'sousTraitant',
+  'conservation',
+  'cookies',
+  'droits',
+  'absence',
+] as const;
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));

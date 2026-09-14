@@ -384,11 +384,12 @@
     "directeurNom": "Mathieu Dupont-Vieux",
     "hebergeurTitre": "Hébergeur",
     "hebergeurNom": "Netlify, Inc.",
-    "hebergeurAdresse": "512 2nd Street, Suite 200, San Francisco, CA 94107, États-Unis"
+    "hebergeurAdresse": "512 2nd Street, Suite 200, San Francisco, CA 94107, États-Unis",
+    "hebergeurContact": "Netlify ne publie pas de numéro de téléphone : son support est joignable sur netlify.com/support."
   },
   "confidentialite": {
     "titre": "Politique de confidentialité",
-    "metaDescription": "La seule donnée collectée par ce site l’est lors d’une prise de rendez-vous.",
+    "metaDescription": "Qui traite vos données, sur quelle base, combien de temps elles sont gardées, et quels droits vous avez.",
     "rendezVousTitre": "La prise de rendez-vous",
     "rendezVousTexte": "En cliquant sur « Demander une démo », vous êtes dirigé vers Google Calendar pour choisir un créneau. Y sont recueillis votre nom, votre adresse e-mail et l’horaire retenu.",
     "traitementTitre": "Le formulaire de contact",
@@ -398,9 +399,15 @@
     "conservationTitre": "Combien de temps les informations sont gardées",
     "conservationTexte": "Deux durées, parce qu’il y a deux finalités. Le rendez-vous pris sur ce site et les messages envoyés depuis la page Contact sont conservés trois ans à compter du dernier échange : c’est de la prospection, et trois ans est la durée retenue pour elle. Dans Choucas, les fiches client, bien et propriétaire sont supprimées trois ans après le dernier séjour ; leur finalité n’est pas de prospecter mais de mieux servir quelqu’un qui revient, et un client qui n’est pas revenu en trois saisons n’a plus de fiche utile.",
     "droitsTitre": "Vos droits",
-    "droitsTexte": "Vous disposez d’un droit d’accès, de rectification et de suppression des données qui vous concernent. Pour l’exercer, écrivez à l’adresse indiquée dans les mentions légales.",
+    "droitsTexte": "Vous disposez d’un droit d’accès, de rectification, d’effacement, de limitation, d’opposition et de portabilité sur les données qui vous concernent. Pour l’exercer, écrivez à l’adresse indiquée dans les mentions légales : nous répondons sous un mois. Si la réponse ne vous convient pas, vous pouvez saisir la CNIL, l’autorité de contrôle française.",
     "absenceTitre": "Ce que ce site ne fait pas",
-    "absenceTexte": "Il ne comporte aucun autre formulaire. Il ne dépose, à ce stade, aucun cookie de mesure d’audience."
+    "absenceTexte": "Il ne comporte aucun autre formulaire, ne crée aucun compte et ne suit personne d’une page à l’autre. Aucune donnée n’est vendue ni cédée à un tiers à des fins commerciales.",
+    "responsableTitre": "Qui est responsable de ces données",
+    "responsableTexte": "Mathieu Dupont-Vieux, entreprise individuelle, dont les coordonnées figurent dans les mentions légales. Il n’y a pas de délégué à la protection des données : l’entreprise est d’une seule personne, et c’est elle que vous joignez.",
+    "baseTitre": "Sur quelle base",
+    "baseTexte": "La prise de rendez-vous et le formulaire de contact relèvent de mesures précontractuelles prises à votre demande : vous écrivez pour obtenir une démonstration ou une réponse. La conservation de ces échanges pendant trois ans relève de l’intérêt légitime à suivre une relation professionnelle. Vous pouvez vous y opposer à tout moment.",
+    "cookiesTitre": "Les cookies",
+    "cookiesTexte": "Ce site n’en dépose aucun. Pas de mesure d’audience, pas de régie publicitaire, pas de bouton de réseau social, et aucun script chargé depuis un autre domaine — les polices et les images sont servies depuis ce site. C’est pourquoi vous n’avez pas vu de bandeau : il n’y a rien à accepter ni à refuser. La démonstration du produit, elle, s’ouvre dans un cadre distinct et seulement si vous cliquez pour la lancer."
   },
   "rapport": {
     "label": "Rapport propriétaire",
