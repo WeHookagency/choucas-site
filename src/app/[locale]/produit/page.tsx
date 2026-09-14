@@ -277,12 +277,22 @@ export default async function Page({ params }: PageProps<'/[locale]/produit'>) {
 
       {/* Libelle propre a cette page. `actions.demo` sert la barre, le hero et
           le CTA final de la Home : le changer ici les aurait renommes tous. */}
-      <Section fond="fond" aria-label={t('cta')}>
+      {/* BANDE SOMBRE. Elle etait en Neige : une phrase de 15 px et un bouton
+          au milieu d'un fond pale, la cloture la plus maigre du site. La page
+          se termine maintenant comme la Home, sur une bande qui se voit.
+
+          La phrase vient de la voie vers laquelle le bouton mene — elle dit ce
+          qui se passe apres le clic, et n'existe qu'a un seul endroit. Elle
+          passe de `text-intro` a `text-h3` : a 15 px elle ne portait pas une
+          fin de page.
+
+          Fonds de la page apres ce changement : Neige, Panneau, Neige,
+          Panneau, Neige, Sapin, Neige, Panneau, Sapin. Les deux Sapin sont la
+          demonstration du double controle et cette cloture — ils ne se
+          touchent pas. */}
+      <Section fond="sapin" aria-label={t('cta')}>
         <Reveal className="flex flex-col items-center text-center">
-          {/* La bande etait un bouton seul sur un fond vide. La phrase vient
-              de la voie vers laquelle le bouton mene : elle dit ce qui se
-              passe apres le clic, et n'existe qu'a un seul endroit. */}
-          <p className="font-serif text-intro max-w-[40ch] text-balance">
+          <p className="font-serif text-h3 max-w-[22ch] text-balance">
             {contact('voies.impl.texte')}
           </p>
           <Cta href={getPathname({ href: '/contact', locale })} fleche className="mt-titre">

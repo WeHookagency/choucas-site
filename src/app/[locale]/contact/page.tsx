@@ -8,7 +8,6 @@ import { Suspense } from 'react';
 
 import { FormulaireContact } from '@/components/contact/FormulaireContact';
 import { Accent } from '@/components/ui/Accent';
-import { Eyebrow } from '@/components/ui/Eyebrow';
 import { FiletAccent } from '@/components/ui/FiletAccent';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
@@ -60,17 +59,14 @@ export default async function Page({ params }: PageProps<'/[locale]/contact'>) {
         </h1>
         <p className="text-intro mt-6 max-w-[62ch] text-encre-douce">{t('intro')}</p>
 
-        {/* Les deux voies, annoncees avant le formulaire : le visiteur sait
-            ce qu'il choisit avant de lire des champs. */}
-        <Reveal as="ul" group className="mt-titre grid gap-6 tablette:grid-cols-2 desktop:max-w-[820px]">
-          {(['impl', 'question'] as const).map((voie) => (
-            <li key={voie} className="border-t border-filet pt-6">
-              <Eyebrow>{t(`voies.${voie}.eyebrow`)}</Eyebrow>
-              <h2 className="font-serif text-h3 mt-3">{t(`voies.${voie}.titre`)}</h2>
-              <p className="text-corps mt-2 text-encre-douce">{t(`voies.${voie}.texte`)}</p>
-            </li>
-          ))}
-        </Reveal>
+        {/* Les deux voies annoncees avant le formulaire — « Voie principale,
+            une journee sur site » et « Voie secondaire, poser une question » —
+            sont retirees le 14 septembre 2026. Le formulaire porte deja sa
+            bascule de voie : les annoncer au-dessus les disait deux fois.
+
+            Les chaines `contact.voies.*` restent, et elles servent ailleurs :
+            `voies.impl.action` libelle des boutons sur trois pages, et
+            `voies.impl.texte` ferme la page Produit. */}
       </Section>
 
       <Section fond="fond-alt">
@@ -86,7 +82,15 @@ export default async function Page({ params }: PageProps<'/[locale]/contact'>) {
         </Reveal>
       </Section>
 
-      <Section fond="sapin" className="relative overflow-hidden" aria-labelledby="apres-titre">
+      {/* Neige et non Sapin. La section touchait le pied de page, lui aussi en
+          Sapin : les deux se lisaient comme un seul pave sombre, sans couture
+          visible. Schiste n'aurait rien change — il ne differe du Sapin que de
+          1,63:1, et le fichier du pied documente deja ce probleme.
+
+          Passer en clair est la seule vraie rupture. Les chiffres reprennent
+          le cuivre standard, 3,52:1 sur Neige et 34 px au minimum, donc au
+          dessus du seuil des titres ; le texte revient en encre pleine. */}
+      <Section fond="fond" className="relative overflow-hidden" aria-labelledby="apres-titre">
         <CourbesNiveau />
         <Reveal className="relative">
           <FiletAccent />
@@ -104,15 +108,15 @@ export default async function Page({ params }: PageProps<'/[locale]/contact'>) {
             {ETAPES.map((cle, i) => (
               <li
                 key={cle}
-                className="flex items-baseline gap-4 border-t border-encre-inverse/20 pt-6"
+                className="flex items-baseline gap-4 border-t border-filet pt-6"
               >
                 <span
                   aria-hidden
-                  className="font-serif shrink-0 text-[2.125rem] leading-none tabular-nums text-numero-inverse desktop:text-[3.25rem]"
+                  className="font-serif shrink-0 text-[2.125rem] leading-none tabular-nums text-accent desktop:text-[3.25rem]"
                 >
                   {String(i + 1).padStart(2, '0')}
                 </span>
-                <p className="text-intro text-encre-inverse">{t(`apres.etapes.${cle}`)}</p>
+                <p className="text-intro">{t(`apres.etapes.${cle}`)}</p>
               </li>
             ))}
           </ol>
