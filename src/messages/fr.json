@@ -528,7 +528,7 @@
     "demarragePrix": "2 000 €",
     "demarrageQuoi": "une journée sur site",
     "abonnementNom": "L’abonnement",
-    "abonnementPrix": "20 €",
+    "abonnementPrix": "15 €",
     "abonnementQuoi": "par bien et par mois, minimum 300 €",
     "lien": "Voir le détail",
     "reserve": "La journée sur site",
@@ -709,14 +709,14 @@
     "demarrageTitre": "Le démarrage — 2 000 €",
     "demarrageP1": "Une journée sur site. Nous posons vos biens, vos rôles, vos workflows, vos checklists. À la fin de la journée, votre équipe travaille dans Choucas.",
     "demarrageP2": "Ce n’est pas une formation : c’est la configuration de votre outil, faite devant vous, à partir de votre organisation réelle.",
-    "abonnementTitre": "L’abonnement — 20 € par bien et par mois",
+    "abonnementTitre": "L’abonnement — 15 € par bien et par mois",
     "abonnementMinimum": "Minimum 300 € par mois.",
-    "abonnementExemples": "Une conciergerie de dix biens paie le minimum. À vingt biens, 400 € par mois. À quarante, 800 €.",
+    "abonnementExemples": "Une conciergerie de dix biens paie le minimum. À trente biens, 450 € par mois. À quarante, 600 €.",
     "abonnementSocle": "Le socle comprend le brief, les missions terrain, le double contrôle et l’état PRÊT. Ce sont les quatre choses sans lesquelles Choucas n’est pas Choucas, et elles ne se vendent pas séparément.",
     "testTitre": "Pouvez-vous tester avant ?",
-    "testP1": "La semaine qui suit la journée est le test.",
-    "testP2": "Vous engagez le démarrage, pas l’année. Nous configurons sur place, puis vous faites tourner votre exploitation avec Choucas pendant une semaine que vous choisissez — vos vraies missions, vos vraies équipes, vos vrais samedis. Nous restons joignables pendant cette semaine.",
-    "testP3": "À l’issue, vous décidez. L’abonnement ne démarre que si vous nous le dites : rien ne se déclenche tout seul.",
+    "testP1": "La semaine qui suit la journée est le test, et elle est offerte.",
+    "testP2": "Nous configurons sur place, puis vous faites tourner votre exploitation avec Choucas pendant une semaine que vous choisissez — vos vraies missions, vos vraies équipes, vos vrais samedis. Nous restons joignables pendant cette semaine.",
+    "testP3": "À l’issue, vous décidez. Si vous continuez, le démarrage est facturé et l’abonnement commence. Si vous arrêtez là, vous ne payez rien — ni la journée, ni la semaine.",
     "optionsTitre": "Les options",
     "optionsIntro": "Elles s’ajoutent au socle, selon votre terrain. Aucune n’est nécessaire pour commencer.",
     "optionsRapportNom": "Le rapport de saison propriétaire — 120 € par bien et par saison.",
@@ -1061,23 +1061,23 @@
       },
       "cout": {
         "q": "Combien ça coûte pour 12 biens ?",
-        "r": "Le démarrage coûte 2 000 €, une fois. L’abonnement se calcule ensuite à 20 € par bien et par mois, avec un minimum de 300 €. Douze biens sont sous ce minimum : vous payez donc 300 € par mois."
+        "r": "Le démarrage coûte 2 000 €, une fois. L’abonnement se calcule ensuite à 15 € par bien et par mois, avec un minimum de 300 €. Douze biens sont sous ce minimum : vous payez donc 300 € par mois."
       },
       "hors-saison": {
         "q": "Que se passe-t-il hors saison, quand mes biens ne tournent pas ?",
-        "r": "Le prix suit vos biens actifs : un bien fermé hors saison ne compte pas. Le minimum de 300 € par mois s’applique quand même — en dessous de quinze biens actifs, c’est lui qui fixe le montant."
+        "r": "Le prix suit vos biens actifs : un bien fermé hors saison ne compte pas. Le minimum de 300 € par mois s’applique quand même — en dessous de vingt biens actifs, c’est lui qui fixe le montant."
       },
       "engagement": {
         "q": "Engagement, durée, résiliation ?",
-        "r": "Vous engagez le démarrage, pas l’année. La semaine qui suit la journée sur site est le test : vous faites tourner votre exploitation avec Choucas, puis vous décidez. L’abonnement ne démarre que si vous nous le dites, et il est facturé au mois. Vous arrêtez quand vous voulez : la facturation s’arrête à la fin du mois en cours, sans préavis."
+        "r": "Vous n’engagez rien avant d’avoir vu tourner. Nous configurons sur place, la semaine qui suit est offerte, et vous décidez à la fin. Si vous continuez, le démarrage est facturé et l’abonnement commence, au mois. Si vous arrêtez là, vous ne payez rien. Ensuite vous arrêtez quand vous voulez : la facturation s’arrête à la fin du mois en cours, sans préavis."
       },
       "essayer": {
         "q": "Puis-je essayer avant de m’engager ?",
-        "r": "Deux fois. La démonstration est sur ce site, avec des données fictives : vous la manipulez sans rien installer et sans donner votre adresse. Puis la semaine qui suit la journée sur site est un vrai test — vous faites tourner votre exploitation dans Choucas, avec vos biens et votre équipe. L’abonnement ne démarre que si vous nous le dites."
+        "r": "Deux fois, et la seconde est gratuite. La démonstration est sur ce site, avec des données fictives : vous la manipulez sans rien installer et sans donner votre adresse. Puis la semaine qui suit la journée sur site est un vrai test, offert — vos biens, votre équipe, vos vraies missions. Rien ne vous est facturé avant que vous ayez décidé de continuer."
       },
       "implantation-facturee": {
         "q": "La journée d’implantation est-elle facturée en plus ?",
-        "r": "Non. La journée sur site est le démarrage : 2 000 €, une fois, et rien d’autre au titre de la mise en place."
+        "r": "Non. La journée sur site est le démarrage : 2 000 €, une fois, et rien d’autre au titre de la mise en place. Elle n’est facturée qu’après la semaine de test, si vous continuez."
       }
     }
   }
