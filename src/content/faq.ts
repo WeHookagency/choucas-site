@@ -48,7 +48,11 @@ export const groupesFaq = [
   },
   {
     id: 'prix',
-    questions: ['cout', 'hors-saison', 'engagement', 'implantation-facturee'],
+    // « essayer » suit « engagement » : l'une dit ce qu'on signe, l'autre ce
+    // qu'on peut voir avant de signer. Ajoutee le 14 septembre 2026, apres que
+    // la demonstration publique est entree dans la page d'accueil — la
+    // reponse n'aurait pas ete vraie la veille.
+    questions: ['cout', 'hors-saison', 'engagement', 'essayer', 'implantation-facturee'],
   },
 ] as const satisfies readonly GroupeFaq[];
 

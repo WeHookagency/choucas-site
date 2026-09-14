@@ -154,6 +154,58 @@ sans savoir quoi changer ne protège de rien.
 
 ---
 
+## 5 bis. L'engagement de confidentialite
+
+Decide le 14 septembre 2026. Les mesures techniques des sections 3 et 4
+limitent qui peut voir un code ; celle-ci engage la personne qui le voit.
+
+**Deux signatures, a deux niveaux.**
+
+La **conciergerie** signe au contrat, une fois : elle se porte garante de la
+confidentialite des codes de ses proprietaires et s'engage a ne les faire
+manipuler que par des personnes elles-memes engagees. C'est une clause du
+contrat de sous-traitance de la section 8, pas un ecran.
+
+Chaque **personne** signe dans l'application, avant sa premiere revelation.
+Pas a l'inscription, pas dans des conditions generales acceptees d'un bloc :
+au moment ou elle demande son premier code, parce que c'est la qu'elle
+comprend de quoi il s'agit.
+
+### `Engagements`
+
+| Colonne | Note |
+|---|---|
+| `personneId` | |
+| `version` | la version du texte accepte, `2026-09-14` |
+| `accepteLe` | horodatage serveur |
+| `texte` | l'empreinte SHA-256 du texte affiche |
+
+L'empreinte du texte, et non le texte : elle prouve **ce qui a ete accepte**,
+sans dupliquer le contenu a chaque ligne. Un texte reecrit change de version,
+et chacun re-signe — un engagement porte sur des mots precis, pas sur une
+intention.
+
+### La regle serveur
+
+`acces.reveler` refuse si la personne n'a pas d'engagement a la version
+courante. Le refus n'est pas un message d'erreur : il renvoie le texte a
+signer, et l'appel se rejoue apres acceptation.
+
+Le manager n'en est pas exempte. Il voit plus de codes que quiconque.
+
+### Ce que ca change pour le proprietaire
+
+C'est la seule mesure de ce document qu'un proprietaire de chalet comprend
+sans explication technique. « Les personnes qui ont acces au code de votre
+porte ont signe un engagement nominatif, et je peux vous dire lesquelles » est
+une phrase qui se tient devant lui. Aucune des mesures precedentes ne se
+raconte aussi simplement.
+
+Le rapport de depart de la section 5 gagne au passage une colonne : la date
+d'engagement de la personne, a cote des codes qu'elle a vus.
+
+---
+
 ## 6. La rotation
 
 Les conciergeries ne changent jamais les codes parce que c'est pénible. L'outil

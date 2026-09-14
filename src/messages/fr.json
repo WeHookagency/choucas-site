@@ -1058,6 +1058,10 @@
         "q": "Engagement, durée, résiliation ?",
         "r": "Vous engagez le démarrage, pas l’année. La semaine qui suit la journée sur site est le test : vous faites tourner votre exploitation avec Choucas, puis vous décidez. L’abonnement ne démarre que si vous nous le dites. Vous choisissez ensuite la fréquence de paiement — mensuelle, à la saison ou à l’année — sans que le montant change."
       },
+      "essayer": {
+        "q": "Puis-je essayer avant de m’engager ?",
+        "r": "Deux fois. La démonstration est sur ce site, avec des données fictives : vous la manipulez sans rien installer et sans donner votre adresse. Puis la semaine qui suit la journée sur site est un vrai test — vous faites tourner votre exploitation dans Choucas, avec vos biens et votre équipe. L’abonnement ne démarre que si vous nous le dites."
+      },
       "implantation-facturee": {
         "q": "La journée d’implantation est-elle facturée en plus ?",
         "r": "Non. La journée sur site est le démarrage : 2 000 €, une fois, et rien d’autre au titre de la mise en place."
