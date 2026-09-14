@@ -61,6 +61,47 @@ export async function generateMetadata(props: {
  * ⚠️ Trois reponses de la FAQ decrivent encore l'ancien modele et le
  * contredisent. Elles ne sont pas sur cette page, mais elles parlent d'elle.
  */
+/**
+ * La grille de la page : le titre et son prix a gauche, l'explication a
+ * droite.
+ *
+ * Elle etait une colonne de 529 px calee a gauche dans un conteneur de 1 360 :
+ * 791 px de vide a droite, sur les six sections, sur toute la page. Mesure le
+ * 14 septembre 2026.
+ *
+ * Plafonnee a 940 px et centree — 300 pour la colonne des titres, 64 d'ecart,
+ * 529 pour la mesure de lecture. Les marges deviennent egales, et une
+ * respiration se lit autrement qu'un trou. Meme traitement que les sections de
+ * Produit.
+ */
+function Colonnes({ children }: { children: React.ReactNode }) {
+  return (
+    <Reveal className="mx-auto grid max-w-[940px] items-start gap-6 desktop:grid-cols-[minmax(0,300px)_minmax(0,1fr)] desktop:gap-16">
+      {children}
+    </Reveal>
+  );
+}
+
+/**
+ * Un montant, sorti de son titre.
+ *
+ * Les deux prix vivaient dans les titres — « Le demarrage — 2 000 € » — ou le
+ * chiffre se noyait dans une phrase en serif, et ou « L'abonnement — 20 € par
+ * bien et par mois » cassait sur deux lignes a toutes les largeurs. Sur une
+ * page de tarifs, le montant est la premiere chose qu'on cherche.
+ *
+ * Il ne peut plus se couper puisqu'il n'est plus dans une phrase. `text-hero`
+ * serait trop : ce n'est pas un titre de page, c'est une donnee.
+ */
+function Prix({ montant, unite }: { montant: string; unite: string }) {
+  return (
+    <p className="mt-5">
+      <span className="font-serif text-h2 block leading-none tabular-nums">{montant}</span>
+      <span className="text-corps mt-3 block text-encre-douce">{unite}</span>
+    </p>
+  );
+}
+
 export default async function Page({ params }: PageProps<'/[locale]/tarifs'>) {
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) notFound();
@@ -68,6 +109,11 @@ export default async function Page({ params }: PageProps<'/[locale]/tarifs'>) {
 
   const t = await getTranslations('tarifs');
   const contact = await getTranslations('contact');
+  // Les montants sont lus dans `tarifsHome`, la ou la section tarifs de la
+  // Home les prend deja. Une seule source : l'accueil et cette page ne
+  // peuvent plus annoncer des chiffres differents, ce que le commentaire de
+  // `TarifsHome` signalait comme un risque depuis sa creation.
+  const prix = await getTranslations('tarifsHome');
 
   return (
     <main>
@@ -80,63 +126,78 @@ export default async function Page({ params }: PageProps<'/[locale]/tarifs'>) {
       </Section>
 
       <Section fond="fond-alt" aria-labelledby="demarrage-titre">
-        <Reveal className="max-w-[62ch]">
-          <h2 id="demarrage-titre" className="font-serif text-h3 text-balance">
-            {t('demarrageTitre')}
-          </h2>
-          <p className="text-corps mt-6">{t('demarrageP1')}</p>
-          <p className="text-corps mt-4 text-encre-douce">{t('demarrageP2')}</p>
-        </Reveal>
+        <Colonnes>
+          <div>
+            <h2 id="demarrage-titre" className="font-serif text-h3 text-balance">
+              {prix('demarrageNom')}
+            </h2>
+            <Prix montant={prix('demarragePrix')} unite={prix('demarrageQuoi')} />
+          </div>
+          <div className="max-w-[62ch]">
+            <p className="text-corps">{t('demarrageP1')}</p>
+            <p className="text-corps mt-4 text-encre-douce">{t('demarrageP2')}</p>
+          </div>
+        </Colonnes>
       </Section>
 
       <Section fond="fond" aria-labelledby="abonnement-titre">
-        <Reveal className="max-w-[62ch]">
-          <h2 id="abonnement-titre" className="font-serif text-h3 text-balance">
-            {t('abonnementTitre')}
-          </h2>
-          {/* Le plancher se detache du reste : c'est le chiffre qu'une petite
-              conciergerie cherche en premier, et le seul que la formule au
-              bien ne donne pas. */}
-          <p className="text-intro mt-6 font-semibold">{t('abonnementMinimum')}</p>
-          <p className="text-corps mt-4">{t('abonnementExemples')}</p>
-          <p className="text-corps mt-4 text-encre-douce">{t('abonnementSocle')}</p>
-        </Reveal>
+        <Colonnes>
+          <div>
+            <h2 id="abonnement-titre" className="font-serif text-h3 text-balance">
+              {prix('abonnementNom')}
+            </h2>
+            <Prix montant={prix('abonnementPrix')} unite={prix('abonnementQuoi')} />
+          </div>
+          <div className="max-w-[62ch]">
+            {/* Le plancher se detache du reste : c'est le chiffre qu'une petite
+                conciergerie cherche en premier, et le seul que la formule au
+                bien ne donne pas. */}
+            <p className="text-intro font-semibold">{t('abonnementMinimum')}</p>
+            <p className="text-corps mt-4">{t('abonnementExemples')}</p>
+            <p className="text-corps mt-4 text-encre-douce">{t('abonnementSocle')}</p>
+          </div>
+        </Colonnes>
       </Section>
 
       {/* Fond Sapin : c'est la section qui leve l'objection la plus chere — on
           ne s'engage pas a l'aveugle. Elle merite d'etre vue en defilant. */}
       <Section fond="sapin" aria-labelledby="test-titre">
-        <Reveal className="max-w-[62ch]">
+        <Colonnes>
           <h2 id="test-titre" className="font-serif text-h3 text-balance">
             {t('testTitre')}
           </h2>
-          <p className="text-intro mt-6 font-semibold">{t('testP1')}</p>
-          <p className="text-corps mt-4 text-encre-inverse/85">{t('testP2')}</p>
-          <p className="text-corps mt-4 text-encre-inverse/85">{t('testP3')}</p>
-        </Reveal>
+          <div className="max-w-[62ch]">
+            <p className="text-intro font-semibold">{t('testP1')}</p>
+            <p className="text-corps mt-4 text-encre-inverse/85">{t('testP2')}</p>
+            <p className="text-corps mt-4 text-encre-inverse/85">{t('testP3')}</p>
+          </div>
+        </Colonnes>
       </Section>
 
       <Section fond="fond" aria-labelledby="options-titre">
-        <Reveal className="max-w-[62ch]">
+        <Colonnes>
           <h2 id="options-titre" className="font-serif text-h3 text-balance">
             {t('optionsTitre')}
           </h2>
-          <p className="text-corps mt-6 text-encre-douce">{t('optionsIntro')}</p>
+          <div className="max-w-[62ch]">
+          <p className="text-corps text-encre-douce">{t('optionsIntro')}</p>
           {/* Intitule en gras et non en h3 : la contrainte de la page est un
               seul niveau de titre par section. */}
           <p className="text-corps mt-titre">
             <strong className="font-bold">{t('optionsRapportNom')}</strong>{' '}
             {t('optionsRapportTexte')}
           </p>
-        </Reveal>
+          </div>
+        </Colonnes>
       </Section>
 
       <Section fond="fond-alt" aria-labelledby="arrive-titre">
-        <Reveal className="max-w-[62ch]">
+        <Colonnes>
           <h2 id="arrive-titre" className="font-serif text-h3 text-balance">
             {t('arriveTitre')}
           </h2>
-          <p className="text-corps mt-6 text-encre-douce">{t('arriveIntro')}</p>
+          <div className="max-w-[62ch]">
+          <p className="text-corps text-encre-douce">{t('arriveIntro')}</p>
           <p className="text-corps mt-titre">
             <strong className="font-bold">{t('arriveMemoireNom')}</strong>{' '}
             {t('arriveMemoireTexte')}
@@ -145,15 +206,17 @@ export default async function Page({ params }: PageProps<'/[locale]/tarifs'>) {
             <strong className="font-bold">{t('arriveLitigeNom')}</strong>{' '}
             {t('arriveLitigeTexte')}
           </p>
-        </Reveal>
+          </div>
+        </Colonnes>
       </Section>
 
       <Section fond="fond" aria-labelledby="paiement-titre">
-        <Reveal className="max-w-[62ch]">
+        <Colonnes>
           <h2 id="paiement-titre" className="font-serif text-h3 text-balance">
             {t('paiementTitre')}
           </h2>
-          <p className="text-corps mt-6">{t('paiementTexte')}</p>
+          <div className="max-w-[62ch]">
+          <p className="text-corps">{t('paiementTexte')}</p>
 
           {/* Le lexique des CTA est fige : « Organiser une journée sur site »
               est le libelle de la voie principale de la page Contact, et c'est
@@ -163,7 +226,8 @@ export default async function Page({ params }: PageProps<'/[locale]/tarifs'>) {
           </Cta>
 
           <p className="text-micro mt-titre text-encre-douce">{t('htMention')}</p>
-        </Reveal>
+          </div>
+        </Colonnes>
       </Section>
     </main>
   );
