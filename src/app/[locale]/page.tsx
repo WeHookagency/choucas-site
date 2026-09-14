@@ -1,12 +1,13 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { hasLocale } from 'next-intl';
-import { setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 import { Hero } from '@/components/home/Hero';
 import { Implementation } from '@/components/home/Implementation';
 import { BriefIntake } from '@/components/home/BriefIntake';
 import { BriefToProof } from '@/components/home/BriefToProof';
+import { LIEN_LINKEDIN } from '@/components/anchors';
 import { DemoLive } from '@/components/home/DemoLive';
 import { FaqHome } from '@/components/home/FaqHome';
 import { OperationalTension } from '@/components/home/OperationalTension';
@@ -18,7 +19,7 @@ import { FieldDemo } from '@/components/home/FieldDemo';
 import { FinalCta } from '@/components/home/FinalCta';
 import { ManagerDemo } from '@/components/home/ManagerDemo';
 import { OwnerReport } from '@/components/home/OwnerReport';
-import { localeAlternates } from '@/i18n/metadata';
+import { localeAlternates, siteUrl } from '@/i18n/metadata';
 import { routing } from '@/i18n/routing';
 
 /**
@@ -50,8 +51,62 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
 
   setRequestLocale(locale);
 
+  // L'editeur, la zone et les coordonnees viennent des mentions legales et de
+  // la page contact : une seule source dans le depot, et les donnees
+  // structurees ne peuvent pas diverger de ce qui est affiche.
+  const mentions = await getTranslations('mentions');
+  const contact = await getTranslations('contact');
+  const meta = await getTranslations('metadata');
+
+  /**
+   * Fiche d'organisation, posee sur l'accueil et nulle part ailleurs.
+   *
+   * `Organization` et non `LocalBusiness` : Choucas se deplace chez ses
+   * clientes, il n'y a pas d'adresse ou l'on vient. Declarer un commerce local
+   * ferait promettre au moteur une vitrine qui n'existe pas.
+   *
+   * `areaServed` porte les cinq stations, qui sont deja ecrites sur la page
+   * contact — c'est l'information la plus utile pour une recherche locale, et
+   * la seule chose que ce balisage apporte vraiment ici.
+   *
+   * Aucun prix n'est balise. `Offer` sur un abonnement au bien produit des
+   * resultats enrichis trompeurs — un prix affiche « a partir de » pour une
+   * formule qui depend du parc. A rediscuter si le besoin se presente.
+   */
+  const organisation = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Choucas',
+    legalName: mentions('editeurNom'),
+    url: siteUrl,
+    logo: new URL('/choucas-mark.svg', siteUrl).toString(),
+    description: meta('description'),
+    email: mentions('editeurEmail'),
+    telephone: mentions('editeurTelephone'),
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '98 Impasse de la Planchette',
+      postalCode: '74450',
+      addressLocality: 'Saint-Jean-de-Sixt',
+      addressCountry: 'FR',
+    },
+    areaServed: contact('zone')
+      .replace(/^[^:]*:\s*/, '')
+      .split('·')
+      .map((nom) => ({ '@type': 'Place', name: nom.trim() })),
+    founder: { '@type': 'Person', name: mentions('directeurNom') },
+    sameAs: [LIEN_LINKEDIN],
+  };
+
   return (
     <main>
+      <script
+        type="application/ld+json"
+        // Chaine construite ici, sans entree utilisateur : rien a echapper
+        // au-dela de ce que fait `JSON.stringify`.
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organisation) }}
+      />
+
       <Hero />
       {/* Le probleme, avant la premiere demonstration. La page ouvrait sur la
           solution et enchainait sur le fonctionnement : le lecteur devait
