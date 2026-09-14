@@ -14,22 +14,15 @@ import { siteUrl } from '@/i18n/metadata';
  * `/*` dans netlify.toml. Les deux tiennent sans lui, et tiendront encore si
  * le mot de passe tombe avant l'ouverture.
  *
- * Le blog est le seul refus : ses quatre notes n'ont qu'un titre, un chapeau
- * et une date. Elles sont deja en `noindex` et hors du plan du site — le
- * `disallow` dit la meme chose une troisieme fois, a ceux qui ne lisent que
- * ce fichier. A lever le jour ou les articles ont un corps, en meme temps que
- * les deux autres.
- *
- * `/_next/` et les routes d'images n'ont pas a etre interdits : Google a
- * besoin des ressources d'une page pour la rendre, et les lui refuser degrade
- * l'evaluation de la page elle-meme.
+ * Plus aucun refus. Le blog a ete supprime le 14 septembre 2026 : ses quatre
+ * notes n'ont jamais eu de corps, et une page orpheline qui n'existe plus n'a
+ * pas besoin d'etre interdite.
  */
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/fr/blog', '/en/blog'],
     },
     sitemap: new URL('/sitemap.xml', siteUrl).toString(),
     host: new URL(siteUrl).host,

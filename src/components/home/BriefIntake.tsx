@@ -172,7 +172,7 @@ export function BriefIntake() {
                 {t(`etapes.${cle}.temps`)}
               </p>
 
-              <Reveal className="mt-5 w-full">
+              <Reveal className="mt-4 w-full tablette:mt-5">
                 {cle === 'arrivee' ? <Sources /> : null}
                 {cle === 'arbitrage' ? <Arbitrage /> : null}
                 {cle === 'consigne' ? <Consigne /> : null}
@@ -216,7 +216,9 @@ function Fil({ className }: { className?: string }) {
  */
 function Liaison({ texte }: { texte: string }) {
   return (
-    <p className="text-corps flex max-w-[38ch] items-center py-6 text-encre-inverse">{texte}</p>
+    <p className="text-corps flex max-w-[38ch] items-center py-4 text-encre-inverse tablette:py-6">
+      {texte}
+    </p>
   );
 }
 
@@ -231,6 +233,19 @@ function Liaison({ texte }: { texte: string }) {
  * Ces deux cartes font 560 px quand celles de l'etape 01 en font 290 : la
  * pastille et le bien tiennent ici sur la meme ligne, ce qui n'etait pas
  * possible la-haut.
+ *
+ * SAUF EN MOBILE, ou ils n'y tiennent pas non plus. Mesure a 390 px :
+ * « Chalet Cortibot » demande 100 px, la ligne lui en laissait 91 entre la
+ * pastille et l'heure — le chalet s'affichait « Chalet Corti… ». Le nom du
+ * bien tronque dans une carte qui sert a suivre UN sejour d'un bout a l'autre
+ * annule ce que la carte demontre.
+ *
+ * La pastille prend donc sa propre ligne sous 700 px (`basis-full`), et le
+ * bien recupere la largeur entiere moins l'heure. Au-dessus, `basis-auto` rend
+ * la ligne unique d'origine. Ce n'est pas un rattrapage de neuf pixels — ceux
+ * la se gagnaient en resserrant les gouttieres — mais une mise en page qui
+ * tient quel que soit le nom du chalet, y compris celui d'une vraie
+ * conciergerie.
  */
 function EnTeteCarte({
   pastille,
@@ -245,12 +260,10 @@ function EnTeteCarte({
 }) {
   return (
     <>
-      <div className="flex items-center justify-between gap-3">
-        <span className="flex min-w-0 items-center gap-3">
-          {pastille}
-          <span className="font-serif text-intro truncate">{bien}</span>
-        </span>
-        <span className="font-serif shrink-0 text-[1.375rem] leading-none tabular-nums">
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+        <span className="basis-full tablette:basis-auto">{pastille}</span>
+        <span className="font-serif text-intro min-w-0 flex-1 truncate">{bien}</span>
+        <span className="font-serif shrink-0 text-[1.25rem] leading-none tabular-nums tablette:text-[1.375rem]">
           {heure}
         </span>
       </div>
@@ -271,11 +284,11 @@ function Sources() {
   const bien = useTranslations('briefIntake')('bien');
 
   return (
-    <div className="grid gap-4 tablette:grid-cols-3">
+    <div className="grid gap-3 tablette:grid-cols-3 tablette:gap-4">
       {SOURCES.map(({ cle, icone, ton }) => (
         <div
           key={cle}
-          className={`flex flex-col rounded-carte border border-filet bg-surface p-6 text-encre desktop:p-7 ${OMBRE}`}
+          className={`flex flex-col rounded-carte border border-filet bg-surface p-4 text-encre tablette:p-6 desktop:p-7 ${OMBRE}`}
         >
           {/* Le canal a gauche, l'heure a droite.
 
@@ -298,18 +311,22 @@ function Sources() {
                 la ou il etait en encre douce a 11 px. C'est lui qui dit d'ou
                 vient le fragment. */}
             <span
-              className={`text-bouton inline-flex items-center gap-2 rounded-capsule border px-3 py-1.5 font-bold ${ton}`}
+              className={`text-bouton inline-flex items-center gap-2 rounded-capsule border px-2.5 py-1 font-bold tablette:px-3 tablette:py-1.5 ${ton}`}
             >
               <Icon name={icone} size={16} className="shrink-0" />
               <span className="text-encre">{t(`${cle}.canal`)}</span>
             </span>
-            <span className="font-serif shrink-0 text-[1.375rem] leading-none tabular-nums">
+            <span className="font-serif shrink-0 text-[1.25rem] leading-none tabular-nums tablette:text-[1.375rem]">
               {t(`${cle}.heure`)}
             </span>
           </div>
-          <p className="font-serif text-intro mt-4">{bien}</p>
+          <p className="font-serif text-corps mt-3 font-semibold tablette:text-intro tablette:mt-4 tablette:font-normal">
+            {bien}
+          </p>
           <p className="text-micro mt-1 text-encre-douce">{t(`${cle}.jour`)}</p>
-          <p className="text-intro mt-4 font-serif italic">{t(`${cle}.mot`)}</p>
+          <p className="text-corps mt-3 font-serif italic tablette:text-intro tablette:mt-4">
+            {t(`${cle}.mot`)}
+          </p>
         </div>
       ))}
     </div>
@@ -328,7 +345,7 @@ function Arbitrage() {
 
   return (
     <div
-      className={`max-w-[560px] rounded-carte border border-filet bg-surface p-6 text-encre ${OMBRE}`}
+      className={`max-w-[560px] rounded-carte border border-filet bg-surface p-4 text-encre tablette:p-6 ${OMBRE}`}
     >
       {/* La pastille d'etat reste seule sur sa ligne : le titre « Deux demandes
           s'opposent » disait ce que le corps dit deja, en le disant moins bien.
@@ -378,7 +395,7 @@ function Consigne() {
 
   return (
     <div
-      className={`max-w-[560px] rounded-carte border border-filet bg-surface p-6 text-encre ${OMBRE}`}
+      className={`max-w-[560px] rounded-carte border border-filet bg-surface p-4 text-encre tablette:p-6 ${OMBRE}`}
     >
       {/* L'etat passe devant le bien : c'est lui qui dit ce qu'est cette
           carte, et la sortie de la sequence se lit des la premiere ligne.

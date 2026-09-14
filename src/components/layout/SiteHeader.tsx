@@ -166,22 +166,51 @@ export function SiteHeader() {
 
         {/* Un contour, pour qu'il se lise comme un bouton. Il etait une icone
             nue de 44 px sans rien autour : la cible existait, l'affordance
-            non. Le trait est de l'encre a 25 %, soit 3,03:1 sur Neige — au
-            dessus du seuil des objets graphiques. */}
+            non. Le trait est passe de l'encre a 25 % (3,03:1) a 45 %
+            (5,42:1) : au seuil des objets graphiques il etait conforme sans
+            etre vu, sur une barre qui a deja la meme couleur que la page.
+
+            OUVERT, IL S'INVERSE. Sapin plein, croix en Glacier — 9,81:1. Le
+            bouton ne change pas seulement d'icone, il change d'etat, et c'est
+            ce que le fondateur ne trouvait pas : une croix fine dans un
+            contour fin se lit comme la meme chose qu'un menu fin dans un
+            contour fin.
+
+            Le trace est `ListIcon` puis `XIcon`, tous deux Phosphor, graisse
+            `regular` — la famille de l'application, verifiee dans Icon.tsx. */}
         <button
           type="button"
           onClick={() => setOuvert((v) => !v)}
           aria-expanded={ouvert}
           aria-controls={idMenu}
-          className="inline-flex size-11 items-center justify-center rounded-capsule border border-encre/25 text-encre tablette:hidden"
+          className={`inline-flex size-11 items-center justify-center rounded-capsule border tablette:hidden ${
+            ouvert
+              ? 'border-transparent bg-cta text-cta-encre'
+              : 'border-encre/45 text-encre'
+          }`}
         >
           <Icon name={ouvert ? 'fermer' : 'menu'} size={24} title={ouvert ? t('fermerMenu') : t('ouvrirMenu')} />
         </button>
       </div>
 
       {/* Le menu reste dans le flux : il repousse la page plutot que de la
-          recouvrir, ce qui evite d'avoir a pieger le focus. */}
-      <div id={idMenu} hidden={!ouvert} className="border-t border-filet bg-fond tablette:hidden">
+          recouvrir, ce qui evite d'avoir a pieger le focus.
+
+          FOND PANNEAU, ET NON FOND. Le menu portait exactement la couleur de
+          la page qu'il recouvrait : ouvert au-dessus du hero, rien ne disait
+          ou il s'arretait et ou la page reprenait — le filet du bas etait la
+          seule frontiere, un pixel pour separer deux surfaces identiques.
+
+          Panneau est le token des sections secondaires, deja au catalogue,
+          aucune valeur neuve. Il ne s'annule sous aucune section : les fonds
+          de la Home sont Neige, Glacier, Sapin, Schiste et Lichen, et le menu
+          ne descend jamais plus bas que le premier ecran. L'ombre portee
+          acheve de le poser au-dessus plutot qu'a cote. */}
+      <div
+        id={idMenu}
+        hidden={!ouvert}
+        className="border-t border-filet bg-fond-alt shadow-[0_18px_28px_-20px_rgba(21,24,22,0.45)] tablette:hidden"
+      >
         <nav aria-label={t('aria')} className="mx-auto max-w-scene px-marge py-6">
           <ul className="flex flex-col gap-1">
             {liens.map((lien) => (

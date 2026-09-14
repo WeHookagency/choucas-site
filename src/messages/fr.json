@@ -338,9 +338,26 @@
     "titre": "Le terrain sait quoi faire. <accent>Et pourquoi.</accent>",
     "intro": "Chaque mission garde le contexte du brief. L’équipe ne reçoit pas qu’une tâche : elle comprend ce qui est attendu avant même d’arriver.",
     "points": {
-      "consigne": "Une consigne issue du brief validé",
-      "contexte": "Le contexte client reste accessible à l’équipe",
-      "preuves": "Photos et signalements remontent vers le contrôle"
+      "consigne": {
+        "titre": "Une consigne issue du brief validé",
+        "detail": "Pas un message transféré : ce que le manager a tranché, écrit une seule fois."
+      },
+      "contexte": {
+        "titre": "Le contexte client reste accessible à l’équipe",
+        "detail": "Les habitudes du bien, les demandes du séjour, ce qu’il faut savoir avant d’entrer."
+      },
+      "ergonomie": {
+        "titre": "Une mission à la fois, en grand",
+        "detail": "De gros boutons, peu de texte. Utilisable gantée, en extérieur, sans naviguer dans des menus."
+      },
+      "signalement": {
+        "titre": "Un imprévu se signale depuis la mission",
+        "detail": "Le bien, la gravité, la situation, une photo. Il devient une action, pas un message perdu."
+      },
+      "preuves": {
+        "titre": "Photos et signalements remontent vers le contrôle",
+        "detail": "Ce que l’équipe documente sert le contrôle, puis le rapport propriétaire."
+      }
     },
     "ecran": {
       "aria": "Démonstration de l’application terrain Choucas",

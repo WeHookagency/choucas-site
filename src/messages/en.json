@@ -335,9 +335,26 @@
     "titre": "The field team knows what to do. <accent>And why.</accent>",
     "intro": "Every mission keeps the context of the brief. The team does not just receive a task: it understands what is expected before it even arrives.",
     "points": {
-      "consigne": "A clear instruction from the validated brief",
-      "contexte": "Guest context remains available to the team",
-      "preuves": "Photos and issues feed back into control"
+      "consigne": {
+        "titre": "A clear instruction from the validated brief",
+        "detail": "Not a forwarded message: what the manager decided, written down once."
+      },
+      "contexte": {
+        "titre": "Guest context remains available to the team",
+        "detail": "How the property works, what the stay asked for, what to know before walking in."
+      },
+      "ergonomie": {
+        "titre": "One mission at a time, full screen",
+        "detail": "Large buttons, little text. Usable with gloves on, outdoors, without digging through menus."
+      },
+      "signalement": {
+        "titre": "An issue is reported from the mission itself",
+        "detail": "The property, the severity, the situation, a photo. It becomes an action, not a lost message."
+      },
+      "preuves": {
+        "titre": "Photos and issues feed back into control",
+        "detail": "What the team documents serves the control step, then the owner report."
+      }
     },
     "ecran": {
       "aria": "Démonstration de l’application terrain Choucas",
