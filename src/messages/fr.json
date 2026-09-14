@@ -688,7 +688,7 @@
   },
   "produit": {
     "eyebrow": "Le produit",
-    "titre": "Une journée de conciergerie, du brief au PRÊT.",
+    "titre": "Une journée de conciergerie, <accent>du brief au PRÊT.</accent>",
     "intro": "Quatre choses tiennent une exploitation : ce qu’on vous a demandé, ce qui a été fait, qui l’a vérifié, et ce qu’on en montre au propriétaire. Choucas ne fait que ça.",
     "metaDescription": "Le brief, la mission terrain, le double contrôle et l’état PRÊT — une journée de conciergerie de bout en bout, et ce que Choucas fait quand l’imprévu arrive.",
     "brief": {
@@ -943,7 +943,9 @@
         "etat": "PRÊT",
         "meta": "Validé par Sophie M. · Responsable · 10:41",
         "fait": "Contrôle qualité effectué"
-      }
+      },
+      "captureAlt": "Écran du responsable, samedi 5 septembre : sous EXCEPTIONS, « Chalet L’Aiguille — ménage départ terminée 10:25, en attente de contrôle », avec la pastille À contrôler.",
+      "captureLegende": "L’écran où le contrôle se demande"
     },
     "memoire": {
       "titre": "Ce que votre entreprise sait ne part plus avec une gouvernante.",

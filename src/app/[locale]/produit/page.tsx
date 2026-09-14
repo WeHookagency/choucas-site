@@ -6,6 +6,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 
 import { PointJonction } from '@/components/produit/PointJonction';
+import { Accent } from '@/components/ui/Accent';
 import { Cta } from '@/components/ui/Cta';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { Reserve } from '@/components/ui/Reserve';
@@ -135,8 +136,16 @@ export default async function Page({ params }: PageProps<'/[locale]/produit'>) {
     <main>
       <Section fond="fond" aria-labelledby="produit-titre">
         <Eyebrow>{t('eyebrow')}</Eyebrow>
+        {/* L'accent cuivre, ajoute le 15 septembre 2026. C'etait le seul titre
+            editorial du site a ne pas l'avoir : la Home, Contact et chaque
+            en-tete de section portent leur derniere proposition en italique
+            cuivre, et l'ouverture de Produit restait tout en encre. Un H1 nu a
+            cette taille se lit comme un titre de document, pas comme une
+            page. `tarifs`, `faq`, `mentions` et `confidentialite` n'en ont pas
+            davantage, mais ce sont des titres d'un mot — il n'y a rien a
+            accentuer. */}
         <h1 id="produit-titre" className="font-serif text-h2 mt-4 max-w-[20ch] text-balance">
-          {t('titre')}
+          {t.rich('titre', { accent: (chunks) => <Accent>{chunks}</Accent> })}
         </h1>
         <p className="text-intro mt-8 max-w-[62ch] text-encre-douce">{t('intro')}</p>
       </Section>
@@ -286,11 +295,34 @@ export default async function Page({ params }: PageProps<'/[locale]/produit'>) {
           passe de `text-intro` a `text-h3` : a 15 px elle ne portait pas une
           fin de page.
 
-          Fonds de la page apres ce changement : Neige, Panneau, Neige,
-          Panneau, Neige, Sapin, Neige, Panneau, Sapin. Les deux Sapin sont la
-          demonstration du double controle et cette cloture — ils ne se
-          touchent pas. */}
-      <Section fond="sapin" aria-label={t('cta')}>
+          Fonds de la page : Neige, Panneau, Neige, Panneau, Neige, Sapin,
+          Neige, Panneau, Lichen. */}
+      {/* ---------------------------------------------------------------
+          LICHEN, ET NON PLUS SAPIN. 15 septembre 2026.
+
+          La bande etait en Sapin, le pied de page l'est aussi, et le CTA
+          primaire l'est une troisieme fois : trois Sapin empiles sans couture.
+          Le bouton disparaissait purement et simplement dans sa propre bande —
+          seule son ombre portee le trahissait, ce qu'on voit sur la capture du
+          fondateur.
+
+          C'est exactement le defaut deja corrige sur la page Contact, dont le
+          commentaire note que Schiste ne reglerait rien : il ne differe du
+          Sapin que de 1,63:1.
+
+          Le Lichen est la seule teinte de la charte qui tranche des deux
+          cotes — Panneau au-dessus, Sapin en dessous — et qui rende son
+          bouton. Mesures composites :
+
+            Sapin sur Lichen (le bouton)   4,03:1   seuil 3 pour un objet
+            Glacier sur Sapin (son texte) 10,61:1
+            Schiste sur Lichen (la phrase) 6,57:1
+
+          Le bouton reste donc vert, comme le fondateur l'a demande ailleurs
+          sur le site : ce n'est pas lui qui change de couleur, c'est le fond
+          qui cesse d'etre la sienne.
+          --------------------------------------------------------------- */}
+      <Section fond="respiration" aria-label={t('cta')}>
         <Reveal className="flex flex-col items-center text-center">
           <p className="font-serif text-h3 max-w-[22ch] text-balance">
             {contact('voies.impl.texte')}

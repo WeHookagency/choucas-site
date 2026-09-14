@@ -1,6 +1,9 @@
 import { useTranslations } from 'next-intl';
 
+import accueilResponsable from '../../../public/demo/accueil-responsable.png';
+
 import { Accent } from '../ui/Accent';
+import { CaptureProduit } from '../ui/CaptureProduit';
 import { Icon } from '../ui/Icon';
 import { Reveal } from '../ui/Reveal';
 import { Section } from '../ui/Section';
@@ -19,13 +22,40 @@ import { Section } from '../ui/Section';
  *
  * Les deux etats ne se distinguent pas par la seule couleur : le libelle est
  * ecrit, et la pastille PRÊT est pleine quand celle de TERMINÉ est un contour.
+ *
+ * ---------------------------------------------------------------------------
+ * L'ECRAN REEL REJOINT LA DEMONSTRATION. 15 septembre 2026, a la demande du
+ * fondateur : « je mettrais les ecrans de l'app pour valider et montrer la
+ * mise en situation ».
+ *
+ * La section enoncait la regle avec deux cartes dessinees pour elle. Elles
+ * disent bien la regle, mais rien ne prouvait qu'un ecran la demande vraiment.
+ *
+ * `accueil-responsable.png` la prouve, et il n'a pas ete fabrique pour ca : il
+ * etait deja dans le depot, inutilise. On y lit, sous EXCEPTIONS, « Chalet
+ * L'Aiguille — Menage depart terminee 10:25, en attente de controle », avec sa
+ * pastille A controler. MEME CHALET, MEME HEURE, MEME PERSONNE que la carte
+ * TERMINÉ posee a cote — Sophie M., dont l'avatar SM est en haut a droite de
+ * l'ecran. Rien n'a ete accorde apres coup : les deux racontent le meme moment.
+ *
+ * C'est donc la situation a gauche et ce qu'elle produit a droite. Les deux
+ * cartes passent de la rangee a la pile pour laisser la colonne d'ecran :
+ * empilees, TERMINÉ puis PRÊT se lisent comme une suite, ce qu'elles sont, et
+ * la liaison qui nomme le controleur tombe entre les deux au lieu d'etre a
+ * cote.
+ *
+ * L'ecran est coupe a 560 px et un fondu dit qu'il continue : les huit lignes
+ * du bas sont la journee entiere, hors sujet ici, et la section n'a pas besoin
+ * d'un ecran de 985 px de haut.
+ * ---------------------------------------------------------------------------
  */
 export function PointJonction() {
   const t = useTranslations('solutions.jonction');
+  const manager = useTranslations('manager');
 
   return (
     <Section fond="sapin" aria-labelledby="jonction-titre">
-      <Reveal className="mx-auto flex max-w-[900px] flex-col items-center gap-14">
+      <Reveal className="mx-auto flex max-w-[940px] flex-col items-center gap-14">
         <div className="max-w-[600px] text-center">
           <h2 id="jonction-titre" className="font-serif text-h3 text-balance">
             {t.rich('titre', { accent: (chunks) => <Accent ton="inverse">{chunks}</Accent> })}
@@ -33,25 +63,54 @@ export function PointJonction() {
           <p className="text-corps mt-4 text-encre-inverse/85">{t('intro')}</p>
         </div>
 
-        <div className="flex w-full flex-col items-center gap-6 desktop:flex-row desktop:justify-center desktop:gap-8">
-          <CarteEtat cle="termine" plein={false} />
+        {/* 340 px d'ecran, 64 d'ecart, 340 de cartes, et le tout centre —
+            744 px dans un conteneur de 940. Une seconde piste en `1fr` aurait
+            donne 536 px a des cartes plafonnees a 340 : 196 px de vide d'un
+            seul cote, le defaut que la section « Qui est derriere » vient de
+            corriger ce matin. Les deux pistes sont donc fixes.
 
-          {/* La liaison nomme le controleur : c'est tout le propos, le
-              commentaire de ce fichier le disait deja. Elle etait pourtant le
-              texte le plus petit et le moins contraste de la section — 12 px
-              a 75 % — et tenue dans 160 px.
+            Sous 1 000 px tout s'empile et l'ecran passe devant — on voit la
+            demande de controle avant de lire ce qu'elle produit. */}
+        <div className="grid w-full items-center gap-10 desktop:grid-cols-[340px_340px] desktop:justify-center desktop:gap-16">
+          <figure className="m-0 flex flex-col items-center gap-2">
+            <CaptureProduit
+              src={accueilResponsable}
+              alt={t('captureAlt')}
+              libelleLien={manager('lienDemo')}
+              largeurMax={340}
+              hauteurMax={560}
+              cadre
+              rayon="haut"
+              ombre={false}
+            />
+            <figcaption className="text-micro max-w-[340px] text-center text-encre-inverse/85">
+              {t('captureLegende')}
+            </figcaption>
+          </figure>
 
-              Elle prend le traitement que la Home a fixe pour les siennes :
-              14 px, encre pleine, 9,81:1. La regle y est ecrite en toutes
-              lettres — une phrase qui porte le mecanisme ne peut etre ni le
-              texte le moins lisible du bloc ni le plus petit. */}
-          <p className="flex w-[200px] shrink-0 flex-col items-center gap-3 text-center">
-            <span aria-hidden className="h-px w-10 bg-encre-inverse/40" />
-            <span className="text-corps text-encre-inverse">{t('liaison')}</span>
-            <span aria-hidden className="h-px w-10 bg-encre-inverse/40" />
-          </p>
+          <div className="flex flex-col items-center gap-5 desktop:items-start">
+            <CarteEtat cle="termine" plein={false} />
 
-          <CarteEtat cle="pret" plein />
+            {/* La liaison nomme le controleur : c'est tout le propos, le
+                commentaire de ce fichier le disait deja. Elle etait pourtant le
+                texte le plus petit et le moins contraste de la section — 12 px
+                a 75 % — et tenue dans 160 px.
+
+                Elle prend le traitement que la Home a fixe pour les siennes :
+                14 px, encre pleine, 9,81:1. La regle y est ecrite en toutes
+                lettres — une phrase qui porte le mecanisme ne peut etre ni le
+                texte le moins lisible du bloc ni le plus petit.
+
+                Les filets passent a la verticale avec la pile : un trait
+                horizontal entre deux cartes empilees ne relie plus rien. */}
+            <p className="flex w-full max-w-[340px] flex-col items-center gap-2 text-center">
+              <span aria-hidden className="h-5 w-px bg-encre-inverse/40" />
+              <span className="text-corps text-encre-inverse">{t('liaison')}</span>
+              <span aria-hidden className="h-5 w-px bg-encre-inverse/40" />
+            </p>
+
+            <CarteEtat cle="pret" plein />
+          </div>
         </div>
       </Reveal>
     </Section>
