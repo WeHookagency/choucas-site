@@ -131,9 +131,9 @@ export function FormulaireContact() {
       // `status` et non `alert` : l'annonce est polie, elle n'interrompt pas.
       // Le focus n'est pas force non plus — le lecteur arrive ici de lui-meme
       // en quittant le bouton qui vient de disparaitre.
-      <div role="status" className="rounded-carte border border-filet bg-surface p-6">
+      <div role="status" className="rounded-carte border border-filet bg-surface p-6 text-center">
         <p className="font-serif text-h3">{t('succes.titre')}</p>
-        <p className="text-corps mt-4 max-w-[62ch] text-encre-douce">{t('succes.texte')}</p>
+        <p className="text-corps mx-auto mt-4 max-w-[62ch] text-encre-douce">{t('succes.texte')}</p>
         <p className="mt-4">
           <a
             href={`mailto:${DESTINATION_FORMULAIRE}`}
@@ -149,8 +149,14 @@ export function FormulaireContact() {
   return (
     <div>
       {/* Bascule de voie. Deux boutons plutot que des onglets ARIA : ils ne
-          revelent pas un panneau, ils changent le formulaire lui-meme. */}
-      <div role="group" aria-label={t('voies.aria')} className="flex flex-wrap gap-3">
+          revelent pas un panneau, ils changent le formulaire lui-meme.
+
+          Centree depuis le 15 septembre 2026, avec le reste de la page. */}
+      <div
+        role="group"
+        aria-label={t('voies.aria')}
+        className="flex flex-wrap justify-center gap-3"
+      >
         {(['impl', 'question'] as const).map((v) => (
           <button
             key={v}
@@ -171,7 +177,24 @@ export function FormulaireContact() {
       </div>
 
       <form noValidate onSubmit={soumettre} className="mt-8">
-        <h2 className="font-serif text-h3 text-balance">
+        {/* ---------------------------------------------------------------
+            CE QUI SE CENTRE, ET CE QUI NE SE CENTRE PAS. 15 septembre 2026,
+            « tout centre que ce soit les CTA et les formulaires ».
+
+            Se centrent : la colonne entiere, la bascule de voie, ce titre, le
+            bouton d'envoi. C'est l'ossature de la page, et c'est elle qui
+            donnait cette impression de bloc colle a gauche.
+
+            NE SE CENTRENT PAS : les libelles de champ et leurs saisies. Un
+            libelle centre au-dessus d'un champ centre oblige l'oeil a
+            rechercher le debut de chaque ligne a chaque champ, et la colonne
+            de gauche qui guide la descente disparait. Sur un formulaire de
+            neuf champs, c'est une perte seche de lisibilite — pas un gout.
+
+            Les deux regles coexistent sans se contredire : le bloc est centre
+            dans la page, son contenu reste aligne a gauche a l'interieur.
+            --------------------------------------------------------------- */}
+        <h2 className="font-serif text-h3 text-center text-balance">
           {voie === 'impl' ? t('formTitreImpl') : t('formTitreQuestion')}
         </h2>
 
@@ -246,13 +269,19 @@ export function FormulaireContact() {
           </div>
         ) : null}
 
-        <Cta type="submit" fleche className="mt-8" disabled={envoi === 'encours'}>
+        {/* L'enveloppe porte le centrage, pas le CTA : sa classe
+            `inline-flex` de base l'emporterait sur un `mx-auto` passe en
+            className si les deux reglaient la meme propriete. Ici c'est un
+            flex parent, ce qui evite le piege documente dans SiteHeader. */}
+        <div className="mt-8 flex justify-center">
+        <Cta type="submit" fleche disabled={envoi === 'encours'}>
           {envoi === 'encours'
             ? t('envoiEnCours')
             : voie === 'impl'
               ? t('envoyerImpl')
               : t('envoyerQuestion')}
         </Cta>
+        </div>
       </form>
     </div>
   );

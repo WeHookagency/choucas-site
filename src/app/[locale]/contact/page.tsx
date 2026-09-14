@@ -53,11 +53,26 @@ export default async function Page({ params }: PageProps<'/[locale]/contact'>) {
 
   return (
     <main>
+      {/* PAGE CENTREE, 15 septembre 2026. Tout y etait cale a gauche : le
+          titre tenait dans 16ch et l'intro dans 62ch, sur une colonne de
+          1 200 — le reste, plus de la moitie de la page, etait du vide d'un
+          seul cote. Le formulaire, lui, etait plafonne a 720 px SANS `mx-auto`,
+          donc colle au bord gauche.
+
+          C'est le meme defaut que « Qui est derriere » et le point de
+          jonction : une mesure de texte dans une piste qui ne la connait pas.
+          Ici il se corrige en centrant, parce qu'une page de contact n'a rien
+          a poser a cote de son formulaire. */}
       <Section fond="fond" aria-labelledby="contact-titre">
-        <h1 id="contact-titre" className="font-serif text-h2 max-w-[16ch] text-balance">
+        <h1
+          id="contact-titre"
+          className="font-serif text-h2 mx-auto max-w-[16ch] text-center text-balance"
+        >
           {t.rich('titre', { accent: (chunks) => <Accent>{chunks}</Accent> })}
         </h1>
-        <p className="text-intro mt-6 max-w-[62ch] text-encre-douce">{t('intro')}</p>
+        <p className="text-intro mx-auto mt-6 max-w-[62ch] text-center text-encre-douce">
+          {t('intro')}
+        </p>
 
         {/* Les deux voies annoncees avant le formulaire — « Voie principale,
             une journee sur site » et « Voie secondaire, poser une question » —
@@ -70,7 +85,7 @@ export default async function Page({ params }: PageProps<'/[locale]/contact'>) {
       </Section>
 
       <Section fond="fond-alt">
-        <Reveal className="max-w-[720px]">
+        <Reveal className="mx-auto max-w-[720px]">
           {/* Le formulaire lit la voie dans l'URL, donc il rend cote client.
               La `Suspense` limite cette bascule a lui seul : le reste de la
               page reste prerendu et part dans le HTML initial. Le repli est
@@ -92,9 +107,12 @@ export default async function Page({ params }: PageProps<'/[locale]/contact'>) {
           dessus du seuil des titres ; le texte revient en encre pleine. */}
       <Section fond="fond" className="relative overflow-hidden" aria-labelledby="apres-titre">
         <CourbesNiveau />
-        <Reveal className="relative">
+        <Reveal className="relative flex flex-col items-center">
           <FiletAccent />
-          <h2 id="apres-titre" className="font-serif text-h3 mt-6 max-w-[20ch] text-balance">
+          <h2
+            id="apres-titre"
+            className="font-serif text-h3 mt-6 max-w-[20ch] text-center text-balance"
+          >
             {t('apres.titre')}
           </h2>
 
@@ -104,7 +122,12 @@ export default async function Page({ params }: PageProps<'/[locale]/contact'>) {
               chiffre et sa phrase ne formaient pas une unite. C'est le
               traitement que Produit et BriefIntake emploient deja pour un
               chiffre suivi de son libelle. */}
-          <ol className="mt-titre grid gap-8 desktop:grid-cols-3">
+          {/* La liste se centre en bloc ; chaque temps garde son alignement a
+              gauche. Un chiffre de 52 px centre au-dessus d'une phrase de deux
+              lignes ne forme plus une unite avec elle — c'est precisement le
+              defaut corrige ici le 13 septembre en posant le chiffre sur la
+              ligne de base du texte. */}
+          <ol className="mt-titre mx-auto grid w-full max-w-[1000px] gap-8 desktop:grid-cols-3">
             {ETAPES.map((cle, i) => (
               <li
                 key={cle}
