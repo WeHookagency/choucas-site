@@ -8,31 +8,51 @@ import { Reveal } from '../ui/Reveal';
 import { Section } from '../ui/Section';
 
 /**
- * Cinq avantages, et non plus trois, depuis le 15 septembre 2026.
+ * Sept avantages, et non plus trois. 15 septembre 2026.
  *
  * La section disait le contexte et les preuves, et s'arretait la. Il manquait
- * ce qui fait la difference sur le terrain : un ecran utilisable les mains
- * pleines, et le signalement qui remonte au lieu de se perdre.
+ * ce qui fait la difference sur le terrain : les acces qui arrivent avec la
+ * mission, un ecran utilisable les mains pleines, le signalement qui remonte
+ * au lieu de se perdre, et la regle du double controle.
  *
- * ⚠️ AUCUNE PHRASE N'EST INVENTEE ICI. Les cinq details sont assembles a
+ * ⚠️ AUCUNE PHRASE N'EST INVENTEE ICI. Les sept details sont assembles a
  * partir de copies deja publiees ailleurs sur le site — `solutions.terrain.*`,
- * `produit.imprevu.p1`, `journee.panneaux.controler`,
+ * `produit.mission.p1`, `produit.imprevu.p1`, `journee.panneaux.controler`,
  * `hospitalite.principes.anomalie`, `faq.questions.aisance-numerique`. La Home
  * ne promet donc rien que le reste du site ne promette deja.
  *
- * ⚠️ CE QUI N'Y EST PAS, ET POURQUOI. Les codes d'acces auraient fait un
- * sixieme point evident — « les acces du bien arrivent avec la mission ». Ils
- * sont ecartes : `produit.mission.p1` et `solutions.terrain.suite` les citent
- * deja, et `references/promesses-du-site.md` §3.1 rappelle que la fenetre
- * d'acces et le journal des revelations n'existent pas encore dans la PWA. Les
- * mettre en vitrine sur la Home avant la protection ajouterait une dette la ou
- * il y en a deja deux.
+ * ---------------------------------------------------------------------------
+ * `acces` ET `controle` ONT ETE POSES PUIS RETIRES PUIS REMIS, dans la meme
+ * journee. La trace vaut d'etre gardee, parce que c'est une doctrine qui a
+ * change et non un reglage.
  *
- * Le double controle non plus : « ne valide jamais sa propre mission » est
- * publie deux fois et reste faux dans l'application (promesses-du-site §1.2).
- * Un troisieme endroit n'aide pas.
+ * Je les avais ecartes au motif que la PWA ne les tient pas encore — la
+ * fenetre d'acces et le journal des revelations n'existent pas, et
+ * `?role=manager` suffit aujourd'hui a se declarer controleur
+ * (`references/promesses-du-site.md` §1.2 et §3.1). Publier avant de tenir
+ * ajoutait une dette.
+ *
+ * Arbitrage du fondateur, le 15 septembre : « si le site dit quelque chose
+ * c'est que la PWA va suivre aussi ». Le site n'est pas le compte rendu de ce
+ * que l'application fait, il est le cahier des charges de ce qu'elle doit
+ * faire. Les deux points reviennent donc.
+ *
+ * CE QUE CELA ENGAGE, ET C'EST ECRIT DANS promesses-du-site.md : ces phrases
+ * sont au present et lues par une gerante qui signe. Elles datent le travail
+ * PWA — l'etape 3 d'`identite-pwa.md` et la fenetre d'acces doivent etre
+ * livrees avant la premiere journee d'implantation, pas avant la mise en ligne
+ * du site.
+ * ---------------------------------------------------------------------------
  */
-const POINTS = ['consigne', 'contexte', 'ergonomie', 'signalement', 'preuves'] as const;
+const POINTS = [
+  'consigne',
+  'contexte',
+  'acces',
+  'ergonomie',
+  'signalement',
+  'preuves',
+  'controle',
+] as const;
 
 /**
  * Demonstration mobile terrain — specs §6.4.

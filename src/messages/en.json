@@ -343,6 +343,10 @@
         "titre": "Guest context remains available to the team",
         "detail": "How the property works, what the stay asked for, what to know before walking in."
       },
+      "acces": {
+        "titre": "Access details come with the mission",
+        "detail": "Key box, alarm, the trick with the front door. On site, nobody searches and nobody has to call."
+      },
       "ergonomie": {
         "titre": "One mission at a time, full screen",
         "detail": "Large buttons, little text. Usable with gloves on, outdoors, without digging through menus."
@@ -354,6 +358,10 @@
       "preuves": {
         "titre": "Photos and issues feed back into control",
         "detail": "What the team documents serves the control step, then the owner report."
+      },
+      "controle": {
+        "titre": "Nobody signs off their own mission",
+        "detail": "The team carries out, documents and reports. Someone else opens the control step — that rule is what turns a property READY."
       }
     },
     "ecran": {

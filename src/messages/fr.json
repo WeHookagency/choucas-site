@@ -346,6 +346,10 @@
         "titre": "Le contexte client reste accessible à l’équipe",
         "detail": "Les habitudes du bien, les demandes du séjour, ce qu’il faut savoir avant d’entrer."
       },
+      "acces": {
+        "titre": "Les accès du bien arrivent avec la mission",
+        "detail": "Boîte à clés, alarme, particularité de la porte. Sur place, on ne cherche pas et on n’appelle personne."
+      },
       "ergonomie": {
         "titre": "Une mission à la fois, en grand",
         "detail": "De gros boutons, peu de texte. Utilisable gantée, en extérieur, sans naviguer dans des menus."
@@ -357,6 +361,10 @@
       "preuves": {
         "titre": "Photos et signalements remontent vers le contrôle",
         "detail": "Ce que l’équipe documente sert le contrôle, puis le rapport propriétaire."
+      },
+      "controle": {
+        "titre": "Personne ne valide sa propre mission",
+        "detail": "L’équipe exécute, documente et signale. Une autre personne ouvre le contrôle — c’est cette règle qui fait passer le bien en PRÊT."
       }
     },
     "ecran": {
@@ -605,9 +613,10 @@
     },
     "qui": {
       "titre": "Qui est derrière",
-      "lead": "Moi, seul.",
-      "p1": "Mathieu Dupont-Vieux. J’ai grandi à La Clusaz, je suis parti douze ans au Québec, je suis revenu. Je développe des outils métier depuis plusieurs années, et j’enseigne le ski l’hiver.",
-      "p2": "Choucas n’est pas un projet mené depuis une capitale par des gens qui ont lu une étude sur le tourisme de montagne. Je vis dans la vallée où sont mes clients. Quand je viens configurer votre exploitation, je ne prends pas l’avion."
+      "lead": "Une seule personne, et c’est celle que vous aurez au téléphone.",
+      "p1": "Mathieu Dupont-Vieux. Une petite dizaine d’années en marketing et en web, passées à construire des outils pour des métiers qui n’étaient pas les miens. J’y ai appris que le travail utile commence avant le code : regarder comment une équipe travaille vraiment, plutôt que lui demander d’entrer dans la logique d’un logiciel.",
+      "p2": "Ce qui m’intéresse, c’est le moment où quelque chose se débloque pour quelqu’un. J’enseigne le ski l’hiver, et c’est le même métier : personne ne progresse parce qu’on lui a expliqué. On progresse parce que quelqu’un a pris le temps de le regarder faire.",
+      "p3": "Choucas n’est pas un projet mené depuis une capitale par des gens qui ont lu une étude sur le tourisme de montagne. J’ai grandi à La Clusaz, je suis parti douze ans au Québec, je suis revenu. Je vis dans la vallée où sont mes clients : quand je viens configurer votre exploitation, je ne prends pas l’avion."
     },
     "etat": {
       "titre": "Où en est Choucas",
