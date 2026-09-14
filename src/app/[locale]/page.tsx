@@ -9,6 +9,8 @@ import { BriefIntake } from '@/components/home/BriefIntake';
 import { BriefToProof } from '@/components/home/BriefToProof';
 import { FaqHome } from '@/components/home/FaqHome';
 import { OperationalTension } from '@/components/home/OperationalTension';
+import { PreuveAvis } from '@/components/home/PreuveAvis';
+import { PreuveClients } from '@/components/home/PreuveClients';
 import { QuiEstDerriere } from '@/components/home/QuiEstDerriere';
 import { TarifsHome } from '@/components/home/TarifsHome';
 import { FieldDemo } from '@/components/home/FieldDemo';
@@ -57,6 +59,16 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
           deference — il est remis le 14 septembre 2026. Son fond Panneau coupe
           au passage les deux Neige du hero et de ManagerDemo. */}
       <OperationalTension />
+      {/* Les deux preuves sociales. Elles ne rendent rien tant que
+          `content/preuves.ts` est vide, ce qu'il est : Choucas n'a pas encore
+          de clientes. Elles s'allument en remplissant ce fichier, pas en
+          touchant a cette page — la condition qui compte est verifiable par le
+          code au lieu d'etre une intention.
+
+          ⚠️ Le jour ou elles apparaissent, la suite des fonds de la Home
+          change : a remesurer, aucun fond ne devant se repeter d'une section a
+          la suivante. */}
+      <PreuveClients />
       <ManagerDemo />
       <BriefIntake />
       <FieldDemo />
@@ -86,6 +98,7 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
           racontee : le demarrage est le prix de cette journee-la, la question
           se pose ici. Elle partage volontairement le fond Panneau de
           l'implantation : voir la note du composant. */}
+      <PreuveAvis />
       <TarifsHome />
       {/* Qui vend, et ou en est le produit. Le site n'avait plus personne
           derriere lui depuis la suppression d'A propos. Arrive apres le prix
