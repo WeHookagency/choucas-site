@@ -1029,7 +1029,7 @@
       },
       "saisonniers": {
         "q": "J’ai des saisonniers qui changent chaque hiver.",
-        "r": "Les rôles et les droits se réattribuent en quelques minutes par personne. Aucune reconfiguration des biens n’est nécessaire d’une saison à l’autre."
+        "r": "Vos biens, vos rôles et vos workflows sont configurés une fois : rien à refaire d’une saison à l’autre. Ce qui change chaque hiver, ce sont les personnes, et cela ne touche pas à la configuration."
       },
       "refus-double-controle": {
         "q": "Et si mon équipe refuse le double contrôle ?",
@@ -1037,7 +1037,7 @@
       },
       "hebergement": {
         "q": "Où sont hébergées les données ?",
-        "r": "En Europe, chez un hébergeur soumis au RGPD. Le détail contractuel est fourni sur demande."
+        "r": "Chez Google, dans le cadre de Google Workspace. Google est établi hors de l’Union européenne ; les transferts sont couverts par les clauses contractuelles types. Le détail contractuel est fourni sur demande."
       },
       "photos": {
         "q": "Que deviennent les photos de biens privés ?",
@@ -1069,7 +1069,7 @@
       },
       "engagement": {
         "q": "Engagement, durée, résiliation ?",
-        "r": "Vous engagez le démarrage, pas l’année. La semaine qui suit la journée sur site est le test : vous faites tourner votre exploitation avec Choucas, puis vous décidez. L’abonnement ne démarre que si vous nous le dites. Vous choisissez ensuite la fréquence de paiement — mensuelle, à la saison ou à l’année — sans que le montant change."
+        "r": "Vous engagez le démarrage, pas l’année. La semaine qui suit la journée sur site est le test : vous faites tourner votre exploitation avec Choucas, puis vous décidez. L’abonnement ne démarre que si vous nous le dites. Vous choisissez ensuite la fréquence de paiement — mensuelle, à la saison ou à l’année — sans que le montant change. Vous arrêtez quand vous voulez : la facturation s’arrête à la fin du mois en cours, sans préavis."
       },
       "essayer": {
         "q": "Puis-je essayer avant de m’engager ?",
