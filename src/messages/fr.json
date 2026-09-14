@@ -728,7 +728,7 @@
     "arriveLitigeNom": "Le dossier de litige.",
     "arriveLitigeTexte": "L’export daté d’un départ et de l’arrivée qui suit, avec les deux personnes qui sont intervenues, leurs rôles et les photos horodatées.",
     "paiementTitre": "Le paiement",
-    "paiementTexte": "Mensuel, à la saison ou à l’année : vous choisissez au démarrage. Le montant ne change pas, seule la fréquence.",
+    "paiementTexte": "Mensuel : vous êtes facturé chaque mois, sur vos biens actifs. Pas de paiement d’avance, pas d’engagement de durée.",
     "htMention": "TVA non applicable, article 293 B du CGI."
   },
   "contact": {
@@ -1069,7 +1069,7 @@
       },
       "engagement": {
         "q": "Engagement, durée, résiliation ?",
-        "r": "Vous engagez le démarrage, pas l’année. La semaine qui suit la journée sur site est le test : vous faites tourner votre exploitation avec Choucas, puis vous décidez. L’abonnement ne démarre que si vous nous le dites. Vous choisissez ensuite la fréquence de paiement — mensuelle, à la saison ou à l’année — sans que le montant change. Vous arrêtez quand vous voulez : la facturation s’arrête à la fin du mois en cours, sans préavis."
+        "r": "Vous engagez le démarrage, pas l’année. La semaine qui suit la journée sur site est le test : vous faites tourner votre exploitation avec Choucas, puis vous décidez. L’abonnement ne démarre que si vous nous le dites, et il est facturé au mois. Vous arrêtez quand vous voulez : la facturation s’arrête à la fin du mois en cours, sans préavis."
       },
       "essayer": {
         "q": "Puis-je essayer avant de m’engager ?",
