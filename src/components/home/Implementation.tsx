@@ -39,7 +39,7 @@ const ETAPES = [
     encreMoment: 'text-encre/80',
   },
   {
-    etape: 'tester',
+    etape: 'transmettre',
     moment: 'soir',
     icone: 'soir',
     tuile: 'bg-cta border border-cta text-cta-encre',
@@ -108,23 +108,50 @@ export function Implementation() {
         />
       </Reveal>
 
-      <Reveal as="ol" group className="mt-titre grid gap-5 tablette:grid-cols-2 desktop:grid-cols-4">
+      {/* QUATRE RANGEES, PLUS QUATRE COLONNES. Chaque etape porte desormais
+          trois textes — ce qu'on fait, pourquoi, et le but — la ou elle n'avait
+          qu'une phrase. Les tuiles faisaient 305 px a 1440 et 221 a 1024 :
+          elles ne pouvaient pas les tenir sans devenir des colonnes de mots.
+
+          En rangees, le moment et le titre restent a gauche, les trois textes
+          prennent la mesure de lecture a droite, et la course du soleil se lit
+          toujours de haut en bas — les aplats s'assombrissent du matin au
+          soir, ce qui etait deja leur role. */}
+      <Reveal as="ol" group className="mt-titre flex flex-col gap-5">
         {ETAPES.map(({ etape, moment, icone, tuile, encreMoment }, i) => (
           <li key={moment} style={{ ['--i' as string]: i }}>
-            <Card accent="aucun" rayon="majeure" className={`flex h-full flex-col ${tuile}`}>
-              {/* Le moment est un dessin, plus un mot : le soleil se leve,
-                  culmine, se voile, puis cede a la nuit. Le nom du moment
-                  reste le nom accessible de l'icone — remplacer un mot par une
-                  image ne doit pas retirer l'information a qui ne voit pas
-                  l'image. */}
-              <Icon
-                name={icone}
-                size={28}
-                title={t(`moments.${moment}`)}
-                className={encreMoment}
-              />
-              <h3 className="font-serif text-h3 mt-3">{t(`etapes.${etape}.titre`)}</h3>
-              <p className="text-corps mt-3">{t(`etapes.${etape}.texte`)}</p>
+            <Card accent="aucun" rayon="majeure" className={tuile}>
+              <div className="grid gap-5 desktop:grid-cols-[minmax(0,220px)_minmax(0,1fr)] desktop:gap-12">
+                <div>
+                  {/* Le moment est un dessin, plus un mot : le soleil se leve,
+                      culmine, se voile, puis cede a la nuit. Le nom du moment
+                      reste le nom accessible de l'icone — remplacer un mot par
+                      une image ne doit pas retirer l'information a qui ne voit
+                      pas l'image. */}
+                  <Icon
+                    name={icone}
+                    size={28}
+                    title={t(`moments.${moment}`)}
+                    className={encreMoment}
+                  />
+                  <h3 className="font-serif text-h3 mt-3">{t(`etapes.${etape}.titre`)}</h3>
+                </div>
+
+                {/* « Pourquoi » et « But » en gras en tete de ligne, pas en
+                    surtitres : douze surtitres sur quatre rangees peseraient
+                    plus que les phrases qu'ils annoncent. */}
+                <div className="max-w-[62ch]">
+                  <p className="text-corps">{t(`etapes.${etape}.texte`)}</p>
+                  <p className="text-corps mt-4">
+                    <strong className="font-bold">{t('labels.pourquoi')}</strong>{' — '}
+                    {t(`etapes.${etape}.pourquoi`)}
+                  </p>
+                  <p className="text-corps mt-2">
+                    <strong className="font-bold">{t('labels.but')}</strong>{' — '}
+                    {t(`etapes.${etape}.but`)}
+                  </p>
+                </div>
+              </div>
             </Card>
           </li>
         ))}

@@ -73,7 +73,11 @@ export function TarifsHome() {
               <span className="font-serif text-h3 tabular-nums text-accent">{tSection('demarragePrix')}</span>
               <span className="text-intro text-encre-douce">{tSection('demarrageQuoi')}</span>
             </p>
-            <p className="text-corps mt-5">{t('demarrageP1')}</p>
+            {/* La phrase qui justifie le montant, juste apres le chiffre. Elle
+              vit dans `tarifsHome` comme les montants : une seule source pour
+              cette page et pour /tarifs. */}
+          <p className="text-intro mt-5 font-semibold">{tSection('demarrageJustification')}</p>
+          <p className="text-corps mt-5">{t('demarrageP1')}</p>
             {/* Deuxieme paragraphe ajoute le 13 septembre 2026 : la journee
               demandait plus que sa seule description. Il dit ce qu'elle n'est
               pas, ce qui est la moitie de ce qu'un dirigeant veut savoir. */}

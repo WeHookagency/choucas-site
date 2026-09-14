@@ -140,7 +140,10 @@ export default async function Page({ params }: PageProps<'/[locale]/tarifs'>) {
             <Prix montant={prix('demarragePrix')} unite={prix('demarrageQuoi')} />
           </div>
           <div className="max-w-[62ch]">
-            <p className="text-corps">{t('demarrageP1')}</p>
+            {/* La phrase qui justifie le montant vient en tete : c'est la
+                question posee juste apres avoir lu le chiffre. */}
+            <p className="text-intro font-semibold">{prix('demarrageJustification')}</p>
+            <p className="text-corps mt-5">{t('demarrageP1')}</p>
             <p className="text-corps mt-4 text-encre-douce">{t('demarrageP2')}</p>
           </div>
         </Colonnes>

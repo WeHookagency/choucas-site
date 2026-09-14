@@ -489,20 +489,32 @@
     "etapes": {
       "observer": {
         "titre": "Observer",
-        "texte": "Comprendre votre journée réelle et vos points de passage critiques."
+        "texte": "On regarde une vraie journée : vos rotations, qui fait quoi, où ça coince.",
+        "pourquoi": "un outil configuré sur ce qu’on imagine de votre métier ne sert personne.",
+        "but": "comprendre votre organisation telle qu’elle est, pas telle qu’elle devrait être."
       },
       "structurer": {
         "titre": "Structurer",
-        "texte": "Traduire vos briefs, contrôles, rôles et standards en logique opérationnelle."
+        "texte": "On pose vos biens, vos rôles, vos types de mission.",
+        "pourquoi": "ce sont les objets que votre équipe manipulera tous les jours, et les nommer mal se paie pendant des mois.",
+        "but": "que chacun retrouve dans Choucas les mots qu’il emploie déjà."
       },
       "configurer": {
         "titre": "Configurer",
-        "texte": "Activer ce dont votre équipe a besoin et masquer le reste."
+        "texte": "On écrit vos checklists, vos points de contrôle, vos seuils.",
+        "pourquoi": "le double contrôle ne vaut que si les points contrôlés sont les vôtres.",
+        "but": "que l’outil refuse ce que vous refusez, et laisse passer ce que vous acceptez."
       },
-      "tester": {
-        "titre": "Tester",
-        "texte": "Faire tourner Choucas sur vos cas réels et ajuster avec l’équipe."
+      "transmettre": {
+        "titre": "Transmettre",
+        "texte": "On forme votre équipe sur place, sur ses propres biens.",
+        "pourquoi": "une formation sur des données fictives ne tient pas jusqu’au samedi suivant.",
+        "but": "qu’en repartant, votre équipe travaille déjà dedans."
       }
+    },
+    "labels": {
+      "pourquoi": "Pourquoi",
+      "but": "But"
     }
   },
   "faqHome": {
@@ -519,7 +531,8 @@
     "abonnementPrix": "20 €",
     "abonnementQuoi": "par bien et par mois, minimum 300 €",
     "lien": "Voir le détail",
-    "reserve": "La journée sur site"
+    "reserve": "La journée sur site",
+    "demarrageJustification": "Une journée chez vous, pas une visioconférence. On repart quand votre équipe travaille dans Choucas — pas quand la démonstration est finie."
   },
   "pages": {
     "produit": {

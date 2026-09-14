@@ -481,20 +481,32 @@
     "etapes": {
       "observer": {
         "titre": "Observe",
-        "texte": "Understand the real operating day and critical handoffs."
+        "texte": "We watch a real day: your turnovers, who does what, where it jams.",
+        "pourquoi": "a tool configured on what we imagine of your trade serves no one.",
+        "but": "to understand your organisation as it is, not as it ought to be."
       },
       "structurer": {
         "titre": "Structure",
-        "texte": "Translate your briefs, controls, roles and standards into operational logic."
+        "texte": "We set up your properties, your roles, your mission types.",
+        "pourquoi": "these are the objects your team handles every day, and naming them badly is paid for over months.",
+        "but": "that everyone finds in Choucas the words they already use."
       },
       "configurer": {
         "titre": "Configure",
-        "texte": "Enable what your team needs and hide what it does not."
+        "texte": "We write your checklists, your control points, your thresholds.",
+        "pourquoi": "double control is only worth it if the points checked are yours.",
+        "but": "that the tool refuses what you refuse, and lets through what you accept."
       },
-      "tester": {
-        "titre": "Test",
-        "texte": "Run Choucas against real cases and adjust it with the team."
+      "transmettre": {
+        "titre": "Hand over",
+        "texte": "We train your team on site, on their own properties.",
+        "pourquoi": "training on fictional data does not hold until the following Saturday.",
+        "but": "that when we leave, your team is already working in it."
       }
+    },
+    "labels": {
+      "pourquoi": "Why",
+      "but": "Goal"
     }
   },
   "pages": {
@@ -569,6 +581,7 @@
     "abonnementPrix": "€20",
     "abonnementQuoi": "per property per month, €300 minimum",
     "lien": "See the detail",
-    "reserve": "The day on site"
+    "reserve": "The day on site",
+    "demarrageJustification": "A day at your place, not a video call. We leave when your team is working in Choucas — not when the demo is over."
   }
 }
