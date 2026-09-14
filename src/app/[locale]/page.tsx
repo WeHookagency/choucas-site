@@ -8,6 +8,8 @@ import { Implementation } from '@/components/home/Implementation';
 import { BriefIntake } from '@/components/home/BriefIntake';
 import { BriefToProof } from '@/components/home/BriefToProof';
 import { FaqHome } from '@/components/home/FaqHome';
+import { OperationalTension } from '@/components/home/OperationalTension';
+import { QuiEstDerriere } from '@/components/home/QuiEstDerriere';
 import { TarifsHome } from '@/components/home/TarifsHome';
 import { FieldDemo } from '@/components/home/FieldDemo';
 import { FinalCta } from '@/components/home/FinalCta';
@@ -48,6 +50,13 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
   return (
     <main>
       <Hero />
+      {/* Le probleme, avant la premiere demonstration. La page ouvrait sur la
+          solution et enchainait sur le fonctionnement : le lecteur devait
+          reconnaitre sa propre journee avant d'entendre la reponse, et rien ne
+          la lui montrait. `OperationalTension` existait dans le depot,
+          deference — il est remis le 14 septembre 2026. Son fond Panneau coupe
+          au passage les deux Neige du hero et de ManagerDemo. */}
+      <OperationalTension />
       <ManagerDemo />
       <BriefIntake />
       <FieldDemo />
@@ -78,6 +87,11 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
           se pose ici. Elle partage volontairement le fond Panneau de
           l'implantation : voir la note du composant. */}
       <TarifsHome />
+      {/* Qui vend, et ou en est le produit. Le site n'avait plus personne
+          derriere lui depuis la suppression d'A propos. Arrive apres le prix
+          et avant les objections : on voit le montant, on voit a qui on le
+          verse, puis on pose ses questions. */}
+      <QuiEstDerriere />
       <FaqHome />
       <FinalCta />
     </main>

@@ -14,6 +14,16 @@ import { Section } from '../ui/Section';
  *
  * Une seule partie du message est en cuivre, la derniere phrase.
  * Animation : un reveal unique sur l'ensemble (brief V7, section 05).
+ *
+ * Remis sur la Home le 14 septembre 2026, apres avoir ete deference : la page
+ * ouvrait sur la solution et enchainait sur le fonctionnement, sans jamais
+ * poser le probleme. Le lecteur doit reconnaitre sa propre journee avant
+ * d'entendre la reponse.
+ *
+ * La photo est centree sous le seuil desktop. Plafonnee a 460 dans une
+ * colonne de 712 a la tablette, elle laissait 252 px de trou d'un seul cote —
+ * un trou symetrique se lit comme une marge, un trou d'un seul cote comme un
+ * oubli.
  */
 export function OperationalTension() {
   const t = useTranslations('tension');
@@ -28,7 +38,7 @@ export function OperationalTension() {
           <Photo
             src="/demo/Unsplash.jpg"
             alt={t('photoAlt')}
-            className="mt-8 max-w-[460px] desktop:max-w-none"
+            className="mx-auto mt-8 max-w-[460px] desktop:mx-0 desktop:max-w-none"
           />
         </div>
 
