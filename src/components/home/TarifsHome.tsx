@@ -77,7 +77,10 @@ export function TarifsHome() {
               vit dans `tarifsHome` comme les montants : une seule source pour
               cette page et pour /tarifs. */}
           <p className="text-intro mt-5 font-semibold">{tSection('demarrageJustification')}</p>
-          <p className="text-corps mt-5">{t('demarrageP1')}</p>
+          {/* L'acompte juste apres la justification : ce qu'on achete, puis
+              ce qu'on engage. */}
+          <p className="text-corps mt-5">{t('demarrageAcompte')}</p>
+          <p className="text-corps mt-4">{t('demarrageP1')}</p>
             {/* Deuxieme paragraphe ajoute le 13 septembre 2026 : la journee
               demandait plus que sa seule description. Il dit ce qu'elle n'est
               pas, ce qui est la moitie de ce qu'un dirigeant veut savoir. */}
