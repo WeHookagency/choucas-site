@@ -733,7 +733,9 @@
       "titre": "Ce que Choucas ne fait pas",
       "texte": "Il ne remplace pas votre PMS, ne mesure pas les personnes, n’envoie rien automatiquement, ne suppose pas le réseau, et ne stocke aucune donnée de santé."
     },
-    "cta": "Organiser une journée sur site"
+    "cta": "Organiser une journée sur site",
+    "captureAlt": "Écran du responsable, samedi 5 septembre : 2 départs, 10 missions, 6 arrivées dont 1 prêt, 4 en préparation et 1 bloqué, puis les trois exceptions qui demandent une attention et la journée mission par mission.",
+    "captureLegende": "Une journée, à 12:00"
   },
   "tarifs": {
     "titre": "Tarifs",
@@ -944,7 +946,7 @@
         "meta": "Validé par Sophie M. · Responsable · 10:41",
         "fait": "Contrôle qualité effectué"
       },
-      "captureAlt": "Écran du responsable, samedi 5 septembre : sous EXCEPTIONS, « Chalet L’Aiguille — ménage départ terminée 10:25, en attente de contrôle », avec la pastille À contrôler.",
+      "captureAlt": "Bloc EXCEPTIONS de l’écran responsable : une alerte critique au Chalet La Tournette, puis « Chalet L’Aiguille — ménage départ terminée 10:25, en attente de contrôle » et « Le Bossonnet — terminée 11:50 », chacun avec sa pastille À contrôler.",
       "captureLegende": "L’écran où le contrôle se demande"
     },
     "memoire": {

@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl';
 
-import accueilResponsable from '../../../public/demo/accueil-responsable.png';
+import blocExceptions from '../../../public/demo/bloc-exceptions.png';
 
 import { Accent } from '../ui/Accent';
 import { CaptureProduit } from '../ui/CaptureProduit';
@@ -31,12 +31,11 @@ import { Section } from '../ui/Section';
  * La section enoncait la regle avec deux cartes dessinees pour elle. Elles
  * disent bien la regle, mais rien ne prouvait qu'un ecran la demande vraiment.
  *
- * `accueil-responsable.png` la prouve, et il n'a pas ete fabrique pour ca : il
- * etait deja dans le depot, inutilise. On y lit, sous EXCEPTIONS, « Chalet
- * L'Aiguille — Menage depart terminee 10:25, en attente de controle », avec sa
- * pastille A controler. MEME CHALET, MEME HEURE, MEME PERSONNE que la carte
- * TERMINÉ posee a cote — Sophie M., dont l'avatar SM est en haut a droite de
- * l'ecran. Rien n'a ete accorde apres coup : les deux racontent le meme moment.
+ * `bloc-exceptions.png` la prouve, et il n'a pas ete fabrique pour ca : il
+ * etait deja dans le depot, inutilise. On y lit « Chalet L'Aiguille — Menage
+ * depart terminee 10:25, en attente de controle », avec sa pastille A
+ * controler. MEME CHALET, MEME HEURE que la carte TERMINÉ posee a cote. Rien
+ * n'a ete accorde apres coup : les deux racontent le meme moment.
  *
  * C'est donc la situation a gauche et ce qu'elle produit a droite. Les deux
  * cartes passent de la rangee a la pile pour laisser la colonne d'ecran :
@@ -44,9 +43,16 @@ import { Section } from '../ui/Section';
  * la liaison qui nomme le controleur tombe entre les deux au lieu d'etre a
  * cote.
  *
- * L'ecran est coupe a 560 px et un fondu dit qu'il continue : les huit lignes
- * du bas sont la journee entiere, hors sujet ici, et la section n'a pas besoin
- * d'un ecran de 985 px de haut.
+ * ⚠️ CE FICHIER A D'ABORD PRIS `accueil-responsable.png`, L'ECRAN ENTIER.
+ * Il disait la meme chose, mais il le disait au milieu de huit lignes de
+ * journee sans rapport, et il fallait le couper a 560 px sur 985 pour tenir.
+ * Le bloc EXCEPTIONS seul est le meme moment sans le reste : aucune coupe,
+ * aucun fondu, et l'ecran entier repart au hero de la page — ou il porte
+ * « une journee de conciergerie », ce qu'il est vraiment.
+ *
+ * Une capture ne sert bien qu'a un seul endroit d'une page. Les deux y
+ * seraient, a deux ecrans de distance, et le lecteur aurait cru voir deux fois
+ * la meme illustration.
  * ---------------------------------------------------------------------------
  */
 export function PointJonction() {
@@ -73,14 +79,15 @@ export function PointJonction() {
             demande de controle avant de lire ce qu'elle produit. */}
         <div className="grid w-full items-center gap-10 desktop:grid-cols-[340px_340px] desktop:justify-center desktop:gap-16">
           <figure className="m-0 flex flex-col items-center gap-2">
+            {/* Ni `hauteurMax` ni `rayon="haut"` : 1036 x 1158 donne 380 px
+                de haut a 340 de large. Le bloc tient entier, il n'a rien a
+                couper et rien a laisser croire qu'il continue. */}
             <CaptureProduit
-              src={accueilResponsable}
+              src={blocExceptions}
               alt={t('captureAlt')}
               libelleLien={manager('lienDemo')}
               largeurMax={340}
-              hauteurMax={560}
               cadre
-              rayon="haut"
               ombre={false}
             />
             <figcaption className="text-micro max-w-[340px] text-center text-encre-inverse/85">

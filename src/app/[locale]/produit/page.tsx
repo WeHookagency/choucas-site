@@ -5,8 +5,11 @@ import { hasLocale } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 
+import accueilResponsable from '../../../../public/demo/accueil-responsable.png';
+
 import { PointJonction } from '@/components/produit/PointJonction';
 import { Accent } from '@/components/ui/Accent';
+import { CaptureProduit } from '@/components/ui/CaptureProduit';
 import { Cta } from '@/components/ui/Cta';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { Reserve } from '@/components/ui/Reserve';
@@ -131,10 +134,46 @@ export default async function Page({ params }: PageProps<'/[locale]/produit'>) {
   const t = await getTranslations('produit');
   const tApropos = await getTranslations('aPropos');
   const contact = await getTranslations('contact');
+  // `manager.lienDemo` dit ce que fait le lien de la capture : ouvrir la
+  // demonstration dans un nouvel onglet. J'y avais mis `voies.impl.action`
+  // — « Organiser une journee sur site » — qui annonce a un lecteur d'ecran
+  // une destination que le lien n'a pas.
+  const manager = await getTranslations('manager');
 
   return (
     <main>
+      {/* ---------------------------------------------------------------
+          LE HERO A DESORMAIS SON ECRAN. 15 septembre 2026.
+
+          Le titre tenait dans 20ch et l'intro dans 62ch, sur une colonne de
+          1 200 : la moitie droite de l'ouverture etait vide. C'est le meme
+          defaut que « Qui est derriere », le point de jonction et Contact — une
+          mesure de texte dans une piste qui ne la connait pas.
+
+          Il se corrige ici en posant quelque chose a cote, et non en centrant :
+          cette page annonce « une journee de conciergerie » puis fait attendre
+          le lecteur a travers cinq reserves avant le premier ecran. Le hero est
+          l'endroit ou le produit doit paraitre.
+
+          `accueil-responsable.png` EST une journee de conciergerie : 2 departs,
+          10 missions, 6 arrivees dont 1 prete, et les trois exceptions du jour.
+          Il ne fait pas doublon avec les cinq sections, qui montreront chacune
+          un MORCEAU de cette journee — le brief, la mission, le controle, le
+          PRET, l'imprevu. Le hero montre l'ensemble, elles montrent les pieces.
+
+          ⚠️ Il montre une journee QUI VA MAL : quatre missions en retard, une
+          alerte urgente, un chalet bloque. C'est pour cette raison qu'il avait
+          ete retire d'Implementation le 12 septembre, ou la section promettait
+          un resultat. Ici c'est le sujet meme de la page, qui consacre sa
+          derniere section a l'imprevu. Arbitrage du fondateur, assume.
+
+          Coupe a 520 px sur 985, avec le fondu qui dit qu'il continue : le
+          hero ne peut pas faire un ecran de haut, et la journee ligne par ligne
+          n'est pas ce qu'on lit en ouvrant une page.
+          --------------------------------------------------------------- */}
       <Section fond="fond" aria-labelledby="produit-titre">
+        <div className="mx-auto grid max-w-[940px] items-center gap-10 desktop:grid-cols-[1fr_340px] desktop:gap-16">
+        <div className="max-w-[62ch]">
         <Eyebrow>{t('eyebrow')}</Eyebrow>
         {/* L'accent cuivre, ajoute le 15 septembre 2026. C'etait le seul titre
             editorial du site a ne pas l'avoir : la Home, Contact et chaque
@@ -148,6 +187,24 @@ export default async function Page({ params }: PageProps<'/[locale]/produit'>) {
           {t.rich('titre', { accent: (chunks) => <Accent>{chunks}</Accent> })}
         </h1>
         <p className="text-intro mt-8 max-w-[62ch] text-encre-douce">{t('intro')}</p>
+        </div>
+
+        <figure className="m-0 flex flex-col items-center gap-2">
+          <CaptureProduit
+            src={accueilResponsable}
+            alt={t('captureAlt')}
+            libelleLien={manager('lienDemo')}
+            largeurMax={340}
+            hauteurMax={520}
+            cadre
+            rayon="haut"
+            ombre={false}
+          />
+          <figcaption className="text-micro max-w-[340px] text-center text-encre-douce">
+            {t('captureLegende')}
+          </figcaption>
+        </figure>
+        </div>
       </Section>
 
       {SECTIONS.map(({ cle, fond, ecranAGauche, paras }, i) => {
