@@ -7,6 +7,7 @@ import { Hero } from '@/components/home/Hero';
 import { Implementation } from '@/components/home/Implementation';
 import { BriefIntake } from '@/components/home/BriefIntake';
 import { BriefToProof } from '@/components/home/BriefToProof';
+import { DemoLive } from '@/components/home/DemoLive';
 import { FaqHome } from '@/components/home/FaqHome';
 import { OperationalTension } from '@/components/home/OperationalTension';
 import { PreuveAvis } from '@/components/home/PreuveAvis';
@@ -83,6 +84,15 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
           enonce la regle du double controle — « la personne qui controle
           n'est pas celle qui a execute ». Elle tient toujours sur /solutions
           et dans la FAQ, plus sur la Home. */}
+      {/* La demonstration publique, dans la page, juste apres la chaine
+          Brief → PRÊT : on vient de lire le parcours, on peut l'essayer.
+
+          ⚠️ SEULE IFRAME DU SITE. Le reste ne charge aucune origine tierce —
+          propriete mesuree, pas intention — et elle ne cede qu'ici. Elle ne
+          se cree qu'au clic : traverser la page sans s'arreter ne coute rien.
+          Sous 1 000 px, le bouton n'est pas rendu et un lien vers un nouvel
+          onglet prend sa place. */}
+      <DemoLive />
       <OwnerReport />
       {/* Philosophy — « Une autre façon de piloter » — retirée le 6 septembre
           2026. Le fichier et ses clés de traduction restent en place : la

@@ -150,6 +150,11 @@
       }
     }
   },
+  "demoLive": {
+    "titre": "Open the demo without leaving the page.",
+    "intro": "The data is fictional. Navigate as your team would.",
+    "bouton": "Start the demo"
+  },
   "briefIntake": {
     "label": "Client brief",
     "titre": "A brief never arrives <accent>in order.</accent>",

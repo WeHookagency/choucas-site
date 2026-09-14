@@ -150,6 +150,11 @@
       }
     }
   },
+  "demoLive": {
+    "titre": "Ouvrez la démonstration sans quitter la page.",
+    "intro": "Les données sont fictives. Naviguez comme le ferait votre équipe.",
+    "bouton": "Lancer la démonstration"
+  },
   "briefIntake": {
     "label": "Brief client",
     "titre": "Un brief n’arrive jamais <accent>en ordre.</accent>",

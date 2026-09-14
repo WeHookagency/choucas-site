@@ -26,6 +26,18 @@ export const ancres = {
 export type Ancre = (typeof ancres)[keyof typeof ancres];
 
 /**
+ * La demonstration publique du produit, avec son jeu de donnees fictif.
+ *
+ * `?demo=1` n'est pas decoratif : sans lui, l'adresse nue ouvre l'ecran
+ * d'accueil de l'application et non la demonstration. Verifie dans le
+ * navigateur le 12 septembre 2026 sur les deux adresses.
+ *
+ * ⚠️ A reprendre au deploiement, quand l'adresse definitive remplacera le
+ * sous-domaine Netlify. Le parametre, lui, reste.
+ */
+export const LIEN_DEMO_APP = 'https://choucasv2.netlify.app/?demo=1';
+
+/**
  * Page LinkedIn de l'entreprise.
  *
  * L'adresse fournie etait celle de l'apercu d'administrateur —
