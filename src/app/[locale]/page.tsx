@@ -108,13 +108,6 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
       />
 
       <Hero />
-      {/* Le probleme, avant la premiere demonstration. La page ouvrait sur la
-          solution et enchainait sur le fonctionnement : le lecteur devait
-          reconnaitre sa propre journee avant d'entendre la reponse, et rien ne
-          la lui montrait. `OperationalTension` existait dans le depot,
-          deference — il est remis le 14 septembre 2026. Son fond Panneau coupe
-          au passage les deux Neige du hero et de ManagerDemo. */}
-      <OperationalTension />
       {/* Les deux preuves sociales. Elles ne rendent rien tant que
           `content/preuves.ts` est vide, ce qu'il est : Choucas n'a pas encore
           de clientes. Elles s'allument en remplissant ce fichier, pas en
@@ -126,6 +119,17 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
           la suivante. */}
       <PreuveClients />
       <ManagerDemo />
+      {/* Le probleme, juste apres la vue manager. Il etait place avant elle,
+          en ouverture : on posait le probleme a quelqu'un qui n'avait encore
+          rien vu du produit. Descendu ici le 14 septembre 2026 — on montre
+          d'abord ce que ca donne, puis ce que ca remplace.
+
+          Les fonds suivent : la vue manager passe en Panneau et la tension en
+          Neige, sans quoi l'accueil et la vue manager, tous deux en Neige, se
+          lisaient comme un seul bloc. Suite mesuree : Neige, Panneau, Neige,
+          Sapin, Neige, Schiste, Panneau, Neige, Panneau, Panneau, Lichen,
+          Neige, Schiste. */}
+      <OperationalTension />
       <BriefIntake />
       <FieldDemo />
       <BriefToProof />

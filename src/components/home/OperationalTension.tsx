@@ -29,7 +29,7 @@ export function OperationalTension() {
   const t = useTranslations('tension');
 
   return (
-    <Section fond="fond-alt" aria-labelledby="tension-titre">
+    <Section fond="fond" aria-labelledby="tension-titre">
       <Reveal className="grid gap-10 desktop:grid-cols-12 desktop:gap-16">
         <div className="desktop:col-span-5">
           <p className="text-label font-semibold uppercase text-encre-douce">

@@ -33,7 +33,7 @@ export function ManagerDemo() {
     <section
       id={ancres.produit}
       aria-labelledby="manager-titre"
-      className="scroll-mt-[61px] bg-fond desktop:scroll-mt-[69px]"
+      className="scroll-mt-[61px] bg-fond-alt desktop:scroll-mt-[69px]"
     >
       <Reveal group className="mx-auto max-w-scene">
         {/* Surface mousse, rayon superieur 28 px — §6.3. Le Lichen est une
