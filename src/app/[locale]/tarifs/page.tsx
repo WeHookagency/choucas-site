@@ -61,26 +61,20 @@ export async function generateMetadata(props: {
  * ⚠️ Trois reponses de la FAQ decrivent encore l'ancien modele et le
  * contredisent. Elles ne sont pas sur cette page, mais elles parlent d'elle.
  */
-/**
- * La grille de la page : le titre et son prix a gauche, l'explication a
- * droite.
+/*
+ * `Colonnes` a vecu ici du 14 au 15 septembre 2026, et a disparu avec la
+ * derniere rangee qui l'employait.
  *
- * Elle etait une colonne de 529 px calee a gauche dans un conteneur de 1 360 :
- * 791 px de vide a droite, sur les six sections, sur toute la page. Mesure le
- * 14 septembre 2026.
+ * Elle reglait un vrai probleme : la page etait une colonne de 529 px calee a
+ * gauche dans un conteneur de 1 360, soit 791 px de vide a droite, sur six
+ * sections. Elle la plafonnait a 940 et la centrait — 300 pour les titres,
+ * 64 d'ecart, 529 pour la mesure de lecture.
  *
- * Plafonnee a 940 px et centree — 300 pour la colonne des titres, 64 d'ecart,
- * 529 pour la mesure de lecture. Les marges deviennent egales, et une
- * respiration se lit autrement qu'un trou. Meme traitement que les sections de
- * Produit.
+ * Ce qu'elle ne pouvait pas regler, c'est que les sept sections avaient alors
+ * exactement la meme forme. Le plafond de 940 lui survit : chaque bloc de la
+ * page le porte desormais lui-meme, avec la mise en page que son contenu
+ * demande.
  */
-function Colonnes({ children }: { children: React.ReactNode }) {
-  return (
-    <Reveal className="mx-auto grid max-w-[940px] items-start gap-6 desktop:grid-cols-[minmax(0,300px)_minmax(0,1fr)] desktop:gap-16">
-      {children}
-    </Reveal>
-  );
-}
 
 /**
  * Un montant, sorti de son titre.
@@ -182,6 +176,46 @@ function CartePrix({
   );
 }
 
+/**
+ * Un item nomme : une option qui existe, ou une brique qui n'existe pas encore.
+ *
+ * 15 septembre 2026. Les deux dernieres sections de contenu enfilaient leurs
+ * items en paragraphes a intitule gras — « <strong>Le dossier de litige.</strong>
+ * L'export date d'un depart… ». Sur une page de tarifs, un item qui se vend
+ * separement doit se lire comme un item, pas comme la suite du paragraphe
+ * precedent.
+ *
+ * `aVenir` passe le filet en pointilles. Ce n'est pas un ornement : c'est le
+ * meme vocabulaire que `Reserve`, qui marque partout sur ce site ce qui n'est
+ * pas encore la. `arriveIntro` dit « ces deux briques sont en construction » —
+ * le pointille le montre au lieu de compter sur le fait qu'on ait lu la phrase
+ * au-dessus.
+ *
+ * Le filet pointille mesure 3,03:1 sur Panneau a 25 % d'encre. Il ne porte
+ * aucune information a lui seul : la phrase d'introduction le dit en toutes
+ * lettres, et « sur devis » figure dedans.
+ */
+function Item({
+  nom,
+  texte,
+  aVenir = false,
+}: {
+  nom: string;
+  texte: string;
+  aVenir?: boolean;
+}) {
+  return (
+    <div
+      className={`flex h-full flex-col rounded-carte border bg-surface p-6 text-encre desktop:p-7 ${
+        aVenir ? 'border-dashed border-encre/25' : 'border-filet shadow-carte'
+      }`}
+    >
+      <p className="text-intro font-semibold">{nom}</p>
+      <p className="text-corps mt-4 text-encre-douce">{texte}</p>
+    </div>
+  );
+}
+
 export default async function Page({ params }: PageProps<'/[locale]/tarifs'>) {
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) notFound();
@@ -277,67 +311,110 @@ export default async function Page({ params }: PageProps<'/[locale]/tarifs'>) {
         </Reveal>
       </Section>
 
-      {/* Fond Sapin : c'est la section qui leve l'objection la plus chere — on
-          ne s'engage pas a l'aveugle. Elle merite d'etre vue en defilant. */}
+      {/* ---------------------------------------------------------------
+          Fond Sapin : c'est la section qui leve l'objection la plus chere — on
+          ne s'engage pas a l'aveugle. Elle merite d'etre vue en defilant.
+
+          ELLE ETAIT POURTANT UNE RANGEE COMME LES AUTRES, avec son titre a
+          gauche et trois paragraphes a droite. La reponse a « pouvez-vous
+          tester avant ? » — OUI, ET C'EST OFFERT — se lisait en 15 px au meme
+          rang que le reste.
+
+          Elle prend la forme de ce qu'elle dit. `testP1` est LA reponse : elle
+          passe au centre, en serif, a la taille d'un titre de section. Puis
+          deux cartes Glacier sur le Sapin — la grammaire de BriefIntake et du
+          point de jonction — pour les deux temps qui suivent : ce qui se passe
+          pendant la semaine, et ce qui se passe a l'issue.
+
+          Deux cartes et non un paragraphe de deux blocs : ce sont deux moments
+          distincts, et le second engage de l'argent.
+          --------------------------------------------------------------- */}
       <Section fond="sapin" aria-labelledby="test-titre">
-        <Colonnes>
-          <h2 id="test-titre" className="font-serif text-h3 text-balance">
-            {t('testTitre')}
-          </h2>
-          <div className="max-w-[62ch]">
-            <p className="text-intro font-semibold">{t('testP1')}</p>
-            <p className="text-corps mt-4 text-encre-inverse/85">{t('testP2')}</p>
-            <p className="text-corps mt-4 text-encre-inverse/85">{t('testP3')}</p>
+        <Reveal group className="mx-auto max-w-[940px]">
+          {/* La question reste un titre. J'avais commence par la passer en
+              etiquette de 11 px pour donner la vedette a la reponse : un H2
+              rendu a la taille d'une legende est un titre qu'on ne lit plus,
+              et celui-la est une phrase que la lectrice se pose vraiment.
+
+              C'est la reponse qui prend le cuivre eclairci. La table de
+              `tokens.css` le donne a 4,64:1 sur Sapin : au-dessus du seuil de
+              4,5 du texte courant, et de peu — d'ou le gras, qui n'est pas
+              decoratif ici. Le cuivre standard y tomberait a 2,79:1. */}
+          <div style={{ ['--i' as string]: 0 }} className="mx-auto max-w-[640px] text-center">
+            <h2 id="test-titre" className="font-serif text-h3 text-balance">
+              {t('testTitre')}
+            </h2>
+            <p className="text-intro mt-5 font-semibold text-accent-inverse">{t('testP1')}</p>
           </div>
-        </Colonnes>
+
+          <div className="mt-titre grid gap-6 desktop:grid-cols-2 desktop:gap-8">
+            <div style={{ ['--i' as string]: 1 }} className="flex">
+              <div className="flex h-full w-full flex-col rounded-carte border border-filet bg-surface p-6 text-encre desktop:p-7">
+                <p className="text-corps">{t('testP2')}</p>
+              </div>
+            </div>
+            <div style={{ ['--i' as string]: 2 }} className="flex">
+              <div className="flex h-full w-full flex-col rounded-carte border border-filet bg-surface p-6 text-encre desktop:p-7">
+                <p className="text-corps">{t('testP3')}</p>
+              </div>
+            </div>
+          </div>
+        </Reveal>
       </Section>
 
+      {/* Les deux sections d'items prennent le meme en-tete centre : un titre,
+          sa phrase d'introduction, puis les items en cartes. Elles se lisent
+          comme une paire — ce qui existe en option, ce qui n'existe pas
+          encore — et c'est ce qu'elles sont. */}
       <Section fond="fond" aria-labelledby="options-titre">
-        <Colonnes>
-          <h2 id="options-titre" className="font-serif text-h3 text-balance">
-            {t('optionsTitre')}
-          </h2>
-          <div className="max-w-[62ch]">
-          <p className="text-corps text-encre-douce">{t('optionsIntro')}</p>
-          {/* Intitule en gras et non en h3 : la contrainte de la page est un
-              seul niveau de titre par section. */}
-          <p className="text-corps mt-titre">
-            <strong className="font-bold">{t('optionsRapportNom')}</strong>{' '}
-            {t('optionsRapportTexte')}
-          </p>
+        <Reveal group className="mx-auto max-w-[940px]">
+          <div style={{ ['--i' as string]: 0 }} className="mx-auto max-w-[62ch] text-center">
+            <h2 id="options-titre" className="font-serif text-h3 text-balance">
+              {t('optionsTitre')}
+            </h2>
+            <p className="text-corps mt-4 text-encre-douce">{t('optionsIntro')}</p>
           </div>
-        </Colonnes>
+          {/* Une seule option aujourd'hui : la carte est donc plafonnee et
+              centree plutot que posee dans une grille a une colonne, ou elle
+              prendrait 940 px de large pour six lignes de texte. */}
+          <div style={{ ['--i' as string]: 1 }} className="mt-titre mx-auto flex max-w-[560px]">
+            <Item nom={t('optionsRapportNom')} texte={t('optionsRapportTexte')} />
+          </div>
+        </Reveal>
       </Section>
 
       <Section fond="fond-alt" aria-labelledby="arrive-titre">
-        <Colonnes>
-          <h2 id="arrive-titre" className="font-serif text-h3 text-balance">
-            {t('arriveTitre')}
-          </h2>
-          <div className="max-w-[62ch]">
-          <p className="text-corps text-encre-douce">{t('arriveIntro')}</p>
-          <p className="text-corps mt-titre">
-            <strong className="font-bold">{t('arriveMemoireNom')}</strong>{' '}
-            {t('arriveMemoireTexte')}
-          </p>
-          <p className="text-corps mt-5">
-            <strong className="font-bold">{t('arriveLitigeNom')}</strong>{' '}
-            {t('arriveLitigeTexte')}
-          </p>
+        <Reveal group className="mx-auto max-w-[940px]">
+          <div style={{ ['--i' as string]: 0 }} className="mx-auto max-w-[62ch] text-center">
+            <h2 id="arrive-titre" className="font-serif text-h3 text-balance">
+              {t('arriveTitre')}
+            </h2>
+            <p className="text-corps mt-4 text-encre-douce">{t('arriveIntro')}</p>
           </div>
-        </Colonnes>
+          <div className="mt-titre grid gap-6 desktop:grid-cols-2 desktop:gap-8">
+            <div style={{ ['--i' as string]: 1 }} className="flex">
+              <Item nom={t('arriveMemoireNom')} texte={t('arriveMemoireTexte')} aVenir />
+            </div>
+            <div style={{ ['--i' as string]: 2 }} className="flex">
+              <Item nom={t('arriveLitigeNom')} texte={t('arriveLitigeTexte')} aVenir />
+            </div>
+          </div>
+        </Reveal>
       </Section>
 
+      {/* Le paiement : deux phrases courtes qui occupaient une rangee entiere.
+          Elles se centrent et se resserrent — c'est une mention de bas de page
+          de tarifs, pas une section de contenu, et la traiter comme les autres
+          lui donnait un poids qu'elle n'a pas. Le filet la separe sans lui
+          creer un fond a elle. */}
       <Section fond="fond" aria-labelledby="paiement-titre">
-        <Colonnes>
-          <h2 id="paiement-titre" className="font-serif text-h3 text-balance">
+        <Reveal className="mx-auto max-w-[62ch] border-t border-filet pt-titre text-center">
+          <h2 id="paiement-titre" className="text-intro font-semibold">
             {t('paiementTitre')}
           </h2>
-          <div className="max-w-[62ch]">
-            <p className="text-corps">{t('paiementTexte')}</p>
-            <p className="text-micro mt-5 text-encre-douce">{t('htMention')}</p>
-          </div>
-        </Colonnes>
+          <p className="text-corps mt-3">{t('paiementTexte')}</p>
+          <p className="text-micro mt-4 text-encre-douce">{t('htMention')}</p>
+        </Reveal>
       </Section>
 
       {/* ---------------------------------------------------------------
