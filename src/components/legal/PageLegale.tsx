@@ -7,6 +7,11 @@ import { Section } from '../ui/Section';
  *
  * Une colonne de lecture etroite, des blocs titres-contenu separes d'un filet.
  * Rien d'editorial : ces pages se consultent, elles ne se parcourent pas.
+ *
+ * CENTREE depuis le 16 septembre 2026. La colonne de 68ch etait calee a gauche
+ * d'un conteneur de 1 360 : mesure a 1440, elle occupait 45 % de la piste et
+ * laissait 699 px de vide a droite. Sur une page qui n'a rien a poser a cote
+ * de son texte, c'est un oubli, pas une composition.
  */
 export function PageLegale({
   titre,
@@ -18,7 +23,7 @@ export function PageLegale({
   return (
     <main>
       <Section fond="fond" aria-labelledby="page-titre">
-        <div className="max-w-[68ch]">
+        <div className="mx-auto max-w-[68ch]">
           <h1 id="page-titre" className="font-serif text-h2 text-balance">
             {titre}
           </h1>

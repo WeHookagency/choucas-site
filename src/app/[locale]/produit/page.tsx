@@ -320,14 +320,18 @@ export default async function Page({ params }: PageProps<'/[locale]/produit'>) {
           seule source : les intitules viennent de `aPropos.partis`, leurs
           justifications restent la-bas. `produit.refus.texte` reste dans le
           catalogue, la phrase condensee sert encore ailleurs. */}
+      {/* Le titre et la liste sont plafonnes ensemble a 820 et centres. La
+          liste l'etait deja, mais dans une piste de 1 360 : 460 px de vide a
+          droite a 1440, avec des filets qui couraient jusqu'a 900 pour des
+          phrases de cinq mots. Le titre, lui, flottait a part. */}
       <Section fond="fond-alt" aria-labelledby="refus-titre">
-        <Reveal>
+        <Reveal className="mx-auto max-w-[820px]">
           <h2 id="refus-titre" className="font-serif text-h3 max-w-[20ch] text-balance">
             {t('refus.titre')}
           </h2>
         </Reveal>
 
-        <Reveal as="ul" group className="mt-titre max-w-[820px]">
+        <Reveal as="ul" group className="mt-titre mx-auto max-w-[820px]">
           {REFUS.map((cle, i) => (
             <li
               key={cle}

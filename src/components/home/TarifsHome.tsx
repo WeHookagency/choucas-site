@@ -54,7 +54,13 @@ export function TarifsHome() {
       {/* Texte a gauche, ecran a droite — la grille que Produit et Solutions
           emploient deja. Le bloc etait une colonne centree de 720 px, qui
           laissait le reste de la largeur vide. */}
-      <div className="grid items-start gap-10 desktop:grid-cols-[1fr_340px] desktop:gap-16">
+      {/* Plafonnee a 940 et centree — 529 de mesure, 64 d'ecart, 340 d'ecran,
+          la grille de Produit a l'identique. Sans le plafond, la piste de
+          texte prend tout le reste de la colonne et le texte, cale a 62ch,
+          n'en occupe qu'une part : 410 px de couloir vide entre la mesure et
+          la reserve, mesures a 1440 le 16 septembre 2026. C'est exactement le
+          defaut corrige sur Produit le 14, et il etait reste ici. */}
+      <div className="mx-auto grid max-w-[940px] items-start gap-10 desktop:grid-cols-[1fr_340px] desktop:gap-16">
         <div className="max-w-[62ch]">
           <Reveal>
             <h2 id="tarifs-home-titre" className="font-serif text-h2 text-balance">

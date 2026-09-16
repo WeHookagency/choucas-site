@@ -88,14 +88,29 @@ export default async function Page({ params }: PageProps<'/[locale]/faq'>) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(donneesStructurees) }}
       />
 
+      {/* Le titre, son chapeau et la grille partagent le meme axe. En centrant
+          la grille seule, je l'avais decrochee de son titre : le H1 restait sur
+          la marge de la section et la grille commencait 188 px plus loin. Un
+          titre qui ne s'aligne plus sur ce qu'il titre est un defaut plus
+          visible que le vide qu'on venait de combler.
+
+          C'est la lecon du premier passage : cette sonde trouve des trous, elle
+          ne dit pas comment les fermer, et les fermer un par un en deplace. Le
+          plafond se pose donc sur le bloc entier. */}
       <Section fond="fond" aria-labelledby="faq-titre">
+        <div className="mx-auto max-w-[984px]">
         <h1 id="faq-titre" className="font-serif text-h2 max-w-[16ch] text-balance">
           {t('titre')}
         </h1>
         <p className="text-intro mt-6 max-w-[60ch] text-encre-douce">{t('intro')}</p>
 
         {/* Le sommaire structure la page ; aucune alternance de fond entre les
-            groupes ne vient s'y ajouter. */}
+            groupes ne vient s'y ajouter.
+
+            Plafonnee a 984 et centree : 200 de sommaire, 64 d'ecart, 720 de
+            questions. La piste faisait 1 360 et la grille s'arretait a 1 060 —
+            296 px de vide a droite a 1440, parce que la colonne de questions
+            est plafonnee a 720 et que le `1fr` lui en offrait 1 096. */}
         <div className="mt-titre grid gap-10 desktop:grid-cols-[200px_minmax(0,1fr)] desktop:gap-16">
           <SommaireFaq
             entrees={groupes.map(({ id, libelle }) => ({ id, libelle }))}
@@ -125,6 +140,7 @@ export default async function Page({ params }: PageProps<'/[locale]/faq'>) {
               </Reveal>
             ))}
           </div>
+        </div>
         </div>
       </Section>
 
