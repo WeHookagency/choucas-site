@@ -70,46 +70,61 @@ export function SiteFooter() {
           {/* `unoptimized` : l'optimiseur de Next refuse le SVG sans
               `dangerouslyAllowSVG`, et une marque de 500 octets n'a rien a
               gagner a passer par lui. Le nom accessible porte la marque. */}
-          <div className="flex flex-col gap-6">
-            <Image
-              src="/choucas-mark-inverse.svg"
-              alt={t('marqueAlt')}
-              width={52}
-              height={52}
-              unoptimized
-            />
+          {/* ---------------------------------------------------------------
+              UNE SEULE LIGNE, ET DES ICONES QU'ON VOIT. 17 septembre 2026.
 
-            {/* Joindre quelqu'un, a toutes les largeurs. Le menu mobile les
-                porte aussi, mais il faut l'ouvrir ; ici les deux sont
-                toujours la. Icones seules, donc chacune porte un nom
-                accessible : un lecteur d'ecran annonce le numero et
-                « Choucas sur LinkedIn », pas « lien ».
+              La marque etait posee seule, et les deux icones vingt-quatre
+              pixels plus bas, a 20 px dans des cibles de 44. Elles se lisaient
+              comme de la ponctuation sous un logo, pas comme deux moyens de
+              joindre quelqu'un.
 
-                Le numero vient de `mentions` — une seule source dans le
-                depot, il ne peut pas diverger d'avec les mentions legales. */}
-            <ul className="-ml-2.5 flex items-center gap-1">
-              <li>
-                <a
-                  href={`tel:${mentions('editeurTelephone').replace(/\s/g, '')}`}
-                  aria-label={mentions('editeurTelephone')}
-                  className="inline-flex size-11 items-center justify-center rounded-carte text-encre-inverse hover:text-accent-inverse"
-                >
-                  <Icon name="telephone" size={20} />
-                </a>
-              </li>
-              <li>
-                <a
-                  href={LIEN_LINKEDIN}
-                  target="_blank"
-                  rel="noopener"
-                  aria-label={nav('linkedin')}
-                  className="inline-flex size-11 items-center justify-center rounded-carte text-encre-inverse hover:text-accent-inverse"
-                >
-                  <Icon name="linkedin" size={20} />
-                </a>
-              </li>
-            </ul>
-          </div>
+              Les trois passent sur une ligne, et les icones a 28 px. La cible
+              tactile reste a 44 : c'est le dessin qui grandit, pas la boite —
+              le §9 est tenu, et il l'etait deja.
+
+              LA MARQUE DEVIENT UN LIEN vers l'accueil. Elle ne l'etait pas :
+              un logo de pied de page qui ne mene nulle part est le seul
+              element de la page dont on attend un clic sans l'obtenir.
+
+              Icones seules, donc chacune porte un nom accessible : un lecteur
+              d'ecran annonce le numero et « Choucas sur LinkedIn », pas
+              « lien ». Le numero vient de `mentions` — une seule source dans
+              le depot, il ne peut pas diverger d'avec les mentions legales.
+              --------------------------------------------------------------- */}
+          <ul className="flex items-center gap-2">
+            <li className="mr-2">
+              <Link href="/" aria-label={t('marqueAlt')} className="inline-flex">
+                <Image
+                  src="/choucas-mark-inverse.svg"
+                  alt=""
+                  aria-hidden
+                  width={52}
+                  height={52}
+                  unoptimized
+                />
+              </Link>
+            </li>
+            <li>
+              <a
+                href={`tel:${mentions('editeurTelephone').replace(/\s/g, '')}`}
+                aria-label={mentions('editeurTelephone')}
+                className="inline-flex size-11 items-center justify-center rounded-carte text-encre-inverse hover:text-accent-inverse"
+              >
+                <Icon name="telephone" size={28} />
+              </a>
+            </li>
+            <li>
+              <a
+                href={LIEN_LINKEDIN}
+                target="_blank"
+                rel="noopener"
+                aria-label={nav('linkedin')}
+                className="inline-flex size-11 items-center justify-center rounded-carte text-encre-inverse hover:text-accent-inverse"
+              >
+                <Icon name="linkedin" size={28} />
+              </a>
+            </li>
+          </ul>
 
           {/* Un seul `nav` pour les deux colonnes : elles se separent a
               l'oeil, pas au sens, et deux reperes de navigation pour six

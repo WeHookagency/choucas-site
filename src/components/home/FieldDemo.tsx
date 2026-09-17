@@ -44,15 +44,24 @@ import { Section } from '../ui/Section';
  * du site.
  * ---------------------------------------------------------------------------
  */
-const POINTS = [
-  'consigne',
-  'contexte',
-  'acces',
-  'ergonomie',
-  'signalement',
-  'preuves',
-  'controle',
-] as const;
+/*
+ * `ergonomie` — « Une mission a la fois, en grand / De gros boutons, peu de
+ * texte. Utilisable gantee, en exterieur, sans naviguer dans des menus. » —
+ * retire le 17 septembre 2026. Verdict du fondateur : « totalement
+ * incomprehensible ».
+ *
+ * Il avait raison, et l'erreur etait la mienne. « En grand » ne veut rien dire
+ * pour une gerante qui lit cette liste : il decrit un choix d'interface vu de
+ * l'interieur, pas un benefice. Et les six autres points disent tous ce que
+ * l'equipe OBTIENT ; celui-la disait a quoi l'ecran RESSEMBLE. Il ne tenait
+ * pas dans la meme liste.
+ *
+ * La chaine reste au catalogue, et la meme idee est deja servie ailleurs, mais
+ * du bon cote : `faq.questions.aisance-numerique` repond « mes equipes ne sont
+ * pas a l'aise avec le numerique » — la, c'est une reponse a une inquietude,
+ * et elle se comprend.
+ */
+const POINTS = ['consigne', 'contexte', 'acces', 'signalement', 'preuves', 'controle'] as const;
 
 /**
  * Demonstration mobile terrain — specs §6.4.

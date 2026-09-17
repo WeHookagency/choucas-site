@@ -123,17 +123,32 @@ export function Implementation() {
             <Card accent="aucun" rayon="majeure" className={tuile}>
               <div className="grid gap-5 desktop:grid-cols-[minmax(0,220px)_minmax(0,1fr)] desktop:gap-12">
                 <div>
-                  {/* Le moment est un dessin, plus un mot : le soleil se leve,
-                      culmine, se voile, puis cede a la nuit. Le nom du moment
-                      reste le nom accessible de l'icone — remplacer un mot par
-                      une image ne doit pas retirer l'information a qui ne voit
-                      pas l'image. */}
-                  <Icon
-                    name={icone}
-                    size={28}
-                    title={t(`moments.${moment}`)}
-                    className={encreMoment}
-                  />
+                  {/* ---------------------------------------------------
+                      LE MOMENT REDEVIENT UN MOT. 17 septembre 2026, verdict
+                      du fondateur sur cette section : « je ne comprends pas
+                      cette section clairement ».
+
+                      Il l'avait vue sur telephone, et c'est la que le defaut
+                      se voit. L'en-tete de ce fichier expliquait que « le
+                      moment remplace la numerotation : il dit deja l'ordre ».
+                      Sauf qu'il ne le disait plus a personne : le mot Matin,
+                      Midi, Apres-midi, Soir n'etait plus que le nom
+                      ACCESSIBLE de l'icone. A l'ecran il ne restait qu'un
+                      petit soleil, puis une lune.
+
+                      L'ordre de la journee reposait donc entierement sur un
+                      dessin de 28 px et sur un degrade de fonds qu'on ne
+                      compare pas en defilant. Empilees, les quatre tuiles se
+                      lisaient comme quatre sections sans rapport.
+
+                      Le mot revient a cote de l'icone, en capitales espacees.
+                      Aucune numerotation ajoutee pour autant : le raisonnement
+                      de l'en-tete tient des lors que le moment se lit.
+                      --------------------------------------------------- */}
+                  <p className={`text-label flex items-center gap-2 font-bold uppercase tracking-[0.14em] ${encreMoment}`}>
+                    <Icon name={icone} size={20} className="shrink-0" />
+                    {t(`moments.${moment}`)}
+                  </p>
                   <h3 className="font-serif text-h3 mt-3">{t(`etapes.${etape}.titre`)}</h3>
                 </div>
 

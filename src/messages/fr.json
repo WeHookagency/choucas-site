@@ -613,11 +613,11 @@
       "chute": "C’est de là que vient le parti pris de Choucas : ne pas remonter tout, remonter ce qui va décaler la suite."
     },
     "qui": {
-      "titre": "Qui est derrière",
+      "titre": "Qui vous accompagne",
       "lead": "Une seule personne, et c’est celle que vous aurez au téléphone.",
-      "p1": "Mathieu Dupont-Vieux. Une petite dizaine d’années en marketing et en web, passées à construire des outils pour des métiers qui n’étaient pas les miens. J’y ai appris que le travail utile commence avant le code : regarder comment une équipe travaille vraiment, plutôt que lui demander d’entrer dans la logique d’un logiciel.",
-      "p2": "Ce qui m’intéresse, c’est le moment où quelque chose se débloque pour quelqu’un. J’enseigne le ski l’hiver, et c’est le même métier : personne ne progresse parce qu’on lui a expliqué. On progresse parce que quelqu’un a pris le temps de le regarder faire.",
-      "p3": "Choucas n’est pas un projet mené depuis une capitale par des gens qui ont lu une étude sur le tourisme de montagne. J’ai grandi à La Clusaz, je suis parti douze ans au Québec, je suis revenu. Je vis dans la vallée où sont mes clients : quand je viens configurer votre exploitation, je ne prends pas l’avion."
+      "p1": "Mathieu Dupont-Vieux. Une petite dizaine d’années à construire des outils pour des métiers qui n’étaient pas les miens, et bien plus de temps à regarder travailler des équipes qu’à écrire du code. C’est ce que je fais chez vous : je regarde d’abord, je configure ensuite.",
+      "p2": "Votre enjeu n’est pas d’avoir un logiciel de plus. Il est de garder vos propriétaires d’une saison à l’autre — et un propriétaire reste quand on lui montre ce qui a été fait chez lui, pas quand on lui dit que tout va bien. Choucas est fait pour produire cette preuve ; je suis là pour l’installer dans votre façon de travailler, puis pour vous conseiller quand elle change.",
+      "p3": "Et je ne suis pas loin. J’ai grandi à La Clusaz, je suis parti douze ans au Québec, je suis revenu. Je vis dans la vallée où sont mes clients : quand je viens configurer votre exploitation, je ne prends pas l’avion."
     },
     "etat": {
       "titre": "Où en est Choucas",
@@ -629,7 +629,8 @@
     "samedi": {
       "titre": "Un samedi à 14 h",
       "lead": "Le samedi est votre journée la plus dure. C’est celle où un outil qui lâche ne se rattrape pas.",
-      "p1": "Je suis joignable le samedi en saison, de 9 h à 18 h. Pas un formulaire, pas un ticket : mon numéro."
+      "p1": "Je suis joignable le samedi en saison, de 9 h à 18 h. Pas un formulaire, pas un ticket : mon numéro.",
+      "produit": "Choucas est construit pour cette heure-là. Le réseau n’est pas supposé : une mission se poursuit en fond de vallée et se synchronise au retour. Seul ce qui change l’état d’un bien remonte au manager, pas la liste de tout ce qui s’est dit. Et le tableau ne compte comme prêts que les biens contrôlés — à 14 h, vous savez lesquels peuvent accueillir."
     },
     "partisTitre": "Ce qu’on a choisi de ne pas faire",
     "partis": {

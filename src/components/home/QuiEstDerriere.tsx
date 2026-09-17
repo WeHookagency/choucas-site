@@ -42,6 +42,31 @@ import { Section } from '../ui/Section';
  * ---------------------------------------------------------------------------
  *
  * ---------------------------------------------------------------------------
+ * DEUXIEME PASSE, 17 septembre 2026, et elle corrige la premiere.
+ *
+ * Verdict du fondateur : « qui est derriere devrait etre plutot la personne
+ * qui vous accompagne, vous conseille, et plus clair et moins je raconte mon
+ * histoire. Le but est que les conciergeries gardent leurs clients — les
+ * proprietaires — et Choucas est fait pour ca. »
+ *
+ * Ma version de la veille avait deplace le registre du bon cote — de la
+ * biographie vers ce que le parcours donne au client — mais elle etait restee
+ * une page A propos. Elle racontait le ski, le Quebec, ce qui m'interesse. Sur
+ * une Home qui vend, la question n'est pas « qui es-tu » mais « qu'est-ce que
+ * tu fais pour moi ».
+ *
+ * CE QUI CHANGE :
+ *   - le titre passe de « Qui est derriere » a « Qui vous accompagne » ;
+ *   - le paragraphe sur le ski disparait — son idee utile, regarder travailler
+ *     avant d'ecrire du code, a rejoint le premier ;
+ *   - un paragraphe neuf porte l'enjeu du client : garder ses proprietaires,
+ *     et la preuve comme moyen de les garder.
+ *
+ * ⚠️ QUATRE CHAINES DE MA MAIN, DE NOUVEAU. Le fondateur a donne l'intention,
+ * pas les phrases. A relire.
+ * ---------------------------------------------------------------------------
+ *
+ * ---------------------------------------------------------------------------
  * LE SAMEDI ET LA CONTINUITE, REMIS LE 17 SEPTEMBRE 2026. AUCUNE COPIE NEUVE.
  *
  * En relisant le site du point de vue d'un dirigeant qui ne le connait pas,
@@ -108,6 +133,12 @@ export function QuiEstDerriere() {
           </h2>
           <p className="font-serif text-intro mt-6 font-semibold">{t('qui.lead')}</p>
           <p className="text-corps mt-5 max-w-[62ch]">{t('qui.p1')}</p>
+          {/* L'enjeu du client, et non le parcours de l'auteur : c'est le
+              paragraphe que le fondateur a demande le 17 septembre, et c'est
+              le seul de la section qui parle de ce que la conciergerie a a
+              gagner. Il est en encre pleine quand les deux autres pourraient
+              s'effacer — mais sur Lichen l'encre douce mesure 2,34:1, donc
+              tout y est deja en encre pleine. */}
           <p className="text-corps mt-4 max-w-[62ch]">{t('qui.p2')}</p>
           <p className="text-corps mt-4 max-w-[62ch]">{t('qui.p3')}</p>
         </div>
@@ -157,9 +188,33 @@ export function QuiEstDerriere() {
           </h3>
           <p className="font-serif text-h3 mt-4 max-w-[20ch] text-balance">{t('samedi.lead')}</p>
         </div>
+        {/* ---------------------------------------------------------------
+            LA REPONSE EST LE PRODUIT, PAS MON NUMERO. 17 septembre 2026.
+
+            J'avais mis ici `samedi.p1` — « je suis joignable le samedi en
+            saison, de 9 h a 18 h. Pas un formulaire, pas un ticket : mon
+            numero » — et `etat.p3`, sur la continuite si je m'arrete.
+
+            Demande du fondateur : « plutot dire que Choucas le produit fait
+            en sorte qu'un samedi a 14 h ca ne lache pas ».
+
+            Il a raison, et c'est plus solide : une disponibilite personnelle
+            repond a la panne une fois qu'elle est arrivee ; un produit qui
+            tient evite d'avoir a appeler. La premiere version transformait la
+            question « est-ce que ca tient ? » en « est-ce que tu reponds ? ».
+
+            `samedi.produit` n'invente rien : la file locale vient de
+            `faq.questions.hors-reseau`, « le reseau n'est pas suppose » de
+            `produit.mission.p2`, le filtre des exceptions de
+            `produit.imprevu.p3`, et le tableau qui ne compte que les biens
+            controles de `produit.pret.p1`.
+
+            ⚠️ `samedi.p1` ET `etat.p3` RESTENT AU CATALOGUE. La seconde
+            repondait a une objection reelle — « et si tu t'arretes ? » — et
+            plus rien n'y repond sur le site. A trancher.
+            --------------------------------------------------------------- */}
         <div className="mt-8 desktop:mt-0">
-          <p className="text-corps max-w-[52ch]">{t('samedi.p1')}</p>
-          <p className="text-corps mt-5 max-w-[52ch]">{t('etat.p3')}</p>
+          <p className="text-corps max-w-[52ch]">{t('samedi.produit')}</p>
         </div>
       </Reveal>
     </Section>
