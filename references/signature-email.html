@@ -1,0 +1,91 @@
+<!--
+  Signature e-mail Choucas — a coller dans Gmail.
+  Ecrite le 17 septembre 2026. Valeurs prises dans src/styles/tokens.css.
+
+  ---------------------------------------------------------------------------
+  CE QUE LE DESTINATAIRE VOIT VRAIMENT
+
+  Ni Manrope ni Newsreader. Aucun client mail ne charge de police distante :
+  les deux familles sont declarees pour les rares cas ou elles sont installees
+  localement, et tout le monde lira ARIAL et GEORGIA. C'est la raison d'etre
+  du repli, et il est le meme que celui du site — `--font-sans` et
+  `--font-serif` dans globals.css.
+
+  ---------------------------------------------------------------------------
+  POURQUOI SI PEU DE COULEUR
+
+  Gmail n'annonce pas le theme du destinataire et n'accepte pas deux versions.
+  Une couleur doit donc tenir sur blanc ET sur le gris sombre de Gmail
+  (#1F1F1F). Mesures composites :
+
+    Sapin    #244238   10,99 sur blanc   1,50 sur sombre   -> illisible
+    Schiste  #151816   17,89             1,09              -> illisible
+    Neige    #F4F2EC    1,12            14,72              -> illisible
+    Lichen   #95A184    2,72             6,05              -> sous le seuil
+    Mousse   #3D7358    5,54             2,98              -> sous le seuil
+    Cuivre   #B56F46    3,94             4,18              -> TIENT
+
+  Le Cuivre est la seule couleur de la charte qui survive aux deux fonds.
+  C'est pourquoi il porte tout ce qui est colore ici, et rien d'autre.
+
+  LE PLAFOND. Aucune couleur unique ne depasse 4,06:1 sur les deux fonds a la
+  fois — c'est une borne arithmetique, pas un reglage. Elle est atteinte par
+  un gris neutre de luminance 0,207, soit #7E7E7E, qui porte donc tout le
+  texte. Il bat les deux gris envisages au depart : #7A7A7A tombe a 3,84 sur
+  fond sombre, #8A8A8A a 3,45 sur fond clair.
+
+  ⚠️ NI L'UN NI L'AUTRE N'ATTEINT LES 4,5 DU TEXTE COURANT. C'est impossible
+  sous la contrainte des deux fonds, et c'est assume : la signature repete des
+  informations qui figurent ailleurs dans le message.
+
+  ---------------------------------------------------------------------------
+  LES REGLES DE FORME, ET POURQUOI
+
+  - Styles en ligne seulement. Gmail supprime <style> et les requetes media.
+  - Aucune image. Elle serait bloquee par defaut chez beaucoup de
+    destinataires, et un PNG a fond clair devient une tache blanche en mode
+    sombre.
+  - Aucun aplat de couleur. Meme raison : un fond Neige devient une tache
+    claire sur un message sombre. La charte passe donc par des BORDURES —
+    le filet vertical Cuivre, et le trait de separation.
+  - Table, `cellpadding`, `cellspacing` et `border` a zero. Flexbox et grid ne
+    sont pas fiables dans les clients mail.
+  - `role="presentation"` : la table met en page, elle ne presente pas de
+    donnees. Sans lui, un lecteur d'ecran annonce « tableau, 1 ligne,
+    1 colonne » avant la signature.
+  - Chaque lien porte sa couleur EN LIGNE ET dans un <span> imbrique. iOS Mail
+    recolore les liens qu'il detecte lui-meme — un numero de telephone, une
+    adresse — et le span interieur est ce qui resiste. Le telephone est donc
+    aussi un vrai lien `tel:`, pour que sa couleur nous appartienne.
+  - 500 px au plus, et rien de fixe en dessous : la signature se replie seule
+    sur un telephone.
+  ---------------------------------------------------------------------------
+-->
+<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;max-width:500px;">
+  <tr>
+    <td style="padding:2px 0 2px 18px;border-left:2px solid #B56F46;font-family:Manrope,Arial,sans-serif;">
+
+      <div style="font-size:11px;line-height:16px;letter-spacing:2.6px;font-weight:700;color:#B56F46;">CHOUCAS</div>
+
+      <div style="margin-top:7px;font-family:Newsreader,Georgia,serif;font-size:19px;line-height:26px;color:#7E7E7E;">Mathieu Dupont-Vieux <span style="color:#B56F46;">&mdash;</span> Fondateur</div>
+
+      <div style="margin-top:5px;font-size:13px;line-height:20px;color:#7E7E7E;">La Clusaz, Aravis</div>
+      <div style="font-size:13px;line-height:20px;color:#7E7E7E;">Gestion d&rsquo;exploitation pour conciergeries de station</div>
+
+      <div style="margin-top:14px;padding-top:13px;border-top:1px solid #7E7E7E;font-size:13px;line-height:22px;color:#7E7E7E;">
+        <a href="mailto:mathieudv@choucas.app" style="color:#B56F46;text-decoration:none;"><span style="color:#B56F46;">mathieudv@choucas.app</span></a>
+        <span style="color:#7E7E7E;">&nbsp;&middot;&nbsp;</span>
+        <a href="tel:+33675123479" style="color:#B56F46;text-decoration:none;"><span style="color:#B56F46;">06&nbsp;75&nbsp;12&nbsp;34&nbsp;79</span></a>
+      </div>
+
+      <div style="font-size:13px;line-height:22px;">
+        <a href="https://choucas.app" style="color:#B56F46;text-decoration:none;"><span style="color:#B56F46;">choucas.app</span></a>
+      </div>
+
+      <div style="margin-top:11px;font-size:13px;line-height:20px;">
+        <a href="https://calendar.app.google/ffM5wc8tXhutVs477" style="color:#B56F46;text-decoration:none;font-weight:700;"><span style="color:#B56F46;">Organiser une journ&eacute;e sur site&nbsp;&rarr;</span></a>
+      </div>
+
+    </td>
+  </tr>
+</table>
