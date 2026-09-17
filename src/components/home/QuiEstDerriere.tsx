@@ -41,6 +41,37 @@ import { Section } from '../ui/Section';
  * parcours, « j'aime aider les gens » — pas les phrases. A relire.
  * ---------------------------------------------------------------------------
  *
+ * ---------------------------------------------------------------------------
+ * LE SAMEDI ET LA CONTINUITE, REMIS LE 17 SEPTEMBRE 2026. AUCUNE COPIE NEUVE.
+ *
+ * En relisant le site du point de vue d'un dirigeant qui ne le connait pas,
+ * deux objections arrivaient avant toutes les autres, et le site n'y repondait
+ * nulle part :
+ *
+ *   1. « Qui je joins le samedi a 14 h, quand ca casse ? » Il va payer 300 €
+ *      par mois pour un outil dont sa journee la plus dure depend.
+ *   2. « Et si tu t'arretes ? » Il engage 2 000 € et son exploitation entiere
+ *      aupres d'un independant seul.
+ *
+ * LES DEUX REPONSES EXISTAIENT DEJA, ecrites et validees, et n'etaient rendues
+ * nulle part : `aPropos.samedi.*` et `aPropos.etat.p3`. Elles sont parties avec
+ * la page A propos le 12 septembre, et l'avertissement en tete de ce fichier
+ * signalait deja la perte de la seconde. Rien a ecrire — juste a remettre.
+ *
+ * Elles tombent ici et pas ailleurs parce que la section vient de promettre
+ * « une seule personne, et c'est celle que vous aurez au telephone ». Le
+ * samedi en est la preuve, et la continuite en est la contrepartie. Les poser
+ * a trois ecrans de distance aurait laisse la promesse sans garantie.
+ *
+ * ⚠️ `aPropos.etat.titre`, `.lead`, `.p1` et `.p2` NE REVIENNENT PAS. C'est
+ * la section « Ou en est Choucas » que le fondateur a retiree, et seul son
+ * dernier paragraphe est repris. Il commence par « Et », ce qui enchainait
+ * sur `p2` : la copie n'est pas reecrite pour autant — a cette place, l'aparte
+ * se tient.
+ *
+ * Tout le texte est en encre pleine. Sur Lichen, l'encre douce mesure 2,34:1.
+ * ---------------------------------------------------------------------------
+ *
  * Fond Lichen, une premiere sur la Home : il tombe entre la section tarifs, en
  * Panneau, et la FAQ, en Neige, et c'est la seule teinte claire de la charte
  * qui evite une repetition aux deux bords. Sur Lichen tout le texte est en
@@ -97,6 +128,39 @@ export function QuiEstDerriere() {
           alt={t('portraitAlt')}
           className="mx-auto mt-10 max-w-[420px] desktop:mx-0 desktop:mt-0 desktop:w-[380px] desktop:max-w-none desktop:shrink-0"
         />
+      </Reveal>
+
+      {/* Meme plafond de 980 que le bloc au-dessus, pour rester sur son axe.
+          Le filet separe sans changer de fond : la section n'a qu'une teinte
+          et n'a pas besoin d'une seconde.
+
+          DEUX COLONNES, et j'ai commence par une seule. Une mesure de 62ch
+          dans une piste de 980 laissait 450 px de vide a droite — le defaut
+          que la sonde du 16 septembre a chasse sur les sept pages, et que je
+          venais de reintroduire ici. La revendication a gauche, les deux
+          garanties a droite : la piste est remplie, et la lecture y gagne un
+          ordre qu'une colonne unique n'avait pas.
+
+          LE TITRE NE PREND PAS `text-h3`. Rendu ainsi, il faisait 40 px —
+          exactement la taille du H2 « Qui est derriere » vingt lignes plus
+          haut, et il se lisait comme une seconde section plutot que comme un
+          bloc de celle-ci. Il prend le traitement des libelles d'etape de
+          BriefIntake : 15 px, capitales espacees, encre pleine. Le poids
+          revient a la phrase en serif, qui est ce qu'on doit lire.
+
+          Tout est en encre pleine : mesure composite a 6,57:1 sur le Lichen.
+          L'encre douce y tomberait a 2,34:1. */}
+      <Reveal className="mx-auto mt-titre max-w-[980px] border-t border-encre/25 pt-titre desktop:grid desktop:grid-cols-2 desktop:gap-16">
+        <div>
+          <h3 className="text-intro font-bold uppercase tracking-[0.08em]">
+            {t('samedi.titre')}
+          </h3>
+          <p className="font-serif text-h3 mt-4 max-w-[20ch] text-balance">{t('samedi.lead')}</p>
+        </div>
+        <div className="mt-8 desktop:mt-0">
+          <p className="text-corps max-w-[52ch]">{t('samedi.p1')}</p>
+          <p className="text-corps mt-5 max-w-[52ch]">{t('etat.p3')}</p>
+        </div>
       </Reveal>
     </Section>
   );

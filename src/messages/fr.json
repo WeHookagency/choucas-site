@@ -562,6 +562,7 @@
     "abonnementNom": "L’abonnement",
     "abonnementPrix": "15 €",
     "abonnementQuoi": "par bien et par mois, minimum 300 €",
+    "abonnementJustification": "Quinze euros par bien, c’est le prix du marché. Ce n’est pas là que Choucas se distingue — c’est sur ce qu’il y a dedans.",
     "lien": "Voir le détail",
     "reserve": "La journée sur site",
     "demarrageJustification": "Une journée chez vous, pas une visioconférence. On repart quand votre équipe travaille dans Choucas — pas quand la démonstration est finie."
@@ -765,7 +766,9 @@
     "arriveLitigeTexte": "L’export daté d’un départ et de l’arrivée qui suit, avec les deux personnes qui sont intervenues, leurs rôles et les photos horodatées.",
     "paiementTitre": "Le paiement",
     "paiementTexte": "Mensuel : vous êtes facturé chaque mois, sur vos biens actifs. Pas d’engagement de durée.",
-    "htMention": "TVA non applicable, article 293 B du CGI."
+    "htMention": "TVA non applicable, article 293 B du CGI.",
+    "optionsRapportJustification": "Cent vingt euros par bien et par saison, au prix du marché. Ce qui change : le rapport ne se rédige pas après coup — il se compose de preuves déjà enregistrées pendant la saison.",
+    "perimetre": "Choucas prend son sens à partir d’une vingtaine de biens actifs : c’est là que le prix par bien passe sous le minimum. Et il demande au moins deux personnes sur le terrain — le double contrôle ne se fait pas seul."
   },
   "contact": {
     "titre": "Parlons d’une vraie journée <accent>d’exploitation.</accent>",

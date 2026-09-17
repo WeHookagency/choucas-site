@@ -197,10 +197,15 @@ function CartePrix({
  */
 function Item({
   nom,
+  lead,
   texte,
   aVenir = false,
 }: {
   nom: string;
+  /** Ce qui justifie le montant, quand l'item en porte un. Meme place et
+   *  meme traitement que sur les deux cartes de prix : juste sous le nom,
+   *  parce que c'est la question qu'on se pose apres avoir lu le chiffre. */
+  lead?: string;
   texte: string;
   aVenir?: boolean;
 }) {
@@ -211,6 +216,7 @@ function Item({
       }`}
     >
       <p className="text-intro font-semibold">{nom}</p>
+      {lead ? <p className="text-corps mt-4">{lead}</p> : null}
       <p className="text-corps mt-4 text-encre-douce">{texte}</p>
     </div>
   );
@@ -300,14 +306,41 @@ export default async function Page({ params }: PageProps<'/[locale]/tarifs'>) {
               montant={prix('abonnementPrix')}
               unite={prix('abonnementQuoi')}
             >
+              {/* La justification du montant vient en tete, comme sur la
+                  carte du demarrage : c'est la question qu'on se pose juste
+                  apres avoir lu le chiffre, et elle etait sans reponse ici
+                  jusqu'au 17 septembre 2026.
+
+                  Elle dit « c'est le prix du marche » et enchaine aussitot
+                  sur autre chose. Une page de tarifs qui se justifie par le
+                  marche invite a aller le verifier ; celle-ci constate le
+                  prix et deplace l'argument sur le contenu, dont
+                  `abonnementSocle` parle deux lignes plus bas. */}
+              <p className="text-intro font-semibold">{prix('abonnementJustification')}</p>
               {/* `abonnementMinimum` n'est plus rendu : depuis que le prix est
                   sorti de son titre, l'unite sous le montant porte deja
                   « minimum 300 € », et le paragraphe le repetait vingt pixels
                   plus bas. La chaine reste au catalogue. */}
-              <p className="text-corps">{t('abonnementExemples')}</p>
+              <p className="text-corps mt-5">{t('abonnementExemples')}</p>
               <p className="text-corps mt-4 text-encre-douce">{t('abonnementSocle')}</p>
             </CartePrix>
           </div>
+          {/* A QUI CETTE PAGE S'ADRESSE, ecrit une fois, sous les deux
+              cartes parce que cela concerne les deux.
+
+              Le lecteur devait le deduire d'une division : le plancher de
+              300 € veut dire qu'a six biens on paie 50 € par bien, et la
+              reponse `une-personne` de la FAQ dit qu'a une seule personne
+              Choucas ne fonctionne pas. Les deux faits etaient publies ;
+              aucun des deux n'etait pose comme la question « est-ce que
+              c'est pour moi ». */}
+          {/* `col-span-2` : sans lui, le paragraphe devient un TROISIEME enfant
+              de la grille et tombe dans la colonne de gauche, sous la carte 01,
+              ou son `mx-auto text-center` le centre dans une demi-largeur. Il
+              parle des deux cartes, il doit traverser les deux. */}
+          <p className="text-corps mx-auto mt-titre max-w-[62ch] text-center text-encre-douce desktop:col-span-2">
+            {t('perimetre')}
+          </p>
         </Reveal>
       </Section>
 
@@ -378,7 +411,11 @@ export default async function Page({ params }: PageProps<'/[locale]/tarifs'>) {
               centree plutot que posee dans une grille a une colonne, ou elle
               prendrait 940 px de large pour six lignes de texte. */}
           <div style={{ ['--i' as string]: 1 }} className="mt-titre mx-auto flex max-w-[560px]">
-            <Item nom={t('optionsRapportNom')} texte={t('optionsRapportTexte')} />
+            <Item
+              nom={t('optionsRapportNom')}
+              lead={t('optionsRapportJustification')}
+              texte={t('optionsRapportTexte')}
+            />
           </div>
         </Reveal>
       </Section>
