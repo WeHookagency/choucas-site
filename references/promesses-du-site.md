@@ -155,6 +155,43 @@ pas — voir la section 8 de `codes-acces-pwa.md`.
 les codes d'accès, les sous-traitants ultérieurs, les mesures de sécurité, le
 sort des données en fin de contrat.
 
+### 3.5 La clause de continuité — ajoutée le 17 septembre 2026
+
+**Elle est déjà publiée.** La section « Qui vous accompagne » de la page
+d'accueil affirme, au présent : « c'est écrit dans le contrat dès la signature :
+votre configuration, vos données et l'outil qui les fait tourner vous restent ».
+
+Elle répond à la première objection d'un dirigeant qui engage 2 000 € puis
+300 € par mois auprès d'un indépendant seul : *et si tu t'arrêtes ?* La réponse
+précédente — « si je disparais demain, votre configuration ne disparaît pas avec
+moi » — était une intention. Celle-ci est un engagement opposable, et c'est ce
+qui la rend meilleure : une phrase qui dit « le contrat le prévoit » se vérifie.
+
+**Elle est donc due avant la première journée d'implantation**, comme tout ce
+qui figure en section 1.
+
+**Trois questions à trancher avant qu'un juriste l'écrive.** Le fondateur a
+donné l'intention — « dès qu'ils signent, l'outil leur appartient au cas où je
+meurs ou décide d'arrêter » — pas le mécanisme.
+
+1. **Qu'est-ce qui leur revient, exactement ?** Le droit de continuer à se
+   servir de l'application telle qu'elle est, ou son code ? Les deux
+   s'écrivent, mais pas de la même façon, et la seconde engage bien plus.
+2. **Où vit l'application le jour d'après ?** Elle est adossée à un script
+   Apps Script et à une feuille Google. Si les deux vivent déjà dans le
+   Workspace de la conciergerie, la clause ne fait que constater un état — et
+   c'est la version la plus solide, parce qu'elle ne dépend de personne. Si
+   elle vit chez l'éditeur, le transfert doit être décrit : qui le déclenche,
+   dans quel délai, et que se passe-t-il si personne ne peut le déclencher.
+3. **Qui l'entretient ensuite ?** La clause promet que l'outil reste ; elle ne
+   promet pas qu'il évolue. Le dire évite une déception, et le silence sur ce
+   point est ce qui transforme une bonne clause en litige.
+
+**Recommandation :** faire vivre le script et la feuille dans le Workspace de
+la conciergerie dès l'implantation. La clause devient alors un constat plutôt
+qu'une promesse, et elle ne suppose aucun geste de la part de quelqu'un qui,
+par hypothèse, n'est plus là.
+
 ---
 
 ## 4. L'ordre
@@ -168,8 +205,9 @@ première conciergerie — pas à la mise en ligne du site.
 2. **La fenêtre d'accès et le journal** de `codes-acces-pwa.md`. Ils ouvrent
    3.1 et 3.2.
 3. **L'export et l'extraction** — 1.3. Un droit, avec un délai légal.
-4. **Le contrat de sous-traitance** — 3.4. Une journée, et il oblige à écrire
-   les mesures de sécurité, donc à faire les trois points au-dessus.
+4. **Le contrat de sous-traitance** — 3.4, et la clause de continuité de 3.5,
+   qui y trouve sa place. Une journée, et il oblige à écrire les mesures de
+   sécurité, donc à faire les trois points au-dessus.
 
 ---
 

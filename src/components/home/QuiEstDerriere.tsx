@@ -141,6 +141,30 @@ export function QuiEstDerriere() {
               tout y est deja en encre pleine. */}
           <p className="text-corps mt-4 max-w-[62ch]">{t('qui.p2')}</p>
           <p className="text-corps mt-4 max-w-[62ch]">{t('qui.p3')}</p>
+          {/* ---------------------------------------------------------------
+              « ET SI TU T'ARRETES ? » 17 septembre 2026.
+
+              La section promet « une seule personne ». C'est un argument, et
+              c'est aussi le premier risque que voit un dirigeant qui engage
+              2 000 € puis 300 € par mois aupres d'un independant. Le site
+              avait une reponse — « si je disparais demain, votre configuration
+              ne disparait pas avec moi » — retiree le meme jour avec le bloc
+              du samedi, et rien ne l'avait remplacee.
+
+              La nouvelle est plus forte, et c'est l'arbitrage du fondateur :
+              ce n'est plus une intention, c'est une CLAUSE, acquise des la
+              signature. Une phrase qui dit « le contrat le prevoit » se
+              verifie ; une phrase qui dit « ne vous inquietez pas » ne se
+              verifie pas.
+
+              ⚠️ ELLE ENGAGE UN CONTRAT QUI N'EXISTE PAS ENCORE. Voir
+              `references/promesses-du-site.md` §3.4 : le contrat de
+              sous-traitance RGPD reste a rediger, et cette clause s'y ajoute.
+              Sous la doctrine du 15 septembre, le site est le cahier des
+              charges — donc la clause est due AVANT LA PREMIERE JOURNEE
+              D'IMPLANTATION, pas avant la mise en ligne.
+              --------------------------------------------------------------- */}
+          <p className="text-corps mt-4 max-w-[62ch]">{t('qui.p4')}</p>
         </div>
 
         {/* Le portrait bascule une seule fois, au seuil desktop : empile et

@@ -617,7 +617,8 @@
       "lead": "Une seule personne, et c’est celle que vous aurez au téléphone.",
       "p1": "Mathieu Dupont-Vieux. Une petite dizaine d’années à construire des outils pour des métiers qui n’étaient pas les miens, et bien plus de temps à regarder travailler des équipes qu’à écrire du code. C’est ce que je fais chez vous : je regarde d’abord, je configure ensuite.",
       "p2": "Votre enjeu n’est pas d’avoir un logiciel de plus. Il est de garder vos propriétaires d’une saison à l’autre — et un propriétaire reste quand on lui montre ce qui a été fait chez lui, pas quand on lui dit que tout va bien. Choucas est fait pour produire cette preuve ; je suis là pour l’installer dans votre façon de travailler, puis pour vous conseiller quand elle change.",
-      "p3": "Et je ne suis pas loin. J’ai grandi à La Clusaz, je suis parti douze ans au Québec, je suis revenu. Je vis dans la vallée où sont mes clients : quand je viens configurer votre exploitation, je ne prends pas l’avion."
+      "p3": "Et je ne suis pas loin. J’ai grandi à La Clusaz, je suis parti douze ans au Québec, je suis revenu. Je vis dans la vallée où sont mes clients : quand je viens configurer votre exploitation, je ne prends pas l’avion.",
+      "p4": "Et si je m’arrête ? C’est écrit dans le contrat dès la signature : votre configuration, vos données et l’outil qui les fait tourner vous restent. Une conciergerie ne doit pas perdre son exploitation parce que son éditeur, lui, s’est arrêté."
     },
     "etat": {
       "titre": "Où en est Choucas",
