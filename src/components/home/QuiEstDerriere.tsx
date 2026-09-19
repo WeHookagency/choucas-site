@@ -141,30 +141,16 @@ export function QuiEstDerriere() {
               tout y est deja en encre pleine. */}
           <p className="text-corps mt-4 max-w-[62ch]">{t('qui.p2')}</p>
           <p className="text-corps mt-4 max-w-[62ch]">{t('qui.p3')}</p>
-          {/* ---------------------------------------------------------------
-              « ET SI TU T'ARRETES ? » 17 septembre 2026.
+          {/* `qui.p4` — la clause de continuite — a quitte ce mur le
+              19 septembre 2026. Elle est en bas de section, a cote du samedi :
+              voir le bloc des garanties. La chaine reste au catalogue.
 
-              La section promet « une seule personne ». C'est un argument, et
-              c'est aussi le premier risque que voit un dirigeant qui engage
-              2 000 € puis 300 € par mois aupres d'un independant. Le site
-              avait une reponse — « si je disparais demain, votre configuration
-              ne disparait pas avec moi » — retiree le meme jour avec le bloc
-              du samedi, et rien ne l'avait remplacee.
-
-              La nouvelle est plus forte, et c'est l'arbitrage du fondateur :
-              ce n'est plus une intention, c'est une CLAUSE, acquise des la
-              signature. Une phrase qui dit « le contrat le prevoit » se
-              verifie ; une phrase qui dit « ne vous inquietez pas » ne se
-              verifie pas.
-
-              ⚠️ ELLE ENGAGE UN CONTRAT QUI N'EXISTE PAS ENCORE. Voir
-              `references/promesses-du-site.md` §3.4 : le contrat de
-              sous-traitance RGPD reste a rediger, et cette clause s'y ajoute.
-              Sous la doctrine du 15 septembre, le site est le cahier des
-              charges — donc la clause est due AVANT LA PREMIERE JOURNEE
-              D'IMPLANTATION, pas avant la mise en ligne.
-              --------------------------------------------------------------- */}
-          <p className="text-corps mt-4 max-w-[62ch]">{t('qui.p4')}</p>
+              CE QUI L'A DECIDE, mesure sur la section : quatre paragraphes de
+              meme poids, 198 mots, tous a la premiere personne. Le seul
+              ENGAGEMENT CONTRACTUEL de la page y figurait en quatrieme
+              position, avec exactement le meme traitement que « j'ai grandi a
+              La Clusaz ». Une clause opposable ne se lit pas comme une
+              anecdote. */}
         </div>
 
         {/* Le portrait bascule une seule fois, au seuil desktop : empile et
@@ -205,15 +191,45 @@ export function QuiEstDerriere() {
 
           Tout est en encre pleine : mesure composite a 6,57:1 sur le Lichen.
           L'encre douce y tomberait a 2,34:1. */}
-      <Reveal className="mx-auto mt-titre max-w-[980px] border-t border-encre/25 pt-titre desktop:grid desktop:grid-cols-2 desktop:gap-16">
-        <div>
+      {/* ---------------------------------------------------------------
+          DEUX GARANTIES, MEME GRAMMAIRE. 19 septembre 2026.
+
+          Le bas de section ne portait qu'une reponse — le samedi — en deux
+          colonnes : l'enonce a gauche en gros serif, la reponse a droite en
+          corps. Et la clause de continuite, qui est la SECONDE garantie de la
+          page, etait restee dans le mur de paragraphes au-dessus.
+
+          Les deux sont la meme chose : ce qui vous protege quand ca va mal. Le
+          samedi repond a « et si ca lache ? », la clause a « et si tu
+          t'arretes ? ». Elles se lisent donc cote a cote, avec la meme
+          structure — un intitule en capitales, un enonce en serif, une
+          reponse en corps — au lieu d'etre l'une un bloc et l'autre un
+          paragraphe noye.
+
+          ⚠️ `qui.p4` A ETE COUPEE EN TROIS pour entrer dans cette grammaire :
+          `continuite.titre`, `.lead`, `.p1`. C'est de la copie de ma main
+          — ecrite le 17 — et non du fondateur, sinon je ne l'aurais pas
+          touchee. `qui.p4` reste au catalogue, intacte.
+
+          L'enonce en serif passe de `text-h3` a `text-intro` : a 40 px, deux
+          enonces cote a cote pesaient plus que le H2 de la section et
+          faisaient de ce bas de page le sujet principal.
+          --------------------------------------------------------------- */}
+      <Reveal
+        group
+        className="mx-auto mt-titre max-w-[980px] border-t border-encre/25 pt-titre desktop:grid desktop:grid-cols-2 desktop:gap-16"
+      >
+        <div style={{ ['--i' as string]: 0 }}>
           <h3 className="text-intro font-bold uppercase tracking-[0.08em]">
             {t('samedi.titre')}
           </h3>
-          <p className="font-serif text-h3 mt-4 max-w-[20ch] text-balance">{t('samedi.lead')}</p>
-        </div>
+          <p className="font-serif text-intro mt-4 max-w-[34ch] font-semibold">
+            {t('samedi.lead')}
+          </p>
         {/* ---------------------------------------------------------------
             LA REPONSE EST LE PRODUIT, PAS MON NUMERO. 17 septembre 2026.
+            (Ce commentaire vaut pour la colonne du samedi ; le bloc est
+            devenu une paire le 19 — voir plus bas.)
 
             J'avais mis ici `samedi.p1` — « je suis joignable le samedi en
             saison, de 9 h a 18 h. Pas un formulaire, pas un ticket : mon
@@ -237,8 +253,17 @@ export function QuiEstDerriere() {
             repondait a une objection reelle — « et si tu t'arretes ? » — et
             plus rien n'y repond sur le site. A trancher.
             --------------------------------------------------------------- */}
-        <div className="mt-8 desktop:mt-0">
-          <p className="text-corps max-w-[52ch]">{t('samedi.produit')}</p>
+          <p className="text-corps mt-4 max-w-[52ch]">{t('samedi.produit')}</p>
+        </div>
+
+        <div style={{ ['--i' as string]: 1 }} className="mt-10 desktop:mt-0">
+          <h3 className="text-intro font-bold uppercase tracking-[0.08em]">
+            {t('continuite.titre')}
+          </h3>
+          <p className="font-serif text-intro mt-4 max-w-[34ch] font-semibold">
+            {t('continuite.lead')}
+          </p>
+          <p className="text-corps mt-4 max-w-[52ch]">{t('continuite.p1')}</p>
         </div>
       </Reveal>
     </Section>

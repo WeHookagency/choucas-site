@@ -658,7 +658,12 @@
     },
     "terrainTitre": "Terrain d’origine",
     "stations": "Aravis · Megève · Chamonix · Courchevel · Val d’Isère",
-    "cloture": "Né dans les Alpes. Pensé pour aller plus loin."
+    "cloture": "Né dans les Alpes. Pensé pour aller plus loin.",
+    "continuite": {
+      "titre": "Et si je m’arrête ?",
+      "lead": "C’est écrit dans le contrat, dès la signature.",
+      "p1": "Votre configuration, vos données et l’outil qui les fait tourner vous restent. Une conciergerie ne doit pas perdre son exploitation parce que son éditeur, lui, s’est arrêté."
+    }
   },
   "blog": {
     "titre": "Notes d’expérience",
