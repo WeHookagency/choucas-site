@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { hasLocale } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
+import { Accent } from '@/components/ui/Accent';
 import { Cta } from '@/components/ui/Cta';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
@@ -197,18 +198,18 @@ function CartePrix({
  */
 function Item({
   nom,
-  lead,
   texte,
   aVenir = false,
 }: {
   nom: string;
-  /** Ce qui justifie le montant, quand l'item en porte un. Meme place et
-   *  meme traitement que sur les deux cartes de prix : juste sous le nom,
-   *  parce que c'est la question qu'on se pose apres avoir lu le chiffre. */
-  lead?: string;
   texte: string;
   aVenir?: boolean;
 }) {
+  /* `lead` a vecu ici du 17 au 19 septembre 2026 : il portait la
+     justification du montant de l'option. L'option a sa propre mise en page
+     depuis, et les deux seuls items qui restent — les briques a venir — n'ont
+     pas de prix, donc rien a justifier. Une prop optionnelle que personne ne
+     passe est du code mort qui se lit comme une intention. */
   return (
     <div
       className={`flex h-full flex-col rounded-carte border bg-surface p-6 text-encre desktop:p-7 ${
@@ -216,7 +217,6 @@ function Item({
       }`}
     >
       <p className="text-intro font-semibold">{nom}</p>
-      {lead ? <p className="text-corps mt-4">{lead}</p> : null}
       <p className="text-corps mt-4 text-encre-douce">{texte}</p>
     </div>
   );
@@ -237,20 +237,50 @@ export default async function Page({ params }: PageProps<'/[locale]/tarifs'>) {
 
   return (
     <main>
-      {/* En-tete centre, comme Contact. « Tarifs » seul, cale a gauche d'une
-          colonne de 1 200, ouvrait la page sur un mot et beaucoup de vide. Il
-          n'y a rien a accentuer dans un titre d'un mot — c'est le centrage qui
-          en fait une ouverture. */}
-      <Section fond="fond" aria-labelledby="tarifs-titre">
-        <h1 id="tarifs-titre" className="font-serif text-h2 text-center">
-          {t('titre')}
-        </h1>
-        <p className="text-intro mx-auto mt-8 max-w-[62ch] text-center font-semibold">
-          {t('chapeau')}
-        </p>
-        <p className="text-intro mx-auto mt-4 max-w-[62ch] text-center text-encre-douce">
-          {t('intro')}
-        </p>
+      {/* ---------------------------------------------------------------
+          LE HERO DE L'ACCUEIL, A L'IDENTIQUE. 19 septembre 2026.
+
+          La page ouvrait sur le mot « Tarifs » en serif centre, puis deux
+          paragraphes. C'etait un titre de document, pas un hero : aucune
+          etiquette, aucun accent, aucune action.
+
+          LES ROLES S'ECHANGENT, ET AUCUNE COPIE N'EST ECRITE. « Tarifs »
+          descend a l'etiquette, ou un mot seul est a sa place ; le chapeau —
+          « Un demarrage, puis un abonnement. » — monte en H1, ou c'est une
+          phrase, donc quelque chose qui peut porter l'accent cuivre. Le titre
+          du document, lui, reste « Tarifs » : il vient de `pages.tarifs.titre`
+          et ne change pas.
+
+          Meme structure que `Hero` : etiquette, H1 en `text-hero` avec
+          l'accent en bloc, mesure de lecture a 62ch, puis l'action. Meme
+          bascule aussi — cale a gauche en mobile, centre a partir de la
+          tablette.
+
+          UN SEUL BOUTON, la ou l'accueil en a deux. Le second de l'accueil
+          mene a une ancre de la meme page ; ici il n'y a pas de second
+          endroit ou envoyer quelqu'un qui vient lire des prix, et un bouton
+          secondaire pose pour la symetrie serait un bouton de remplissage.
+          --------------------------------------------------------------- */}
+      <Section fond="fond" largeur="scene" aria-labelledby="tarifs-titre">
+        <div className="tablette:text-center">
+          <p className="text-label font-semibold uppercase text-encre-douce">{t('titre')}</p>
+
+          <h1 id="tarifs-titre" className="font-serif text-hero mt-5 text-balance">
+            {t.rich('chapeau', {
+              accent: (chunks) => <Accent className="block">{chunks}</Accent>,
+            })}
+          </h1>
+
+          <p className="text-intro mt-6 max-w-[62ch] text-encre-douce tablette:mx-auto">
+            {t('intro')}
+          </p>
+
+          <div className="mt-8 flex flex-col tablette:flex-row tablette:justify-center">
+            <Cta href={getPathname({ href: '/contact', locale })} fleche pleineLargeur>
+              {contact('voies.impl.action')}
+            </Cta>
+          </div>
+        </div>
       </Section>
 
       {/* ---------------------------------------------------------------
@@ -380,18 +410,36 @@ export default async function Page({ params }: PageProps<'/[locale]/tarifs'>) {
             <p className="text-intro mt-5 font-semibold text-accent-inverse">{t('testP1')}</p>
           </div>
 
-          <div className="mt-titre grid gap-6 desktop:grid-cols-2 desktop:gap-8">
-            <div style={{ ['--i' as string]: 1 }} className="flex">
-              <div className="flex h-full w-full flex-col rounded-carte border border-filet bg-surface p-6 text-encre desktop:p-7">
-                <p className="text-corps">{t('testP2')}</p>
-              </div>
-            </div>
-            <div style={{ ['--i' as string]: 2 }} className="flex">
-              <div className="flex h-full w-full flex-col rounded-carte border border-filet bg-surface p-6 text-encre desktop:p-7">
-                <p className="text-corps">{t('testP3')}</p>
-              </div>
-            </div>
-          </div>
+          {/* ---------------------------------------------------------------
+              DEUX TEMPS, ET ILS SE LISENT MAINTENANT COMME TELS.
+
+              C'etaient deux pavés de texte blancs, identiques, poses cote a
+              cote. Rien ne disait que le second SUIT le premier : on lisait
+              deux arguments paralleles, quand ce sont deux moments d'une meme
+              semaine — ce qui se passe pendant, puis ce qui se passe a
+              l'issue.
+
+              Le chiffre le dit, et il ne coute aucune copie : c'est le
+              traitement que BriefIntake, l'implantation et la page Contact
+              emploient deja pour une sequence. Cuivre sur Glacier, 3,81:1,
+              au-dessus du seuil des objets graphiques ; et il est decoratif —
+              `testP3` commence par « A l'issue », l'ordre est ecrit.
+              --------------------------------------------------------------- */}
+          <ol className="mt-titre grid gap-6 desktop:grid-cols-2 desktop:gap-8">
+            {(['testP2', 'testP3'] as const).map((cle, i) => (
+              <li key={cle} style={{ ['--i' as string]: i + 1 }} className="flex">
+                <div className="flex h-full w-full gap-4 rounded-carte border border-filet bg-surface p-6 text-encre desktop:p-7">
+                  <span
+                    aria-hidden
+                    className="font-serif shrink-0 text-[2.125rem] leading-none tabular-nums text-accent"
+                  >
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <p className="text-corps">{t(cle)}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
         </Reveal>
       </Section>
 
@@ -407,15 +455,51 @@ export default async function Page({ params }: PageProps<'/[locale]/tarifs'>) {
             </h2>
             <p className="text-corps mt-4 text-encre-douce">{t('optionsIntro')}</p>
           </div>
-          {/* Une seule option aujourd'hui : la carte est donc plafonnee et
-              centree plutot que posee dans une grille a une colonne, ou elle
-              prendrait 940 px de large pour six lignes de texte. */}
-          <div style={{ ['--i' as string]: 1 }} className="mt-titre mx-auto flex max-w-[560px]">
-            <Item
-              nom={t('optionsRapportNom')}
-              lead={t('optionsRapportJustification')}
-              texte={t('optionsRapportTexte')}
-            />
+          {/* ---------------------------------------------------------------
+              L'OPTION CESSE D'ETRE UN PARAGRAPHE ENCADRE. 19 septembre 2026,
+              verdict du fondateur : « trop simple et banal ».
+
+              C'etait une carte de 560 px avec trois paragraphes empiles, dont
+              le premier — le nom ET le prix — en gras de 15 px. Sur une page
+              ou deux montants s'affichent a 75 px, le troisieme produit
+              vendable de Choucas etait annonce dans la graisse d'un
+              intertitre.
+
+              Le nom passe donc en serif, a la taille d'un titre de section :
+              c'est une offre, elle se lit comme une offre. Et la carte s'ouvre
+              en deux colonnes — l'argument a gauche, ce que contient le
+              document a droite — ce qui lui donne la largeur des cartes de
+              prix au lieu de la moitie.
+
+              ⚠️ LE PRIX SORT DU NOM, ET C'EST CE QUI REGLE LE « BANAL ».
+              `optionsRapportNom` disait « Le rapport de saison proprietaire —
+              120 € par bien et par saison » : a 40 px de serif, le montant
+              devenait un morceau de titre noir de trois lignes, pendant que
+              les deux montants du haut de page s'affichent a 75 px en cuivre.
+              Le troisieme produit vendable etait le seul dont le prix ne se
+              lisait pas comme un prix.
+
+              LA CHAINE EST DONC REDISTRIBUEE EN TROIS — `optionsRapportNom`,
+              `Prix`, `Unite` — AUX MEMES MOTS, sans en ajouter ni en retirer
+              un seul. Ce n'est pas une reecriture, c'est un decoupage : je
+              n'ai pas touche au vocabulaire du fondateur. L'option prend alors
+              le composant `Prix` des deux cartes du haut, donc la meme
+              grammaire, donc le meme statut.
+              --------------------------------------------------------------- */}
+          <div
+            style={{ ['--i' as string]: 1 }}
+            className="mt-titre grid gap-8 rounded-carte border border-filet bg-surface p-7 text-encre shadow-carte desktop:grid-cols-2 desktop:gap-12 desktop:p-10"
+          >
+            <div>
+              <h3 className="font-serif text-h3 text-balance">{t('optionsRapportNom')}</h3>
+              <Prix montant={t('optionsRapportPrix')} unite={t('optionsRapportUnite')} />
+            </div>
+            {/* Le filet separe les deux moitiés a partir du desktop ; en
+                dessous il redevient horizontal, parce qu'elles s'empilent. */}
+            <div className="border-t border-filet pt-8 desktop:border-l desktop:border-t-0 desktop:pl-12 desktop:pt-0">
+              <p className="text-corps">{t('optionsRapportJustification')}</p>
+              <p className="text-corps mt-4 text-encre-douce">{t('optionsRapportTexte')}</p>
+            </div>
           </div>
         </Reveal>
       </Section>
