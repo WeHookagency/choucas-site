@@ -126,7 +126,13 @@ export function QuiEstDerriere() {
           deux colonnes se touchent presque, et le bloc se centre dans la
           section au lieu de s'etaler. Sous 1 024 rien ne change : la largeur
           de contenu y est deja inferieure au plafond. */}
-      <Reveal className="desktop:mx-auto desktop:flex desktop:max-w-[980px] desktop:items-start desktop:gap-12 large:gap-16">
+      {/* `items-center` et non `items-start`, depuis que la legende allonge la
+          colonne de droite. Cale en haut, le texte finissait 260 px avant la
+          figure et laissait un vide sous lui — le defaut qu'on venait de
+          corriger, deplace d'un cran. Centre, le debordement se repartit des
+          deux cotes et devient une composition. C'est le raisonnement deja
+          ecrit pour les cinq sections de Produit, au mot pres. */}
+      <Reveal className="desktop:mx-auto desktop:flex desktop:max-w-[980px] desktop:items-center desktop:gap-12 large:gap-16">
         <div className="desktop:min-w-0 desktop:flex-1">
           <h2 id="qui-titre" className="font-serif text-h3 text-balance">
             {t('qui.titre')}
@@ -140,7 +146,9 @@ export function QuiEstDerriere() {
               s'effacer — mais sur Lichen l'encre douce mesure 2,34:1, donc
               tout y est deja en encre pleine. */}
           <p className="text-corps mt-4 max-w-[62ch]">{t('qui.p2')}</p>
-          <p className="text-corps mt-4 max-w-[62ch]">{t('qui.p3')}</p>
+          {/* `qui.p3` — La Clusaz, le Quebec, la vallee — a quitte ce bloc le
+              19 septembre 2026. Il est desormais la LEGENDE DU PORTRAIT, juste
+              en dessous. Voir la figure. */}
           {/* `qui.p4` — la clause de continuite — a quitte ce mur le
               19 septembre 2026. Elle est en bas de section, a cote du samedi :
               voir le bloc des garanties. La chaine reste au catalogue.
@@ -164,11 +172,31 @@ export function QuiEstDerriere() {
             visait 380. Le pourcentage avait un sens dans une colonne qui
             suivait la fenetre ; il n'en a plus dans un bloc de largeur
             connue, ou il ne fait que rendre le portrait plus petit. */}
-        <Photo
-          src="/demo/mathieu.jpg"
-          alt={t('portraitAlt')}
-          className="mx-auto mt-10 max-w-[420px] desktop:mx-0 desktop:mt-0 desktop:w-[380px] desktop:max-w-none desktop:shrink-0"
-        />
+        {/* ---------------------------------------------------------------
+            LA BIOGRAPHIE DESCEND SOUS LE PORTRAIT. 19 septembre 2026,
+            « condenser cette section, cela n'est pas esthetique ».
+
+            Le bloc de gauche etait quatre paragraphes de meme poids, 168 mots.
+            Le dernier — « j'ai grandi a La Clusaz, je suis parti douze ans au
+            Quebec, je vis dans la vallee ou sont mes clients » — est le plus
+            biographique des quatre, et le fondateur a deja demande deux fois
+            moins de « je raconte mon histoire ».
+
+            Il ne part pas pour autant : il DIT OU EST CETTE PERSONNE, et c'est
+            un argument. Il devient donc la legende du portrait, qui est
+            exactement l'endroit ou une phrase de ce genre se lit — a cote du
+            visage dont elle parle, et non au milieu d'un argumentaire.
+
+            Le mur tombe a trois blocs et 126 mots ; la colonne de droite cesse
+            d'etre une image posee et devient une figure. Les deux colonnes se
+            rapprochent en hauteur par la meme occasion.
+
+            Encre pleine : sur Lichen, l'encre douce mesure 2,34:1.
+            --------------------------------------------------------------- */}
+        <figure className="m-0 mx-auto mt-10 max-w-[420px] desktop:mx-0 desktop:mt-0 desktop:w-[380px] desktop:max-w-none desktop:shrink-0">
+          <Photo src="/demo/mathieu.jpg" alt={t('portraitAlt')} />
+          <figcaption className="text-corps mt-5">{t('qui.p3')}</figcaption>
+        </figure>
       </Reveal>
 
       {/* Meme plafond de 980 que le bloc au-dessus, pour rester sur son axe.

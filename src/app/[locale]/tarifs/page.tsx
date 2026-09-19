@@ -593,10 +593,23 @@ export default async function Page({ params }: PageProps<'/[locale]/tarifs'>) {
           sur le bouton, la phrase 6,57:1 sur Lichen.
           --------------------------------------------------------------- */}
       <Section fond="respiration" aria-label={contact('voies.impl.action')}>
-        <Reveal className="flex flex-col items-center text-center">
-          <p className="font-serif text-h3 max-w-[22ch] text-balance">
+        <Reveal className="mx-auto flex max-w-[1160px] flex-col items-center text-center">
+          {/* 26ch, comme la bande de cloture de Produit : a 22 la coupe tombe
+              au milieu d'un groupe. */}
+          <p className="font-serif text-h3 max-w-[26ch] text-balance">
             {contact('voies.impl.texte')}
           </p>
+          {/* Ce qui se passe apres le clic, juste avant le bouton. Produit
+              emploie ici la semaine offerte ; cette page l'annonce deja dans
+              sa section « Pouvez-vous tester avant ? », et la repeter deux
+              ecrans plus bas ne rassurerait pas davantage.
+
+              `contact.apres.etapes.reponse` est la bonne phrase pour cette
+              page-la : quelqu'un qui vient de lire des montants hesite sur ce
+              qu'il declenche en ecrivant. « On vous repond sous 48 h » dit que
+              ce n'est pas un devis automatique, et c'est deja publie sur la
+              page ou le bouton mene. */}
+          <p className="text-corps mt-5 max-w-[52ch]">{contact('apres.etapes.reponse')}</p>
           {/* Le lexique des CTA est fige : « Organiser une journée sur site »
               est le libelle de la voie principale de la page Contact, et c'est
               vers elle que ce bouton mene. */}

@@ -384,7 +384,23 @@ export default async function Page({ params }: PageProps<'/[locale]/produit'>) {
             <li
               key={cle}
               style={{ ['--i' as string]: i }}
-              className={`flex items-start gap-3 rounded-carte border border-filet bg-surface p-6 ${
+              /* ⚠️ FILET CUIVRE SUR LES CINQ, 19 septembre 2026. Elles
+                 etaient en Glacier borde de `filet` sur un fond Panneau :
+                 #FCFBF7 sur #E8E9E0 avec un contour #DDD9CE, soit 1,07:1 entre
+                 la tuile et son fond et un trait qu'on devine a peine. Les
+                 cinq refus flottaient comme du texte pose, pas comme des
+                 tuiles.
+
+                 Le cuivre mesure 3,81:1 sur le Glacier de la tuile, au-dessus
+                 du seuil de 3 des objets graphiques, et c'est la couleur que
+                 les croix portent deja a l'interieur : le contour ne fait que
+                 prolonger ce que le signe annonce. Aucune teinte neuve, et
+                 rien qui repose sur la seule couleur — chaque refus est ecrit.
+
+                 Pas d'aplat colore : cinq aplats cuivre sur un Panneau
+                 deviendraient le bloc le plus lourd de la page, pour dire ce
+                 que Choucas NE fait pas. */
+              className={`flex items-start gap-3 rounded-carte border border-accent bg-surface p-6 ${
                 i === REFUS.length - 1 ? 'desktop:col-span-2' : ''
               }`}
             >
