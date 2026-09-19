@@ -133,14 +133,7 @@ export function TarifsHome() {
             teinte mousse. La capture attendue fait donc 1 036 px de large,
             recadree a ce rapport. Elle porte sa legende : une reserve muette
             ne se remplit jamais. */}
-        {/* La figure entiere est masquee sous 1 000 px — legende comprise,
-            sinon elle resterait seule a legender du vide. La reserve, elle, se
-            masque d'elle-meme depuis que la regle vit dans `Reserve`.
-
-            ⚠️ A LEVER LE JOUR OU LA CAPTURE ARRIVE ICI : cette section rend
-            une reserve en dur, pas derriere un repli. Contrairement a
-            `BriefToProof`, personne ne le fera a ma place. */}
-        <figure className="m-0 hidden flex-col items-center gap-2 desktop:flex desktop:items-start">
+        <figure className="m-0 flex flex-col items-center gap-2 desktop:items-start">
           <Reserve ratio="340 / 480" largeurMax={340} teinte="mousse" />
           <figcaption
             style={{ maxWidth: '340px' }}

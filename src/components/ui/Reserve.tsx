@@ -32,28 +32,24 @@
  * revenu a l'aplat.
  *
  * ---------------------------------------------------------------------------
- * ELLE NE PARAIT PAS SOUS 1 000 PX. 19 septembre 2026.
+ * ELLE A ETE MASQUEE SOUS 1 000 PX, PUIS REMISE. 19 septembre 2026, dans la
+ * journee. La trace est gardee pour que personne ne refasse le trajet.
  *
- * Sur desktop, une reserve occupe une colonne a cote du texte et se lit pour
- * ce qu'elle est : une place tenue. Empilee sur un telephone, elle devient un
- * rectangle vide de 264 a 480 px au milieu du parcours, et le visiteur ne voit
- * pas une capture a venir — il voit un trou. Releve par le fondateur sur la
- * section tarifs de l'accueil, puis etendu a toutes.
+ * L'argument du masquage tenait : empilee sur un telephone, une reserve
+ * devient un rectangle vide de 264 a 480 px au milieu du parcours, et le
+ * visiteur ne voit pas une capture a venir — il voit un trou.
  *
- * LA REGLE EST ICI ET NON DANS LES SEPT APPELS, pour une raison qui compte :
- * elle se leve alors toute seule. `Reserve` ne rend rien d'autre qu'un vide ;
- * le jour ou une vraie image la remplace, l'image parait en mobile comme
- * partout, sans qu'on ait a se souvenir de retirer sept `hidden`. C'est le
- * genre d'oubli qui se decouvre en ligne.
+ * CE QUI L'A ANNULE : les captures arrivent. Le front-end de la PWA est en
+ * cours, la liste est ecrite dans `references/captures-attendues.md`, et ces
+ * cadres seront remplis avant la mise en ligne. Masquer pendant quelques
+ * semaines un emplacement qu'on s'apprete a remplir, c'est se priver du seul
+ * signal qui rappelle qu'il est vide — et prendre le risque de livrer en
+ * oubliant d'en remplir un.
  *
- * ⚠️ CE QUI PART AVEC ELLE. Les figcaptions qui la legendent restent : les
- * appelants qui en posent une doivent la masquer eux-memes, sinon un libelle
- * comme « Le brief consolide » flotte en mobile sans rien a legender. Fait
- * dans BriefToProof, TarifsHome, Produit et MemoireEntreprise.
- *
- * `hidden` et non `opacity-0` ni `invisible` : le cadre ne doit pas occuper de
- * place. Il est deja `aria-hidden`, donc rien ne change pour un lecteur
- * d'ecran — il ne portait aucune information a retirer.
+ * ⚠️ SI LE MASQUAGE DOIT REVENIR : il tenait en `hidden … desktop:block` sur
+ * ce `div`, PLUS un masquage de la figure entiere chez chacun des quatre
+ * appelants. Sans ce second geste, la legende reste seule a legender du vide —
+ * « Le brief consolide » sous une section qui n'illustre plus rien.
  * ---------------------------------------------------------------------------
  */
 export function Reserve({
@@ -78,7 +74,7 @@ export function Reserve({
       aria-hidden
       style={{ aspectRatio: ratio, maxWidth: largeurMax ? `${largeurMax}px` : undefined }}
       className={[
-        'hidden w-full rounded-carte-majeure border-2 border-dashed desktop:block',
+        'w-full rounded-carte-majeure border-2 border-dashed',
         sombre ? 'border-encre-inverse/45' : 'border-encre/50',
         teinte === 'mousse' ? (sombre ? 'bg-ok/15' : 'bg-ok/10') : '',
         className ?? '',

@@ -287,16 +287,9 @@ export default async function Page({ params }: PageProps<'/[locale]/produit'>) {
                 ))}
               </div>
 
-              {/* ⚠️ MASQUEE SOUS 1 000 PX, legende comprise. La reserve se
-                  masque d'elle-meme ; la figure doit suivre, sinon « Le brief
-                  consolide » flotte seul en mobile sous une section dont il
-                  n'illustre plus rien.
-
-                  A LEVER quand les cinq captures arrivent : cette page rend
-                  des reserves en dur. Voir references/captures-attendues.md. */}
               <figure
                 style={{ ['--i' as string]: 1 }}
-                className={`m-0 hidden flex-col items-center gap-2 desktop:flex desktop:row-start-1 desktop:items-start ${
+                className={`m-0 flex flex-col items-center gap-2 desktop:row-start-1 desktop:items-start ${
                   ecranAGauche ? 'desktop:col-start-1' : 'desktop:col-start-2'
                 }`}
               >
