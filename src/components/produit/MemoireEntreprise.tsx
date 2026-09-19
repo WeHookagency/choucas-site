@@ -51,7 +51,11 @@ export function MemoireEntreprise() {
                 340 px dans une colonne de 712, la reserve occupait 48 % de sa
                 ligne et laissait le reste vide a sa droite. Un trou symetrique
                 se lit comme une marge, un trou d'un seul cote comme un oubli. */}
-            <figure className="m-0 mt-2 flex flex-col items-center gap-2 desktop:items-start">
+            {/* Masquee sous 1 000 px, legende comprise, comme partout ou une
+                reserve tient une place. Ce composant est dereference depuis le
+                13 septembre 2026 — il ne se rend nulle part — mais il doit
+                rester juste le jour ou on le remet. */}
+            <figure className="m-0 mt-2 hidden flex-col items-center gap-2 desktop:flex desktop:items-start">
               <Reserve ratio="340 / 480" largeurMax={340} teinte="mousse" />
               <figcaption
                 style={{ maxWidth: '340px' }}

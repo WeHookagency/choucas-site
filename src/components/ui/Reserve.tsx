@@ -30,6 +30,31 @@
  * Le lavis, lui, ne porte rien : il distingue une capture d'ecran d'une
  * photographie, a 1,13:1 du fond. C'est voulu — s'il se voyait, on serait
  * revenu a l'aplat.
+ *
+ * ---------------------------------------------------------------------------
+ * ELLE NE PARAIT PAS SOUS 1 000 PX. 19 septembre 2026.
+ *
+ * Sur desktop, une reserve occupe une colonne a cote du texte et se lit pour
+ * ce qu'elle est : une place tenue. Empilee sur un telephone, elle devient un
+ * rectangle vide de 264 a 480 px au milieu du parcours, et le visiteur ne voit
+ * pas une capture a venir — il voit un trou. Releve par le fondateur sur la
+ * section tarifs de l'accueil, puis etendu a toutes.
+ *
+ * LA REGLE EST ICI ET NON DANS LES SEPT APPELS, pour une raison qui compte :
+ * elle se leve alors toute seule. `Reserve` ne rend rien d'autre qu'un vide ;
+ * le jour ou une vraie image la remplace, l'image parait en mobile comme
+ * partout, sans qu'on ait a se souvenir de retirer sept `hidden`. C'est le
+ * genre d'oubli qui se decouvre en ligne.
+ *
+ * ⚠️ CE QUI PART AVEC ELLE. Les figcaptions qui la legendent restent : les
+ * appelants qui en posent une doivent la masquer eux-memes, sinon un libelle
+ * comme « Le brief consolide » flotte en mobile sans rien a legender. Fait
+ * dans BriefToProof, TarifsHome, Produit et MemoireEntreprise.
+ *
+ * `hidden` et non `opacity-0` ni `invisible` : le cadre ne doit pas occuper de
+ * place. Il est deja `aria-hidden`, donc rien ne change pour un lecteur
+ * d'ecran — il ne portait aucune information a retirer.
+ * ---------------------------------------------------------------------------
  */
 export function Reserve({
   ratio,
@@ -53,7 +78,7 @@ export function Reserve({
       aria-hidden
       style={{ aspectRatio: ratio, maxWidth: largeurMax ? `${largeurMax}px` : undefined }}
       className={[
-        'w-full rounded-carte-majeure border-2 border-dashed',
+        'hidden w-full rounded-carte-majeure border-2 border-dashed desktop:block',
         sombre ? 'border-encre-inverse/45' : 'border-encre/50',
         teinte === 'mousse' ? (sombre ? 'bg-ok/15' : 'bg-ok/10') : '',
         className ?? '',

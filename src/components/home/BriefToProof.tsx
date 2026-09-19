@@ -109,8 +109,17 @@ function Apercu({ etape, className }: { etape: EtapeCle; className?: string }) {
   }
 
   // Pas de capture : la place est tenue, et ce qu'elle attend est nomme.
+  //
+  // ⚠️ MASQUEE SOUS 1 000 PX, et c'est la figure entiere — pas seulement la
+  // reserve, qui se masque deja d'elle-meme. Sans cela, la legende « Brief »
+  // ou « Rapport proprietaire » resterait seule en mobile, a legender du vide.
+  //
+  // Le masquage est dans CE REPLI et non sur le composant : la branche du
+  // dessus, celle qui rend une vraie capture, n'est pas concernee. Le jour ou
+  // les quatre captures arrivent, elles paraissent en mobile sans qu'on ait
+  // rien a defaire ici.
   return (
-    <figure className={`m-0 flex flex-col gap-3 ${className ?? ''}`}>
+    <figure className={`m-0 hidden flex-col gap-3 desktop:flex ${className ?? ''}`}>
       <Reserve ratio="1340 / 1000" teinte="mousse" sombre />
       <figcaption className="text-micro text-encre-inverse/75">
         {t(`onglets.${etape}`)}
