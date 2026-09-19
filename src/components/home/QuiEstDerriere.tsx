@@ -243,9 +243,31 @@ export function QuiEstDerriere() {
           enonces cote a cote pesaient plus que le H2 de la section et
           faisaient de ce bas de page le sujet principal.
           --------------------------------------------------------------- */}
+      {/* ---------------------------------------------------------------
+          LA PAIRE S'APPARIE DES 700 PX, ET NON 1 000. 19 septembre 2026,
+          « pourquoi ces sections sont toujours la ? » sur une capture prise
+          dans cette bande-la.
+
+          Le defaut se voyait exactement entre 700 et 999 px, et nulle part
+          ailleurs. Mesure : la barre de navigation y est DEJA en mode desktop
+          — ses liens paraissent des 700 — pendant que ces deux garanties
+          restaient empilees jusqu'a 1 000. Le visiteur lisait donc une page
+          large ou deux blocs se suivaient verticalement, chacun avec son
+          intitule en capitales et son filet : trois separations pour ce qui
+          est une paire.
+
+          Elles passent au seuil tablette, celui de la barre. La colonne y fait
+          306 px pour un intitule, un enonce et un paragraphe — mesure, ca
+          tient. Et le filet de separation, qui n'existe que pour l'empilement,
+          tombe au meme seuil.
+
+          CE NE SONT PAS DEUX SECTIONS. Le samedi repond a « et si ca lache ? »,
+          la clause a « et si tu t'arretes ? » : ce qui vous protege quand ca va
+          mal, deux fois. Les poser cote a cote le dit sans l'ecrire.
+          --------------------------------------------------------------- */}
       <Reveal
         group
-        className="mx-auto mt-titre max-w-[980px] border-t border-encre/25 pt-titre desktop:grid desktop:grid-cols-2 desktop:gap-16"
+        className="mx-auto mt-titre max-w-[980px] border-t border-encre/25 pt-titre tablette:grid tablette:grid-cols-2 tablette:gap-8 desktop:gap-16"
       >
         <div style={{ ['--i' as string]: 0 }}>
           <h3 className="text-intro font-bold uppercase tracking-[0.08em]">
@@ -284,14 +306,12 @@ export function QuiEstDerriere() {
           <p className="text-corps mt-4 max-w-[52ch]">{t('samedi.produit')}</p>
         </div>
 
-        {/* `mt-8` et un filet, la ou il y avait `mt-10` et rien. Empilees sur
-            telephone, les deux garanties se lisaient comme deux sections
-            independantes separees par du vide ; cote a cote au desktop, elles
-            se lisent comme une paire. Le filet leur rend en mobile ce que la
-            colonne leur donne au desktop : une frontiere, pas un ecart. */}
+        {/* Le filet ne sert que sous 700 px, la ou les deux blocs s'empilent :
+            il leur rend ce que la colonne leur donne au-dessus — une
+            frontiere, pas un ecart. Au-dela, la grille suffit. */}
         <div
           style={{ ['--i' as string]: 1 }}
-          className="mt-8 border-t border-encre/25 pt-8 desktop:mt-0 desktop:border-t-0 desktop:pt-0"
+          className="mt-8 border-t border-encre/25 pt-8 tablette:mt-0 tablette:border-t-0 tablette:pt-0"
         >
           <h3 className="text-intro font-bold uppercase tracking-[0.08em]">
             {t('continuite.titre')}
