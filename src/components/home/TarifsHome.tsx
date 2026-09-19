@@ -133,7 +133,20 @@ export function TarifsHome() {
             teinte mousse. La capture attendue fait donc 1 036 px de large,
             recadree a ce rapport. Elle porte sa legende : une reserve muette
             ne se remplit jamais. */}
-        <figure className="m-0 flex flex-col items-center gap-2 desktop:items-start">
+        {/* ⚠️ MASQUEE SOUS 1 000 PX depuis le 19 septembre 2026. Une reserve
+            est un cadre VIDE qui attend une capture : sur desktop elle occupe
+            une colonne a cote du texte et se lit comme une place reservee, en
+            mobile elle s'empile et devient 480 px de rectangle en pointilles
+            au milieu du parcours. Le visiteur ne voit pas une capture a venir,
+            il voit un trou.
+
+            `hidden` et non `opacity-0` : le cadre ne doit ni occuper de place
+            ni etre annonce. Il n'emporte aucune information — la legende qu'il
+            porte nomme une capture qui n'existe pas encore.
+
+            ⚠️ A LEVER LE JOUR OU LA CAPTURE ARRIVE. Une vraie image a toute sa
+            place en mobile ; c'est le vide qui n'en a pas. */}
+        <figure className="m-0 hidden flex-col items-center gap-2 desktop:flex desktop:items-start">
           <Reserve ratio="340 / 480" largeurMax={340} teinte="mousse" />
           <figcaption
             style={{ maxWidth: '340px' }}

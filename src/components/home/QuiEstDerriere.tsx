@@ -256,7 +256,15 @@ export function QuiEstDerriere() {
           <p className="text-corps mt-4 max-w-[52ch]">{t('samedi.produit')}</p>
         </div>
 
-        <div style={{ ['--i' as string]: 1 }} className="mt-10 desktop:mt-0">
+        {/* `mt-8` et un filet, la ou il y avait `mt-10` et rien. Empilees sur
+            telephone, les deux garanties se lisaient comme deux sections
+            independantes separees par du vide ; cote a cote au desktop, elles
+            se lisent comme une paire. Le filet leur rend en mobile ce que la
+            colonne leur donne au desktop : une frontiere, pas un ecart. */}
+        <div
+          style={{ ['--i' as string]: 1 }}
+          className="mt-8 border-t border-encre/25 pt-8 desktop:mt-0 desktop:border-t-0 desktop:pt-0"
+        >
           <h3 className="text-intro font-bold uppercase tracking-[0.08em]">
             {t('continuite.titre')}
           </h3>

@@ -299,9 +299,10 @@ export default async function Page({ params }: PageProps<'/[locale]/tarifs'>) {
           dans une meme rangee sont un cas different, et leur donner un seul
           titre commun aurait masque le fait qu'il y a DEUX prix.
 
-          Fonds de la page apres fusion : Neige, Panneau, Sapin, Neige,
-          Panneau, Neige, puis la bande de cloture en Lichen. Aucun repete
-          d'une section a la suivante.
+          Fonds de la page : Neige, Panneau, Sapin, Neige, Panneau, Lichen.
+          Aucun repete d'une section a la suivante. Le dernier Neige est parti
+          avec la section « Le paiement » le 19 septembre 2026 — voir la carte
+          de l'abonnement, ou sa phrase a trouve sa place.
           --------------------------------------------------------------- */}
       <Section fond="fond-alt" aria-label={prix('aria')}>
         <Reveal
@@ -353,6 +354,28 @@ export default async function Page({ params }: PageProps<'/[locale]/tarifs'>) {
                   plus bas. La chaine reste au catalogue. */}
               <p className="text-corps mt-5">{t('abonnementExemples')}</p>
               <p className="text-corps mt-4 text-encre-douce">{t('abonnementSocle')}</p>
+              {/* ---------------------------------------------------------
+                  « LE PAIEMENT » ETAIT UNE SECTION. Elle n'en etait pas une :
+                  deux phrases courtes qui occupaient une bande entiere entre
+                  « Ce qui arrive » et la cloture, avec son propre H2, son
+                  propre fond et son propre rythme vertical.
+
+                  Verdict du fondateur, le 19 septembre 2026 : « cette section
+                  ne devrait pas en etre une, elle doit etre en legende de
+                  l'abonnement ». C'est exact, et c'est plus qu'une question de
+                  place — « mensuel, sur vos biens actifs, pas d'engagement de
+                  duree » NE DECRIT QUE L'ABONNEMENT. Le demarrage se paie une
+                  fois. La phrase etait donc posee a egale distance des deux
+                  montants alors qu'elle n'en concerne qu'un.
+
+                  Elle descend sous le prix qu'elle explique, separee par un
+                  filet. `tarifs.paiementTitre` reste au catalogue : le titre
+                  de section n'a plus lieu d'etre, la phrase se passe de
+                  legende quand elle est a sa place.
+                  --------------------------------------------------------- */}
+              <p className="text-corps mt-5 border-t border-filet pt-5">
+                {t('paiementTexte')}
+              </p>
             </CartePrix>
           </div>
           {/* A QUI CETTE PAGE S'ADRESSE, ecrit une fois, sous les deux
@@ -368,9 +391,14 @@ export default async function Page({ params }: PageProps<'/[locale]/tarifs'>) {
               de la grille et tombe dans la colonne de gauche, sous la carte 01,
               ou son `mx-auto text-center` le centre dans une demi-largeur. Il
               parle des deux cartes, il doit traverser les deux. */}
-          <p className="text-corps mx-auto mt-titre max-w-[62ch] text-center text-encre-douce desktop:col-span-2">
-            {t('perimetre')}
-          </p>
+          <div className="mx-auto mt-titre max-w-[62ch] text-center desktop:col-span-2">
+            <p className="text-corps text-encre-douce">{t('perimetre')}</p>
+            {/* La mention de TVA suit les deux montants et non l'un des deux :
+                elle vaut pour tout ce que la page annonce, options comprises.
+                Elle etait au fond de l'ancienne section « Le paiement », donc
+                a six cents pixels du dernier prix. */}
+            <p className="text-micro mt-5 text-encre-douce">{t('htMention')}</p>
+          </div>
         </Reveal>
       </Section>
 
@@ -402,12 +430,36 @@ export default async function Page({ params }: PageProps<'/[locale]/tarifs'>) {
               C'est la reponse qui prend le cuivre eclairci. La table de
               `tokens.css` le donne a 4,64:1 sur Sapin : au-dessus du seuil de
               4,5 du texte courant, et de peu — d'ou le gras, qui n'est pas
-              decoratif ici. Le cuivre standard y tomberait a 2,79:1. */}
+              decoratif ici. Le cuivre standard y tomberait a 2,79:1.
+
+              ---------------------------------------------------------------
+              LES TROIS SECTIONS DE CONTENU PARLENT LA MEME LANGUE depuis le
+              19 septembre 2026. Verdict du fondateur : « la police n'est pas
+              correctement adaptee en fonction de la charte et des sections ».
+
+              Il avait raison, et la mesure le disait : ce chapeau etait en
+              `text-intro`, ceux des options et des briques a venir en
+              `text-corps`. Trois sections voisines, deux tailles de chapeau.
+              Les trois prennent `text-intro`, plafonnees a 62ch et centrees.
+
+              CE QUI RESTE DIFFERENT ICI, ET VOLONTAIREMENT : le cuivre et le
+              gras. Ce chapeau-la n'est pas une introduction, c'est LA REPONSE
+              a la question posee juste au-dessus. Les deux autres presentent
+              ce qui suit ; celui-ci tranche.
+
+              ⚠️ IL MANQUE UNE ETIQUETTE AU-DESSUS DU TITRE — la demande
+              portait aussi la-dessus. Les sections de l'accueil en ont toutes
+              une ; aucune section de Tarifs n'en a. L'ajouter ici seulement
+              creerait l'incoherence qu'on vient de corriger. Il en faut trois,
+              courtes, et elles n'existent pas au catalogue : a me donner.
+              --------------------------------------------------------------- */}
           <div style={{ ['--i' as string]: 0 }} className="mx-auto max-w-[640px] text-center">
             <h2 id="test-titre" className="font-serif text-h3 text-balance">
               {t('testTitre')}
             </h2>
-            <p className="text-intro mt-5 font-semibold text-accent-inverse">{t('testP1')}</p>
+            <p className="text-intro mx-auto mt-5 max-w-[62ch] font-semibold text-accent-inverse">
+              {t('testP1')}
+            </p>
           </div>
 
           {/* ---------------------------------------------------------------
@@ -453,7 +505,7 @@ export default async function Page({ params }: PageProps<'/[locale]/tarifs'>) {
             <h2 id="options-titre" className="font-serif text-h3 text-balance">
               {t('optionsTitre')}
             </h2>
-            <p className="text-corps mt-4 text-encre-douce">{t('optionsIntro')}</p>
+            <p className="text-intro mt-5 text-encre-douce">{t('optionsIntro')}</p>
           </div>
           {/* ---------------------------------------------------------------
               L'OPTION CESSE D'ETRE UN PARAGRAPHE ENCADRE. 19 septembre 2026,
@@ -510,7 +562,7 @@ export default async function Page({ params }: PageProps<'/[locale]/tarifs'>) {
             <h2 id="arrive-titre" className="font-serif text-h3 text-balance">
               {t('arriveTitre')}
             </h2>
-            <p className="text-corps mt-4 text-encre-douce">{t('arriveIntro')}</p>
+            <p className="text-intro mt-5 text-encre-douce">{t('arriveIntro')}</p>
           </div>
           <div className="mt-titre grid gap-6 desktop:grid-cols-2 desktop:gap-8">
             <div style={{ ['--i' as string]: 1 }} className="flex">
@@ -520,21 +572,6 @@ export default async function Page({ params }: PageProps<'/[locale]/tarifs'>) {
               <Item nom={t('arriveLitigeNom')} texte={t('arriveLitigeTexte')} aVenir />
             </div>
           </div>
-        </Reveal>
-      </Section>
-
-      {/* Le paiement : deux phrases courtes qui occupaient une rangee entiere.
-          Elles se centrent et se resserrent — c'est une mention de bas de page
-          de tarifs, pas une section de contenu, et la traiter comme les autres
-          lui donnait un poids qu'elle n'a pas. Le filet la separe sans lui
-          creer un fond a elle. */}
-      <Section fond="fond" aria-labelledby="paiement-titre">
-        <Reveal className="mx-auto max-w-[62ch] border-t border-filet pt-titre text-center">
-          <h2 id="paiement-titre" className="text-intro font-semibold">
-            {t('paiementTitre')}
-          </h2>
-          <p className="text-corps mt-3">{t('paiementTexte')}</p>
-          <p className="text-micro mt-4 text-encre-douce">{t('htMention')}</p>
         </Reveal>
       </Section>
 
