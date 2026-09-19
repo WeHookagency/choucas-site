@@ -30,7 +30,19 @@ export const groupesFaq = [
   },
   {
     id: 'perimetre',
-    questions: ['remplace-pms', 'reservations', 'connexion-pms', 'longue-duree', 'une-personne'],
+    // `outils-microsoft` est dans le perimetre et non dans les donnees : la
+    // question n'est pas « ou vivent mes donnees » — `hebergement` y repond —
+    // mais « est-ce que ca marche dans mon cas ». Elle voisine donc
+    // `longue-duree` et `une-personne`, les deux autres reponses qui disent a
+    // qui Choucas ne convient pas, ou a quelles conditions.
+    questions: [
+      'remplace-pms',
+      'reservations',
+      'connexion-pms',
+      'outils-microsoft',
+      'longue-duree',
+      'une-personne',
+    ],
   },
   {
     id: 'equipe',

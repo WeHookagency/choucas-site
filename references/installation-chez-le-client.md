@@ -150,9 +150,56 @@ un projet.
 
 ## 6. Deux prérequis à nommer avant de vendre
 
-**La cliente a besoin d'un compte Google.** Workspace de préférence, pour
-l'administration et le contrôle du partage. Une conciergerie qui travaille sur
-Microsoft ou sur une adresse Gmail personnelle n'est pas dans le cas nominal.
+**La cliente a besoin d'un compte Google.** Un seul, et il porte le document.
+
+C'est beaucoup plus léger qu'il n'y paraît, et il faut le savoir avant de
+croire qu'on perd un client parce qu'il est sur Microsoft : **`identite-pwa.md`
+n'utilise pas les comptes Google pour identifier les personnes.** Une personne
+se connecte avec un code saisi dans l'application, échangé contre un jeton de
+session de douze heures. Aucune équipière n'a besoin d'un compte Google, et le
+manager non plus.
+
+Ce qui a besoin d'un compte Google, c'est **le contenant** : la feuille et le
+script. Un seul, donc, pour toute la conciergerie.
+
+### Une conciergerie sur Microsoft
+
+Elle garde Microsoft pour tout le reste — messagerie, bureautique, fichiers —
+et ouvre **un compte Google qui ne sert qu'à porter le document**. Ses équipes
+ne le voient jamais : elles travaillent dans l'application.
+
+Deux conditions, et la première est celle qui compte :
+
+1. **Le compte est ouvert au nom de la conciergerie, pas au nôtre.** C'est lui
+   qui rend vraie la clause de continuité. Un compte créé par l'éditeur avec sa
+   propre adresse de récupération annule tout ce que cette architecture devait
+   garantir : l'application serait de nouveau chez lui.
+2. **Workspace plutôt qu'une adresse Gmail gratuite.** Une adresse personnelle
+   fonctionne techniquement, mais elle n'a ni console d'administration, ni
+   journal d'audit, ni transfert de propriété, ni 2FA imposable — et elle
+   appartient, de fait, à qui connaît le mot de passe. Pour un document qui
+   porte les codes d'accès de maisons, c'est le mauvais contenant.
+
+⚠️ **La région des données n'est pas disponible sur toutes les formules
+Workspace.** `faq.questions.hebergement` affirme désormais que la région est le
+réglage de la cliente : c'est vrai là où l'option existe. **À vérifier sur la
+formule retenue avant de le répéter en rendez-vous**, et à corriger dans la
+réponse si l'option manque sur les formules d'entrée de gamme.
+
+### Le point de friction réel, et il n'est pas le compte
+
+**Le rapport propriétaire part d'une adresse.** Si le script envoie le courriel
+lui-même, il part de l'adresse Google — pas du domaine de la conciergerie. Pour
+une maison sur Microsoft, un rapport qui arrive d'une adresse inconnue chez un
+propriétaire abîme précisément la confiance qu'il devait construire.
+
+Le site s'en sort déjà, et sans le savoir : `faq.questions.envois-automatiques`
+promet que « les communications externes passent par une relecture et un geste
+humain ». Le rapport est donc **préparé** dans Choucas puis envoyé par la
+personne, depuis sa propre messagerie. La friction disparaît — à condition de
+ne jamais transformer cette relecture en envoi automatique « pour gagner du
+temps ». Ce serait, au passage, casser une promesse publiée.
+
 **À vérifier à la prise de rendez-vous, pas le matin de l'implantation.**
 
 **L'éditeur garde un accès de support, et il faut le dire.** « Les données sont

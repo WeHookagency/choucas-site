@@ -1080,7 +1080,7 @@
       },
       "hebergement": {
         "q": "Où sont hébergées les données ?",
-        "r": "Chez Google, dans le cadre de Google Workspace. Google est établi hors de l’Union européenne ; les transferts sont couverts par les clauses contractuelles types. Le détail contractuel est fourni sur demande."
+        "r": "Dans votre propre espace Google Workspace. Le tableur et le programme qui le fait tourner sont posés chez vous le jour de l’implantation, sur un compte qui vous appartient : vos données ne transitent par aucune infrastructure à nous. La région où Google les conserve est votre réglage, dans votre console d’administration. Nous gardons un accès de support, que vous révoquez quand vous voulez, sans avoir à nous le demander."
       },
       "photos": {
         "q": "Que deviennent les photos de biens privés ?",
@@ -1121,6 +1121,10 @@
       "implantation-facturee": {
         "q": "La journée d’implantation est-elle facturée en plus ?",
         "r": "Non. La journée sur site est le démarrage : 2 000 €, une fois, et rien d’autre au titre de la mise en place. 500 € sont versés à la réservation et viennent en déduction ; le solde n’est facturé qu’après la semaine de test, si vous continuez."
+      },
+      "outils-microsoft": {
+        "q": "Nous travaillons sur Microsoft, pas sur Google.",
+        "r": "Un seul compte Google est nécessaire, et il porte le document — pas vos équipes. Choucas n’utilise pas les comptes Google pour identifier les personnes : chacune se connecte avec son propre code, dans l’application. Vos équipières n’ont donc rien à créer, et vous gardez Microsoft pour tout le reste. Le compte qui héberge le document doit être ouvert à votre nom, pas au nôtre : c’est lui qui rend vraie la clause qui vous laisse l’outil si nous nous arrêtons."
       }
     }
   }
