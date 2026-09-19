@@ -40,7 +40,28 @@ import { routing } from '@/i18n/routing';
  * troisieme repond a la question que tout le monde cherche sur cette page, et
  * la reponse est qu'il n'y a rien a chercher.
  */
+/*
+ * Trois blocs ajoutes ou repris le 19 septembre 2026.
+ *
+ * `perimetre` ouvre la page, avant meme le responsable : une politique qui
+ * parle de deux traitements — les visiteurs du site d'un cote, les donnees du
+ * produit de l'autre — doit dire lequel elle regit AVANT de dire qui en
+ * repond. Elle melangeait les deux depuis le debut, et une conciergerie qui la
+ * lisait pouvait croire que Choucas etait responsable de ses biens.
+ *
+ * `demonstration` suit `cookies`, parce qu'il repond a la question que
+ * `cookies` laisse ouverte : le site ne charge aucun script tiers, SAUF si
+ * vous cliquez pour lancer la demonstration. C'est la seule connexion
+ * exterieure du site, mesuree — zero origine tierce sur les sept pages, une
+ * apres ce clic — et elle ne figurait nulle part.
+ *
+ * `sousTraitant` est reecrit : il decrivait l'architecture d'avant
+ * l'arbitrage du 19, ou les donnees du produit vivaient chez l'editeur. La FAQ
+ * disait deja l'inverse. Deux documents publics qui se contredisent sur
+ * l'hebergement, c'est ce qu'un acheteur prudent remarque en premier.
+ */
 const BLOCS = [
+  'perimetre',
   'responsable',
   'base',
   'rendezVous',
@@ -48,6 +69,7 @@ const BLOCS = [
   'sousTraitant',
   'conservation',
   'cookies',
+  'demonstration',
   'droits',
   'absence',
 ] as const;

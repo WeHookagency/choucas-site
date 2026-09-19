@@ -170,6 +170,13 @@ qui la rend meilleure : une phrase qui dit « le contrat le prévoit » se véri
 **Elle est donc due avant la première journée d'implantation**, comme tout ce
 qui figure en section 1.
 
+⚠️ **Et elle a désormais une sœur dans un document opposable.** Depuis le
+19 septembre 2026, la politique de confidentialité affirme au présent que les
+données du produit relèvent d'un « contrat écrit conclu à la signature, comme
+l'exige l'article 28 du RGPD ». C'est la bonne posture — l'article 28 l'impose
+de toute façon — mais **ce contrat n'existe pas encore**. Il est dû au même
+moment que la clause, et pour la même raison : la première signature.
+
 **Trois questions à trancher avant qu'un juriste l'écrive.** Le fondateur a
 donné l'intention — « dès qu'ils signent, l'outil leur appartient au cas où je
 meurs ou décide d'arrêter » — pas le mécanisme.
