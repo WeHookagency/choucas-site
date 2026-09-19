@@ -16,12 +16,19 @@ import Image, { type StaticImageData } from 'next/image';
  * `sizes` annonce les largeurs reellement rendues — 520 px dans la colonne
  * de desktop, 460 au plafond de la tablette. Trop large, l'optimiseur
  * telechargerait une image plus grande que le cadre.
+ *
+ * `rapport` change le cadre quand 4:5 ne convient pas. Il passe en style en
+ * ligne et non en classe : `aspect-4/5` et une seconde classe `aspect-*`
+ * reglent la meme propriete, et laquelle l'emporte depend de l'ordre dans la
+ * feuille generee — c'est-a-dire de rien de fiable. Un style en ligne tranche.
  */
 export function Photo({
   src,
   alt,
   /** Point d'ancrage du recadrage, quand le centre ne convient pas. */
   cadrage,
+  /** Rapport du cadre, ecrit comme en CSS : `5 / 4`. Defaut 4:5. */
+  rapport,
   /** A poser sur une photo visible au premier ecran, jamais ailleurs. */
   prioritaire,
   className,
@@ -29,12 +36,16 @@ export function Photo({
   src: string | StaticImageData;
   alt: string;
   cadrage?: string;
+  rapport?: string;
   prioritaire?: boolean;
   className?: string;
 }) {
   return (
     <div
-      className={`relative aspect-4/5 w-full overflow-hidden rounded-carte bg-respiration/25 ${className ?? ''}`}
+      style={rapport ? { aspectRatio: rapport } : undefined}
+      className={`relative w-full overflow-hidden rounded-carte bg-respiration/25 ${
+        rapport ? '' : 'aspect-4/5'
+      } ${className ?? ''}`}
     >
       <Image
         src={src}

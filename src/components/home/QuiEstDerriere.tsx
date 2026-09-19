@@ -132,8 +132,33 @@ export function QuiEstDerriere() {
           corriger, deplace d'un cran. Centre, le debordement se repartit des
           deux cotes et devient une composition. C'est le raisonnement deja
           ecrit pour les cinq sections de Produit, au mot pres. */}
-      <Reveal className="desktop:mx-auto desktop:flex desktop:max-w-[980px] desktop:items-center desktop:gap-12 large:gap-16">
-        <div className="desktop:min-w-0 desktop:flex-1">
+      {/* ---------------------------------------------------------------
+          CONDENSEE POUR DE BON. 19 septembre 2026, troisieme passe.
+
+          Les deux premieres n'ont pas condense — elles ont deplace le vide.
+          En sortant la biographie du mur pour la poser en legende, j'ai
+          raccourci la colonne de gauche de 85 px et rallonge celle de droite
+          de 110 : LA SECTION A GRANDI. Mesure a 1440 avant cette passe :
+          texte 326 px, figure 585, soit 259 px d'ecart et 44 % de la colonne
+          de droite face a du vide. `items-center` a rendu ce vide symetrique,
+          pas plus petit.
+
+          Deux leviers, tires ensemble, avec une cible chiffree : moins de
+          80 px d'ecart entre les deux colonnes.
+
+          1. LA MESURE DE TEXTE PASSE DE 62 A 48 CARACTERES. Les memes 126 mots
+             occupent alors plus de lignes, donc plus de hauteur. 48 reste dans
+             la plage de lecture confortable, dont le plancher usuel est 45.
+          2. LE PORTRAIT PASSE DE 4:5 A 5:4. La source a beaucoup de sous-bois
+             au-dessus de la tete ; le recadrage prend dedans, pas dans le
+             visage. `object-cover` fait le travail, aucun fichier a refaire.
+
+          Le bloc se replafonne a 880 en consequence — 410 de texte, 48
+          d'ecart, 380 de portrait — sinon on rouvrirait un couloir horizontal
+          en fermant le vide vertical.
+          --------------------------------------------------------------- */}
+      <Reveal className="desktop:mx-auto desktop:flex desktop:max-w-[880px] desktop:items-center desktop:gap-12 large:gap-12">
+        <div className="desktop:min-w-0 desktop:max-w-[48ch] desktop:flex-1">
           <h2 id="qui-titre" className="font-serif text-h3 text-balance">
             {t('qui.titre')}
           </h2>
@@ -194,7 +219,7 @@ export function QuiEstDerriere() {
             Encre pleine : sur Lichen, l'encre douce mesure 2,34:1.
             --------------------------------------------------------------- */}
         <figure className="m-0 mx-auto mt-10 max-w-[420px] desktop:mx-0 desktop:mt-0 desktop:w-[380px] desktop:max-w-none desktop:shrink-0">
-          <Photo src="/demo/mathieu.jpg" alt={t('portraitAlt')} />
+          <Photo src="/demo/mathieu.jpg" alt={t('portraitAlt')} rapport="5 / 4" />
           <figcaption className="text-corps mt-5">{t('qui.p3')}</figcaption>
         </figure>
       </Reveal>
