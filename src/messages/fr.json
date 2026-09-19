@@ -410,7 +410,11 @@
     "hebergeurTitre": "Hébergeur",
     "hebergeurNom": "Netlify, Inc.",
     "hebergeurAdresse": "512 2nd Street, Suite 200, San Francisco, CA 94107, États-Unis",
-    "hebergeurContact": "Netlify ne publie pas de numéro de téléphone : son support est joignable sur netlify.com/support."
+    "hebergeurContact": "Netlify ne publie pas de numéro de téléphone : son support est joignable sur netlify.com/support.",
+    "proprieteTitre": "Propriété intellectuelle",
+    "proprieteMarque": "La marque Choucas, le nom de domaine, les textes de ce site, sa charte graphique et les captures de l’application sont protégés. Leur reproduction, même partielle, suppose une autorisation écrite.",
+    "proprietePhotos": "Les photographies d’illustration ne relèvent pas toutes de cette propriété : certaines proviennent de banques d’images et restent soumises à la licence de leur auteur.",
+    "proprieteLibre": "Le site s’appuie sur des composants libres, dont les icônes Phosphor (licence MIT) et les caractères Newsreader et Manrope (SIL Open Font License). Leurs licences respectives s’appliquent, et leurs auteurs en conservent la paternité."
   },
   "confidentialite": {
     "titre": "Politique de confidentialité",
