@@ -1,7 +1,7 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
-import { useId, useRef, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import { useTranslations } from 'next-intl';
 
 import { Cta } from '../ui/Cta';
@@ -36,6 +36,39 @@ type Envoi = 'repos' | 'encours' | 'succes' | 'echec';
 const POINT_ENVOI = '/__forms.html';
 const NOM_FORMULAIRE = 'contact';
 
+/**
+ * Le piege temporel : une soumission bouclee en moins de trois secondes n'est
+ * pas humaine.
+ *
+ * Le formulaire le plus court demande un nom, une adresse et un message ;
+ * taper un message prend dix secondes au bas mot, et la voie principale en
+ * demande quatre de plus. Un humain qui remplit vraiment met vingt secondes.
+ * Trois laisse donc une marge de six fois, meme pour quelqu'un dont le
+ * navigateur remplit tout d'un coup.
+ *
+ * ⚠️ CE QUE CE PIEGE N'ATTRAPE PAS, ET IL FAUT LE SAVOIR. La plupart des
+ * robots a formulaire ne chargent jamais la page : ils postent directement sur
+ * le point d'envoi, sans executer une ligne de JavaScript. Ce compteur ne les
+ * voit pas. Ce qui les arrete, c'est le leurre `bot-field` — qu'ils remplissent
+ * parce qu'ils remplissent tout — et le filtre anti-spam de Netlify, tous deux
+ * cote serveur, tous deux deja en place.
+ *
+ * Ce piege vise l'autre moitie : les robots qui pilotent un vrai navigateur.
+ * Ceux-la executent le script, voient le leurre cache et l'evitent — mais ils
+ * ne perdent pas de temps a faire semblant de taper.
+ *
+ * IL NE PEUT PAS FAIRE PERDRE UN MESSAGE. Un faux positif tombe dans l'etat
+ * d'echec, qui ouvre la messagerie du visiteur avec son texte deja rempli et
+ * affiche l'adresse en clair. Au pire, quelqu'un de tres rapide clique une
+ * fois de plus ; jamais personne ne se croit envoye sans l'etre.
+ *
+ * Aucun cookie, aucun script tiers, rien de stocke. Le choix a ete fait contre
+ * reCAPTCHA le 19 septembre 2026 : il aurait rendu le bandeau de consentement
+ * obligatoire, et contredit la phrase « aucun script charge depuis un autre
+ * domaine » que porte la politique de confidentialite.
+ */
+const DELAI_MINIMAL = 3000;
+
 function voieDemandee(valeur: string | null): Voie {
   return valeur === 'question' ? 'question' : 'impl';
 }
@@ -54,6 +87,18 @@ export function FormulaireContact() {
   // robot qui remplit tout le remplit aussi.
   const [leurre, setLeurre] = useState('');
   const premierEnErreur = useRef<string | null>(null);
+  // Depuis le montage, donc depuis l'affichage du formulaire. Un visiteur qui
+  // lit la page avant de remplir ne fait qu'augmenter cet ecart.
+  //
+  // Pose dans un effet et non a l'initialisation de la ref : `Date.now()` est
+  // impure, et l'appeler pendant le rendu donne une valeur qui change a chaque
+  // re-rendu — la regle `react-hooks/purity` le refuse, et elle a raison. Un
+  // effet ne s'execute qu'apres le premier rendu, ce qui est d'ailleurs plus
+  // juste : c'est le moment ou le formulaire est reellement affiche.
+  const montage = useRef(0);
+  useEffect(() => {
+    montage.current = Date.now();
+  }, []);
   const idBase = useId();
 
   const jeu = JEUX[voie];
@@ -102,6 +147,18 @@ export function FormulaireContact() {
   }
 
   async function envoyer() {
+    // Trop vite pour etre humain : on n'envoie rien, et le repli prend la
+    // main. Verifie avant de passer en « encours » — il n'y a rien en cours.
+    // `montage.current` vaut 0 tant que l'effet n'a pas tourne — impossible
+    // ici, puisqu'il faut un clic pour arriver dans cette fonction, et qu'un
+    // clic suppose un rendu. La garde reste : 0 donnerait un ecart immense,
+    // donc un envoi autorise, ce qui est le repli sur : en cas de doute, on
+    // envoie.
+    if (Date.now() - montage.current < DELAI_MINIMAL) {
+      setEnvoi('echec');
+      return;
+    }
+
     setEnvoi('encours');
     // `URLSearchParams` produit exactement le corps qu'attend Netlify :
     // `application/x-www-form-urlencoded`, et non du JSON.
