@@ -94,7 +94,7 @@ elles sont fausses.
 
 | Réponse | Ce que le site affirme | À vérifier |
 |---|---|---|
-| `hebergement` | « En Europe, chez un hébergeur soumis au RGPD » | La région de données du Workspace Google. Le réglage existe et n'est pas européen par défaut |
+| `hebergement` | « En Europe, chez un hébergeur soumis au RGPD » | ⚠️ **Caduc depuis le 19 septembre 2026.** Les données vivent désormais dans le Workspace de la cliente : la région est *son* réglage, pas celui de l'éditeur. La réponse est à réécrire, pas à vérifier — voir `installation-chez-le-client.md` §4 |
 | `sante` | Aucune donnée de santé « dans aucun champ, y compris les champs libres », avec « une mention à la saisie » | Le contrôle à la saisie et la mention existent-ils vraiment ? |
 | `hors-reseau` | « Une file locale », et « les alertes urgentes tentent immédiatement les canaux disponibles » | La file existe-t-elle ? Quels canaux ? |
 | `connexion-pms` | « Oui, via les rotations et les calendriers iCal » | L'import iCal existe-t-il ? |
@@ -187,10 +187,15 @@ meurs ou décide d'arrêter » — pas le mécanisme.
    promet pas qu'il évolue. Le dire évite une déception, et le silence sur ce
    point est ce qui transforme une bonne clause en litige.
 
-**Recommandation :** faire vivre le script et la feuille dans le Workspace de
-la conciergerie dès l'implantation. La clause devient alors un constat plutôt
-qu'une promesse, et elle ne suppose aucun geste de la part de quelqu'un qui,
+**Tranché le 19 septembre 2026 :** le script et la feuille vivent dans le
+Workspace de la conciergerie, posés là le jour de l'implantation. La clause
+devient un constat plutôt qu'une promesse — il n'y a rien à transférer, c'est
+déjà chez elle — et elle ne suppose aucun geste de la part de quelqu'un qui,
 par hypothèse, n'est plus là.
+
+Les conséquences sont dans **`installation-chez-le-client.md`**, et elles vont
+bien au-delà de cette clause : la décision rend l'architecture mono-locataire,
+ce que `identite-pwa.md` ne suppose pas.
 
 ---
 

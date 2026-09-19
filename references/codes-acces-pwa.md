@@ -34,6 +34,14 @@ Les risques, par probabilité réelle et non par gravité théorique :
 4. **L'éditeur.** Choucas détient les codes de maisons qui n'appartiennent ni à
    lui ni à ses clientes.
 
+⚠️ **Les risques 3 et 4 ont changé le 19 septembre 2026**, quand il a été
+décidé que le script et la feuille vivraient dans le Workspace de la cliente.
+Le risque 3 change de main — c'est l'administrateur de la conciergerie qui
+contrôle le partage, ce qui ne le réduit pas mais le confie à celui qui subit
+le préjudice. Le risque 4 diminue réellement : l'éditeur ne détient plus les
+codes, il garde un accès de support révocable. Voir
+`installation-chez-le-client.md` §3.
+
 Un attaquant réseau n'est nulle part dans cette liste. C'est pourtant là que
 l'attention se porte d'habitude, et c'est pourquoi ce document n'en parle pas.
 

@@ -36,6 +36,22 @@ Si l'API répond tout et que le client cache, une équipière qui détient le je
 reçoit déjà l'ensemble des données de la conciergerie sur le fil. À confirmer
 dans l'Apps Script.
 
+> ⚠️ **À LIRE AVANT DE CODER — 19 septembre 2026.**
+>
+> Ce document est écrit pour une installation servant PLUSIEURS conciergeries.
+> Ce n'est plus l'architecture retenue : le script et la feuille vivent
+> désormais dans le Workspace de chaque cliente, une installation par
+> conciergerie.
+>
+> La règle de cloisonnement entre clientes devient sans objet — il n'y a plus
+> d'« autre conciergerie » à nommer. **Tout le reste du document reste
+> nécessaire :** l'identité par personne, le serveur qui décide, le double
+> contrôle refusé côté serveur. Le cloisonnement qui portait le vrai risque
+> est celui qui sépare les personnes d'une même conciergerie, et il est
+> entier.
+>
+> Voir `installation-chez-le-client.md` §2 pour ce qui se réécrit ici.
+
 **Le cadre.** Un jeton unique par conciergerie, passé dans la query string,
 gardé en clair dans `localStorage`, devant un point d'entrée publiquement
 appelable. Pas d'identité, donc pas de révocation : une gouvernante qui part
