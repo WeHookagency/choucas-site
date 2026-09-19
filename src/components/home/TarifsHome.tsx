@@ -1,6 +1,7 @@
 import { useLocale, useTranslations } from 'next-intl';
 
 import { Cta } from '../ui/Cta';
+import { Accent } from '../ui/Accent';
 import { Reserve } from '../ui/Reserve';
 import { Reveal } from '../ui/Reveal';
 import { Section } from '../ui/Section';
@@ -62,9 +63,20 @@ export function TarifsHome() {
           defaut corrige sur Produit le 14, et il etait reste ici. */}
       <div className="mx-auto grid max-w-[940px] items-start gap-10 desktop:grid-cols-[1fr_340px] desktop:gap-16">
         <div className="max-w-[62ch]">
+          {/* ⚠️ `t.rich` ET NON `t`. `tarifs.chapeau` a recu une balise
+              `<accent>` le 19 septembre 2026, quand elle est devenue le H1 de
+              la page Tarifs. Cette section-ci la rendait avec `t()`, qui ne
+              sait pas interpreter la balise : l'accueil a affiche
+              « Un demarrage, <accent>puis un abonnement.</accent> » EN CLAIR,
+              balises comprises, pendant la duree d'un commit.
+
+              La lecon vaut au-dela du correctif : AJOUTER UNE BALISE A UNE
+              CHAINE PARTAGEE CASSE TOUS SES AUTRES POINTS DE RENDU, en
+              silence — ni le typage de next-intl ni le build ne le voient.
+              Verifier `grep` sur la cle avant, pas apres. */}
           <Reveal>
             <h2 id="tarifs-home-titre" className="font-serif text-h2 text-balance">
-              {t('chapeau')}
+              {t.rich('chapeau', { accent: (chunks) => <Accent>{chunks}</Accent> })}
             </h2>
           </Reveal>
 
