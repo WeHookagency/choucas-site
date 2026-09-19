@@ -61,7 +61,7 @@ export function PointJonction() {
 
   return (
     <Section fond="sapin" aria-labelledby="jonction-titre">
-      <Reveal className="mx-auto flex max-w-[940px] flex-col items-center gap-14">
+      <Reveal className="mx-auto flex max-w-[1160px] flex-col items-center gap-14">
         <div className="max-w-[600px] text-center">
           <h2 id="jonction-titre" className="font-serif text-h3 text-balance">
             {t.rich('titre', { accent: (chunks) => <Accent ton="inverse">{chunks}</Accent> })}
@@ -69,15 +69,17 @@ export function PointJonction() {
           <p className="text-corps mt-4 text-encre-inverse/85">{t('intro')}</p>
         </div>
 
-        {/* 340 px d'ecran, 64 d'ecart, 340 de cartes, et le tout centre —
-            744 px dans un conteneur de 940. Une seconde piste en `1fr` aurait
-            donne 536 px a des cartes plafonnees a 340 : 196 px de vide d'un
-            seul cote, le defaut que la section « Qui est derriere » vient de
-            corriger ce matin. Les deux pistes sont donc fixes.
+        {/* Deux pistes FIXES, 440 et 440, centrees — 944 px dans un conteneur
+            de 1 160. Une seconde piste en `1fr` donnerait tout le reste a des
+            cartes plafonnees, et le vide d'un seul cote reviendrait.
+
+            Elargies de 340 a 440 le 19 septembre 2026 : la section porte la
+            demonstration de la regle fondatrice du produit, elle ne peut pas
+            etre le bloc le plus etroit de la page.
 
             Sous 1 000 px tout s'empile et l'ecran passe devant — on voit la
             demande de controle avant de lire ce qu'elle produit. */}
-        <div className="grid w-full items-center gap-10 desktop:grid-cols-[340px_340px] desktop:justify-center desktop:gap-16">
+        <div className="grid w-full items-center gap-10 desktop:grid-cols-[440px_440px] desktop:justify-center desktop:gap-16">
           <figure className="m-0 flex flex-col items-center gap-2">
             {/* Ni `hauteurMax` ni `rayon="haut"` : 1036 x 1158 donne 380 px
                 de haut a 340 de large. Le bloc tient entier, il n'a rien a
@@ -86,11 +88,11 @@ export function PointJonction() {
               src={blocExceptions}
               alt={t('captureAlt')}
               libelleLien={manager('lienDemo')}
-              largeurMax={340}
+              largeurMax={440}
               cadre
               ombre={false}
             />
-            <figcaption className="text-micro max-w-[340px] text-center text-encre-inverse/85">
+            <figcaption className="text-micro max-w-[440px] text-center text-encre-inverse/85">
               {t('captureLegende')}
             </figcaption>
           </figure>
@@ -110,7 +112,7 @@ export function PointJonction() {
 
                 Les filets passent a la verticale avec la pile : un trait
                 horizontal entre deux cartes empilees ne relie plus rien. */}
-            <p className="flex w-full max-w-[340px] flex-col items-center gap-2 text-center">
+            <p className="flex w-full max-w-[440px] flex-col items-center gap-2 text-center">
               <span aria-hidden className="h-5 w-px bg-encre-inverse/40" />
               <span className="text-corps text-encre-inverse">{t('liaison')}</span>
               <span aria-hidden className="h-5 w-px bg-encre-inverse/40" />
@@ -132,7 +134,7 @@ function CarteEtat({ cle, plein }: { cle: 'termine' | 'pret'; plein: boolean }) 
   // les deux cartes occupaient un cinquieme du conteneur chacune, pour porter
   // la regle fondatrice du produit.
   return (
-    <div className="w-full max-w-[340px] rounded-carte border border-filet bg-surface p-6 text-encre shadow-[6px_6px_0_0_var(--web-cta-presse)]">
+    <div className="w-full max-w-[440px] rounded-carte border border-filet bg-surface p-6 text-encre shadow-[6px_6px_0_0_var(--web-cta-presse)]">
       {/* L'etat passe devant le bien, comme sur les cartes de la Home : c'est
           lui qui dit ce qu'est cette carte, et ici c'est tout le sujet — on
           lit TERMINÉ puis PRÊT en parcourant la rangee. */}

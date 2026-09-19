@@ -10,12 +10,14 @@ import accueilResponsable from '../../../../public/demo/accueil-responsable.png'
 import { PointJonction } from '@/components/produit/PointJonction';
 import { Accent } from '@/components/ui/Accent';
 import { CaptureProduit } from '@/components/ui/CaptureProduit';
+import { Icon } from '@/components/ui/Icon';
 import { Cta } from '@/components/ui/Cta';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { Reserve } from '@/components/ui/Reserve';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
 import { localeAlternates } from '@/i18n/metadata';
+import { Link } from '@/i18n/navigation';
 import { getPathname } from '@/i18n/navigation';
 import { routing } from '@/i18n/routing';
 
@@ -139,6 +141,11 @@ export default async function Page({ params }: PageProps<'/[locale]/produit'>) {
   // — « Organiser une journee sur site » — qui annonce a un lecteur d'ecran
   // une destination que le lien n'a pas.
   const manager = await getTranslations('manager');
+  // Deux libelles repris ailleurs sur le site, pour qu'ils ne divergent pas :
+  // « Voir toutes les questions » mene a la FAQ depuis l'accueil comme
+  // depuis ici, et la semaine offerte est la phrase de la page Tarifs.
+  const faqHome = await getTranslations('faqHome');
+  const tarifs = await getTranslations('tarifs');
 
   return (
     <main>
@@ -172,7 +179,16 @@ export default async function Page({ params }: PageProps<'/[locale]/produit'>) {
           n'est pas ce qu'on lit en ouvrant une page.
           --------------------------------------------------------------- */}
       <Section fond="fond" aria-labelledby="produit-titre">
-        <div className="mx-auto grid max-w-[940px] items-center gap-10 desktop:grid-cols-[1fr_340px] desktop:gap-16">
+        {/* 1 160 et non 940, et l'ecran passe de 340 a 480 : c'est le hero de
+            la page, il ne peut pas etre plus etroit que les sections qui le
+            suivent.
+
+            ⚠️ ELARGIR LE CONTENANT SEUL AURAIT RAMENE LE TROU. La mesure de
+            texte reste plafonnee a 62ch, soit 529 px : une piste de 1 160 avec
+            un ecran de 340 aurait laisse 227 px de vide entre les deux. C'est
+            donc L'ECRAN qui grandit — 529 + 64 + 480 = 1 073 dans 1 160, il
+            reste 87 px de jeu, ce qui est une marge et non un couloir. */}
+        <div className="mx-auto grid max-w-[1160px] items-center gap-10 desktop:grid-cols-[1fr_480px] desktop:gap-16">
         <div className="max-w-[62ch]">
         <Eyebrow>{t('eyebrow')}</Eyebrow>
         {/* L'accent cuivre, ajoute le 15 septembre 2026. C'etait le seul titre
@@ -194,13 +210,13 @@ export default async function Page({ params }: PageProps<'/[locale]/produit'>) {
             src={accueilResponsable}
             alt={t('captureAlt')}
             libelleLien={manager('lienDemo')}
-            largeurMax={340}
-            hauteurMax={520}
+            largeurMax={480}
+            hauteurMax={640}
             cadre
             rayon="haut"
             ombre={false}
           />
-          <figcaption className="text-micro max-w-[340px] text-center text-encre-douce">
+          <figcaption className="text-micro max-w-[480px] text-center text-encre-douce">
             {t('captureLegende')}
           </figcaption>
         </figure>
@@ -320,28 +336,65 @@ export default async function Page({ params }: PageProps<'/[locale]/produit'>) {
           seule source : les intitules viennent de `aPropos.partis`, leurs
           justifications restent la-bas. `produit.refus.texte` reste dans le
           catalogue, la phrase condensee sert encore ailleurs. */}
-      {/* Le titre et la liste sont plafonnes ensemble a 820 et centres. La
-          liste l'etait deja, mais dans une piste de 1 360 : 460 px de vide a
-          droite a 1440, avec des filets qui couraient jusqu'a 900 pour des
-          phrases de cinq mots. Le titre, lui, flottait a part. */}
+      {/* ---------------------------------------------------------------
+          LES CINQ REFUS, PRESENTES COMME DES REFUS. 19 septembre 2026.
+
+          C'etait une liste a filets, chaque ligne ouverte par une PASTILLE
+          CUIVRE RONDE — exactement le signe que le reste du site emploie pour
+          annoncer ce que Choucas fait. Cinq interdictions annoncees par une
+          puce de fonctionnalite : le dessin disait le contraire du texte.
+
+          Chacune prend donc une croix, `XIcon` de Phosphor, la meme famille
+          que tout le site. Le signe porte le sens, et le sens est ecrit a cote
+          — la couleur et la forme ne portent rien a elles seules.
+
+          Et elles passent en grille de cartes plutot qu'en liste : cinq
+          phrases de cinq mots dans une colonne de 820 px produisaient des
+          filets de 800 px pour trois mots de texte. En cartes, chaque refus
+          fait un bloc, et les cinq se comparent d'un coup d'oeil.
+
+          La cinquieme occupe deux colonnes sur trois : une carte orpheline sur
+          une derniere ligne se lit comme un oubli, une carte large se lit
+          comme une fin.
+
+          LE LIEN VERS LA FAQ ferme la section, demande du fondateur. Il reprend
+          `faqHome.lien` — « Voir toutes les questions » — deja employe sur
+          l'accueil : le meme libelle mene au meme endroit, partout.
+          --------------------------------------------------------------- */}
       <Section fond="fond-alt" aria-labelledby="refus-titre">
-        <Reveal className="mx-auto max-w-[820px]">
+        <Reveal className="mx-auto max-w-[1160px]">
           <h2 id="refus-titre" className="font-serif text-h3 max-w-[20ch] text-balance">
             {t('refus.titre')}
           </h2>
         </Reveal>
 
-        <Reveal as="ul" group className="mt-titre mx-auto max-w-[820px]">
+        <Reveal
+          as="ul"
+          group
+          className="mt-titre mx-auto grid max-w-[1160px] gap-4 desktop:grid-cols-3 desktop:gap-6"
+        >
           {REFUS.map((cle, i) => (
             <li
               key={cle}
               style={{ ['--i' as string]: i }}
-              className="flex gap-4 border-t border-filet py-5"
+              className={`flex items-start gap-3 rounded-carte border border-filet bg-surface p-6 ${
+                i === REFUS.length - 1 ? 'desktop:col-span-2' : ''
+              }`}
             >
-              <span aria-hidden className="mt-2 size-2 shrink-0 rounded-full bg-accent" />
+              <Icon name="fermer" size={20} graisse="bold" className="mt-0.5 shrink-0 text-accent" />
               <p className="text-intro font-semibold">{tApropos(`partis.${cle}.titre`)}</p>
             </li>
           ))}
+        </Reveal>
+
+        <Reveal className="mx-auto mt-titre max-w-[1160px]">
+          <Link
+            href="/faq"
+            className="text-intro inline-flex min-h-11 items-center gap-2 font-semibold text-lien underline underline-offset-4"
+          >
+            {faqHome('lien')}
+            <Icon name="fleche" size={20} className="shrink-0" />
+          </Link>
         </Reveal>
       </Section>
 
@@ -384,10 +437,19 @@ export default async function Page({ params }: PageProps<'/[locale]/produit'>) {
           qui cesse d'etre la sienne.
           --------------------------------------------------------------- */}
       <Section fond="respiration" aria-label={t('cta')}>
-        <Reveal className="flex flex-col items-center text-center">
-          <p className="font-serif text-h3 max-w-[22ch] text-balance">
+        <Reveal className="mx-auto flex max-w-[1160px] flex-col items-center text-center">
+          {/* 26ch et non 22 : a 22, le titre cassait en « On installe Choucas
+              sur une / journee reelle chez vous », ou la coupe tombe au milieu
+              d'un groupe. A 26 il tient sur deux lignes equilibrees a 1440 et
+              sur trois en dessous, sans coupe malheureuse. */}
+          <p className="font-serif text-h3 max-w-[26ch] text-balance">
             {contact('voies.impl.texte')}
           </p>
+          {/* La semaine offerte, juste au-dessus du bouton : c'est la phrase
+              qui retire le risque au moment exact ou on decide de cliquer.
+              Elle vient de `tarifs.testP1`, deja publiee sur la page Tarifs —
+              aucune copie neuve, et les deux pages ne peuvent pas diverger. */}
+          <p className="text-corps mt-5 max-w-[52ch]">{tarifs('testP1')}</p>
           <Cta href={getPathname({ href: '/contact', locale })} fleche className="mt-titre">
             {t('cta')}
           </Cta>
