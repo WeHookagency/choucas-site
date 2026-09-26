@@ -51,9 +51,8 @@ type RevealProps = {
  * 3. Une liste ou une grille s'anime en cascade — `group`, 90 ms par enfant.
  *    Le reste s'anime d'un bloc.
  *
- * 4. Rien qui reagisse a un clic ne s'anime : panneau d'accordeon, bascule de
- *    voie, barre de section. L'apparition marque l'arrivee dans la page, pas
- *    la reaction a un geste.
+ * 4. Rien n'apparait en reaction a un clic. Un changement d'etat se montre :
+ *    200 a 300 ms, sur ce qui a change uniquement, jamais sur un bloc entier.
  *
  * 5. Un bloc deja lisible au montage n'est jamais masque, et
  *    `prefers-reduced-motion` supprime tout. Les deux sont dans la primitive,

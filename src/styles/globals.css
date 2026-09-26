@@ -241,6 +241,9 @@
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
+      /* Sans cela, une cascade garde ses retards : le fil du parcours
+         s'allumerait segment par segment, sans mouvement mais en sequence. */
+      transition-delay: 0s !important;
       scroll-behavior: auto !important;
     }
   }

@@ -35,6 +35,11 @@ type AccordeonProps = {
   toujoursUn?: boolean;
   /** Ramene l'en-tete sous la barre collante apres l'ouverture. */
   ramenerDansLaVue?: boolean;
+  /**
+   * Deplie et replie la zone en 300 ms au lieu de la basculer d'un coup. Le
+   * parcours de la Home le demande ; la FAQ garde la bascule franche.
+   */
+  anime?: boolean;
   /** Niveau du titre qui porte le bouton. La page decide de sa hierarchie. */
   niveau?: 'h2' | 'h3' | 'h4';
   className?: string;
@@ -69,6 +74,7 @@ export function Accordeon({
   multiple = false,
   toujoursUn = false,
   ramenerDansLaVue = false,
+  anime = false,
   niveau = 'h3',
   className,
   avant,
@@ -90,19 +96,44 @@ export function Accordeon({
    * Ne bouge que si l'en-tete est reellement mal place — sous la barre ou trop
    * bas dans la fenetre. Un defilement qui se declenche a chaque clic, meme
    * quand tout est deja visible, se lit comme un bug.
+   *
+   * Avec `anime`, la mesure attend la fin du depli. Mesuree tout de suite,
+   * elle lirait l'en-tete de l'etape 4 pendant que l'etape 1 se referme
+   * au-dessus de lui : il remonte encore de toute la hauteur de ce panneau,
+   * et le defilement tombe a cote. Le filet de 350 ms couvre une transition
+   * qui ne se declencherait pas.
    */
   function ramener(id: string) {
-    requestAnimationFrame(() => {
-      const el = enTetes.current[id];
-      if (!el) return;
-      const barre = window.innerWidth >= 1000 ? HAUTEUR_BARRE_DESKTOP : HAUTEUR_BARRE_MOBILE;
-      const r = el.getBoundingClientRect();
-      if (r.top >= barre + 8 && r.top <= window.innerHeight * 0.45) return;
-      const doux = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      window.scrollTo({
-        top: window.scrollY + r.top - barre - 16,
-        behavior: doux ? 'smooth' : 'auto',
-      });
+    if (!anime) {
+      requestAnimationFrame(() => mesurerEtRamener(id));
+      return;
+    }
+    const zone = document.getElementById(`${idBase}-zone-${id}`);
+    let fait = false;
+    const finir = () => {
+      if (fait) return;
+      fait = true;
+      zone?.removeEventListener('transitionend', surFin);
+      clearTimeout(filet);
+      mesurerEtRamener(id);
+    };
+    const surFin = (e: TransitionEvent) => {
+      if (e.target === zone && e.propertyName === 'grid-template-rows') finir();
+    };
+    zone?.addEventListener('transitionend', surFin);
+    const filet = setTimeout(finir, 350);
+  }
+
+  function mesurerEtRamener(id: string) {
+    const el = enTetes.current[id];
+    if (!el) return;
+    const barre = window.innerWidth >= 1000 ? HAUTEUR_BARRE_DESKTOP : HAUTEUR_BARRE_MOBILE;
+    const r = el.getBoundingClientRect();
+    if (r.top >= barre + 8 && r.top <= window.innerHeight * 0.45) return;
+    const doux = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({
+      top: window.scrollY + r.top - barre - 16,
+      behavior: doux ? 'smooth' : 'auto',
     });
   }
 
@@ -164,15 +195,36 @@ export function Accordeon({
                 </button>
               </Titre>
 
-              <div
-                id={`${idBase}-zone-${element.id}`}
-                role="region"
-                aria-labelledby={`${idBase}-entete-${element.id}`}
-                hidden={!etat.ouvert}
-                className={classeZone?.(etat)}
-              >
-                {element.contenu}
-              </div>
+              {anime ? (
+                // La hauteur passe de 0fr a 1fr : c'est la seule facon de
+                // transitionner vers une hauteur de contenu inconnue. Le
+                // padding vit a l'interieur du rogne, sinon il resterait
+                // visible zone fermee. `inert` tient le role de `hidden` :
+                // hors tabulation, hors lecteur d'ecran.
+                <div
+                  id={`${idBase}-zone-${element.id}`}
+                  role="region"
+                  aria-labelledby={`${idBase}-entete-${element.id}`}
+                  inert={!etat.ouvert}
+                  className={`grid transition-[grid-template-rows] duration-300 ease-choucas ${
+                    etat.ouvert ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
+                  }`}
+                >
+                  <div className="min-h-0 overflow-hidden">
+                    <div className={classeZone?.(etat)}>{element.contenu}</div>
+                  </div>
+                </div>
+              ) : (
+                <div
+                  id={`${idBase}-zone-${element.id}`}
+                  role="region"
+                  aria-labelledby={`${idBase}-entete-${element.id}`}
+                  hidden={!etat.ouvert}
+                  className={classeZone?.(etat)}
+                >
+                  {element.contenu}
+                </div>
+              )}
             </div>
           </li>
         );

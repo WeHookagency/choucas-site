@@ -63,18 +63,23 @@ type Position = 'passe' | 'courant' | 'avenir';
  * du seuil de 3:1 des elements graphiques. Le Sapin n'y arrive pas : 1,63:1.
  *
  * Decoratif : l'ordre est deja porte par les numeros et par `aria-expanded`.
+ *
+ * Chaque segment garde sa piste ; le vert est un calque qui se deplie de haut
+ * en bas. Au changement d'etape, les segments concernes se remplissent ou se
+ * vident un par un, dans le sens du trajet — c'est `retards` qui les ordonne.
  */
 function Fil({
   position,
   premier,
   dernier,
+  retards,
 }: {
   position: Position;
   premier: boolean;
   dernier: boolean;
+  /** Retard de transition des segments haut et bas, en ms. */
+  retards: { haut: number; bas: number };
 }) {
-  const avant = position === 'avenir' ? 'bg-encre-inverse/30' : 'bg-ok';
-  const apres = position === 'passe' ? 'bg-ok' : 'bg-encre-inverse/30';
   const point =
     position === 'courant'
       ? 'size-3 border-ok bg-ok'
@@ -84,11 +89,55 @@ function Fil({
 
   return (
     <span aria-hidden className="flex w-3 shrink-0 flex-col items-center self-stretch">
-      <span className={`w-px h-6 shrink-0 ${premier ? 'bg-transparent' : avant}`} />
+      <Segment
+        className="h-6 shrink-0"
+        absent={premier}
+        plein={position !== 'avenir'}
+        retard={retards.haut}
+      />
       <span className={`shrink-0 rounded-full border transition-colors duration-200 ease-choucas ${point}`} />
-      <span className={`w-px flex-1 ${dernier ? 'bg-transparent' : apres}`} />
+      <Segment className="flex-1" absent={dernier} plein={position === 'passe'} retard={retards.bas} />
     </span>
   );
+}
+
+/** Un troncon du fil : la piste, et le vert pose dessus en calque. */
+function Segment({
+  className,
+  absent,
+  plein,
+  retard,
+}: {
+  className: string;
+  absent: boolean;
+  plein: boolean;
+  retard: number;
+}) {
+  if (absent) return <span className={`w-px ${className}`} />;
+  return (
+    <span className={`relative w-px bg-encre-inverse/30 ${className}`}>
+      <span
+        className={`absolute inset-0 origin-top bg-ok transition-transform duration-[160ms] ease-choucas ${
+          plein ? 'scale-y-100' : 'scale-y-0'
+        }`}
+        style={{ transitionDelay: `${retard}ms` }}
+      />
+    </span>
+  );
+}
+
+/**
+ * Retard du segment de rang `k` quand on passe de l'etape `depuis` a `vers`.
+ *
+ * Les segments sont numerotes le long du fil : le haut de l'etape i est le
+ * rang 2i - 1, son bas le rang 2i. Le segment k est vert si k < 2 x etape
+ * ouverte. En avancant, ceux qui se remplissent partent du haut ; en
+ * reculant, ceux qui se vident partent du bas. 70 ms entre deux.
+ */
+function retardSegment(k: number, depuis: number, vers: number) {
+  if (vers > depuis && k >= 2 * depuis && k < 2 * vers) return (k - 2 * depuis) * 70;
+  if (vers < depuis && k >= 2 * vers && k < 2 * depuis) return (2 * depuis - 1 - k) * 70;
+  return 0;
 }
 
 /** Emplacement de la capture d'une etape, a hauteur constante. */
@@ -139,6 +188,8 @@ function Apercu({ etape, className }: { etape: EtapeCle; className?: string }) {
 export function BriefToProof() {
   const t = useTranslations('brief');
   const [ouverte, setOuverte] = useState<EtapeCle>('brief');
+  // L'etape d'ou l'on vient : elle fixe le sens et l'ordre du remplissage.
+  const [rangPrecedent, setRangPrecedent] = useState(0);
   const rangOuvert = ETAPES.indexOf(ouverte);
 
   /** Y a-t-il seulement quelque chose a montrer a droite ? */
@@ -220,12 +271,17 @@ export function BriefToProof() {
           idBase="brief"
           elements={elements}
           ouverts={[ouverte]}
-          onChange={([id]) => id && setOuverte(id as EtapeCle)}
+          onChange={([id]) => {
+            if (!id) return;
+            setRangPrecedent(rangOuvert);
+            setOuverte(id as EtapeCle);
+          }}
           // Ouvrir la quatrieme etape deroulait un panneau dont le titre etait
           // deja sorti par le haut : on lisait un contenu sans savoir de quoi
           // il parlait.
           ramenerDansLaVue
           toujoursUn
+          anime
           className="flex flex-col"
           classeElement={() => 'flex items-stretch gap-4'}
           avant={({ index, premier, dernier }) => (
@@ -233,6 +289,10 @@ export function BriefToProof() {
               position={index < rangOuvert ? 'passe' : index === rangOuvert ? 'courant' : 'avenir'}
               premier={premier}
               dernier={dernier}
+              retards={{
+                haut: retardSegment(2 * index - 1, rangPrecedent, rangOuvert),
+                bas: retardSegment(2 * index, rangPrecedent, rangOuvert),
+              }}
             />
           )}
           classeEntete={({ ouvert }) =>
@@ -249,9 +309,23 @@ export function BriefToProof() {
 
         {/* Hauteur constante d'une etape a l'autre : la colonne ne saute pas
             quand on change d'etape. Collante, elle reste en vis-a-vis du
-            panneau ouvert pendant qu'on descend dans l'accordeon. */}
-        <div className="hidden desktop:block desktop:sticky desktop:top-24">
-          <Apercu etape={ouverte} />
+            panneau ouvert pendant qu'on descend dans l'accordeon.
+
+            Les quatre apercus occupent la meme cellule de grille ; seul celui
+            de l'etape ouverte est visible et annonce, les autres s'effacent
+            en fondu. */}
+        <div className="hidden desktop:sticky desktop:top-24 desktop:grid">
+          {ETAPES.map((cle) => (
+            <div
+              key={cle}
+              aria-hidden={cle === ouverte ? undefined : true}
+              className={`[grid-area:1/1] transition-opacity duration-[250ms] ease-choucas ${
+                cle === ouverte ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              <Apercu etape={cle} />
+            </div>
+          ))}
         </div>
       </Reveal>
     </Section>
